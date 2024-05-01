@@ -1,13 +1,46 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .hover-effect {
+    color: orange;
+    transition: color 0.2s ease-in-out;
+    transition-delay: 0.1s;
+  }
+  .social-logo {
+    @apply p-1 bg-black rounded cursor-pointer
+  }
+.shadow-bg{
+    color:white;
+    display:flex;
+    flex-direction:flex-col;
+    gap:1;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5 in this example) to control opacity */
+  
+
+  }
+
+
+  .box-shadow{
+    -webkit-box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
+box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
+transition: all .6s ease-in-out
+  }
+  .main-Slider {
+    background: rgb(202, 201, 212);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(27, 24, 28, 1) 5%,
+      rgba(223, 212, 221, 1) 76%,
+      rgba(12, 8, 12, 1) 100%
+    );
+  }
+  .hover-btn {
+    box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
+  }
 }
