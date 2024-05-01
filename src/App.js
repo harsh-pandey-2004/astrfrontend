@@ -11,6 +11,7 @@ import ChatWithAstrologer from "./Pages/ChatWithAstrologer";
 import FreeKundali from "./Pages/FreeKundali";
 
 import HomePage from "./Pages/HomePage";
+import KundliMatching from "./Pages/Kundalimatching";
 import ShopAstro from "./Pages/ShopAstro";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/book-a-pandit" element={<BookPandit/>}/>
         <Route path="/blogs" element={<BlogPage/>}/>
         <Route path="/freekundali" element={<FreeKundali/>}></Route>
+        <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
       </Routes>
       <Footer showblur={showblur} />
     </BrowserRouter>

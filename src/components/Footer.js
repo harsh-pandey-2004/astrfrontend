@@ -13,7 +13,7 @@ import {
 const Footer = ({ showblur }) => {
   return (
     <div
-      className={`bg-gray-200 text-black mt-10 flex flex-col py-3  relative bottom-[-10rem]${
+      className={`bg-gray-200 text-black mt-10 flex flex-col py-3  relative top-24 lg:top-0${
         showblur
           ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none overflow-hidden"
           : ""

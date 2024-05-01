@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 const TestimonialSlider = ({ showblur }) => {
   return (
     <div
-      className={`p-5 w-full sm:w-[75%] mx-auto relative top-36 lg:top-32 ${
+      className={`p-5 w-full sm:w-[75%] mx-auto relative top-36 lg:top-0 ${
         showblur
           ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none overflow-hidden"
           : ""
