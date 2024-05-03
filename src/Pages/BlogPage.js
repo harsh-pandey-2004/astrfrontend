@@ -18,6 +18,11 @@ const BlogPage = () => {
       category: "Relationships",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
+    {
+      title: "Love Compatibility in Astrology",
+      category: "Relationships",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    },
     // Add more blogs as needed
   ];
 

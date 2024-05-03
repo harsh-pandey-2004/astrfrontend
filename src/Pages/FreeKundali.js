@@ -7,7 +7,7 @@ import Faq from "../components/kundalicomponents/Faq";
 
 const FreeKundali = () => {
   return (
-    <div className="flex flex-col  top-28 relative lg:top-0">
+    <div className="flex flex-col  top-24 relative lg:top-0 h-fit">
       <Head />
       <Kundlis />
       <Visit />

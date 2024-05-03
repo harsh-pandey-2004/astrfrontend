@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import LoginForm from "./components/authcomponents/Login";
+import RegisterForm from "./components/authcomponents/Sign-up";
+import VerifyPhone from "./components/authcomponents/VerificationPop";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import BlogPage from "./Pages/BlogPage";
@@ -21,21 +24,29 @@ function App() {
   }
 
   return (
+    <div className="w-full h-fit relative">
     <BrowserRouter>
       <Navbar showbluefn={showbluefn} />
       <Routes>
         <Route path="/" element={<HomePage showblur={showblur} />} />
-        <Route path="/chat-with-astrologer" element={<ChatWithAstrologer/>}/>
-        <Route path="/call-to-astrologer" element={<CallwithAstrologer/>}/>
-        <Route path="/shop-on-astro" element={<ShopAstro/>}/>
-        <Route path="/book-a-pooja" element={<BookPooja/>}/>
-        <Route path="/book-a-pandit" element={<BookPandit/>}/>
-        <Route path="/blogs" element={<BlogPage/>}/>
-        <Route path="/freekundali" element={<FreeKundali/>}></Route>
-        <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
+        <Route path="/chat-with-astrologer" element={<ChatWithAstrologer />} />
+        <Route path="/call-to-astrologer" element={<CallwithAstrologer />} />
+        <Route path="/shop-on-astro" element={<ShopAstro />} />
+        <Route path="/book-a-pooja" element={<BookPooja />} />
+        <Route path="/book-a-pandit" element={<BookPandit />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/freekundali" element={<FreeKundali />}></Route>
+        <Route path="/kundali-matching" element={<KundliMatching />}></Route>
+        <Route path="/register-page" element={<RegisterForm />}></Route>
+        <Route
+          path="/register-page/verify-phone/:id"
+          element={<VerifyPhone />}
+        ></Route>
+        <Route path="/loginform" element={<LoginForm />}></Route>
       </Routes>
       <Footer showblur={showblur} />
     </BrowserRouter>
+    </div>
   );
 }
 

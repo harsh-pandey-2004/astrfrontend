@@ -28,6 +28,12 @@
 box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
 transition: all .6s ease-in-out
   }
+  .box-shadow1{
+    box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
+    -webkit-box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
+    -moz-box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
+transition: all .2s ease-in-out
+  }
   .main-Slider {
     background: rgb(202, 201, 212);
     background: linear-gradient(

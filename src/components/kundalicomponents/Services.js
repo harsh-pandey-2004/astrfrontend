@@ -14,7 +14,7 @@ function Services() {
   }
 
   return (
-    <div className="py-10 px-12 max-h-fit bg-gray-100">
+    <div className="py-10 px-12 max-h-fit bg-gray-100 relative top-24 lg:top-0">
       <h1 className="text-center text-2xl font-semibold">
         COMPLIMENTARY ASTROLOGY SERVICES
       </h1>

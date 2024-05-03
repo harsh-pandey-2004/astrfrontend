@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import AstroCaptionLogo from '../images/Astrocaptain.png'
 import {
   AccountLogo,
   CaretDown,
@@ -26,7 +27,7 @@ const Navbar = ({ showbluefn }) => {
 
   return (
     <>
-      <div className="bg-white text-gray-700 py-2 px-4 flex items-center  justify-between   shadow-sm  fixed top-0 w-full z-10 lg:static ">
+      <div className="bg-white text-gray-700 py-2 px-4 flex items-center  gap-10   shadow-sm  fixed top-0 w-full z-10 lg:static ">
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +43,7 @@ const Navbar = ({ showbluefn }) => {
               d="M12 3v6m0 0v6m0-6h6m-6 0H6"
             />
           </svg>
-          <p>+1 123 456 7890</p>
+          <p>+91-120-423495</p>
         </div>
         <div className="flex items-center">
           <svg
@@ -59,17 +60,17 @@ const Navbar = ({ showbluefn }) => {
               d="M3 6l3 5H5a2 2 0 01-2-2V4a2 2 0 012-2h14a2 2 0 012 2v5a2 2 0 01-2 2h-1l3 5h-1a2 2 0 01-2 2H6a2 2 0 01-2-2H2a2 2 0 01-2-2V8a2 2 0 012-2h1z"
             />
           </svg>
-          <p>contact@example.com</p>
+          <p>astro@AstroCaptaion.com</p>
         </div>
       </div>
-      <div className="flex lg:hidden w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl fixed z-10 bg-gray-100  top-10 lg:static">
+      <div className="flex lg:hidden w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl fixed z-50 bg-gray-100  top-10 lg:static">
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
             showNav ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          } w-64 bg-gray-100 fixed top-[6.4rem] left-0 transform transition-all duration-300 h-full z-10 overflow-scroll`}
+          } w-64 bg-gray-100 fixed top-[6.4rem] left-0 transform transition-all duration-300 h-full z-50 overflow-scroll`}
         >
           <div
             className={`h-1/3 flex bg-gray-200 bg-back bg-cover bg-center bg-no-repeat  w-full`}
@@ -193,7 +194,7 @@ const Navbar = ({ showbluefn }) => {
         </div>
         <div className="flex  justify-center ">
           <img
-            src="https://aws.astrotalk.com/assets/images/astrotalk-header-logo.webp"
+            src={AstroCaptionLogo}
             className="w-[60%] h-[60%] "
           ></img>
         </div>
@@ -206,7 +207,7 @@ const Navbar = ({ showbluefn }) => {
         <div className="hidden lg:flex w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl ">
           <div className="flex items-center lg:w-40 xl:w-64">
             <img
-              src="https://aws.astrotalk.com/assets/images/astrotalk-header-logo.webp"
+              src={AstroCaptionLogo}
               className="w-[70%] h-[70%] "
             ></img>
           </div>
