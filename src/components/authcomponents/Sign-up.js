@@ -121,7 +121,10 @@ const RegisterForm = () => {
         >
           GET OTP <i className="fa fa-arrow-right"></i>
         </button>
-        <div className="mt-4 text-sm">
+        <div className="w-full flex justify-center my-1">
+          <p className="text-center text-blue-500 hover:text-blue-400 hover:underline cursor-pointer" onClick={()=>navigate("/loginform")}>Already have Account ?</p>
+        </div>
+        <div className="mt-1 text-sm">
           <p className="terms-line text-center">
             By Signing up, you agree to our{" "}
             <a

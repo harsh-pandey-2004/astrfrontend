@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import AstroCaptionLogo from '../images/Astrocaptain.png'
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import AstroCaptionLogo from "../images/Astrocaptain.png";
 import {
   AccountLogo,
   CaretDown,
@@ -10,24 +10,28 @@ import {
 
 const Navbar = ({ showbluefn }) => {
   const [showNav, setShowNav] = useState(false);
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [showhorodropDown, setshowhorodropDown] = useState(false);
+  const [showAstrodropDown, setshowAstrodropDown] = useState(false);
   const toggleNav = () => {
     setShowNav(!showNav);
     showbluefn(!showNav);
   };
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-    setshowhorodropDown(false)
+    setshowhorodropDown(false);
   };
   const toggleDropdownHoro = () => {
     setshowhorodropDown(!showhorodropDown);
-    setShowDropdown(false)
+    setShowDropdown(false);
   };
-
+  const toggleDropdownAstro = () => {
+    setshowAstrodropDown(!showAstrodropDown);
+  };
   return (
     <>
-      <div className="bg-white text-gray-700 py-2 px-4 flex items-center  gap-10   shadow-sm  fixed top-0 w-full z-10 lg:static ">
+      <div className="bg-white text-gray-700 py-2 px-4 flex items-center  gap-10   shadow-sm  fixed top-0 w-full z-50 lg:static ">
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -80,18 +84,35 @@ const Navbar = ({ showbluefn }) => {
               <p className="text-center font-sans"></p>
             </div>
           </div>
-          <div className={`py-6 h-[39rem] ${showDropdown&& "h-[45.5rem]"} ${showhorodropDown&& "h-[63rem]"}`} >
+          <div
+            className={`py-6 h-[39rem]  ${showDropdown && "h-[45.5rem]"} ${
+              showhorodropDown && "h-[63rem]"
+            }`}
+          >
             <div className="flex flex-col gap-8  text-md font-sans ">
-              <Link to={"/chat-with-astrologer"}>
-                <span className=" hover:hover-effect px-5">
-                  Chat with Astrologer
+              <Link>
+                <span
+                  className="trasEffect hover:hover-effect px-5 flex justify-between"
+                  onClick={toggleDropdown}
+                >
+                  Astrologer
+                  <CaretDown />
                 </span>
               </Link>
-              <Link to={"/call-to-astrologer"}>
-                <span className=" hover:hover-effect px-5">
-                  Call to Astrologer
-                </span>
-              </Link>
+              {showDropdown && (
+                <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
+                  <Link to={"/kundali-matching"}>
+                    <span className="trasEffect hover:hover-effect px-5">
+                      Connect Astrologer
+                    </span>
+                  </Link>
+                  <Link to={"/freekundali"}>
+                    <span className="trasEffect hover:hover-effect px-5">
+                      Call Astrologer
+                    </span>
+                  </Link>
+                </div>
+              )}
               <Link to={"/book-a-pandit"}>
                 <span className="transEffect hover:hover-effect px-5">
                   Book Pandit
@@ -133,7 +154,7 @@ const Navbar = ({ showbluefn }) => {
                 </div>
               </Link>
               {showhorodropDown && (
-                <div className=" flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
+                <div className=" flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3 z-50">
                   <Link to={"/kundali-matching"}>
                     <div className="px-5 py-2 hover:bg-gray-100 transEffect hover:hover-effect ">
                       Horoscope 2024
@@ -192,13 +213,13 @@ const Navbar = ({ showbluefn }) => {
           </div>
           {/* <div></div> */}
         </div>
-        <div className="flex  justify-center ">
-          <img
-            src={AstroCaptionLogo}
-            className="w-[60%] h-[60%] "
-          ></img>
+        <div className="flex justify-center ">
+          <img src={AstroCaptionLogo} className="w-[60%] h-[60%] "></img>
         </div>
-        <div className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn transition-all">
+        <div
+          className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn transition-all"
+          onClick={() => navigate("/register-page")}
+        >
           <AccountLogo />
           Login
         </div>
@@ -206,23 +227,36 @@ const Navbar = ({ showbluefn }) => {
       <div>
         <div className="hidden lg:flex w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl ">
           <div className="flex items-center lg:w-40 xl:w-64">
-            <img
-              src={AstroCaptionLogo}
-              className="w-[70%] h-[70%] "
-            ></img>
+            <img src={AstroCaptionLogo} className="w-[70%] h-[70%] "></img>
           </div>
           <div>
             <div className="flex flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">
-              <Link to={"/chat-with-astrologer"}>
-                <span className="transEffect hover:hover-effect">
-                  Chat with Astrologer
-                </span>
-              </Link>
-              <Link to={"/call-to-astrologer"}>
-                <span className="transEffect hover:hover-effect">
-                  Call to Astrologer
-                </span>
-              </Link>
+              <div
+                className="relative"
+                onMouseEnter={toggleDropdownAstro}
+                onMouseLeave={toggleDropdownAstro}
+              >
+                <Link to={"/"}>
+                  <div className="transEffect hover:hover-effect flex gap-1">
+                    Astrologer
+                    <CaretDown />
+                  </div>
+                </Link>
+                {showAstrodropDown && (
+                  <div className="absolute bg-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
+                    <Link to={"/call-to-astrologer"}>
+                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                        Call Astrologer
+                      </div>
+                    </Link>
+                    <Link to={"/chat-with-astrologer"}>
+                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                        Chat Astrologer
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link to={"/book-a-pandit"}>
                 <span className="transEffect hover:hover-effect">
                   Book Pandit
@@ -268,62 +302,51 @@ const Navbar = ({ showbluefn }) => {
                 onMouseLeave={toggleDropdownHoro}
               >
                 <Link to={"/"}>
-                  <div className="transEffect hover:hover-effect flex gap-1">
-                    Horoscopes
-                    <CaretDown />
+                  <div className="transEffect hover:hover-effect relative">
+                    <div className="flex gap-1">
+                      AstroCounsel
+                      <CaretDown />
+                      <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full px-2 right-0 text-white py-[1px]">
+                        <img
+                          src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
+                          className="h-5 w-10"
+                        ></img>
+                      </span>
+                    </div>
                   </div>
                 </Link>
                 {showhorodropDown && (
                   <div className="absolute bg-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-52 z-10">
                     <Link to={"/kundali-matching"}>
                       <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Horoscope 2024
+                        Call AstroCounseler
                       </div>
                     </Link>
                     <Link to={"/kundali-matching"}>
                       <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Today's Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Weekly Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Monthly Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Yearly Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Yesterday's Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/free-kundali"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Tommorow's Horoscope
-                      </div>
-                    </Link>
-                    <Link to={"/free-kundali"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
-                        Chinese Horoscope
+                        Chat AstroCounseler
                       </div>
                     </Link>
                   </div>
                 )}
               </div>
               <Link to={"/blogs"}>
-                <span className="transEffect hover:hover-effect">Blog</span>
+                <span className="transEffect hover:hover-effect relative">
+                  Vastu Making
+                  <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full  right-[-1rem] text-white ">
+                    <img
+                      src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
+                      className="h-5 w-10"
+                    ></img>
+                  </span>
+                </span>
               </Link>
             </div>
           </div>
-          <div className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn">
+          <div
+            className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn"
+            onClick={() => navigate("/register-page")}
+          >
             <AccountLogo />
             Login
           </div>

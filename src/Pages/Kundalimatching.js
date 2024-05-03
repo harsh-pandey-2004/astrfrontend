@@ -2,7 +2,8 @@ import React from 'react'
 import NewKundli from '../components/kundalimatching components/NewKundali';
 import SaveKundli from '../components/kundalimatching components/SaveKundali';
 
-const KundliMatching = () => {
+const KundliMatching = (props) => {
+  const showblur=props.showblur;
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = [
       'Jan', 'Feb', 'Mar', 'APR', 'May', 'Jun',
@@ -12,7 +13,9 @@ const KundliMatching = () => {
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i);
 
   return (
-    <div className=' relative top-28 lg:top-5 gap-4 mx-5 '>
+    <div className={`${ showblur  &&
+      "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
+     relative top-36 lg:top-5 gap-4 mx-5 `}>
         {/* heading div */}
         <div className='flex flex-col items-center'>
             <p className='text-2xl text-gray-800 font-bold'>Kundli Matching</p>

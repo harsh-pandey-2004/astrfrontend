@@ -1,9 +1,13 @@
 import React from "react";
 import { SearchLogo } from "../icons/icons";
 
-const BookPandit = () => {
+const BookPandit = (props) => {
+  const IsMenuClicked=props.IsmenuClicked;
+  const showblur=props.showblur;
   return (
-    <div className="mt-5  md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto">
+    <div className={`${ showblur  &&
+      "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
+       mt-5  md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto`}>
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl text-center font-sans font-semibold md:text-3xl">
           Want Pandits
@@ -36,9 +40,9 @@ const BookPandit = () => {
             className="rounded-md w-full h-full bg-cover"
           ></img>
           <div
-            className="absolute bottom-0 text-white flex flex-col gap-1 px-4 py-2 border-t-2 filter rounded-lg z-50 shadow-bg px-4;
+            className={`${IsMenuClicked ? "opacity-0":"absolute"} bottom-0 text-white flex flex-col gap-1 px-4 py-2 border-t-2 filter rounded-lg z-50 shadow-bg px-4;
     py-2;
-    border-t-2;"
+    border-t-2;`}
           >
             <p>VIP E-POOJA</p>
             <p>Almost everything runs on internet today...</p>

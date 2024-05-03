@@ -1,9 +1,14 @@
 import React from "react";
 import { SearchLogo } from "../icons/icons";
 
-const ShopAstro = () => {
+const ShopAstro = (props) => {
+  const IsMenuClicked=props.IsmenuClicked;
+  const showblur=props.showblur;
+  console.log(IsMenuClicked);
   return (
-    <div className="mt-5  md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto h-fit pb-8 ">
+    <div className={`${ showblur  &&
+    "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
+    mt-5  md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto`}>
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl text-center font-sans font-semibold md:text-3xl">
           Online Prasaad
@@ -29,30 +34,20 @@ const ShopAstro = () => {
           <SearchLogo />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-4/5 gap-2 mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-3/4">
         <div className="relative rounded-md hover:shadow-2xl cursor-pointer">
           <img
             src="https://d1gcna0o0ldu5v.cloudfront.net/fit-in/350x350/images/9a5aca23-1b68-4edb-9e83-a8cefe152d24.jpg"
             className="rounded-md w-full"
           ></img>
-          <div className="absolute bottom-0 text-white flex flex-col gap-1 px-4 py-2 border-t-2 filter  z-50 shadow-bg px-4;
-    py-2;
-    border-t-2;">
-            <p>VIP E-POOJA</p>
-            <p>Almost everything runs on internet today...</p>
-          </div>
-        </div>
-        <div className="relative rounded-md hover:shadow-2xl cursor-pointer">
-          <img
-            src="https://d1gcna0o0ldu5v.cloudfront.net/fit-in/350x350/images/9a5aca23-1b68-4edb-9e83-a8cefe152d24.jpg"
-            className="rounded-md w-full"
-          ></img>
-          <div className="absolute bottom-0 text-white flex flex-col gap-1 px-4 py-2 border-t-2 filter  z-50 shadow-bg px-4;
-    py-2;
-    border-t-2;">
-            <p>VIP E-POOJA</p>
-            <p>Almost everything runs on internet today...</p>
-          </div>
+         
+           <div className={`${IsMenuClicked ? "opacity-0":"absolute"}  bottom-0 text-white flex flex-col gap-1 px-4 py-2 border-t-2 filter  z-50 shadow-bg px-4;
+           py-2;
+           border-t-2;`}>
+                   <p>VIP E-POOJA</p>
+                   <p>Almost everything runs on internet today...</p>
+                 </div>
+         
         </div>
       </div>
     </div>

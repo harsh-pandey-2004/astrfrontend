@@ -22,7 +22,10 @@ function App() {
   function showbluefn(status) {
     setshowBlur(status);
   }
-
+  const[IsmenuClicked,setIsMenuClicked]=useState(false);
+  function ModalHandler(){
+    setIsMenuClicked(!IsmenuClicked);
+  }
   return (
     <div className="w-full h-fit relative">
     <BrowserRouter>
@@ -31,9 +34,9 @@ function App() {
         <Route path="/" element={<HomePage showblur={showblur} />} />
         <Route path="/chat-with-astrologer" element={<ChatWithAstrologer />} />
         <Route path="/call-to-astrologer" element={<CallwithAstrologer />} />
-        <Route path="/shop-on-astro" element={<ShopAstro />} />
-        <Route path="/book-a-pooja" element={<BookPooja />} />
-        <Route path="/book-a-pandit" element={<BookPandit />} />
+        <Route path="/shop-on-astro" element={<ShopAstro IsmenuClicked={IsmenuClicked} showblur={showblur}/>}/>
+        <Route path="/book-a-pooja" element={<BookPooja IsmenuClicked={IsmenuClicked} showblur={showblur}/>}/>
+        <Route path="/book-a-pandit" element={<BookPandit  IsmenuClicked={IsmenuClicked} showblur={showblur} />}/>
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/freekundali" element={<FreeKundali />}></Route>
         <Route path="/kundali-matching" element={<KundliMatching />}></Route>

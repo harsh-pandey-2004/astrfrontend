@@ -5,9 +5,12 @@ import Visit from "../components/kundalicomponents/Visits";
 import FutureKund from "../components/kundalicomponents/FutureKund";
 import Faq from "../components/kundalicomponents/Faq";
 
-const FreeKundali = () => {
+const FreeKundali = (props) => {
+  const showblur=props.showblur;
   return (
-    <div className="flex flex-col  top-24 relative lg:top-0 h-fit">
+    <div className={`${ showblur  &&
+      "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"}
+       flex flex-col  top-28 relative lg:top-0`}>
       <Head />
       <Kundlis />
       <Visit />

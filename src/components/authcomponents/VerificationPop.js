@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 const VerifyPhone = () => {
   const { id } = useParams();
-  console.log(id)
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [resendTimer, setResendTimer] = useState(41);
   const [response, setResponse] = useState([]);
@@ -12,6 +11,7 @@ const VerifyPhone = () => {
     try {
       let a = await axios.post(`http://localhost:3000/api/otp-verification/${id}`,otp);
       setResponse(a.data);
+      console.log(a.data)
       setOtp(["", "", "", ""])
       console.log(a.data)
     } catch (error) {
@@ -19,7 +19,6 @@ const VerifyPhone = () => {
     }
   }
   useEffect(() => {
- 
     const timer = setInterval(() => {
       setResendTimer((prevTimer) => prevTimer - 1);
     }, 1000);

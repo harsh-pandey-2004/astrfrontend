@@ -1,7 +1,9 @@
 import React from "react";
 import BlogSection from "../components/BlogSection";
 
-const BlogPage = () => {
+const BlogPage = (props) => {
+ const showblur=props.showblur;
+
   const blogs = [
     {
       title: "Understanding Zodiac Signs",
@@ -11,11 +13,6 @@ const BlogPage = () => {
     {
       title: "Mercury Retrograde and Its Effects",
       category: "Planetary Influences",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    },
-    {
-      title: "Love Compatibility in Astrology",
-      category: "Relationships",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
@@ -34,7 +31,9 @@ const BlogPage = () => {
 
   return (
     <div>
-      <div className="  text-center relative top-24 lg:top-0">
+      <div className={`${ showblur  &&
+       "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
+      text-center relative top-24 lg:top-0`}>
         <BlogSection blogs={blogs} categories={categories} />
       </div>
     </div>

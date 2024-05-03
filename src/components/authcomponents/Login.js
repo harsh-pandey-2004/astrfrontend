@@ -88,9 +88,11 @@ const LoginForm = () => {
           type="submit"
           className="bg-orange-400 hover:box-shadow1 text-white font-sans py-2 px-4 rounded-lg w-[95%] mx-auto"
         >
-          GET OTP <i className="fa fa-arrow-right"></i>
+          Log in <i className="fa fa-arrow-right"></i>
         </button>
-        <div className="mt-4 text-sm">
+        <div className="w-full flex justify-center my-2">
+        </div>
+        <div className="mt-1 text-sm">
           <p className="terms-line text-center">
             By Signing up, you agree to our{" "}
             <a
