@@ -24,7 +24,7 @@ const PujaCartForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let a = await axios.post(
-      "http://localhost:3001/api/book-pooja/user-deatils/6641c9829e2a39f948f0a8ad",
+      "http://localhost:3000/api/book-pooja/user-deatils/6641c9829e2a39f948f0a8ad",
       formData
     );
     

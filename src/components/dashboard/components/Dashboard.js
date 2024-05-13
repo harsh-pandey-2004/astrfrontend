@@ -8,16 +8,16 @@ function Dashboard() {
   console.log(id)
   async function getData() {
     try {
-      let a = await axios.get(`http://localhost:3000/api/register/${id}`);
-      setResponse(a.data.data);
-      console.log(a.data.data);
+      let a = await axios.get(`http://localhost:3000/api/userDetails/${id}`);
+      setResponse(a.data.existingUser);
+      console.log(a.data.existingUser);
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(() => {
     getData();
-  }, []);
+  },[]);
   return (
     <div className="flex flex-row items-center  ">
       <div className="border w-1/5 h-screen flex flex-col items-center rounded-md ">
