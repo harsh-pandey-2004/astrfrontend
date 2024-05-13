@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import AstroCaptionLogo from "../images/Astrocaptain.png";
+import AstroCaptionLogo from "../images/Astrocaptain.jpeg";
 import {
   AccountLogo,
   CaretDown,
@@ -31,53 +31,17 @@ const Navbar = ({ showbluefn }) => {
   };
   return (
     <>
-      <div className="bg-white text-gray-700 py-2 px-4 flex items-center  gap-10   shadow-sm  fixed top-0 w-full z-50 lg:static ">
-        <div className="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="orange"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 3v6m0 0v6m0-6h6m-6 0H6"
-            />
-          </svg>
-          <p>+91-120-423495</p>
-        </div>
-        <div className="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="orange"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 6l3 5H5a2 2 0 01-2-2V4a2 2 0 012-2h14a2 2 0 012 2v5a2 2 0 01-2 2h-1l3 5h-1a2 2 0 01-2 2H6a2 2 0 01-2-2H2a2 2 0 01-2-2V8a2 2 0 012-2h1z"
-            />
-          </svg>
-          <p>astro@AstroCaptaion.com</p>
-        </div>
-      </div>
-      <div className="flex lg:hidden w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl fixed z-50 bg-gray-100  top-10 lg:static">
+      <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black  lg:static">
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
             showNav ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          } w-64 bg-gray-100 fixed top-[6.4rem] left-0 transform transition-all duration-300 h-full z-50 overflow-scroll`}
+          } w-64 bg-black text-white fixed top-[6.5rem] sm:top-[7.6rem] md:top-[7.9rem] left-0 transform transition-all duration-300 h-full z-50 overflow-scroll`}
         >
           <div
-            className={`h-1/3 flex bg-gray-200 bg-back bg-cover bg-center bg-no-repeat  w-full`}
+            className={`h-1/3 flex bg-gray-200 bg-back bg-cover bg-center bg-no-repeat  w-full overflow-hidden`}
           >
             <div className="font-serif font-normal text-lg  left-3 h-full">
               <p className="text-center font-sans"></p>
@@ -85,8 +49,8 @@ const Navbar = ({ showbluefn }) => {
             </div>
           </div>
           <div
-            className={`py-6 h-[39rem]  ${showDropdown && "h-[45.5rem]"} ${
-              showhorodropDown && "h-[63rem]"
+            className={`py-6 h-[35.2rem]  ${showDropdown && "h-[49rem]"} ${
+              showhorodropDown && "h-[59.7rem]"
             }`}
           >
             <div className="flex flex-col gap-8  text-md font-sans ">
@@ -156,7 +120,7 @@ const Navbar = ({ showbluefn }) => {
               {showhorodropDown && (
                 <div className=" flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3 z-50">
                   <Link to={"/kundali-matching"}>
-                    <div className="px-5 py-2 hover:bg-gray-100 transEffect hover:hover-effect ">
+                    <div className="px-5 py-2  transEffect hover:hover-effect ">
                       Horoscope 2024
                     </div>
                   </Link>
@@ -206,18 +170,17 @@ const Navbar = ({ showbluefn }) => {
                   Blog
                 </span>
               </Link>
-              <span className="transEffect hover:hover-effect sm:hidden bg-orange-400 text-white p-2 text-center rounded">
+              <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center rounded ">
                 Logout
               </span>
             </div>
           </div>
-          {/* <div></div> */}
         </div>
         <div className="flex justify-center ">
-          <img src={AstroCaptionLogo} className="w-[60%] h-[60%] "></img>
+          <img src={AstroCaptionLogo} className="w-[60%]  "></img>
         </div>
         <div
-          className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn transition-all"
+          className="flex items-center gap-1 bg-[#f6c003] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
@@ -225,9 +188,9 @@ const Navbar = ({ showbluefn }) => {
         </div>
       </div>
       <div>
-        <div className="hidden lg:flex w-full h-auto min-h-14 p-4 items-center justify-between shadow-2xl ">
-          <div className="flex items-center lg:w-40 xl:w-64">
-            <img src={AstroCaptionLogo} className="w-[70%] h-[70%] "></img>
+        <div className="hidden lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black text-white">
+          <div className="flex items-center lg:w-52 xl:w-[18rem]">
+            <img src={AstroCaptionLogo} className=""></img>
           </div>
           <div>
             <div className="flex flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">
@@ -243,14 +206,14 @@ const Navbar = ({ showbluefn }) => {
                   </div>
                 </Link>
                 {showAstrodropDown && (
-                  <div className="absolute bg-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
+                  <div className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
                     <Link to={"/call-to-astrologer"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Call Astrologer
                       </div>
                     </Link>
                     <Link to={"/chat-with-astrologer"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Chat Astrologer
                       </div>
                     </Link>
@@ -282,14 +245,14 @@ const Navbar = ({ showbluefn }) => {
                   </div>
                 </Link>
                 {showDropdown && (
-                  <div className="absolute bg-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
+                  <div className="absolute bg-black text-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
                     <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Kundali Matching
                       </div>
                     </Link>
                     <Link to={"/freekundali"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Free Kundali
                       </div>
                     </Link>
@@ -316,14 +279,14 @@ const Navbar = ({ showbluefn }) => {
                   </div>
                 </Link>
                 {showhorodropDown && (
-                  <div className="absolute bg-white shadow-md rounded-md py-2 top-4  left-0 mt-2 w-52 z-10">
+                  <div className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-52 z-10">
                     <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Call AstroCounseler
                       </div>
                     </Link>
                     <Link to={"/kundali-matching"}>
-                      <div className="px-4 py-2 hover:bg-gray-100 transEffect hover:hover-effect">
+                      <div className="px-4 py-2  transEffect hover:hover-effect">
                         Chat AstroCounseler
                       </div>
                     </Link>
@@ -344,7 +307,7 @@ const Navbar = ({ showbluefn }) => {
             </div>
           </div>
           <div
-            className="flex items-center gap-1 bg-orange-600 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-orange-500 hover:hover-btn"
+            className="flex items-center gap-1  bg-[#f6c003] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
             onClick={() => navigate("/register-page")}
           >
             <AccountLogo />

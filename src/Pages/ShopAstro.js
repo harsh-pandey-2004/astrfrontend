@@ -8,7 +8,7 @@ const ShopAstro = (props) => {
   return (
     <div className={`${ showblur  &&
     "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
-    mt-5  md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto`}>
+     md:mx-20 flex flex-col gap-1 relative top-24 lg:top-0 max-w-7xl mx-auto`}>
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl text-center font-sans font-semibold md:text-3xl">
           Online Prasaad

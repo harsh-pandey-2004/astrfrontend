@@ -4,35 +4,54 @@
 
 @layer components {
   .hover-effect {
-    color: orange;
-    transition: color 0.2s ease-in-out;
+    color: #f6c000;
+    transition: color 0.1s ease-in-out;
     transition-delay: 0.1s;
   }
   .social-logo {
-    @apply p-1 bg-black rounded cursor-pointer
+    @apply p-1 bg-black rounded cursor-pointer;
   }
-.shadow-bg{
-    color:white;
-    display:flex;
-    flex-direction:flex-col;
-    gap:1;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5 in this example) to control opacity */
-  
-
+  .shadow-bg {
+    color: white;
+    display: flex;
+    flex-direction: flex-col;
+    gap: 1;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Adjust the alpha value (0.5 in this example) to control opacity */
   }
+  .shadow-bg1 {
+    color: white;
 
-
-  .box-shadow{
-    -webkit-box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
--moz-box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
-box-shadow: 3px 6px 18px 1px rgba(0,0,0,0.75);
-transition: all .6s ease-in-out
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); /* Adjust the alpha value (0.5 in this example) to control opacity */
   }
-  .box-shadow1{
-    box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
-    -webkit-box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
-    -moz-box-shadow: 4px 5px 21px 1px rgba(231,140,93,0.47);
-transition: all .2s ease-in-out
+  .form-box {
+    box-shadow: -1px -1px 33px -5px rgba(221, 221, 27, 0.75);
+    -webkit-box-shadow: -1px -1px 33px -5px rgba(221, 221, 27, 0.75);
+    -moz-box-shadow: -1px -1px 33px -5px rgba(221, 221, 27, 0.75);
+  }
+  .pandit-slider .slick-slide {
+    margin: 0 8px;
+  }
+  .box-shadow {
+    -webkit-box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+    transition: all 0.6s ease-in-out;
+  }
+  .box-shadow1 {
+    box-shadow: 4px 5px 21px 1px rgba(231, 140, 93, 0.47);
+    -webkit-box-shadow: 4px 5px 21px 1px rgba(231, 140, 93, 0.47);
+    -moz-box-shadow: 4px 5px 21px 1px rgba(231, 140, 93, 0.47);
+    transition: all 0.2s ease-in-out;
   }
   .main-Slider {
     background: rgb(202, 201, 212);
@@ -44,10 +63,15 @@ transition: all .2s ease-in-out
       rgba(12, 8, 12, 1) 100%
     );
   }
+
+  .inset-input{
+    box-shadow: 6px 6px 43px -1px rgba(236,197,15,0.75) inset;
+    -webkit-box-shadow: 6px 6px 43px -1px rgba(236,197,15,0.75) inset;
+    -moz-box-shadow: 6px 6px 43px -1px rgba(236,197,15,0.75) inset;
+  }
   .hover-btn {
     box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
     -webkit-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
     -moz-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
   }
-  
 }

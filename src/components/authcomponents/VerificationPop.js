@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 const VerifyPhone = () => {
   const { id } = useParams();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [resendTimer, setResendTimer] = useState(41);
   const [response, setResponse] = useState([]);
-
+  const navigate = useNavigate();
   async function getUser() {
     try {
-      let a = await axios.post(`http://localhost:3000/api/otp-verification/${id}`,otp);
+      let a = await axios.post(
+        `http://localhost:3000/api/otp-verification/${id}`,
+        otp
+      );
       setResponse(a.data);
-      console.log(a.data)
-      setOtp(["", "", "", ""])
-      console.log(a.data)
+      if (a.data) {
+        // console.log(a.data.user._id)
+        navigate(`/dashboard/${a.data.user._id}`);
+      }else{
+        alert("You entered wrong url")
+      }
+      setOtp(["", "", "", ""]);
+
     } catch (error) {
       console.log("some Error", error);
     }
   }
+
   useEffect(() => {
     const timer = setInterval(() => {
       setResendTimer((prevTimer) => prevTimer - 1);
@@ -41,8 +50,8 @@ const VerifyPhone = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getUser()
-    console.log(otp.join(""))
+    getUser();
+    console.log(otp.join(""));
   };
 
   const handleResendOtp = () => {
