@@ -5,6 +5,7 @@ import axios from "axios";
 function Dashboard() {
   const [response, setResponse] = useState([]);
   const { id } = useParams();
+  console.log(id)
   async function getData() {
     try {
       let a = await axios.get(`http://localhost:3000/api/register/${id}`);
