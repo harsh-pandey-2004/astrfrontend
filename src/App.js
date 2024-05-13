@@ -12,8 +12,6 @@ import BookPooja from "./Pages/BookPooja";
 import CallwithAstrologer from "./Pages/CallwithAstrologer";
 import ChatWithAstrologer from "./Pages/ChatWithAstrologer";
 import FreeKundali from "./Pages/FreeKundali";
-import Home from "./components/dashboard/pages/Home";
-
 import Transactions from "./components/dashboard/pages/Transactions";
 import OrderHistory from "./components/dashboard/pages/OrderHistory";
 import Support from "./components/dashboard/pages/Support";
