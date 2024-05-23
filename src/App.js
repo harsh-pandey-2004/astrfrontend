@@ -65,6 +65,8 @@ function App() {
             }
           />
         
+
+        
           <Route path="/panditfilter" element={<PanditFilter/>}/>
           <Route path="/panditprofile/:id" element={<PanditProfile/>}/>
           <Route path="/blogs" element={<BlogPage />} />
