@@ -22,6 +22,9 @@ import ShopAstro from "./Pages/ShopAstro";
 import Dashboard from "./components/dashboard/components/Dashboard";
 import Bookpoojasub from "./components/Bookpoojasub";
 import PujaCartForm from "./components/BookingForm";
+import PanditFilter from "./Pages/PanditFilter";
+import PanditProfile from "./Pages/PanditProfile";
+
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -61,6 +64,9 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
+        
+          <Route path="/panditfilter" element={<PanditFilter/>}/>
+          <Route path="/panditprofile/:id" element={<PanditProfile/>}/>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route path="/kundali-matching" element={<KundliMatching />}></Route>

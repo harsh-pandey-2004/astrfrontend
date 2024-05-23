@@ -1,22 +1,22 @@
 import React from 'react'
 
-const Stat = () => {
+const Stat = (props) => {
   return (
     <div className='flex flex-col  sm:flex-row items-center justify-evenly gap-3  w-full py-8 bg-gradient-to-t from-black to-yellow-400 text-white'>
         <div>
-                <p className='text-xl'>22,758+</p>
-                <p>Total Pooja</p>
+                <p className='text-xl'>{props.amount}</p>
+                <p>Total {props.type}</p>
         </div>
 
 
         <div>
-                <p className='text-xl'>711 Million Minutes</p>
+                <p className='text-xl'>{props.live} Million Minutes</p>
                 <p>Total Minutes of Live Pooja</p>
         </div>
 
 
         <div>
-                <p className='text-xl'>45.5 Million</p>
+                <p className='text-xl'>{props.customers} Million</p>
                 <p>Total Customers</p> 
         </div>
     </div>

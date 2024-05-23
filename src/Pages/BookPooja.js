@@ -31,13 +31,13 @@ const BookPooja = (props) => {
           <div className="h-px w-full bg-[#f1d980] "></div>
         </div>
 
-        <Preference />
+        <Preference  />
 
         <Destinations />
 
         <Workflow />
 
-        <Stat />
+        <Stat amount="22,758+" live="711" customers="45.5" type="pooja"/>
 
         <Testimonials />
       </div>

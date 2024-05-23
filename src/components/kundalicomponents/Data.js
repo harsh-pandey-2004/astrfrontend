@@ -6,7 +6,7 @@ export const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 3
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -20,25 +20,25 @@ export const responsive = {
 export const PandirArray = [
   {
     id: "1",
-    img: "https://c8.alamy.com/comp/KX2T29/portrait-of-a-pandit-holy-man-in-asansol-india-KX2T29.jpg",
+    img: "https://th.bing.com/th/id/OIP.l3GuLhK7nKY-kl1yOJhugAHaE8?rs=1&pid=ImgDetMain",
     name: "Krishan Jha",
     Region: "Bihar"
   },
   {
     id: "3",
-    img: "https://c8.alamy.com/comp/KX2T29/portrait-of-a-pandit-holy-man-in-asansol-india-KX2T29.jpg",
+    img: "https://thumbs.dreamstime.com/b/swamiji-maheshwarananda-rio-de-janeiro-june-indian-monk-swamiji-maheshwarananda-spiritual-leader-rio-conference-105211225.jpg",
     name: "Krishan Baneergee",
     Region: "Bengal"
   },
   {
     id: "2",
-    img: "https://c8.alamy.com/comp/KX2T29/portrait-of-a-pandit-holy-man-in-asansol-india-KX2T29.jpg",
+    img: "https://c8.alamy.com/comp/2KAPAY6/tamil-hindu-priest-performs-special-prayers-honouring-lord-ganesh-during-the-nambiyaandaar-nambi-ustavam-thiruvizha-pooja-at-a-hindu-temple-in-ontario-canada-on-19-july-2017-this-pooja-is-part-of-the-15-day-long-festival-that-honours-lord-ganesh-which-culminates-with-the-extravagant-chariot-procession-during-this-puja-an-idol-of-lord-ganesh-is-paraded-around-the-temple-as-prayers-are-performed-photo-by-creative-touch-imaging-ltdnurphoto-please-use-credit-from-credit-field-2KAPAY6.jpg",
     name: "Krishan Dutt",
     Region: "Uttrakand"
   },
   {
     id: "4",
-    img: "https://c8.alamy.com/comp/KX2T29/portrait-of-a-pandit-holy-man-in-asansol-india-KX2T29.jpg",
+    img: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Puja%2C_a_ritual_prayer_ceremony_India.jpg",
     name: "Krishan Iyer",
     Region: "South"
   },
@@ -49,6 +49,54 @@ export const PandirArray = [
     Region: "Madhya Pradesh"
   }
 ];
+
+
+export const PoojaArray=[
+{
+  id:"1",
+  img:"https://wallpaperaccess.com/full/2170188.jpg",
+  pooja:"Maha Ganpati Hom",
+},
+{
+  id:"2",
+  img:"https://wallpaperaccess.com/full/5989489.jpg",
+  pooja:"SatyaNarayan Pooja",
+},
+{
+  id:"3",
+  img:"https://th.bing.com/th/id/OIP.axQTBpr5MJf5VwvpDLYjDwAAAA?rs=1&pid=ImgDetMain",
+  pooja:"GrihPravesh Pooja",
+},
+{
+  id:"4",
+  img:"https://th.bing.com/th/id/R.e5169efbc441f94c0f8cbeeae48e374e?rik=WfUDj0saK0JqBA&riu=http%3a%2f%2fbhagyavijay.in%2fwp-content%2fuploads%2f2019%2f09%2fVastu-B.png&ehk=%2bhMCnAXP%2f%2bgSv6x9Wvn5XBPnm79%2bCUQTFt6x8eGJjtA%3d&risl=&pid=ImgRaw&r=0",
+  pooja:"Vastu Shanti Pooja",
+},
+{
+  id:"5",
+  img:"https://th.bing.com/th/id/OIP.1pznyHerhrDwIuCN9AoGwAAAAA?rs=1&pid=ImgDetMain",
+  pooja:"RudraAbhishek Pooja",
+
+},
+{
+  id:"6",
+  img:"https://wallpapers.com/images/hd/lord-hanuman-3d-sunlight-ozgajnmyme7pqki0.jpg",
+  pooja:"Hanuman Chalisa Path",
+
+},
+{
+  id:"7",
+  img:"https://www.desktopbackground.org/download/1440x900/2012/07/19/423389_goddess-durga-hd-wallpaper-goddess-durga-pictures_1920x1440_h.jpg",
+  pooja:"Durga Saptashati Chandi Path ",
+
+},
+{
+  id:"8",
+  img:"https://th.bing.com/th/id/OIP.G1kJIa0k2XijJC56K46DuwHaHa?pid=ImgDet&w=161&h=161&c=7",
+  pooja:"Mahamrityunjay Hom",
+}
+];
+
 export const Array = [
   {
     id: "1",
@@ -185,3 +233,108 @@ export const horoscope = [
     range: "FEB 19 - MAR 20"
   }
 ];
+
+
+
+
+export const PanditData=[
+  {
+    id:"1",
+    img:"https://aws.astrotalk.com/consultant_pic/p-43095.jpg",
+    name:"Nirbhay",
+    location:"Varanasi",
+    language:"English, Hindi",
+    service:"Navaratri Pooja,",
+    exp:"15 Years",
+    price:"42",
+    poojas:"1071",
+  },
+  {
+    id:"2",
+    img:"https://aws.astrotalk.com/consultant_pic/p-67956.jpg",
+    name:"Amit",
+    location:"Luckhnow",
+    language:"Tamil, Hindi",
+    service:"Diwali Pooja",
+    exp:"12 Years",
+    price:"52",
+    poojas:"17875",
+  },
+  {
+    id:"3",
+    img:"https://aws.astrotalk.com/consultant_pic/p-41733.jpg",
+    name:"Ramanand",
+    location:"Bihar",
+    language:"Bhojpuri, Hindi",
+    service:"Grihpravesh",
+    exp:"22 Years",
+    price:"62",
+    poojas:"23127",
+  },
+  {
+    id:"4",
+    img:"https://aws.astrotalk.com/consultant_pic/p-38889.jpg",
+    name:"Sadhvi",
+    location:"Maharashtra",
+    language:" Hindi,Marathi",
+    service:"Annaprashan",
+    exp:"8 Years",
+    price:"20",
+    poojas:"1331",
+  },
+  {
+    id:"5",
+    img:"https://aws.astrotalk.com/consultant_pic/p-45119.jpg",
+    name:"GopalDas",
+    location:"Vrindavan",
+    language:" Hindi,English",
+    service:"Janmashtami",
+    exp:"12 Years",
+    price:"30",
+    poojas:"1221",
+  },
+  {
+    id:"6",
+    img:"https://aws.astrotalk.com/consultant_pic/p-51244.jpg",
+    name:"Paramhans",
+    location:"Ujjain",
+    language:" Hindi,Marathi",
+    service:"RudraAbhishek",
+    exp:"12 Years",
+    price:"35",
+    poojas:"1335",
+  },
+  // {
+  //   id:"7",
+  //   img:"https://aws.astrotalk.com/consultant_pic/p-60044.jpg",
+  //   name:"Sanvi",
+  //   location:"Kerela",
+  //   language:"Tamil,English",
+  //   service:"Arudra Pooja..",
+  //   exp:"12 Years",
+  //   price:"₹ 35",
+  //   poojas:"1226",
+  // },
+  {
+    id:"8",
+    img:"https://aws.astrotalk.com/consultant_pic/p-66900.jpg",
+    name:"Shraddha",
+    location:"Kota",
+    language:"English,Hindi",
+    service:"Janmashtami ",
+    exp:"7 Years",
+    price:"25",
+    poojas:"988",
+  },
+  {
+    id:"9",
+    img:"https://aws.astrotalk.com/consultant_pic/p-42745.jpg",
+    name:"Rajanji",
+    location:"Varanasi",
+    language:"English,Hindi",
+    service:"RamNavmi",
+    exp:"17 Years",
+    price:"27",
+    poojas:"1217",
+  },
+]

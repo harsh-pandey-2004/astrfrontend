@@ -29,7 +29,9 @@ const Testimonials = () => {
   return (
     <div className='flex flex-col gap-12 py-6'>
         <h1  className="text-center text-2xl font-semibold px-12">Testimonials</h1>
-        <Carousel responsive={responsive} className=" w-screen  ">
+        <Carousel responsive={responsive}
+        infinite={true}
+        className=" w-screen   ">
             <Testimonial/>
             <Testimonial/>
             <Testimonial/>

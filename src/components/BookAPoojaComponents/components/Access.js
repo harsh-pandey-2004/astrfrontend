@@ -50,7 +50,7 @@ const Access = () => {
       transition={{ duration: 0.3 }}
       className={`${
         location
-          ? " flex flex-col items-center justify-center  border-2 border-[#f1d980] rounded-md px-4 py-4  bg-[#fff] text-black"
+          ? " flex flex-col items-center justify-center  border-2 border-[#f1d980] rounded-md px-4 py-4  bg-[#fff] text-black "
           : "hidden "
       }`}
     >

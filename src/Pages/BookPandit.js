@@ -1,10 +1,14 @@
 import React from "react";
 import TrendingPooja from "../components/BookaPanditComponents/TrendingPooja";
 import { SearchLogo } from "../icons/icons";
+import Stat from "../components/BookAPoojaComponents/components/Stat";
+import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
+import { Link } from "react-router-dom";
 
 const BookPandit = (props) => {
   const IsMenuClicked = props.IsmenuClicked;
   const showblur = props.showblur;
+  // const navigate=useNavigate();
   return (
     <div
       className={`${
@@ -27,6 +31,18 @@ const BookPandit = (props) => {
         </div>
       </div>
       <TrendingPooja/>
+      <Stat amount="10,500" live="711" customers="45.5" type="pandit"/>
+      <Testimonials/>
+     
+
+
+     <Link to="/panditfilter" className="flex justify-center items-center">
+
+               <button className=" border  bg-yellow-400  rounded-md max-w-fit mx-auto px-6 py-2  font-semibold hover:shadow-lg transition text-gray-700 hover:text-black mt-6" >Book Now</button>
+     
+     </Link>
+              
+      
     </div>
   );
 };

@@ -75,3 +75,10 @@
     -moz-box-shadow: -1px 4px 5px 0px rgba(0, 0, 0, 0.71);
   }
 }
+
+@media(max-width:400px){
+  .panditfil{
+    padding-left:1.5rem ;
+    padding-right:1.5rem;
+  }
+}

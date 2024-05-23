@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { PandirArray, responsive } from "../kundalicomponents/Data";
 import { useMediaQuery } from "@material-ui/core";
+
 const TopPandits = () => {
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");
 
@@ -23,6 +24,8 @@ const TopPandits = () => {
           return <Pandit key={obj.id} obj={obj} />;
         })}
       </Carousel>
+
+        
     </div>
   );
 };
