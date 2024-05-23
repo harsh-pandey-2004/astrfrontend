@@ -14,11 +14,17 @@ const HomePage = ({ showblur }) => {
           : ""
       }`}
     >
-      <Carousel showblur={showblur} />
-      <Services/>
+
+    
+           <Carousel showblur={showblur}/>
+    
+     
+         <Services/>
+     
+      
       <AstrologerSection showblur={showblur}/>
       <Horoscopes/>
-      <TestimonialSlider showblur={showblur} />
+      <TestimonialSlider showblur={showblur}/>
     </div>
   );
 };

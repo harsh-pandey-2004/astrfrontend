@@ -6,6 +6,7 @@ import Workflow from "../components/BookAPoojaComponents/components/Workflow";
 import Destinations from "../components/BookAPoojaComponents/components/Destinations";
 import Preference from "../components/BookAPoojaComponents/components/Preference";
 import Header from "../components/BookAPoojaComponents/components/Header";
+import ResponseCard from "../components/ResponseCard";
 const BookPooja = (props) => {
   const showblur = props.showblur;
   return (
@@ -35,7 +36,8 @@ const BookPooja = (props) => {
 
         <Destinations />
 
-        <Workflow />
+        {/* <Workflow /> */}
+        <ResponseCard/>
 
         <Stat amount="22,758+" live="711" customers="45.5" type="pooja"/>
 

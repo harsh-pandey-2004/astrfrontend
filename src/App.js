@@ -64,7 +64,14 @@ function App() {
             }
           />
         
+<<<<<<< HEAD
       
+=======
+
+        
+          <Route path="/panditfilter" element={<PanditFilter/>}/>
+          <Route path="/panditprofile/:id" element={<PanditProfile/>}/>
+>>>>>>> a31cf83a381f64bebb5f755af56045fa860ef45c
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route path="/kundali-matching" element={<KundliMatching />}></Route>

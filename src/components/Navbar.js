@@ -31,17 +31,17 @@ const Navbar = ({ showbluefn }) => {
   };
   return (
     <>
-      <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black  lg:static">
+      <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static">
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
-            showNav ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          } w-64 bg-black text-white fixed top-[6.5rem] sm:top-[7.6rem] md:top-[7.9rem] left-0 transform transition-all duration-300 h-full z-50 overflow-scroll`}
+            showNav ? "opacity-100 scale-100 " : "opacity-0 scale-95"
+          } w-64 bg-black text-white fixed top-[6.5rem]  sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-scroll`}
         >
           <div
-            className={`h-1/3 flex bg-gray-200 bg-back bg-cover bg-center bg-no-repeat  w-full overflow-hidden`}
+            className={`h-1/3 flex bg-gray-200  bg-back bg-cover bg-center bg-no-repeat  w-full overflow-hidden`}
           >
             <div className="font-serif font-normal text-lg  left-3 h-full">
               <p className="text-center font-sans"></p>
@@ -189,11 +189,11 @@ const Navbar = ({ showbluefn }) => {
       </div>
       <div>
         <div className="hidden lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black text-white">
-          <div className="flex items-center lg:w-52 xl:w-[18rem]">
+          <div className="flex items-center lg:w-52 xl:w-[18rem] ">
             <img src={AstroCaptionLogo} className=""></img>
           </div>
           <div>
-            <div className="flex flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">
+            <div className="flex  flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">
               <div
                 className="relative"
                 onMouseEnter={toggleDropdownAstro}
