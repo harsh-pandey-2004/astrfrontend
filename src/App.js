@@ -22,6 +22,9 @@ import ShopAstro from "./Pages/ShopAstro";
 import Dashboard from "./components/dashboard/components/Dashboard";
 import Bookpoojasub from "./components/Bookpoojasub";
 import PujaCartForm from "./components/BookingForm";
+import PanditPage from "./Pages/PanditPortal/PanditPage";
+import PanditLoginForm from "./components/panditcomponents/Login";
+import PanditVerifyPhone from "./components/panditcomponents/VerificationPop";
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -74,7 +77,12 @@ function App() {
             <Route path="Support" element={<Support />} />
             <Route path="ChatHistory" element={<ChatHistory />} />
           </Route>
-
+          <Route path="/PanditRegister" element={<PanditPage />}></Route>
+          <Route path="/loginPandit" element={<PanditLoginForm />}></Route>
+          <Route
+            path="/PanditRegister/panditVerify-phone/:id"
+            element={<PanditVerifyPhone />}
+          ></Route>
           <Route
             path="/register-page/verify-phone/:id"
             element={<VerifyPhone />}
