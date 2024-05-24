@@ -33,7 +33,7 @@ const PanditRegisterForm = () => {
         mobile: phoneNumber,
         countrycode: countryCode,
       });
-      let a = await axios.post("http://localhost:3000/api/registerpandit", {
+      let a = await axios.post("http://localhost:3000/api/pandit-registration", {
         ...response,
         mobile: phoneNumber,
         countrycode: countryCode,
