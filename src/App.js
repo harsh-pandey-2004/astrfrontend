@@ -23,8 +23,6 @@ import Dashboard from "./components/dashboard/components/Dashboard";
 import Bookpoojasub from "./components/Bookpoojasub";
 import PujaCartForm from "./components/BookingForm";
 
-
-
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -63,11 +61,7 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
-        
 
-        
-          <Route path="/panditfilter" element={<PanditFilter/>}/>
-          <Route path="/panditprofile/:id" element={<PanditProfile/>}/>
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route path="/kundali-matching" element={<KundliMatching />}></Route>

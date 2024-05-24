@@ -6,7 +6,7 @@ import Workflow from "../components/BookAPoojaComponents/components/Workflow";
 import Destinations from "../components/BookAPoojaComponents/components/Destinations";
 import Preference from "../components/BookAPoojaComponents/components/Preference";
 import Header from "../components/BookAPoojaComponents/components/Header";
-import ResponseCard from "../components/ResponseCard";
+import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 const BookPooja = (props) => {
   const showblur = props.showblur;
   return (
