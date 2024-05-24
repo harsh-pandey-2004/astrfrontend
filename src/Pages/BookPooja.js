@@ -36,8 +36,8 @@ const BookPooja = (props) => {
 
         <Destinations />
 
-        {/* <Workflow /> */}
-        <ResponseCard/>
+        <Workflow />
+        {/* <ResponseCard/> */}
 
         <Stat amount="22,758+" live="711" customers="45.5" type="pooja"/>
 
