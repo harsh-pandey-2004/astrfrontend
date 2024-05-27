@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
 import PanditTestimonial from '../components/BookaPanditComponents/PanditTestimonial'
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
+import { Link } from "react-router-dom";
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
   "Andhra Pradesh",
@@ -101,7 +102,7 @@ const BookPandit = (props) => {
         />
       </div>
       <div className=" w-[95%] lg:w-[80%] mx-auto ">
-       <ResponseCard/>
+     <Link to="/poojapandit"> <ResponseCard/></Link>  
       </div>
       <div className=" w-[95%] lg:w-[80%] mx-auto ">
         <PanditTestimonial/>

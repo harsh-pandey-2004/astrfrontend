@@ -25,6 +25,7 @@ import PujaCartForm from "./components/BookingForm";
 import PanditPage from "./Pages/PanditPortal/PanditPage";
 import PanditLoginForm from "./components/panditcomponents/Login";
 import PanditVerifyPhone from "./components/panditcomponents/VerificationPop";
+import PoojaPandit from "./components/BookaPanditComponents/PoojaPandit";
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -64,6 +65,10 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
+
+          <Route
+          path="/poojapandit"
+          element={<PoojaPandit/>}/>
 
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/freekundali" element={<FreeKundali />}></Route>
