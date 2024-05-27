@@ -2,11 +2,11 @@ import React from 'react'
 import { RxDotFilled } from "react-icons/rx";
 const PoojaPandit = () => {
   return (
-    <div className='flex flex-col gap-20 max-w-5xl  mx-auto pt-8 mb-12  '>
+    <div className='flex flex-col gap-20 max-w-5xl  mx-auto pt-8 mb-12   '>
         {/* Pooja Details */}
         <div className='md:flex xs:flex-col justify-between items-center w-full  pl-6'>
 
-           <div className='flex flex-col  gap-6 w-1/2'>
+           <div className='flex flex-col  gap-6 md:w-1/2 xs:w-full'>
                 <h1 className='font-bold text-4xl'>Rudrabhishek Puja</h1>
                 <p className='font-normal text-lg text-gray-700'>Rudrabhishek Puja, also known as Rudrabhisheka, is a significant Hindu ritual performed to honor Lord Shiva, one of the principal deities in Hinduism. This Puja is considered highly auspicious and is known for its power to remove negative energies, bring peace, prosperity, and happiness, and fulfill the wishes of the devotees. </p>
                 <div className='flex flex-col gap-2'> 
@@ -41,7 +41,7 @@ const PoojaPandit = () => {
                               <div className='md:flex xs:flex-col justify-between items-center w-full mt-4'>
                  
                
-                      <div className='w-1/2 flex flex-col justify-center items-center gap-6  pt-8 '>
+                      <div className='md:w-1/2 xs:w-full flex flex-col justify-center items-center gap-6  pt-8 '>
                        
                       <div className='flex flex-col justify-center items-center gap-2 '>
                         <img src="https://newsmug.in/wp-content/uploads/2022/08/260101937_3223278227893314_4237239637453456432_n.jpg"
@@ -61,7 +61,7 @@ const PoojaPandit = () => {
               
 
 
-                            <div className='w-1/2 flex flex-col justify-center items-center  pt-4'>
+                            <div className='md:w-1/2 xs:w-full flex flex-col justify-center items-center  pt-4'>
                             <div className='text-xl font-semibold text-center'>About</div>
                             <p className='text-lg font-normal text-gray-700 px-3 py-2'>Pandit Ramakrishna is a highly respected and renowned Hindu priest specializing in various Vedic rituals and ceremonies. With over 20 years of experience in performing sacred rites, Pandit Ramakrishna has gained a reputation for his deep knowledge, precision, and dedication to his spiritual practice. His expertise in conducting the Rudrabhishek Puja, among other significant Hindu rituals, has made him a sought-after priest for those seeking to invoke the blessings of Lord Shiva.</p>
                                   
