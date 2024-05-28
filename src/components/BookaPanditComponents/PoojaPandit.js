@@ -9,7 +9,8 @@ const PoojaPandit = () => {
     let a = await axios.get(
       "http://localhost:3000/api/PoojaDetails/Rudrabhishek Puja"
     );
-    setResponse(a.data.user);
+    setResponse(a.data.pooja);
+    console.log(a.data)
   }
   useEffect(() => {
     fetchPooja();
@@ -125,14 +126,14 @@ const PoojaPandit = () => {
           Ingredients Needed For {response && response.poojaName} :
         </p>
         <div className="flex flex-col gap-1 mt-2 text-lg text-gray-700">
-          <p className=" flex items-center ">
-            {response &&
-              response.Ingredients.split(",").map((e) => (
+          <p className=" flex  flex-col">
+             {response.Ingredients && 
+              response.Ingredients.map((e) => (
                 <div key={e} className="flex gap-3 items-center">
                   <RxDotFilled />
                   {e}
                 </div>
-              ))}
+              ))} 
           </p>
         </div>
 
