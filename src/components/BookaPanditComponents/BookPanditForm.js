@@ -34,7 +34,7 @@ const BookPanditForm = () => {
     try {
       console.log(formData);
       let a = await axios.post(
-        "http://localhost:3000/api/bookPandit/user-deatils/6641cad19e2a39f948f0a8b0",
+        "http://localhost:3000/api/PanditBooking/user-deatils/6641cad19e2a39f948f0a8b0",
         formData
       );
       console.log(a, "Book Pandit Done");
