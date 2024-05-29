@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const PanditLoginForm = () => {
+  const navigate = useNavigate();
   const initialState = {
     password: "",
   };
   const [phoneNumber, setPhoneNumber] = useState("");
   const [response, setResponse] = useState(initialState);
   const [countryCode, setCountryCode] = useState("+91");
-  const navigate = useNavigate();
   function handleCountryCOde(e) {
     setCountryCode(e.target.value);
   }
@@ -23,11 +23,13 @@ const PanditLoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+   
     let a = await axios.post("http://localhost:3000/api/loginpandit", {
       ...response,
       mobile: phoneNumber,
     });
-    console.log(a.data);
+    console.log(a.data)
+    navigate(`/PanditsetProfile/${a.data.user._id}`);
   };
 
   return (
@@ -90,8 +92,7 @@ const PanditLoginForm = () => {
         >
           Log in <i className="fa fa-arrow-right"></i>
         </button>
-        <div className="w-full flex justify-center my-2">
-        </div>
+        <div className="w-full flex justify-center my-2"></div>
         <div className="mt-1 text-sm">
           <p className="terms-line text-center">
             By Signing up, you agree to our{" "}
