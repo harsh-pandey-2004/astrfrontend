@@ -14,7 +14,7 @@ const PanditVerifyPhone = () => {
       console.log({ otp: otp.join("") })
       const response = await axios.post(`http://localhost:3000/api/pandit-otp-verification/${id}`, { otp: otp.join("") });
       if (response.data) {
-        navigate(`/dashboard/${response.data.user._id}`);
+        navigate(`/loginPandit`);
       } else {
         setError("You entered wrong URL");
       }
