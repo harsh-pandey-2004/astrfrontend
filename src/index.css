@@ -82,3 +82,8 @@
     padding-right:1.5rem;
   }
 }
+
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
