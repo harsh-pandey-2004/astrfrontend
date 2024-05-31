@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Select from 'react-select';
 
 function AstrologerProfileForm() {
   const { id } = useParams();
@@ -8,10 +9,10 @@ function AstrologerProfileForm() {
   const initialState = {
     firstName: "",
     lastName: "",
-    skills: "",
+    skills: [],
     professionalQualifications: "",
     gender: "",
-    languages: "",
+    languages: [],
     experience: "",
     city: "",
     dob: "",
@@ -23,6 +24,14 @@ function AstrologerProfileForm() {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+  }
+
+  function handleSelectChange(selectedOptions, action) {
+    const { name } = action;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: selectedOptions ? selectedOptions.map(option => option.value) : []
+    }));
   }
 
   async function handleSubmit(e) {
@@ -39,9 +48,50 @@ function AstrologerProfileForm() {
     }
   }
 
+  const skillsOptions = [
+    { value: 'Vedic Astrology', label: 'Vedic Astrology' },
+    { value: 'Numerology', label: 'Numerology' },
+    { value: 'Vastu Shastra', label: 'Vastu Shastra' },
+    { value: 'Palmistry', label: 'Palmistry' },
+    { value: 'Tarot Reading', label: 'Tarot Reading' },
+  ];
+
+  const languagesOptions = [
+    { value: 'Hindi', label: 'Hindi' },
+    { value: 'English', label: 'English' },
+    { value: 'Marathi', label: 'Marathi' },
+    { value: 'Gujarati', label: 'Gujarati' },
+    { value: 'Tamil', label: 'Tamil' },
+  ];
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      borderColor: 'gray',
+      color: 'black'
+    }),
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: 'lightgray',
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      color: 'black',
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: 'black',
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: 'gray',
+    })
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4">
       <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
+      
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="block text-gray-700 text-sm font-semibold mb-1">
@@ -162,33 +212,29 @@ function AstrologerProfileForm() {
             <label className="block text-gray-700 text-sm font-semibold mb-1">
               Skills
             </label>
-            <select
-              className="w-full p-2 border rounded text-black"
-              onChange={handleChange}
+            <Select
+              isMulti
               name="skills"
-            >
-              <option>Vedic Astrology</option>
-              <option>Numerology</option>
-              <option>Vastu Shastra</option>
-              <option>Palmistry</option>
-              <option>Tarot Reading</option>
-            </select>
+              options={skillsOptions}
+              className="basic-multi-select text-black"
+              classNamePrefix="select"
+              styles={customStyles}
+              onChange={handleSelectChange}
+            />
           </div>
           <div className="mb-3">
             <label className="block text-gray-700 text-sm font-semibold mb-1">
               Languages
             </label>
-            <select
-              className="w-full p-2 border rounded text-black"
-              onChange={handleChange}
+            <Select
+              isMulti
               name="languages"
-            >
-              <option>Hindi</option>
-              <option>English</option>
-              <option>Marathi</option>
-              <option>Gujarati</option>
-              <option>Tamil</option>
-            </select>
+              options={languagesOptions}
+              className="basic-multi-select text-black"
+              classNamePrefix="select"
+              styles={customStyles}
+              onChange={handleSelectChange}
+            />
           </div>
           <div className="mb-3">
             <label className="block text-gray-700 text-sm font-semibold mb-1">
@@ -205,7 +251,7 @@ function AstrologerProfileForm() {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-orange-600 text-white font-bold py-2 px-4 rounded hover:bg-orange-700 w-full"
+              className="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
             >
               Register
             </button>
