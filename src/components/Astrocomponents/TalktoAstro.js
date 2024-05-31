@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import { SearchLogo } from '../../icons/icons';
-import { PanditData } from '../kundalicomponents/Data';
-import AstroCard from './AstroCard';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { SearchLogo } from "../../icons/icons";
+import { PanditData } from "../kundalicomponents/Data";
+import AstroCard from "./AstroCard";
 
 const TalktoAstro = () => {
-  const [astroData, setAstroData] = useState(PanditData);
-  const [astroname, setAstroname] = useState('');
+  const [astroData, setAstroData] = useState([]);
+  const [astroname, setAstroname] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
-  const [selectedGender, setSelectedGender] = useState('');
+  const [selectedGender, setSelectedGender] = useState("");
 
-  const skillsOptions = ['Vedic Astrology', 'Numerology', 'Tarot Reading', 'Palmistry'];
-  const languageOptions = ['English', 'Hindi', 'Tamil', 'Telugu'];
-  const genderOptions = ['Male', 'Female'];
+  const skillsOptions = [
+    "Vedic Astrology",
+    "Numerology",
+    "Tarot Reading",
+    "Palmistry",
+  ];
+  const languageOptions = ["English", "Hindi", "Tamil", "Telugu"];
+  const genderOptions = ["Male", "Female"];
 
   const handleSkillChange = (skill) => {
     setSelectedSkills((prevSkills) =>
@@ -37,31 +43,52 @@ const TalktoAstro = () => {
   const filterAstrologers = () => {
     setAstroData(() => {
       return PanditData.filter((astro) => {
-        const matchesName = astro.name.toLowerCase().includes(astroname.toLowerCase());
-        const matchesSkills = selectedSkills.length === 0 || selectedSkills.some((skill) => astro.skills.includes(skill));
-        const matchesLanguages = selectedLanguages.length === 0 || selectedLanguages.some((language) => astro.language.includes(language));
-        const matchesGender = selectedGender === '' || astro.gender === selectedGender;
+        const matchesName = astro.name
+          .toLowerCase()
+          .includes(astroname.toLowerCase());
+        const matchesSkills =
+          selectedSkills.length === 0 ||
+          selectedSkills.some((skill) => astro.skills.includes(skill));
+        const matchesLanguages =
+          selectedLanguages.length === 0 ||
+          selectedLanguages.some((language) =>
+            astro.language.includes(language)
+          );
+        const matchesGender =
+          selectedGender === "" || astro.gender === selectedGender;
 
-        return matchesName && matchesSkills && matchesLanguages && matchesGender;
+        return (
+          matchesName && matchesSkills && matchesLanguages && matchesGender
+        );
       });
     });
   };
 
-
   const clearAllFilters = () => {
-    setAstroname('');
+    setAstroname("");
     setSelectedSkills([]);
     setSelectedLanguages([]);
-    setSelectedGender('');
-    setAstroData(PanditData);
+    setSelectedGender("");
   };
-
+  useEffect(() => {
+    const fetchData = async () => {
+      let response = await axios.get(
+        `http://localhost:3000/api/astrologer-data`
+      );
+      setAstroData(response.data.Astrodata);
+    };
+    fetchData();
+  }, []);
   return (
-    <div className="mb-28 w-full h-full flex">
+    <div className="mb-28 w-full h-full flex relative top-24 lg:top-0">
       {/* Grid */}
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
-        <h1 className="text-center text-yellow-500 text-3xl font-bold">Talk to Astrologer</h1>
-        <h2 className="text-center text-2xl text-yellow-400 font-semibold">Find Your Perfect Astrologer Match</h2>
+        <h1 className="text-center text-yellow-500 text-3xl font-bold">
+          Talk to Astrologer
+        </h1>
+        <h2 className="text-center text-2xl text-yellow-400 font-semibold">
+          Find Your Perfect Astrologer Match
+        </h2>
 
         {/* Recharge and Search Bar */}
         <div className="flex items-center justify-between px-6 mt-12">
@@ -90,19 +117,21 @@ const TalktoAstro = () => {
 
         {/* Cards */}
         <div className="grid  xs:gridcols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
-          {astroData.map((obj) => (
-            <AstroCard key={obj.name} obj={obj} />
-          ))}
+          {/* {console.log(astroData)} */}
+          {astroData &&
+            astroData.map((obj) => <AstroCard key={obj.name} obj={obj} />)}
         </div>
       </div>
 
       {/* Filters */}
       <div className="w-1/3 h-full p-6">
-        <div className='flex justify-between'>
-        <h1 className="font-semibold text-2xl">Filters</h1>
-        <button className='text-xl text-blue-500' onClick={clearAllFilters}>clear All</button>
+        <div className="flex justify-between">
+          <h1 className="font-semibold text-2xl">Filters</h1>
+          <button className="text-xl text-blue-500" onClick={clearAllFilters}>
+            clear All
+          </button>
         </div>
-       
+
         <div className="mt-4">
           <h2 className="text-lg font-medium">Skills</h2>
           {skillsOptions.map((skill) => (
@@ -115,7 +144,9 @@ const TalktoAstro = () => {
                 onChange={() => handleSkillChange(skill)}
                 className="mr-2 hover:cursor-pointer"
               />
-              <label htmlFor={`skill-${skill}`} className="text-gray-700">{skill}</label>
+              <label htmlFor={`skill-${skill}`} className="text-gray-700">
+                {skill}
+              </label>
             </div>
           ))}
         </div>
@@ -131,9 +162,10 @@ const TalktoAstro = () => {
                 checked={selectedLanguages.includes(language)}
                 onChange={() => handleLanguageChange(language)}
                 className="mr-2 hover:cursor-pointer "
-                
               />
-              <label htmlFor={`language-${language}`} className="text-gray-700">{language}</label>
+              <label htmlFor={`language-${language}`} className="text-gray-700">
+                {language}
+              </label>
             </div>
           ))}
         </div>
@@ -151,7 +183,9 @@ const TalktoAstro = () => {
                 onChange={() => handleGenderChange(gender)}
                 className="mr-2 hover:cursor-pointer"
               />
-              <label htmlFor={`gender-${gender}`} className="text-gray-700">{gender}</label>
+              <label htmlFor={`gender-${gender}`} className="text-gray-700">
+                {gender}
+              </label>
             </div>
           ))}
         </div>
