@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { RxDotFilled } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 const PoojaPandit = () => {
   const [response, setResponse] = useState([]);
+  const [responsePandit, setResponsePandit] = useState([]);
+  const { id } = useParams();
   const navigate = useNavigate();
   async function fetchPooja() {
     let a = await axios.get(
       "http://localhost:3000/api/PoojaDetails/Rudrabhishek Puja"
     );
     setResponse(a.data.pooja);
-    console.log(a.data)
+    console.log(a.data);
+  }
+  async function fetchPandit() {
+    let a = await axios.get(`http://localhost:3000/api/panditdata/${id}`);
+    setResponsePandit(a.data.panditData);
   }
   useEffect(() => {
     fetchPooja();
+    fetchPandit();
   }, []);
   return (
     <div className="flex flex-col gap-20 max-w-5xl  mx-auto pt-8 mb-12   ">
@@ -71,24 +78,30 @@ const PoojaPandit = () => {
           <div className="md:w-1/2 xs:w-full flex flex-col justify-center items-center gap-6  pt-8 ">
             <div className="flex flex-col justify-center items-center gap-2 ">
               <img
-                src="https://newsmug.in/wp-content/uploads/2022/08/260101937_3223278227893314_4237239637453456432_n.jpg"
+                src={responsePandit.image}
                 className="w-1/2 rounded-full"
               />
-              <p className="text-xl  font-semibold">RamaKrishna</p>
+              <p className="text-xl  font-semibold">
+                {responsePandit.firstName}
+                {responsePandit.lastName}
+              </p>
 
               <div className="w-full flex flex-col justify-center items-center  ">
                 <p className=" w-1/4 flex gap-2">
                   <span className="font-medium">Exp</span> <span>:</span>{" "}
-                  <span>20 years</span>
+                  <span>{responsePandit.experience}years</span>
                 </p>
                 <p className="w-1/4  flex gap-2">
                   <span className="font-medium">Language</span>:
-                  <span>Hindi,Tamil</span>
+                  <span>
+                   
+                     { responsePandit.languages && responsePandit.languages.map(e=><p>{e}</p>)}
+                  </span>
                 </p>
                 <p className="w-1/4  flex gap-2">
-                  {" "}
-                  <span className="font-medium">Belongs to:</span>{" "}
-                  <span>Bihar</span>
+                  
+                  <span className="font-medium">Belongsto:</span>
+                  <span>{responsePandit.belongsTo}</span>
                 </p>
               </div>
             </div>
@@ -127,13 +140,13 @@ const PoojaPandit = () => {
         </p>
         <div className="flex flex-col gap-1 mt-2 text-lg text-gray-700">
           <p className=" flex  flex-col">
-             {response.Ingredients && 
+            {response.Ingredients &&
               response.Ingredients.map((e) => (
                 <div key={e} className="flex gap-3 items-center">
                   <RxDotFilled />
                   {e}
                 </div>
-              ))} 
+              ))}
           </p>
         </div>
 

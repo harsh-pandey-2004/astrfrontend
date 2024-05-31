@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import BlogPage from "./Pages/BlogPage";
 import BookPandit from "./Pages/BookPandit";
 import BookPooja from "./Pages/BookPooja";
-import CallwithAstrologer from "./Pages/CallwithAstrologer";
+// import CallwithAstrologer from "./Pages/CallwithAstrologer";
 import ChatWithAstrologer from "./Pages/ChatWithAstrologer";
 import FreeKundali from "./Pages/FreeKundali";
 import Transactions from "./components/dashboard/pages/Transactions";
@@ -23,14 +23,18 @@ import Dashboard from "./components/dashboard/components/Dashboard";
 import Bookpoojasub from "./components/Bookpoojasub";
 import PujaCartForm from "./components/BookingForm";
 // import PanditPage from "./Pages/PanditPortal/PanditPage";
-import PanditRegisterForm from './components/panditcomponents/Sign-up'
+import PanditRegisterForm from "./components/panditcomponents/Sign-up";
 import PanditLoginForm from "./components/panditcomponents/Login";
 import PanditVerifyPhone from "./components/panditcomponents/VerificationPop";
 import PoojaPandit from "./components/BookaPanditComponents/PoojaPandit";
 import BookPanditForm from "./components/BookaPanditComponents/BookPanditForm";
 import ProfileForm from "./components/panditcomponents/MakeProfile";
-import MainPanditDash from "./components/panditcomponents/MainDashPandit"
+import MainPanditDash from "./components/panditcomponents/MainDashPandit";
 import TalktoAstro from "./components/Astrocomponents/TalktoAstro";
+import AstrologerLoginForm from "./components/astrologercomponents/Login";
+import AstrologerRegistrationForm from "./components/astrologercomponents/Sign-up";
+import AstrologerVerifyPhone from "./components/astrologercomponents/VerificationPop";
+import AstrologerProfileForm from "./components/astrologercomponents/SetProfileForm";
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -50,7 +54,7 @@ function App() {
             path="/chat-with-astrologer"
             element={<ChatWithAstrologer />}
           />
-          <Route path="/call-to-astrologer" element={<TalktoAstro/>} />
+          <Route path="/call-to-astrologer" element={<TalktoAstro />} />
           <Route
             path="/shop-on-astro"
             element={
@@ -69,16 +73,13 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
-    
 
-           
-
-          <Route path="/poojapandit" element={<PoojaPandit />} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
 
-          <Route path="/PanditsetProfile/:id" element={<ProfileForm/>} />
+          <Route path="/PanditsetProfile/:id" element={<ProfileForm />} />
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route path="/kundali-matching" element={<KundliMatching />}></Route>
           <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
@@ -90,12 +91,16 @@ function App() {
             <Route path="Support" element={<Support />} />
             <Route path="ChatHistory" element={<ChatHistory />} />
           </Route>
-          <Route path="/PanditRegister" element={<PanditRegisterForm />}></Route>
+          <Route
+            path="/PanditRegister"
+            element={<PanditRegisterForm />}
+          ></Route>
           <Route path="/loginPandit" element={<PanditLoginForm />}></Route>
           <Route
             path="/PanditRegister/panditVerify-phone/:id"
             element={<PanditVerifyPhone />}
           ></Route>
+
           <Route
             path="/poojapandit/:poojaId/pandit/:panditId/date/:date/time/:time"
             element={<BookPanditForm />}
@@ -105,6 +110,24 @@ function App() {
             element={<VerifyPhone />}
           ></Route>
           <Route path="/loginform" element={<LoginForm />}></Route>
+
+          {/* //AstroRoutes */}
+          <Route
+            path="/astrologerlogin"
+            element={<AstrologerLoginForm />}
+          ></Route>
+          <Route
+            path="/astrologerregister"
+            element={<AstrologerRegistrationForm />}
+          ></Route>
+          <Route
+            path="/astrologerregister/astrologerVerify-phone/:id"
+            element={<AstrologerVerifyPhone />}
+          ></Route>
+          <Route
+            path="/astrologersetprofile/:id"
+            element={<AstrologerProfileForm />}
+          ></Route>
         </Routes>
         <Footer showblur={showblur} />
       </BrowserRouter>

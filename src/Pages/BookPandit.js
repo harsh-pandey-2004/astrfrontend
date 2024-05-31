@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios"
-import PanditTestimonial from '../components/BookaPanditComponents/PanditTestimonial'
+import axios from "axios";
+import PanditTestimonial from "../components/BookaPanditComponents/PanditTestimonial";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
-import { Link } from "react-router-dom";
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
   "Andhra Pradesh",
@@ -45,13 +44,46 @@ const indianStatesAndUTs = [
 ];
 
 const BookPandit = (props) => {
-  const IsMenuClicked = props.IsmenuClicked;
   const showblur = props.showblur;
   const [selectedDate, setSelectedDate] = useState(null);
-  const [response, setResponse] = useState({nameOfPooja:"",location:""});
-
+  const [response, setResponse] = useState({ nameOfPooja: "", location: "" });
+  const [filterData, setfilterData] = useState([]);
   const handleChange = ({ name, target }) => {
     setResponse({ ...response, [name]: target });
+  };
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+  
+    const formattedDate = selectedDate
+      ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
+          .toString()
+          .padStart(2, "0")}/${selectedDate
+          .getDate()
+          .toString()
+          .padStart(2, "0")}`
+      : null;
+
+    if (!formattedDate || !response.nameOfPooja || !response.location) {
+      console.error("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const response1 = await axios.get(
+        "http://localhost:3000/api/panditpooja"
+      );
+      const filteredData = response1.data.data.filter(
+        (e) =>
+          e.availability.date.includes(formattedDate) &&
+          e.city === response.location &&
+          e.Skills.includes(response.nameOfPooja)
+      );
+
+      setfilterData(filteredData);
+    } catch (error) {
+      console.log("Error :", error);
+    }
   };
 
   return (
@@ -100,14 +132,14 @@ const BookPandit = (props) => {
           dateFormat="yyyy/MM/dd"
           value={selectedDate}
         />
+        <button onClick={handleClick}>Click</button>
       </div>
       <div className=" w-[95%] lg:w-[80%] mx-auto ">
-     <Link to="/poojapandit"> <ResponseCard/></Link>  
+        <ResponseCard filterData={filterData && filterData} />
       </div>
       <div className=" w-[95%] lg:w-[80%] mx-auto ">
-        <PanditTestimonial/>
+        <PanditTestimonial />
       </div>
-      
     </div>
   );
 };
