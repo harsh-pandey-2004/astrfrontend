@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 import BlogPage from "./Pages/BlogPage";
 import BookPandit from "./Pages/BookPandit";
 import BookPooja from "./Pages/BookPooja";
-import CallwithAstrologer from "./Pages/CallwithAstrologer";
+// import CallwithAstrologer from "./Pages/CallwithAstrologer";
 import ChatWithAstrologer from "./Pages/ChatWithAstrologer";
 import FreeKundali from "./Pages/FreeKundali";
 import Transactions from "./components/dashboard/pages/Transactions";
@@ -31,6 +31,10 @@ import BookPanditForm from "./components/BookaPanditComponents/BookPanditForm";
 import ProfileForm from "./components/panditcomponents/MakeProfile";
 import MainPanditDash from "./components/panditcomponents/MainDashPandit";
 import TalktoAstro from "./components/Astrocomponents/TalktoAstro";
+import AstrologerLoginForm from "./components/astrologercomponents/Login";
+import AstrologerRegistrationForm from "./components/astrologercomponents/Sign-up";
+import AstrologerVerifyPhone from "./components/astrologercomponents/VerificationPop";
+import AstrologerProfileForm from "./components/astrologercomponents/SetProfileForm";
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
