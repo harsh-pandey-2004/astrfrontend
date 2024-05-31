@@ -138,12 +138,12 @@ const Profile = ({ response }) => {
               <h2 className="text-xl mb-2">Skills</h2>
               <ul className="mb-4">
                 {response && response.Skills}
-                <button
+                {/* <button
                   className="bg-yellow-300  px-2 py-1 rounded"
-                  onClick={() => handleDeleteSkill(skill)}
+                  onClick={() => handleDeleteSkill(Skills)}
                 >
                   Delete
-                </button>
+                </button> */}
               </ul>
               <div className="md:flex xs:flex-col mb-4">
                 <input
