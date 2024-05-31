@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Select from 'react-select';
+import Select from "react-select";
 
 function AstrologerProfileForm() {
   const { id } = useParams();
@@ -18,6 +18,8 @@ function AstrologerProfileForm() {
     dob: "",
     zodiacSign: "",
     image: "",
+    chatPrice: "",
+    talkPrice: ""
   };
   const [formData, setFormData] = useState(initialState);
 
@@ -30,7 +32,9 @@ function AstrologerProfileForm() {
     const { name } = action;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: selectedOptions ? selectedOptions.map(option => option.value) : []
+      [name]: selectedOptions
+        ? selectedOptions.map((option) => option.value)
+        : [],
     }));
   }
 
@@ -49,49 +53,48 @@ function AstrologerProfileForm() {
   }
 
   const skillsOptions = [
-    { value: 'Vedic Astrology', label: 'Vedic Astrology' },
-    { value: 'Numerology', label: 'Numerology' },
-    { value: 'Vastu Shastra', label: 'Vastu Shastra' },
-    { value: 'Palmistry', label: 'Palmistry' },
-    { value: 'Tarot Reading', label: 'Tarot Reading' },
+    { value: "Vedic Astrology", label: "Vedic Astrology" },
+    { value: "Numerology", label: "Numerology" },
+    { value: "Vastu Shastra", label: "Vastu Shastra" },
+    { value: "Palmistry", label: "Palmistry" },
+    { value: "Tarot Reading", label: "Tarot Reading" },
   ];
 
   const languagesOptions = [
-    { value: 'Hindi', label: 'Hindi' },
-    { value: 'English', label: 'English' },
-    { value: 'Marathi', label: 'Marathi' },
-    { value: 'Gujarati', label: 'Gujarati' },
-    { value: 'Tamil', label: 'Tamil' },
+    { value: "Hindi", label: "Hindi" },
+    { value: "English", label: "English" },
+    { value: "Marathi", label: "Marathi" },
+    { value: "Gujarati", label: "Gujarati" },
+    { value: "Tamil", label: "Tamil" },
   ];
 
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      borderColor: 'gray',
-      color: 'black'
+      borderColor: "gray",
+      color: "black",
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: 'lightgray',
+      backgroundColor: "lightgray",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: 'black',
+      color: "black",
     }),
     input: (provided) => ({
       ...provided,
-      color: 'black',
+      color: "black",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: 'gray',
-    })
+      color: "gray",
+    }),
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4">
       <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
-      
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="block text-gray-700 text-sm font-semibold mb-1">
@@ -186,6 +189,33 @@ function AstrologerProfileForm() {
           <div className="grid grid-cols-2 gap-3 mb-3">
             <div>
               <label className="block text-gray-700 text-sm font-semibold mb-1">
+                Price for Chat
+              </label>
+              <input
+                type="text"
+                className="w-full p-2 border rounded text-black"
+                placeholder="Price for Chat"
+                onChange={handleChange}
+                name="chatPrice"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-semibold mb-1">
+                Price for Call per Min
+              </label>
+              <input
+                type="text"
+                className="w-full p-2 border rounded text-black"
+                placeholder="Price for Call per Min"
+                onChange={handleChange}
+                name="talkPrice"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label className="block text-gray-700 text-sm font-semibold mb-1">
                 Date of Birth
               </label>
               <input
@@ -214,7 +244,7 @@ function AstrologerProfileForm() {
             </label>
             <Select
               isMulti
-              name="skills"
+              name="Skils"
               options={skillsOptions}
               className="basic-multi-select text-black"
               classNamePrefix="select"
