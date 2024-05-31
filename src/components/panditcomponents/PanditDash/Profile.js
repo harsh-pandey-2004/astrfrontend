@@ -81,36 +81,6 @@ const Profile = () => {
                 </div>
 
 
-<<<<<<< HEAD
-            <div className="mt-4  rounded  w-full max-w-md">
-              <h2 className="text-xl mb-2">Skills</h2>
-              <ul className="mb-4">
-                {response && response.Skills}
-                {/* <button
-                  className="bg-yellow-300  px-2 py-1 rounded"
-                  onClick={() => handleDeleteSkill(Skills)}
-                >
-                  Delete
-                </button> */}
-              </ul>
-              <div className="md:flex xs:flex-col mb-4">
-                <input
-                  type="text"
-                  className="border px-2 flex-grow mr-2 rounded-md focus:outline-none bg-yellow-50"
-                  placeholder="Add a new skill"
-                  value={newSkill}
-                  onChange={(e) => setNewSkill(e.target.value)}
-                />
-                <button
-                  className="bg-blue-500 text-white px-4 py-1 rounded"
-                  onClick={handleAddSkill}
-                >
-                  Add
-                </button>
-              </div>
-            </div>
-=======
->>>>>>> 7289ce87d6aa96f34b4de3a764ad9947ce5004b2
 
 
                 <div className=' md:flex xs:flex-col  md:justify-between mt-6 border-b border-black  pb-2'>
