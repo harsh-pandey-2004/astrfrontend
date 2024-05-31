@@ -34,7 +34,9 @@ function AstroCard(props) {
           <p className="text-gray-600 text-base">
             Exp: {props.obj.experience} years
           </p>
-          <p className="text-gray-600 text-base"> {props.obj.price}</p>
+          <p className="text-gray-600 text-base x`">
+            ₹ {props.obj.talkPrice} / min
+          </p>
         </div>
 
         <div className=" flex flex-col items-center justify-center">
