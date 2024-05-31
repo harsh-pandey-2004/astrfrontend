@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { SearchLogo } from "../../icons/icons";
-import { PanditData } from "../kundalicomponents/Data";
 import ChatCard from "./ChatCard";
 import axios from "axios";
 
 const ChatWithAstro = () => {
   const [astroData, setAstroData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [astroname, setAstroname] = useState("");
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
@@ -14,8 +14,10 @@ const ChatWithAstro = () => {
   const skillsOptions = [
     "Vedic Astrology",
     "Numerology",
-    "Tarot Reading",
-    "Palmistry",
+    "Tarot",
+    "Palm-reading",
+    "Vedic",
+    "Lal kitab",
   ];
   const languageOptions = ["English", "Hindi", "Tamil", "Telugu"];
   const genderOptions = ["Male", "Female"];
@@ -41,27 +43,24 @@ const ChatWithAstro = () => {
   };
 
   const filterAstrologers = () => {
-    setAstroData(() => {
-      return PanditData.filter((astro) => {
-        const matchesName = astro.name
-          .toLowerCase()
-          .includes(astroname.toLowerCase());
-        const matchesSkills =
-          selectedSkills.length === 0 ||
-          selectedSkills.some((skill) => astro.skills.includes(skill));
-        const matchesLanguages =
-          selectedLanguages.length === 0 ||
-          selectedLanguages.some((language) =>
-            astro.language.includes(language)
-          );
-        const matchesGender =
-          selectedGender === "" || astro.gender === selectedGender;
-
-        return (
-          matchesName && matchesSkills && matchesLanguages && matchesGender
+    const filtered = astroData.filter((astro) => {
+      const matchesName = astro.name
+        .toLowerCase()
+        .includes(astroname.toLowerCase());
+      const matchesSkills =
+        selectedSkills.length === 0 ||
+        selectedSkills.some((skill) => astro.Skills.includes(skill));
+      const matchesLanguages =
+        selectedLanguages.length === 0 ||
+        selectedLanguages.some((language) =>
+          astro.languages.includes(language)
         );
-      });
+      const matchesGender =
+        selectedGender === "" || astro.gender === selectedGender;
+
+      return matchesName && matchesSkills && matchesLanguages && matchesGender;
     });
+    setFilteredData(filtered);
   };
 
   const clearAllFilters = () => {
@@ -69,7 +68,7 @@ const ChatWithAstro = () => {
     setSelectedSkills([]);
     setSelectedLanguages([]);
     setSelectedGender("");
-    setAstroData(PanditData);
+    setFilteredData(astroData);
   };
 
   useEffect(() => {
@@ -78,9 +77,11 @@ const ChatWithAstro = () => {
         `http://localhost:3000/api/astrologer-data`
       );
       setAstroData(response.data.Astrodata);
+      setFilteredData(response.data.Astrodata); // Initially, display all data
     };
     fetchData();
   }, []);
+
   return (
     <div className="mb-28 w-full h-full flex">
       {/* Grid */}
@@ -118,9 +119,9 @@ const ChatWithAstro = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid  xs:gridcols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
-          {astroData.map((obj) => (
-            <ChatCard key={obj.name} obj={obj} />
+        <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
+          {filteredData.map((obj) => (
+            <ChatCard key={obj._id} obj={obj} />
           ))}
         </div>
       </div>
@@ -130,7 +131,7 @@ const ChatWithAstro = () => {
         <div className="flex justify-between">
           <h1 className="font-semibold text-2xl">Filters</h1>
           <button className="text-xl text-blue-500" onClick={clearAllFilters}>
-            clear All
+            Clear All
           </button>
         </div>
 
