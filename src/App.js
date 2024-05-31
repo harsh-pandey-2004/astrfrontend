@@ -35,6 +35,7 @@ import AstrologerLoginForm from "./components/astrologercomponents/Login";
 import AstrologerRegistrationForm from "./components/astrologercomponents/Sign-up";
 import AstrologerVerifyPhone from "./components/astrologercomponents/VerificationPop";
 import AstrologerProfileForm from "./components/astrologercomponents/SetProfileForm";
+import ChatWithAstro from "./components/Astrocomponents/ChatWithAstro";
 import SingleAstro from "./components/Astrocomponents/SingleAstro";
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -53,7 +54,7 @@ function App() {
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route
             path="/chat-with-astrologer"
-            element={<ChatWithAstrologer />}
+            element={<ChatWithAstro/>}
           />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
           <Route path="/call-to-astrologer/:id" element={<SingleAstro />} />
