@@ -30,6 +30,7 @@ import PoojaPandit from "./components/BookaPanditComponents/PoojaPandit";
 import BookPanditForm from "./components/BookaPanditComponents/BookPanditForm";
 import ProfileForm from "./components/panditcomponents/MakeProfile";
 import MainPanditDash from "./components/panditcomponents/MainDashPandit"
+import TalktoAstro from "./components/Astrocomponents/TalktoAstro";
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -49,7 +50,7 @@ function App() {
             path="/chat-with-astrologer"
             element={<ChatWithAstrologer />}
           />
-          <Route path="/call-to-astrologer" element={<CallwithAstrologer />} />
+          <Route path="/call-to-astrologer" element={<TalktoAstro/>} />
           <Route
             path="/shop-on-astro"
             element={
@@ -68,6 +69,9 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
+    
+
+           
 
           <Route path="/poojapandit" element={<PoojaPandit />} />
 
