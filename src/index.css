@@ -87,3 +87,14 @@
 .sidebar::-webkit-scrollbar {
   display: none;
 }
+
+.astrogrid::-webkit-scrollbar {
+  display: none;
+}
+
+@media(max-width:580px){
+  .astrocard{
+    display: flex;
+    flex-direction: column ;
+  }
+}

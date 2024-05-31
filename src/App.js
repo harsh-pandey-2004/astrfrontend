@@ -29,12 +29,17 @@ import PanditVerifyPhone from "./components/panditcomponents/VerificationPop";
 import PoojaPandit from "./components/BookaPanditComponents/PoojaPandit";
 import BookPanditForm from "./components/BookaPanditComponents/BookPanditForm";
 import ProfileForm from "./components/panditcomponents/MakeProfile";
+<<<<<<< HEAD
 import MainPanditDash from "./components/panditcomponents/MainDashPandit";
 import AstrologerLoginForm from "./components/astrologercomponents/Login";
 import AstrologerRegistrationForm from "./components/astrologercomponents/Sign-up";
 import AstrologerVerifyPhone from "./components/astrologercomponents/VerificationPop";
 import SetProfileForm from "./components/astrologercomponents/SetProfileForm";
 import AstrologerProfileForm from "./components/astrologercomponents/SetProfileForm";
+=======
+import MainPanditDash from "./components/panditcomponents/MainDashPandit"
+import TalktoAstro from "./components/Astrocomponents/TalktoAstro";
+>>>>>>> b69d3c96d5562996172066d56da657a45980bf2b
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -54,7 +59,7 @@ function App() {
             path="/chat-with-astrologer"
             element={<ChatWithAstrologer />}
           />
-          <Route path="/call-to-astrologer" element={<CallwithAstrologer />} />
+          <Route path="/call-to-astrologer" element={<TalktoAstro/>} />
           <Route
             path="/shop-on-astro"
             element={
@@ -73,6 +78,9 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
+    
+
+           
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
