@@ -57,7 +57,7 @@ function App() {
             element={<ChatWithAstro/>}
           />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
-          <Route path="/call-to-astrologer/:id" element={<SingleAstro />} />
+          <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
           <Route
             path="/shop-on-astro"
             element={
