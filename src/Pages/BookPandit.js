@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import PanditTestimonial from "../components/BookaPanditComponents/PanditTestimonial";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
+
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
   "Andhra Pradesh",
@@ -47,14 +48,16 @@ const BookPandit = (props) => {
   const showblur = props.showblur;
   const [selectedDate, setSelectedDate] = useState(null);
   const [response, setResponse] = useState({ nameOfPooja: "", location: "" });
-  const [filterData, setfilterData] = useState([]);
-  const handleChange = ({ name, target }) => {
-    setResponse({ ...response, [name]: target });
+  const [filterData, setFilterData] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setResponse({ ...response, [name]: value });
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
 
-  
     const formattedDate = selectedDate
       ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
           .toString()
@@ -70,17 +73,16 @@ const BookPandit = (props) => {
     }
 
     try {
-      const response1 = await axios.get(
-        "http://localhost:3000/api/panditpooja"
+      const res = await axios.get("http://localhost:3000/api/panditpooja");
+      console.log(res);
+      const filteredData = res.data.data.filter(
+        (pandit) =>
+          pandit.availability.date.filter((e) => e == formattedDate) &&
+          pandit.city === response.location &&
+          pandit.Skills.includes(response.nameOfPooja)
       );
-      const filteredData = response1.data.data.filter(
-        (e) =>
-          e.availability.date.includes(formattedDate) &&
-          e.city === response.location &&
-          e.Skills.includes(response.nameOfPooja)
-      );
-
-      setfilterData(filteredData);
+      console.log(filteredData);
+      setFilterData(filteredData);
     } catch (error) {
       console.log("Error :", error);
     }
@@ -105,19 +107,18 @@ const BookPandit = (props) => {
           placeholder="Enter Pooja Name"
           name="nameOfPooja"
           className="p-3 rounded border-2 border-gray-300 outline-none shadow-sm w-full lg:w-1/4"
-          onChange={(e) =>
-            handleChange({ name: e.target.name, target: e.target.value })
-          }
+          onChange={handleChange}
           value={response.nameOfPooja}
-        ></input>
+        />
         <select
           className="p-3 rounded border-2 border-gray-300 outline-none shadow-sm w-full lg:w-1/4"
           name="location"
-          onChange={(e) =>
-            handleChange({ name: e.target.name, target: e.target.value })
-          }
+          onChange={handleChange}
           value={response.location}
         >
+          <option value="" disabled>
+            Select Location
+          </option>
           {indianStatesAndUTs.map((state) => (
             <option key={state} value={state}>
               {state}
@@ -132,12 +133,17 @@ const BookPandit = (props) => {
           dateFormat="yyyy/MM/dd"
           value={selectedDate}
         />
-        <button onClick={handleClick}>Click</button>
+        <button
+          onClick={handleClick}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          Search
+        </button>
       </div>
-      <div className=" w-[95%] lg:w-[80%] mx-auto ">
-        <ResponseCard filterData={filterData && filterData} />
+      <div className="w-[95%] lg:w-[80%] mx-auto">
+        <ResponseCard filterData={filterData} />
       </div>
-      <div className=" w-[95%] lg:w-[80%] mx-auto ">
+      <div className="w-[95%] lg:w-[80%] mx-auto">
         <PanditTestimonial />
       </div>
     </div>

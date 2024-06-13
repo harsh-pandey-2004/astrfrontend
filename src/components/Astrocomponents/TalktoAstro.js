@@ -75,6 +75,7 @@ const TalktoAstro = () => {
 
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
+      console.log(astro);
       const matchesName = astro.firstName
         .toLowerCase()
         .includes(astroname.toLowerCase());
@@ -174,39 +175,39 @@ const TalktoAstro = () => {
               Recharge
             </button>
           </div>
-
-          <div className="relative hidden sm:block">
-            <input
-              placeholder="Search by name..."
-              className="px-3 py-1 rounded bg-white hover:shadow-lg border-2 transition-all text-sans focus:outline-none"
-              value={astroname}
-              onChange={(e) => setAstroname(e.target.value)}
-            />
-            <div
-              className="absolute right-0 top-[0.15rem] bg-orange-500 py-1 px-2 rounded cursor-pointer hover:bg-orange-400"
-              onClick={filterAstrologers}
-            >
-              <SearchLogo />
+          <div className="flex items-center justify-center">
+            <div className="relative hidden sm:block">
+              <input
+                placeholder="Search by name..."
+                className="px-3 py-1 rounded bg-white hover:shadow-lg border-2 transition-all text-sans focus:outline-none"
+                value={astroname}
+                onChange={(e) => setAstroname(e.target.value)}
+              />
+              <div
+                className="absolute right-0 top-[0.15rem] bg-orange-500 py-1 px-2 rounded cursor-pointer hover:bg-orange-400"
+                onClick={filterAstrologers}
+              >
+                <SearchLogo />
+              </div>
+            </div>
+            <div className="flex justify-end items-center px-6 ">
+              <select
+                value={sortCriteria}
+                onChange={handleSortCriteriaChange}
+                className="border border-gray-300 rounded-md px-2 py-1 mr-2"
+              >
+                <option value="">Sort by</option>
+                <option value="price_high_to_low">Price High to Low</option>
+                <option value="price_low_to_high">Price Low to High</option>
+                <option value="experience_high_to_low">
+                  Experience High to Low
+                </option>
+                <option value="experience_low_to_high">
+                  Experience Low to High
+                </option>
+              </select>
             </div>
           </div>
-        </div>
-
-        <div className="flex justify-end items-center px-6 mt-4">
-          <select
-            value={sortCriteria}
-            onChange={handleSortCriteriaChange}
-            className="border border-gray-300 rounded-md px-2 py-1 mr-2"
-          >
-            <option value="">Sort by</option>
-            <option value="price_high_to_low">Price High to Low</option>
-            <option value="price_low_to_high">Price Low to High</option>
-            <option value="experience_high_to_low">
-              Experience High to Low
-            </option>
-            <option value="experience_low_to_high">
-              Experience Low to High
-            </option>
-          </select>
         </div>
 
         <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
@@ -227,64 +228,67 @@ const TalktoAstro = () => {
         <div className="mt-4">
           <h2 className="text-lg font-medium">Skills</h2>
           <div className="grid grid-cols-2">
-          {skillsOptions.map((skill) => (
-            <div key={skill} className="flex items-center mt-2">
-              <input
-                type="checkbox"
-                id={`skill-${skill}`}
-                value={skill}
-                checked={selectedSkills.includes(skill)}
-                onChange={() => handleSkillChange(skill)}
-                className="mr-2 hover:cursor-pointer"
-              />
-              <label htmlFor={`skill-${skill}`} className="text-gray-700">
-                {skill}
-              </label>
-            </div>
-          ))}
+            {skillsOptions.map((skill) => (
+              <div key={skill} className="flex items-center mt-2">
+                <input
+                  type="checkbox"
+                  id={`skill-${skill}`}
+                  value={skill}
+                  checked={selectedSkills.includes(skill)}
+                  onChange={() => handleSkillChange(skill)}
+                  className="mr-2 hover:cursor-pointer"
+                />
+                <label htmlFor={`skill-${skill}`} className="text-gray-700">
+                  {skill}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-4">
           <h2 className="text-lg font-medium">Language</h2>
           <div className="grid grid-cols-2">
-          {languageOptions.map((language) => (
-            <div key={language} className="flex items-center mt-2">
-              <input
-                type="checkbox"
-                id={`language-${language}`}
-                value={language}
-                checked={selectedLanguages.includes(language)}
-                onChange={() => handleLanguageChange(language)}
-                className="mr-2 hover:cursor-pointer "
-              />
-              <label htmlFor={`language-${language}`} className="text-gray-700">
-                {language}
-              </label>
-            </div>
-          ))}
+            {languageOptions.map((language) => (
+              <div key={language} className="flex items-center mt-2">
+                <input
+                  type="checkbox"
+                  id={`language-${language}`}
+                  value={language}
+                  checked={selectedLanguages.includes(language)}
+                  onChange={() => handleLanguageChange(language)}
+                  className="mr-2 hover:cursor-pointer "
+                />
+                <label
+                  htmlFor={`language-${language}`}
+                  className="text-gray-700"
+                >
+                  {language}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-4">
           <h2 className="text-lg font-medium">Gender</h2>
           <div className="grid grid-cols-2">
-          {genderOptions.map((gender) => (
-            <div key={gender} className="flex items-center mt-2">
-              <input
-                type="radio"
-                id={`gender-${gender}`}
-                name="gender"
-                value={gender}
-                checked={selectedGender === gender}
-                onChange={() => handleGenderChange(gender)}
-                className="mr-2 hover:cursor-pointer"
-              />
-              <label htmlFor={`gender-${gender}`} className="text-gray-700">
-                {gender}
-              </label>
-            </div>
-          ))}
+            {genderOptions.map((gender) => (
+              <div key={gender} className="flex items-center mt-2">
+                <input
+                  type="radio"
+                  id={`gender-${gender}`}
+                  name="gender"
+                  value={gender}
+                  checked={selectedGender === gender}
+                  onChange={() => handleGenderChange(gender)}
+                  className="mr-2 hover:cursor-pointer"
+                />
+                <label htmlFor={`gender-${gender}`} className="text-gray-700">
+                  {gender}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
       </div>

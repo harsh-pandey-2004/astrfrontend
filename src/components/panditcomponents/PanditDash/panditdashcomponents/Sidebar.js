@@ -42,7 +42,7 @@ function Sidebar({ response }) {
 
         <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full  bg-slate-100 ">
           {" "}
-          <Link to="/schedule">Schedule </Link>
+          <Link to={`/panditdashboard/${response._id}/shedule`}>Schedule </Link>
         </div>
 
         <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100  ">
