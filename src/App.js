@@ -43,6 +43,8 @@ import AstroCouncellorRegistrationForm from "./components/AstroCounceler/Sign-up
 import AstroCouncellForm from "./components/AstroCounceler/Login";
 import AstroCouncellorVerify from "./components/AstroCounceler/VerificationPop";
 import AstroCouncellorProfileForm from "./components/AstroCounceler/AstroCouncelProfileForm";
+import TalktoAstroCouncellor from "./components/AstroCounceler/TalkwithConcellor";
+import ChattoAstroCouncellor from "./components/AstroCounceler/ChatwithCouncellor";
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -162,6 +164,22 @@ function App() {
           <Route
             path="/astrologerCouncellor/:id"
             element={<AstroCouncellorProfileForm />}
+          ></Route>
+          <Route
+            path="/talk-astrocouncellor"
+            element={<TalktoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/chat-astrocouncellor"
+            element={<ChattoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/chat-toAstrocouncellor/:id"
+            element={<ChattoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/talk-toAstrocouncellor/:id"
+            element={<ChattoAstroCouncellor />}
           ></Route>
         </Routes>
         <Footer showblur={showblur} />
