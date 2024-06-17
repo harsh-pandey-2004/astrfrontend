@@ -32,7 +32,7 @@ const languageOptions = [
 
 const genderOptions = ["Male", "Female"];
 
-const TalktoAstro = () => {
+const TalktoAstroCouncellor = () => {
   const [astroData, setAstroData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [astroname, setAstroname] = useState("");
@@ -129,7 +129,7 @@ const TalktoAstro = () => {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `http://localhost:3000/api/astrologer-data`
+        `http://localhost:3000/api/astroCouncelor-data`
       );
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
@@ -162,10 +162,10 @@ const TalktoAstro = () => {
     <div className="mb-28 w-full h-full flex">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
-          Talk to Astrologer
+          Talk to AstrologerCouncellor
         </h1>
         <h2 className="text-center text-2xl text-yellow-400 font-semibold">
-          Find Your Perfect Astrologer Match
+          Find Your Perfect AstrologerCouncellor Match
         </h2>
 
         <div className="flex items-center justify-between px-6 mt-12">
@@ -296,4 +296,4 @@ const TalktoAstro = () => {
   );
 };
 
-export default TalktoAstro;
+export default TalktoAstroCouncellor;

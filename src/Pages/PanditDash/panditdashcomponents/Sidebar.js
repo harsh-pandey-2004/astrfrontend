@@ -28,7 +28,7 @@ function Sidebar() {
                  <div className='py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full  bg-slate-100  '>    <Link to="/mail" className='flex items-center justify-center gap-2'> <IoIosMail />Mail us </Link></div>
 
         
-            <div className='py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full  bg-slate-100 '>    <Link to="/schedule">Schedule </Link></div>
+            <div className='py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full  bg-slate-100 '>    <Link to="/panditdashboard/:id/shedule">Schedule </Link></div>
            
 
           

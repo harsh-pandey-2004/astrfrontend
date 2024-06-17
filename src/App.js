@@ -37,6 +37,14 @@ import AstrologerVerifyPhone from "./components/astrologercomponents/Verificatio
 import AstrologerProfileForm from "./components/astrologercomponents/SetProfileForm";
 import ChatWithAstro from "./components/Astrocomponents/ChatWithAstro";
 import SingleAstro from "./components/Astrocomponents/SingleAstro";
+import PanditSchedule from "./Pages/PanditDash/panditdashcomponents/PanditSchedule";
+import TabComponent from "./components/kundalicomponents/generateComponents/TabComponent";
+import AstroCouncellorRegistrationForm from "./components/AstroCounceler/Sign-up";
+import AstroCouncellForm from "./components/AstroCounceler/Login";
+import AstroCouncellorVerify from "./components/AstroCounceler/VerificationPop";
+import AstroCouncellorProfileForm from "./components/AstroCounceler/AstroCouncelProfileForm";
+import TalktoAstroCouncellor from "./components/AstroCounceler/TalkwithConcellor";
+import ChattoAstroCouncellor from "./components/AstroCounceler/ChatwithCouncellor";
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -52,10 +60,7 @@ function App() {
         <Navbar showbluefn={showbluefn} />
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
-          <Route
-            path="/chat-with-astrologer"
-            element={<ChatWithAstro/>}
-          />
+          <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
           <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
           <Route
@@ -81,9 +86,20 @@ function App() {
 
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
-
+          <Route
+            path="/panditdashboard/:id/shedule"
+            element={<PanditSchedule />}
+          ></Route>
           <Route path="/PanditsetProfile/:id" element={<ProfileForm />} />
+
+          {/* //kundali ROutes */}
           <Route path="/freekundali" element={<FreeKundali />}></Route>
+          <Route
+            path="/freekundali/basic-details"
+            element={<TabComponent />}
+          ></Route>
+
+          {/* //// */}
           <Route path="/kundali-matching" element={<KundliMatching />}></Route>
           <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
           <Route path="/register-page" element={<RegisterForm />}></Route>
@@ -130,6 +146,40 @@ function App() {
           <Route
             path="/astrologersetprofile/:id"
             element={<AstrologerProfileForm />}
+          ></Route>
+
+          {/* //AstroCouncellor Routes */}
+          <Route
+            path="/astrologerCouncellorlogin"
+            element={<AstroCouncellForm />}
+          ></Route>
+          <Route
+            path="/astrologerCouncellorregister"
+            element={<AstroCouncellorRegistrationForm />}
+          ></Route>
+          <Route
+            path="/astrologerCouncellorregister/astrologerCouncellorVerify-phone/:id"
+            element={<AstroCouncellorVerify />}
+          ></Route>
+          <Route
+            path="/astrologerCouncellor/:id"
+            element={<AstroCouncellorProfileForm />}
+          ></Route>
+          <Route
+            path="/talk-astrocouncellor"
+            element={<TalktoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/chat-astrocouncellor"
+            element={<ChattoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/chat-toAstrocouncellor/:id"
+            element={<ChattoAstroCouncellor />}
+          ></Route>
+          <Route
+            path="/talk-toAstrocouncellor/:id"
+            element={<ChattoAstroCouncellor />}
           ></Route>
         </Routes>
         <Footer showblur={showblur} />

@@ -32,7 +32,7 @@ const languageOptions = [
 
 const genderOptions = ["Male", "Female"];
 
-const TalktoAstro = () => {
+const ChattoAstroCouncellor = () => {
   const [astroData, setAstroData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [astroname, setAstroname] = useState("");
@@ -75,7 +75,6 @@ const TalktoAstro = () => {
 
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
-      console.log(astro);
       const matchesName = astro.firstName
         .toLowerCase()
         .includes(astroname.toLowerCase());
@@ -129,7 +128,7 @@ const TalktoAstro = () => {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `http://localhost:3000/api/astrologer-data`
+        `http://localhost:3000/api/astroCouncelor-data`
       );
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
@@ -162,10 +161,10 @@ const TalktoAstro = () => {
     <div className="mb-28 w-full h-full flex">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
-          Talk to Astrologer
+          Chat With AstroCouncellor
         </h1>
         <h2 className="text-center text-2xl text-yellow-400 font-semibold">
-          Find Your Perfect Astrologer Match
+          Find Your Perfect AstroCouncellor Match
         </h2>
 
         <div className="flex items-center justify-between px-6 mt-12">
@@ -175,44 +174,44 @@ const TalktoAstro = () => {
               Recharge
             </button>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="relative hidden sm:block">
-              <input
-                placeholder="Search by name..."
-                className="px-3 py-1 rounded bg-white hover:shadow-lg border-2 transition-all text-sans focus:outline-none"
-                value={astroname}
-                onChange={(e) => setAstroname(e.target.value)}
-              />
-              <div
-                className="absolute right-0 top-[0.15rem] bg-orange-500 py-1 px-2 rounded cursor-pointer hover:bg-orange-400"
-                onClick={filterAstrologers}
-              >
-                <SearchLogo />
-              </div>
-            </div>
-            <div className="flex justify-end items-center px-6 ">
-              <select
-                value={sortCriteria}
-                onChange={handleSortCriteriaChange}
-                className="border border-gray-300 rounded-md px-2 py-1 mr-2"
-              >
-                <option value="">Sort by</option>
-                <option value="price_high_to_low">Price High to Low</option>
-                <option value="price_low_to_high">Price Low to High</option>
-                <option value="experience_high_to_low">
-                  Experience High to Low
-                </option>
-                <option value="experience_low_to_high">
-                  Experience Low to High
-                </option>
-              </select>
+
+          <div className="relative hidden sm:block">
+            <input
+              placeholder="Search by name..."
+              className="px-3 py-1 rounded bg-white hover:shadow-lg border-2 transition-all text-sans focus:outline-none"
+              value={astroname}
+              onChange={(e) => setAstroname(e.target.value)}
+            />
+            <div
+              className="absolute right-0 top-[0.15rem] bg-orange-500 py-1 px-2 rounded cursor-pointer hover:bg-orange-400"
+              onClick={filterAstrologers}
+            >
+              <SearchLogo />
             </div>
           </div>
         </div>
 
+        <div className="flex justify-end items-center px-6 mt-4">
+          <select
+            value={sortCriteria}
+            onChange={handleSortCriteriaChange}
+            className="border border-gray-300 rounded-md px-2 py-1 mr-2"
+          >
+            <option value="">Sort by</option>
+            <option value="price_high_to_low">Price High to Low</option>
+            <option value="price_low_to_high">Price Low to High</option>
+            <option value="experience_high_to_low">
+              Experience High to Low
+            </option>
+            <option value="experience_low_to_high">
+              Experience Low to High
+            </option>
+          </select>
+        </div>
+
         <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
           {filteredData.map((obj) => (
-            <ChatCard key={obj._id} obj={obj} type={"talk"} />
+            <ChatCard key={obj._id} obj={obj} type={"chat"} />
           ))}
         </div>
       </div>
@@ -296,4 +295,4 @@ const TalktoAstro = () => {
   );
 };
 
-export default TalktoAstro;
+export default ChattoAstroCouncellor;

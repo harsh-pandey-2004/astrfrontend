@@ -280,12 +280,12 @@ const Navbar = ({ showbluefn }) => {
                 </Link>
                 {showhorodropDown && (
                   <div className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-52 z-10">
-                    <Link to={"/kundali-matching"}>
+                    <Link to={"/talk-astrocouncellor"}>
                       <div className="px-4 py-2  transEffect hover:hover-effect">
                         Call AstroCounseler
                       </div>
                     </Link>
-                    <Link to={"/kundali-matching"}>
+                    <Link to={"/chat-astrocouncellor"}>
                       <div className="px-4 py-2  transEffect hover:hover-effect">
                         Chat AstroCounseler
                       </div>
