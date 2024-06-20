@@ -45,6 +45,12 @@ import AstroCouncellorVerify from "./components/AstroCounceler/VerificationPop";
 import AstroCouncellorProfileForm from "./components/AstroCounceler/AstroCouncelProfileForm";
 import TalktoAstroCouncellor from "./components/AstroCounceler/TalkwithConcellor";
 import ChattoAstroCouncellor from "./components/AstroCounceler/ChatwithCouncellor";
+import MainDashAstro from "./components/astrologercomponents/Maindashastro";
+import MaindashCouncellor from "./components/AstroCounceler/MaindashCouncellor";
+
+
+
+
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -85,7 +91,7 @@ function App() {
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
           <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
+          <Route path="/panditdashboard/:id" element={<MainPanditDash />}/>
           <Route
             path="/panditdashboard/:id/shedule"
             element={<PanditSchedule />}
@@ -135,6 +141,7 @@ function App() {
             path="/astrologerlogin"
             element={<AstrologerLoginForm />}
           ></Route>
+          <Route path="/astrologerdashboard/:id" element={<MainDashAstro/>}/>
           <Route
             path="/astrologerregister"
             element={<AstrologerRegistrationForm />}
@@ -153,6 +160,7 @@ function App() {
             path="/astrologerCouncellorlogin"
             element={<AstroCouncellForm />}
           ></Route>
+          <Route path="astrocouncellordashboard/:id" element={<MaindashCouncellor/>}/>
           <Route
             path="/astrologerCouncellorregister"
             element={<AstroCouncellorRegistrationForm />}

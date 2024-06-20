@@ -31,12 +31,12 @@ const PanditRegisterForm = () => {
       console.log({
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
       let a = await axios.post("http://localhost:3000/api/pandit-registration", {
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
       navigate(`panditVerify-phone/${phoneNumber}`)
     } catch (error) {
