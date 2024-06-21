@@ -38,7 +38,7 @@ const PanditRegisterForm = () => {
         mobile: phoneNumber,
         countryCode: countryCode,
       });
-      navigate(`panditVerify-phone/${phoneNumber}`)
+      navigate(`panditverify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);
     }

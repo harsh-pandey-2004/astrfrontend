@@ -14,7 +14,7 @@ const AstroCouncellorVerify = () => {
       console.log({ otp: otp.join("") })
       const response = await axios.post(`http://localhost:3000/api/astroCouncelor-otp-verification/${id}`, { otp: otp.join("") });
       if (response.data) {
-        navigate(`/astrologerCouncellorlogin`);
+        navigate(`/astrocouncellorlogin`);
       } else {
         setError("You entered wrong URL");
       }

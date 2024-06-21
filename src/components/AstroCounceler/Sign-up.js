@@ -38,7 +38,7 @@ const AstroCouncellorRegistrationForm = () => {
         mobile: phoneNumber,
         countryCode: countryCode,
       });
-      navigate(`astrologerCouncellorVerify-phone/${phoneNumber}`)
+      navigate(`astrocouncellorverify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);
     }

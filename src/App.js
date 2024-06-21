@@ -67,8 +67,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
-          <Route path="/call-to-astrologer" element={<TalktoAstro />} />
-          <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
+          <Route path="/call-to-astrologer" element={<TalktoAstro/>} />
+          <Route path="/chat-with-astrologer/:id" element={<SingleAstro/>} />
           <Route
             path="/shop-on-astro"
             element={
@@ -88,48 +88,53 @@ function App() {
             }
           />
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit/>} />
 
-          <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/panditdashboard/:id" element={<MainPanditDash />}/>
+          <Route path="/blogs" element={<BlogPage/>} />
+          <Route path="/panditdashboard/:id" element={<MainPanditDash/>}/>
           <Route
             path="/panditdashboard/:id/shedule"
             element={<PanditSchedule />}
           ></Route>
-          <Route path="/PanditsetProfile/:id" element={<ProfileForm />} />
+          <Route path="/panditsetprofile/:id" element={<ProfileForm/>} />
 
           {/* //kundali ROutes */}
-          <Route path="/freekundali" element={<FreeKundali />}></Route>
+          <Route path="/freekundali" element={<FreeKundali/>}></Route>
           <Route
             path="/freekundali/basic-details"
             element={<TabComponent />}
           ></Route>
 
           {/* //// */}
-          <Route path="/kundali-matching" element={<KundliMatching />}></Route>
-          <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
-          <Route path="/register-page" element={<RegisterForm />}></Route>
-          <Route path="/book-a-pooja/:id" element={<Bookpoojasub />}></Route>
+          <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
+          <Route path="/pooja-booking" element={<PujaCartForm/>}></Route>
+          <Route path="/register-page" element={<RegisterForm/>}></Route>
+          <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>
           <Route path="/dashboard/:id" element={<Dashboard />}>
-            <Route path="Transactions" element={<Transactions />} />
-            <Route path="OrderHistory" element={<OrderHistory />} />
-            <Route path="Support" element={<Support />} />
-            <Route path="ChatHistory" element={<ChatHistory />} />
+            <Route path="Transactions" element={<Transactions/>} />
+            <Route path="OrderHistory" element={<OrderHistory/>} />
+            <Route path="Support" element={<Support/>} />
+            <Route path="ChatHistory" element={<ChatHistory/>} />
           </Route>
           <Route
-            path="/PanditRegister"
-            element={<PanditRegisterForm />}
+            path="/panditregister"
+            element={<PanditRegisterForm/>}
           ></Route>
-          <Route path="/loginPandit" element={<PanditLoginForm />}></Route>
+          <Route path="/loginpandit" element={<PanditLoginForm/>}></Route>
           <Route
-            path="/PanditRegister/panditVerify-phone/:id"
+            path="/panditregister/panditverify-phone/:id"
             element={<PanditVerifyPhone />}
           ></Route>
 
+
+               {/* Not changed */}
           <Route
             path="/poojapandit/:poojaId/pandit/:panditId/date/:date/time/:time"
             element={<BookPanditForm />}
           ></Route>
+
+
+
           <Route
             path="/register-page/verify-phone/:id"
             element={<VerifyPhone />}
@@ -147,7 +152,7 @@ function App() {
             element={<AstrologerRegistrationForm />}
           ></Route>
           <Route
-            path="/astrologerregister/astrologerVerify-phone/:id"
+            path="/astrologerregister/astrologerverify-phone/:id"
             element={<AstrologerVerifyPhone />}
           ></Route>
           <Route
@@ -157,20 +162,20 @@ function App() {
 
           {/* //AstroCouncellor Routes */}
           <Route
-            path="/astrologerCouncellorlogin"
+            path="/astrocouncellorlogin"
             element={<AstroCouncellForm />}
           ></Route>
           <Route path="astrocouncellordashboard/:id" element={<MaindashCouncellor/>}/>
           <Route
-            path="/astrologerCouncellorregister"
+            path="/astrocouncellorregister"
             element={<AstroCouncellorRegistrationForm />}
           ></Route>
           <Route
-            path="/astrologerCouncellorregister/astrologerCouncellorVerify-phone/:id"
+            path="/astrocouncellorregister/astrocouncellorverify-phone/:id"
             element={<AstroCouncellorVerify />}
           ></Route>
           <Route
-            path="/astrologerCouncellor/:id"
+            path="/astrocouncellor/:id"
             element={<AstroCouncellorProfileForm />}
           ></Route>
           <Route
@@ -182,11 +187,11 @@ function App() {
             element={<ChattoAstroCouncellor />}
           ></Route>
           <Route
-            path="/chat-toAstrocouncellor/:id"
+            path="/chat-to-astrocouncellor/:id"
             element={<ChattoAstroCouncellor />}
           ></Route>
           <Route
-            path="/talk-toAstrocouncellor/:id"
+            path="/talk-to-astrocouncellor/:id"
             element={<ChattoAstroCouncellor />}
           ></Route>
         </Routes>
