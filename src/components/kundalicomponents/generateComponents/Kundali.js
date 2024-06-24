@@ -1,34 +1,167 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Kundali = () => {
-  const [selectedType, setSelectedType] = useState("north");
+  const [selectedType, setSelectedType] = useState("Basic Kundali");
+  const [horoscopeData, setHoroscopeData] = useState(null);
+  const [planetReportData, setPlanetReportData] = useState(null);
+  const [personalCharacteristicsData, setPersonalCharacteristicsData] = useState(null);
+  const [ascendantReportData, setAscendantReportData] = useState(null);
+
+  useEffect(() => {
+    // Function to fetch data from API
+    const fetchData = async () => {
+      try {
+        const horoscopeResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+        );
+        setHoroscopeData(horoscopeResponse.data.response);
+
+        const planetReportResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&planet=Jupiter&lang=en"
+        );
+        setPlanetReportData(planetReportResponse.data.response[0]);
+
+        const personalCharacteristicsResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+        );
+        setPersonalCharacteristicsData(personalCharacteristicsResponse.data.response);
+
+        const ascendantReportResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+        );
+        setAscendantReportData(ascendantReportResponse.data.response[0]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the function to fetch data
+    fetchData();
+  }, []);
 
   const handleTypeChange = (type) => {
     setSelectedType(type);
   };
 
+  const renderHoroscopeDetails = () => {
+    if (!horoscopeData) return null;
+
+    return (
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Horoscope Details</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {Object.values(horoscopeData).map((planet, index) => (
+            <div key={index} className="border p-4 rounded-md">
+              <h3 className="text-lg font-medium mb-2">{planet.full_name}</h3>
+              <p><strong>Zodiac:</strong> {planet.zodiac}</p>
+              <p><strong>House:</strong> {planet.house}</p>
+              <p><strong>Nakshatra:</strong> {planet.nakshatra}</p>
+              <p><strong>Nakshatra Lord:</strong> {planet.nakshatra_lord}</p>
+              <p><strong>Speed (Radians per Day):</strong> {planet.speed_radians_per_day || '-'}</p>
+              <p><strong>Is Combust:</strong> {planet.is_combust ? 'Yes' : 'No'}</p>
+              <p><strong>Lord Status:</strong> {planet.lord_status}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const renderPlanetReport = () => {
+    if (!planetReportData) return null;
+
+    return (
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Planet Report: Jupiter</h2>
+        <div className="border p-4 rounded-md">
+          <h3 className="text-lg font-medium mb-2">{planetReportData.planet_considered}</h3>
+          <p><strong>General Prediction:</strong> {planetReportData.general_prediction}</p>
+          <p><strong>Planet Definitions:</strong> {planetReportData.planet_definitions}</p>
+          <p><strong>Personalized Prediction:</strong> {planetReportData.personalised_prediction}</p>
+          <p><strong>Verbal Location:</strong> {planetReportData.verbal_location}</p>
+          <p><strong>Character Keywords Positive:</strong> {planetReportData.character_keywords_positive.join(', ')}</p>
+          <p><strong>Character Keywords Negative:</strong> {planetReportData.character_keywords_negative.join(', ')}</p>
+        </div>
+      </div>
+    );
+  };
+
+  const renderPersonalCharacteristics = () => {
+    if (!personalCharacteristicsData) return null;
+
+    return (
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Personal Characteristics</h2>
+        {personalCharacteristicsData.map((characteristic, index) => (
+          <div key={index} className="border p-4 rounded-md mb-4">
+            <h3 className="text-lg font-medium mb-2">{`House ${characteristic.current_house}`}</h3>
+            <p><strong>Current Zodiac:</strong> {characteristic.current_zodiac}</p>
+            <p><strong>Lord of Zodiac:</strong> {characteristic.lord_of_zodiac}</p>
+            <p><strong>Lord Zodiac Location:</strong> {characteristic.lord_zodiac_location}</p>
+            <p><strong>Personalized Prediction:</strong> {characteristic.personalised_prediction}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderAscendantReport = () => {
+    if (!ascendantReportData) return null;
+
+    return (
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Ascendant Report: {ascendantReportData.ascendant}</h2>
+        <div className="border p-4 rounded-md">
+          <h3 className="text-lg font-medium mb-2">{`Lord of the Ascendant: ${ascendantReportData.ascendant_lord}`}</h3>
+          <p><strong>General Prediction:</strong> {ascendantReportData.general_prediction}</p>
+          <p><strong>Personalized Prediction:</strong> {ascendantReportData.personalised_prediction}</p>
+          <p><strong>Zodiac Characteristics:</strong> {ascendantReportData.zodiac_characteristics}</p>
+          <p><strong>Lucky Gem:</strong> {ascendantReportData.lucky_gem}</p>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="change-graph-type flex justify-between border-b border-gray-200">
-      <button
-        className={`selector-item px-4 py-2 rounded-md ${
-          selectedType === "north"
-            ? "active bg-blue-500 text-white hover:bg-blue-600"
-            : "bg-white text-gray-500 hover:bg-gray-100"
-        }`}
-        onClick={() => handleTypeChange("north")}
-      >
-        North Indian
-      </button>
-      <button
-        className={`selector-item px-4 py-2 rounded-md ${
-          selectedType === "south"
-            ? "active bg-blue-500 text-white hover:bg-blue-600"
-            : "bg-white text-gray-500 hover:bg-gray-100"
-        }`}
-        onClick={() => handleTypeChange("south")}
-      >
-        South Indian
-      </button>
+    <div className="container mx-auto py-8">
+      <div className="change-graph-type flex justify-between border-b border-gray-200 mb-8">
+        <button
+          className={`selector-item px-4 py-2 rounded-md ${
+            selectedType === "Basic Kundali"
+              ? "active bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-white text-gray-500 hover:bg-gray-100"
+          }`}
+          onClick={() => handleTypeChange("Basic Kundali")}
+        >
+          Basic Kundali
+        </button>
+        <button
+          className={`selector-item px-4 py-2 rounded-md ${
+            selectedType === "More Info"
+              ? "active bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-white text-gray-500 hover:bg-gray-100"
+          }`}
+          onClick={() => handleTypeChange("More Info")}
+        >
+          More Info
+        </button>
+      </div>
+
+      {/* Render each section based on selected type */}
+      {selectedType === "Basic Kundali" && (
+        <>
+          {renderHoroscopeDetails()}
+          {renderPlanetReport()}
+        </>
+      )}
+
+      {selectedType === "More Info" && (
+        <>
+          {renderPersonalCharacteristics()}
+          {renderAscendantReport()}
+        </>
+      )}
     </div>
   );
 };
