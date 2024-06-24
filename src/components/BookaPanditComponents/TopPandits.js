@@ -3,7 +3,7 @@ import Pandit from "./Pandit";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { PandirArray, responsive } from "../kundalicomponents/Data";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 
 const TopPandits = () => {
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");

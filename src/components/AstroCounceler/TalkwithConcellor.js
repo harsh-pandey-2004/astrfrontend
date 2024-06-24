@@ -131,6 +131,7 @@ const TalktoAstroCouncellor = () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astroCouncelor-data`
       );
+      console.log(response.data.Astrodata)
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
     };
