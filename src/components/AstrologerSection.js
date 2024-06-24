@@ -41,7 +41,7 @@ const AstrologerSection = ({showblur}) => {
   );
 
   return (
-    <div className="w-full h-fit top-20 relative px-5 shadow-2xl my-4 bg-orange-400 lg:top-0">
+    <div className="w-full h-fit top-20 relative px-5 shadow-2xl my-4 bg-orange-400 lg:top-0 ">
       <h1 className="text-2xl text-center font-bold py-5">Our Astrologers</h1>
       <Carousel
         swipeable={true}
