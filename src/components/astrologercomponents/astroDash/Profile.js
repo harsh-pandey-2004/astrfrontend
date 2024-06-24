@@ -17,7 +17,6 @@ const Profile = ({ response }) => {
   });
 
   useEffect(() => {
-    console.log(response);
     if (response) {
       setFormData({
         firstName: response.firstName || '',
@@ -27,7 +26,7 @@ const Profile = ({ response }) => {
         Skills: response.Skills || ['Vedic Chanting', 'Astrology'],
         experience: response.experience || '',
         languages: response.languages || '',
-        gotra: response.gotra || '',
+        chatPrice: response.chatPrice || '',
       });
     }
   }, [response]);
@@ -75,7 +74,7 @@ const Profile = ({ response }) => {
     e.preventDefault();
     try {
       const respond = await axios.patch(
-        `http://localhost:3000/api/update-pandit-profile/${response._id}`,
+        `http://localhost:3000/api/update-astrologer-profile/${response._id}`,
         formData
       );
       console.log(respond.data); // Handle the response data if needed
@@ -88,7 +87,7 @@ const Profile = ({ response }) => {
   return (
     <div className="w-4/5 h-screen py-4 absolute right-0 bg-orange-50 overflow-y-auto">
       <h1 className="text-center text-3xl">
-        Welcome! Pandit {formData.firstName}
+        Welcome! Astro {formData.firstName}
       </h1>
 
       <div className="md:w-3/5 xs:w-full mx-auto mt-6 rounded-lg px-4 pb-2 shadow-md bg-yellow-100">
@@ -122,11 +121,11 @@ const Profile = ({ response }) => {
 
             <div className="md:flex xs:flex-col gap-36 mt-4">
               <div className="flex gap-1 md:flex-col">
-                <p className="text-gray-600">Gotra</p>
+                <p className="text-gray-600">ChatPrice</p>
                 <input
                   type="text"
                   name="chatPrice"
-                  value={formData.gotra}
+                  value={formData.chatPrice}
                   onChange={handleInputChange}
                   className="bg-yellow-100 focus:outline-none"
                   readOnly={!editMode}
@@ -137,7 +136,7 @@ const Profile = ({ response }) => {
                 <label htmlFor="gender" className="text-gray-600">
                   Gender
                 </label>
-                <p className="bg-yellow-100">Male</p>
+                <p className="bg-yellow-100">{response.gender}</p>
               </div>
             </div>
           </div>

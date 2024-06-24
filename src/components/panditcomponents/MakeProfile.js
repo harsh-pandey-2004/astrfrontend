@@ -7,10 +7,10 @@ function ProfileForm() {
   const initialState = {
     firstName: "",
     lastName: "",
-    Skills: "",
+    Skills: [],
     ProfessionalQualifications: "",
     gender: "",
-    languages: "",
+    languages: [],
     experience: "",
     city: "",
     dob: "",

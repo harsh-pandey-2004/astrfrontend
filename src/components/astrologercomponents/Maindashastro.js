@@ -1,29 +1,29 @@
-import Sidebar from "./PanditDash/panditdashcomponents/Sidebar";
+import Sidebar from "./astroDash/astrodashcom/Sidebar";
 import { Routes, Route, useParams } from "react-router-dom";
-import Profile from "./PanditDash/Profile";
+import Profile from "./astroDash/Profile";
 // import Schedule from "./PanditDash";
-import Stats from "./PanditDash/Stats";
-import MailPage from "./PanditDash/MailPage";
+import Stats from "./astroDash/Stats";
+import MailPage from "./astroDash/MailPage";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 
-function MainPanditDash() {
+function Maindashastro() {
   const [response, setResponse] = useState([]);
-  const { id } = useParams();
+  const  slug  = useParams();
+  console.log(slug);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`http://localhost:3000/api/panditdata/${id}`);
-        console.log(a.data.panditData);
-        setResponse(a.data.panditData);
-        
+        let a = await axios.get(`http://localhost:3000/api/astrologer/${slug.id}`);
+        console.log(a.data.Data);
+        setResponse(a.data.Data);
       } catch (error) {
         console.log("error:", error);
       }
     };
     fetchData();
-  }, [id]);
+  }, [slug]);
   return (
     <div className="flex relative overflow-hidden top-24 lg:top-0">
       
@@ -40,4 +40,4 @@ function MainPanditDash() {
   );
 }
 
-export default MainPanditDash;
+export default Maindashastro;

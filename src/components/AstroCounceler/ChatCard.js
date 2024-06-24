@@ -8,7 +8,7 @@ function ChatCard({ obj, type }) {
   return (
     <div
       className=" flex flex-col gap-3 border rounded-lg shadow-md shadow-gray-400 py-2 hover:cursor-pointer "
-      onClick={() => navigate(`/${type }-toAstrocouncellor/${obj.slug}`)}
+      onClick={() => navigate(`/${type }-to-astrocouncellor/${obj.slug}`)}
     >
       <div className="text-sm  flex justify-center text-yellow-500">
         <IoIosStar />

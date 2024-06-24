@@ -31,14 +31,14 @@ const PanditRegisterForm = () => {
       console.log({
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
       let a = await axios.post("http://localhost:3000/api/pandit-registration", {
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
-      navigate(`panditVerify-phone/${phoneNumber}`)
+      navigate(`panditverify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);
     }

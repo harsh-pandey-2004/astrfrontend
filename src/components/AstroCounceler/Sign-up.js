@@ -31,14 +31,14 @@ const AstroCouncellorRegistrationForm = () => {
       console.log({
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
       let a = await axios.post("http://localhost:3000/api/astroCouncelor-register", {
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        countryCode: countryCode,
       });
-      navigate(`astrologerCouncellorVerify-phone/${phoneNumber}`)
+      navigate(`astrocouncellorverify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);
     }
