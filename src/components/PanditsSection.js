@@ -46,7 +46,7 @@ function PanditsSection({showblur}) {
       );
   return (
     <div className="w-full h-fit top-20 relative px-5 shadow-2xl my-4  lg:top-0  py-6">
-    <h1  className="text-center text-2xl font-semibold">Our Pandits</h1>
+    <h1  className="text-center text-2xl font-bold ">Our Pandits</h1>
     <h2 className="text-center text-xl ">13000+ Best Pandits from India for You</h2>
     <Carousel
       swipeable={true}
@@ -65,6 +65,7 @@ function PanditsSection({showblur}) {
       itemClass="carousel-item-padding-40-px"
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
+      className=' pb-6'
     >
     
       {

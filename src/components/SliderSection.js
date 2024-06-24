@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 const Carousel = () => {
   const settings = {
@@ -53,7 +54,7 @@ const Carousel = () => {
         </Slider>
       </div>
       <div className="grid grid-cols-3 relative top-16 sm:grid-cols-3 lg:grid-cols-6 w-[90%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%] ">
-        <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36">
+       <Link to="/book-a-pooja"><div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
               src="https://clipartspub.com/images600_/wedding-clipart-png-kalash- 9.png"
@@ -61,7 +62,9 @@ const Carousel = () => {
             ></img>
           </div>
           <p className="text-xs font-sans sm:text-base">Book a Pooja</p>
-        </div>
+        </div></Link>
+
+        <Link to="/shop-on-astro">
         <div className="flex flex-col items-center justify-center sm:bg-white  rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
@@ -70,7 +73,9 @@ const Carousel = () => {
             ></img>
           </div>
           <p className="text-xs font-sans sm:text-base">Book a Prasad</p>
-        </div>
+        </div></Link> 
+
+        <Link to="/book-a-pandit">
         <div className="flex flex-col items-center justify-center sm:bg-white  rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
@@ -78,8 +83,10 @@ const Carousel = () => {
               className="w-full h-full "
             ></img>
           </div>
-          <p className="text-xs font-sans sm:text-base">Call a Pandit</p>
-        </div>
+          <p className="text-xs font-sans sm:text-base">Book a Pandit</p>
+        </div></Link>
+
+        <Link to="/chat-with-astrologer">
         <div className="flex flex-col items-center justify-center sm:bg-white  rounded-lg lg:px-1 lg:py-3 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
@@ -88,7 +95,9 @@ const Carousel = () => {
             ></img>
           </div>
           <p className="text-xs font-sans sm:text-sm font-normal">Chat with Astrologer</p>
-        </div>
+        </div></Link>
+
+        <Link to="/call-to-astrologer">
         <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 p-1 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
@@ -97,7 +106,9 @@ const Carousel = () => {
             ></img>
           </div>
           <p className="text-sm font-sans ">Call to Astrologer</p>
-        </div>
+        </div></Link>
+
+        <Link to="/shop-on-astro">
         <div className="flex flex-col items-center justify-center sm:bg-white  rounded-lg lg:px-5 lg:py-3 w-full min-w-36">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
@@ -106,7 +117,7 @@ const Carousel = () => {
             ></img>
           </div>
           <p className="text-xs font-sans sm:text-base">Shop</p>
-        </div>
+        </div></Link>
       </div>
     </div>
   );
