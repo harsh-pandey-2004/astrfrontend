@@ -8,7 +8,7 @@ function Dashboard() {
   console.log(id)
   async function getData() {
     try {
-      let a = await axios.get(`http://localhost:3000/api/userDetails/${id}`);
+      let a = await axios.get(`https://astrobackend.onrender.com/api/userDetails/${id}`);
       setResponse(a.data.existingUser);
       console.log(a.data.existingUser);
     } catch (error) {

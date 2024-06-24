@@ -14,7 +14,7 @@ const SingleAstro = () => {
   useEffect(()=>{
     const fetchData = async () => {
       let response = await axios.get(
-        `http://localhost:3000/api/astrologer/${id}`
+        `https://astrobackend.onrender.com/api/astrologer/${id}`
       );
       
       setAstrologer(response.data.Data);

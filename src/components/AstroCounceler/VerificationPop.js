@@ -12,7 +12,7 @@ const AstroCouncellorVerify = () => {
   async function getUser() {
     try {
       console.log({ otp: otp.join("") })
-      const response = await axios.post(`http://localhost:3000/api/astroCouncelor-otp-verification/${id}`, { otp: otp.join("") });
+      const response = await axios.post(`https://astrobackend.onrender.com/api/astroCouncelor-otp-verification/${id}`, { otp: otp.join("") });
       if (response.data) {
         navigate(`/astrocouncellorlogin`);
       } else {

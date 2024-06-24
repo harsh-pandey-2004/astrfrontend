@@ -73,7 +73,7 @@ const BookPandit = (props) => {
     }
 
     try {
-      const res = await axios.get("http://localhost:3000/api/panditpooja");
+      const res = await axios.get("https://astrobackend.onrender.com/api/panditpooja");
       console.log(res);
       const filteredData = res.data.data.filter(
         (pandit) =>

@@ -42,7 +42,7 @@ const Schedule = () => {
 
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/update-pandit-profile/${id}`,
+        `https://astrobackend.onrender.com/api/update-pandit-profile/${id}`,
         { date: allDates }
       );
       console.log(allDates);

@@ -42,7 +42,7 @@ function AstroCouncellorProfileForm() {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/update-astroCouncelor-profile/${id}`,
+        `https://astrobackend.onrender.com/api/update-astroCouncelor-profile/${id}`,
         formData
       );
       console.log(response.data);

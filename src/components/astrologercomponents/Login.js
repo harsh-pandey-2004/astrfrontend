@@ -27,7 +27,7 @@ const AstrologerLoginForm = () => {
     ...response,
     mobile: phoneNumber,
   })
-    let a = await axios.post("http://localhost:3000/api/astrologer-login", {
+    let a = await axios.post("https://astrobackend.onrender.com/api/astrologer-login", {
       ...response,
       mobile: phoneNumber,
     });

@@ -14,7 +14,7 @@ function MainPanditDash() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`http://localhost:3000/api/panditdata/${id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${id}`);
         console.log(a.data.panditData);
         setResponse(a.data.panditData);
         

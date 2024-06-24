@@ -33,7 +33,7 @@ const PanditRegisterForm = () => {
         mobile: phoneNumber,
         countryCode: countryCode,
       });
-      let a = await axios.post("http://localhost:3000/api/pandit-registration", {
+      let a = await axios.post("https://astrobackend.onrender.com/api/pandit-registration", {
         ...response,
         mobile: phoneNumber,
         countryCode: countryCode,

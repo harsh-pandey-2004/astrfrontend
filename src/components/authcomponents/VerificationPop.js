@@ -10,7 +10,7 @@ const VerifyPhone = () => {
   async function getUser() {
     try {
       let a = await axios.post(
-        `http://localhost:3000/api/otp-verification/${id}`,
+        `https://astrobackend.onrender.com/api/otp-verification/${id}`,
         otp
       );
       setResponse(a.data);
