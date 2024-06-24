@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import PanditCard from './PanditCard';
+import AstroCard from './PanditCard';
 import AstroCarsdata from './AstroCarsdata';
 
 
@@ -69,7 +69,7 @@ function AstroCouncellorSection({showblur}) {
     >
     
       {
-        AstroCarsdata.map((obj)=>{return <PanditCard obj={obj}/> })
+        AstroCarsdata.map((obj)=>{return <AstroCard obj={obj}/> })
       }
     
      
