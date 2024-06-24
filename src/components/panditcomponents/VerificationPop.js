@@ -12,7 +12,7 @@ const PanditVerifyPhone = () => {
   async function getUser() {
     try {
       console.log({ otp: otp.join("") })
-      const response = await axios.post(`http://localhost:3000/api/pandit-otp-verification/${id}`, { otp: otp.join("") });
+      const response = await axios.post(`https://astrobackend.onrender.com/api/pandit-otp-verification/${id}`, { otp: otp.join("") });
       if (response.data) {
         navigate(`/loginpandit`);
       } else {

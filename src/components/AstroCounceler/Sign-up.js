@@ -33,7 +33,7 @@ const AstroCouncellorRegistrationForm = () => {
         mobile: phoneNumber,
         countryCode: countryCode,
       });
-      let a = await axios.post("http://localhost:3000/api/astroCouncelor-register", {
+      let a = await axios.post("https://astrobackend.onrender.com/api/astroCouncelor-register", {
         ...response,
         mobile: phoneNumber,
         countryCode: countryCode,

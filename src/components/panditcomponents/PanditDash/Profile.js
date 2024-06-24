@@ -75,7 +75,7 @@ const Profile = ({ response }) => {
     e.preventDefault();
     try {
       const respond = await axios.patch(
-        `http://localhost:3000/api/update-pandit-profile/${response._id}`,
+        `https://astrobackend.onrender.com/api/update-pandit-profile/${response._id}`,
         formData
       );
       console.log(respond.data); // Handle the response data if needed

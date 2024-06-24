@@ -23,7 +23,7 @@ const NewKundli = () => {
       return;
     }
 
-    const endpoint = `http://localhost:3000/places`;
+    const endpoint = `https://astrobackend.onrender.com/places`;
 
     try {
       const response = await axios.get(endpoint, {

@@ -44,7 +44,7 @@ function AstrologerProfileForm() {
     console.log(formData);
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/update-astrologer-profile/${id}`,
+        `https://astrobackend.onrender.com/api/update-astrologer-profile/${id}`,
         formData
       );
       console.log(response.data.Astrologer.Skills);

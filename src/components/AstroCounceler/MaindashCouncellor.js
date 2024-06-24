@@ -15,7 +15,7 @@ function MaindashCouncellor() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`http://localhost:3000/api/astroCouncelor/${slug.id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/astroCouncelor/${slug.id}`);
         console.log(a.data.Data);
         setResponse(a.data.Data);
       } catch (error) {

@@ -128,7 +128,7 @@ const ChattoAstroCouncellor = () => {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `http://localhost:3000/api/astroCouncelor-data`
+        `https://astrobackend.onrender.com/api/astroCouncelor-data`
       );
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);

@@ -13,7 +13,7 @@ const AstrologerVerifyPhone = () => {
     try {
       console.log({ otp: otp.join("") });
       const response = await axios.post(
-        `http://localhost:3000/api/astrologer-otp-verification/${id}`,
+        `https://astrobackend.onrender.com/api/astrologer-otp-verification/${id}`,
         { otp: otp.join("") }
       );
       if (response.data) {

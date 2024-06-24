@@ -24,7 +24,7 @@ const PanditLoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
    
-    let a = await axios.post("http://localhost:3000/api/loginpandit", {
+    let a = await axios.post("https://astrobackend.onrender.com/api/loginpandit", {
       ...response,
       mobile: phoneNumber,
     });

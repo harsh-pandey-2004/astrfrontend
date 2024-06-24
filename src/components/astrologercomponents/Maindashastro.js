@@ -15,7 +15,7 @@ function Maindashastro() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`http://localhost:3000/api/astrologer/${slug.id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/astrologer/${slug.id}`);
         console.log(a.data.Data);
         setResponse(a.data.Data);
       } catch (error) {

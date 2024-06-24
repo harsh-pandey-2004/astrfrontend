@@ -24,7 +24,7 @@ const AstroCouncellForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
    
-    let a = await axios.post("http://localhost:3000/api/astroCouncelor-login", {
+    let a = await axios.post("https://astrobackend.onrender.com/api/astroCouncelor-login", {
       ...response,
       mobile: phoneNumber,
     });

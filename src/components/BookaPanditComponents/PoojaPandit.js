@@ -9,13 +9,13 @@ const PoojaPandit = () => {
   const navigate = useNavigate();
   async function fetchPooja() {
     let a = await axios.get(
-      "http://localhost:3000/api/PoojaDetails/Rudrabhishek Puja"
+      "https://astrobackend.onrender.com/api/PoojaDetails/Rudrabhishek Puja"
     );
     setResponse(a.data.pooja);
     console.log(a.data);
   }
   async function fetchPandit() {
-    let a = await axios.get(`http://localhost:3000/api/panditdata/${id}`);
+    let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${id}`);
     setResponsePandit(a.data.panditData);
   }
   useEffect(() => {

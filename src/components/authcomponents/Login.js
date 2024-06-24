@@ -23,7 +23,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let a = await axios.post("http://localhost:3000/api/login", {
+    let a = await axios.post("https://astrobackend.onrender.com/api/login", {
       ...response,
       mobile: phoneNumber,
     });
