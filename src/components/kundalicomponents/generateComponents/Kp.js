@@ -1,147 +1,129 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Kp = () => {
+  const [kpPlanets, setKpPlanets] = useState([]);
+  const [kpHouses, setKpHouses] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch KP Planets
+        const planetsResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+        );
+        setKpPlanets(planetsResponse.data.response);
+
+        // Fetch KP Houses
+        const housesResponse = await axios.get(
+          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+        );
+        setKpHouses(housesResponse.data.response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-gray-100 p-6">
       <div className="flex flex-wrap -mx-4">
-        {/* Bhav Chalit Chart */}
-        <div className="w-full xl:w-1/3 lg:w-1/2 md:w-full px-4 mb-6">
+        {/* KP Planets */}
+        <div className="w-full px-4 mb-6">
           <div className="bg-white p-6 shadow-md rounded">
-            <h2 className="text-2xl font-bold mb-4">Bhav Chalit Chart</h2>
-            <div className="flex justify-center">
-              <canvas id="kpChart" width="700" height="700" className="w-44 h-44"></canvas>
-            </div>
-          </div>
-        </div>
-
-        {/* Ruling Planets */}
-        <div className="w-full xl:w-2/3 lg:w-1/2 md:w-full px-4 mb-6">
-          <div className="bg-white p-6 shadow-md rounded">
-            <h6 className="text-xl font-bold mb-4">Ruling Planets</h6>
+            <h2 className="text-2xl font-bold mb-4">KP Planets</h2>
             <div className="overflow-x-auto">
               <table className="table-auto w-full border-collapse border border-gray-300">
                 <thead>
                   <tr className="bg-gray-200">
-                    <th className="border border-gray-300 px-4 py-2">--</th>
-                    <th className="border border-gray-300 px-4 py-2">Sign Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Star Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Sub Lord</th>
+                    <th className="border border-gray-300 px-4 py-2">Name</th>
+                    <th className="border border-gray-300 px-4 py-2">House</th>
+                    <th className="border border-gray-300 px-4 py-2">Zodiac</th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Sub Lord
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">Mo</td>
-                    <td className="border border-gray-300 px-4 py-2">Moon</td>
-                    <td className="border border-gray-300 px-4 py-2">Mercury</td>
-                    <td className="border border-gray-300 px-4 py-2">JUPITER</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">Asc</td>
-                    <td className="border border-gray-300 px-4 py-2">Sun</td>
-                    <td className="border border-gray-300 px-4 py-2">Venus</td>
-                    <td className="border border-gray-300 px-4 py-2">Mars</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2" colSpan="2"><b>Day Lord</b></td>
-                    <td className="border border-gray-300 px-4 py-2" colSpan="2">Mars</td>
-                  </tr>
+                  {Object.values(kpPlanets).map((planet, index) => (
+                    <tr key={index}>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {planet.full_name}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {planet.house}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {planet.zodiac}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {planet.sub_lord}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
 
-        {/* Planets */}
+        {/* KP Houses */}
         <div className="w-full px-4 mb-6">
           <div className="bg-white p-6 shadow-md rounded">
-            <h6 className="text-xl font-bold mb-4">Planets</h6>
+            <h2 className="text-2xl font-bold mb-4">KP Houses</h2>
             <div className="overflow-x-auto">
               <table className="table-auto w-full border-collapse border border-gray-300">
                 <thead>
                   <tr className="bg-gray-200">
-                    <th className="border border-gray-300 px-4 py-2">Planets</th>
-                    <th className="border border-gray-300 px-4 py-2">Cusp</th>
-                    <th className="border border-gray-300 px-4 py-2">Sign</th>
-                    <th className="border border-gray-300 px-4 py-2">Sign Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Star Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Sub Lord</th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Start Rasi
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      End Rasi
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      End Rasi Lord
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">House</th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Bhavmadhya
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Cusp Sub Lord
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2">
+                      Cusp Sub Sub Lord
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">Sun</td>
-                    <td className="border border-gray-300 px-4 py-2">8</td>
-                    <td className="border border-gray-300 px-4 py-2">Sagittarius</td>
-                    <td className="border border-gray-300 px-4 py-2">Ju</td>
-                    <td className="border border-gray-300 px-4 py-2">Ve</td>
-                    <td className="border border-gray-300 px-4 py-2">Mo</td>
-                  </tr>
-                  {/* Additional rows for other planets */}
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">Moon</td>
-                    <td className="border border-gray-300 px-4 py-2">10</td>
-                    <td className="border border-gray-300 px-4 py-2">Aquarius</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                    <td className="border border-gray-300 px-4 py-2">Ra</td>
-                    <td className="border border-gray-300 px-4 py-2">Ra</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">Mars</td>
-                    <td className="border border-gray-300 px-4 py-2">6</td>
-                    <td className="border border-gray-300 px-4 py-2">Scorpio</td>
-                    <td className="border border-gray-300 px-4 py-2">Ma</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                    <td className="border border-gray-300 px-4 py-2">Ju</td>
-                  </tr>
-                  {/* Additional rows for other planets */}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* Cusps */}
-        <div className="w-full px-4 mb-6">
-          <div className="bg-white p-6 shadow-md rounded">
-            <h6 className="text-xl font-bold mb-4">Cusps</h6>
-            <div className="overflow-x-auto">
-              <table className="table-auto w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr className="bg-gray-200">
-                    <th className="border border-gray-300 px-4 py-2">Cusp</th>
-                    <th className="border border-gray-300 px-4 py-2">Degree</th>
-                    <th className="border border-gray-300 px-4 py-2">Sign</th>
-                    <th className="border border-gray-300 px-4 py-2">Sign Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Star Lord</th>
-                    <th className="border border-gray-300 px-4 py-2">Sub Lord</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">1</td>
-                    <td className="border border-gray-300 px-4 py-2">46.67</td>
-                    <td className="border border-gray-300 px-4 py-2">Taurus</td>
-                    <td className="border border-gray-300 px-4 py-2">Ve</td>
-                    <td className="border border-gray-300 px-4 py-2">Mo</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">2</td>
-                    <td className="border border-gray-300 px-4 py-2">70.98</td>
-                    <td className="border border-gray-300 px-4 py-2">Gemini</td>
-                    <td className="border border-gray-300 px-4 py-2">Me</td>
-                    <td className="border border-gray-300 px-4 py-2">Ra</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 px-4 py-2">3</td>
-                    <td className="border border-gray-300 px-4 py-2">94.16</td>
-                    <td className="border border-gray-300 px-4 py-2">Cancer</td>
-                    <td className="border border-gray-300 px-4 py-2">Mo</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                    <td className="border border-gray-300 px-4 py-2">Sa</td>
-                  </tr>
-                  {/* Additional rows for other cusps */}
+                  {Object.values(kpHouses).map((house, index) => (
+                    <tr key={index}>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.start_rasi}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.end_rasi}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.end_rasi_lord}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.house}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.bhavmadhya}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.cusp_sub_lord}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {house.cusp_sub_sub_lord}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
