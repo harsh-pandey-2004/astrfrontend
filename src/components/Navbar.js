@@ -241,7 +241,10 @@ const Navbar = ({ showbluefn }) => {
       <div>
         <div className="hidden lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black text-white">
           <div className="flex items-center lg:w-52 xl:w-[18rem] ">
-            <img src={AstroCaptionLogo} className=""></img>
+            <Link to="/">
+            <img src={AstroCaptionLogo} className=""></img>       
+            </Link>
+            
           </div>
           <div>
             <div className="flex  flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">

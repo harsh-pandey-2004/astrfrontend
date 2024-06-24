@@ -24,8 +24,8 @@ const TestimonialSlider = ({ showblur }) => {
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
               <p className="text-xl font-serif">Harshu</p>
+              <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
@@ -34,8 +34,8 @@ const TestimonialSlider = ({ showblur }) => {
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
-              <p className="text-xl font-serif">Harshu</p>
+            <p className="text-xl font-serif">Harshu</p>
+            <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
@@ -44,8 +44,8 @@ const TestimonialSlider = ({ showblur }) => {
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
-              <p className="text-xl font-serif">Harshu</p>
+            <p className="text-xl font-serif">Harshu</p>
+            <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
@@ -54,8 +54,8 @@ const TestimonialSlider = ({ showblur }) => {
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
-              <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
-              <p className="text-xl font-serif">Harshu</p>
+            <p className="text-xl font-serif">Harshu</p>
+            <p className="text-sm">lorem isopknjejvbjbvbrvjbbj</p>
             </div>
           </div>
         </Marquee>
