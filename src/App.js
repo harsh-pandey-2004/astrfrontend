@@ -61,7 +61,7 @@ function App() {
     setIsMenuClicked(!IsmenuClicked);
   }
   return (
-    <div className="w-full h-fit relative">
+    <div className="w-full h-fit relative ">
       <BrowserRouter>
         <Navbar showbluefn={showbluefn} />
         <Routes>
