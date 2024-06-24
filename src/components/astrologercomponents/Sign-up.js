@@ -39,7 +39,7 @@ const AstrologerRegistrationForm
         mobile: phoneNumber,
         countrycode: countryCode,
       });
-      navigate(`astrologerVerify-phone/${phoneNumber}`)
+      navigate(`astrologerverify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);
     }

@@ -29,7 +29,7 @@ const PanditLoginForm = () => {
       mobile: phoneNumber,
     });
     console.log(a.data)
-    navigate(`/PanditsetProfile/${a.data.user._id}`);
+    navigate(`/panditsetprofile/${a.data.user._id}`);
   };
 
   return (

@@ -9,7 +9,7 @@ function AstroCouncellorProfileForm() {
   const initialState = {
     firstName: "",
     lastName: "",
-    skills: [],
+    Skills: [],
     professionalQualifications: "",
     gender: "",
     languages: [],
@@ -46,7 +46,8 @@ function AstroCouncellorProfileForm() {
         formData
       );
       console.log(response.data);
-      navigate(`/astrologerdashboard/${id}`);
+      console.log(response.data.Astrologer.slug);
+      navigate(`/astrocouncellordashboard/${response.data.Astrologer.slug}`);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -244,7 +245,7 @@ function AstroCouncellorProfileForm() {
             </label>
             <Select
               isMulti
-              name="Skils"
+              name="Skills"
               options={skillsOptions}
               className="basic-multi-select text-black"
               classNamePrefix="select"

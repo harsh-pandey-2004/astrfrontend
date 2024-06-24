@@ -5,11 +5,12 @@ import Select from "react-select";
 
 function AstrologerProfileForm() {
   const { id } = useParams();
+
   const navigate = useNavigate();
   const initialState = {
     firstName: "",
     lastName: "",
-    skills: [],
+    Skills: [],
     professionalQualifications: "",
     gender: "",
     languages: [],
@@ -40,13 +41,15 @@ function AstrologerProfileForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(formData);
     try {
       const response = await axios.patch(
         `http://localhost:3000/api/update-astrologer-profile/${id}`,
         formData
       );
-      console.log(response.data);
-      navigate(`/astrologerdashboard/${id}`);
+      console.log(response.data.Astrologer.Skills);
+      console.log(response.data.Astrologer.slug);
+      navigate(`/astrologerdashboard/${response.data.Astrologer && response.data.Astrologer.slug}`);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -244,7 +247,7 @@ function AstrologerProfileForm() {
             </label>
             <Select
               isMulti
-              name="Skils"
+              name="Skills"
               options={skillsOptions}
               className="basic-multi-select text-black"
               classNamePrefix="select"

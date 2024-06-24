@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SearchLogo } from "../../icons/icons";
 import ChatCard from "./ChatCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const skillsOptions = [
   "Face Reading",
@@ -211,7 +212,7 @@ const TalktoAstro = () => {
 
         <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
           {filteredData.map((obj) => (
-            <ChatCard key={obj._id} obj={obj} type={"chat"} />
+           <Link to={`/chat-with-astrologer/${obj.slug}`}> <ChatCard key={obj._id} obj={obj} type={"chat"} /> </Link>
           ))}
         </div>
       </div>
