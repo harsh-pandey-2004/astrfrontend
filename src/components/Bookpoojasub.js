@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { responsive } from "../components/kundalicomponents/Data";
 import { useNavigate } from "react-router-dom";

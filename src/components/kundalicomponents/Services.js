@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Array, responsive } from "../kundalicomponents/Data";
 import Service from "./Service";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 
 function Services() {
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");

@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { horoscope, responsive } from "../kundalicomponents/Data";
 import Horoscope from "../kundalicomponents/Horoscope";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@mui/material";
 
 function Horoscopes() {
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");
