@@ -1,11 +1,11 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import AstroCard from './AstroCard';
+import AstroCard from './PanditCard';
 import AstroCarsdata from './AstroCarsdata';
 
 
-function AstrologerSection({showblur}) {
+function AstroCouncellorSection({showblur}) {
     
     const responsive = {
         superLargeDesktop: {
@@ -45,9 +45,9 @@ function AstrologerSection({showblur}) {
         </button>
       );
   return (
-    <div className="w-full h-fit top-20 relative px-5 shadow-2xl my-4  lg:top-0  py-6">
-    <h1  className="text-center text-2xl font-bold">Our Astrologers</h1>
-    <h2 className="text-center text-xl ">14000+ Best Astrologers from India To Predict your Destiny</h2>
+    <div className="w-full h-fit top-20 relative px-12  lg:top-0  py-6  ">
+    <h1  className="text-center text-2xl font-semibold">Our AstroCouncellors</h1>
+    <h2 className="text-center text-xl ">13000+ Best Councellors from India for Online Consultation</h2>
     <Carousel
       swipeable={true}
       draggable={true}
@@ -65,7 +65,7 @@ function AstrologerSection({showblur}) {
       itemClass="carousel-item-padding-40-px"
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
-      className='pb-6'
+      className='pb-12  mt-4'
     >
     
       {
@@ -78,4 +78,4 @@ function AstrologerSection({showblur}) {
   )
 }
 
-export default AstrologerSection;
+export default AstroCouncellorSection;

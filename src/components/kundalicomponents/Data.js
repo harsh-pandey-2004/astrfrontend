@@ -96,49 +96,49 @@ export const PoojaArray = [
 export const Array = [
   {
     id: "1",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/daily-horoscope1.webp",
+    img: "https://thumbnails.yayimages.com/1600/0/5db/5db88d.jpg",
     title: "Today's Horoscope ",
     desc: "	 Unsure about how your day will unfold? Get free Aries horoscope online prediction from top astrologer. Read your Aries Zodiac Sign Horoscope today! ",
   },
 
   {
     id: "2",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/free-kundli1.webp",
+    img: "https://res.cloudinary.com/jerrick/image/upload/fl_progressive,q_auto,w_1024/5ecba1ce11f355001eb2042f.jpg",
     title: "Free Kundli",
     desc: " Generate your free online kundli report from Astrotalk. Our Kundli software can help you predict the future for yourself by reading the birth chart. ",
   },
 
   {
     id: "3",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/compatibility.webp",
+    img: "https://th.bing.com/th/id/OIP.wdWk7DlHR74I644RPtM2OwHaHa?rs=1&pid=ImgDetMain",
     title: "Compatibility",
     desc: " Confused by love? Remove the doubts &amp; find the sparks! Check the compatibility with your partner using our tool and ignite a love that lasts forever.",
   },
 
   {
     id: "4",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/festival.webp",
+    img: "https://thumbs.dreamstime.com/z/diwali-festival-graphic-elements-two-indian-children-characters-rangoli-large-diya-lamp-color-powder-plate-isolated-231332476.jpg",
     title: "Festival 2024",
     desc: " Festivals are myriad celebrations, each a unique form of joy. Explore the diverse world of festivities – a realm of celebration. ",
   },
 
   {
     id: "5",
-    img: "	https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/horoscope-matching1_1.webp",
+    img: "https://kundli-matching.com/wp-content/uploads/2022/05/cropped-2022-05-21.png",
     title: "Kundli Matching",
     desc: " Check Love Compatibility and Marriage Prediction online at Astrotalk. Get the best Horoscope and kundli matching predictions today! ",
   },
 
   {
     id: "6",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/chinese-horoscope.webp",
+    img: "https://th.bing.com/th/id/OIP.4qZXzJlEw9K0v8KfRxy9DwAAAA?w=250&h=250&rs=1&pid=ImgDetMain",
     title: "Chinese Horoscope",
     desc: " Are you a playful cat, a clever mouse, or a roaring lion? Discover your inner spirit animal with Chinese astrology. Find out now! ",
   },
 
   {
     id: "7",
-    img: "	https://d1gcna0o0ldu5v.cloudfront.net/fit-in/110x110/assets/images/free-services-shared/mobile-view/panchang_1.webp",
+    img: "	https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/55/ed/96/55ed9668-af25-879b-f36a-0655acce84d2/source/512x512bb.jpg",
     title: "Today Panchang",
     desc: " Panchang enlists a record of auspicious dates and times for any auspicious task such as marriage, celebration, puja, starting any business etc. ",
   },

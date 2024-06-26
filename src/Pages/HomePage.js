@@ -1,12 +1,16 @@
 import React from "react";
-import AstrologerSection from "../components/AstrologerSection";
+import AstrologerSection from "../components/HomeComponents/AstrologerSection";
 
-import Carousel from "../components/SliderSection";
-import TestimonialSlider from "../components/Testimonals";
+import Carousel from "../components/HomeComponents/SliderSection";
+import TestimonialSlider from "../components/HomeComponents/Testimonals";
 import Services from '../components/kundalicomponents/Services'
 import Horoscopes from "../components/kundalicomponents/Horoscopes";
-import PanditsSection from "../components/PanditsSection";
-import AstroCouncellorsSection from "../components/AstroCouncellorsSection";
+import PanditsSection from "../components/HomeComponents/PanditsSection";
+import AstroCouncellorsSection from "../components/HomeComponents/AstroCouncellorsSection";
+import HomeStats from "../components/HomeComponents/HomeStats";
+import HomeServices from "../components/HomeComponents/HomeServices";
+import HomeTestimonial from "../components/HomeComponents/HomeTestimonial";
+
 const HomePage = ({ showblur }) => {
   return (
     <div
@@ -22,12 +26,15 @@ const HomePage = ({ showblur }) => {
     
      
          {/* <Services/> */}
+     <HomeServices/>
+      <HomeStats/>
       <AstrologerSection showblur={showblur}/>
       <PanditsSection showblur={showblur}/>
       <AstroCouncellorsSection/>
 
       <Horoscopes/>
-      <TestimonialSlider showblur={showblur}/>
+      {/* <TestimonialSlider showblur={showblur}/> */}
+      <HomeTestimonial/>
     </div>
   );
 };

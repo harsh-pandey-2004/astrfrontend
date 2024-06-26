@@ -1,11 +1,11 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import AstroCard from './PanditCard';
-import AstroCarsdata from './AstroCarsdata';
+import PanditCard from './PanditCard';
+import PanditCarsdata from './PanditCarsdata';
 
 
-function AstroCouncellorSection({showblur}) {
+function PanditsSection({showblur}) {
     
     const responsive = {
         superLargeDesktop: {
@@ -45,9 +45,9 @@ function AstroCouncellorSection({showblur}) {
         </button>
       );
   return (
-    <div className="w-full h-fit top-20 relative px-5 shadow-2xl my-4  lg:top-0  py-6">
-    <h1  className="text-center text-2xl font-bold">Our AstroCouncellors</h1>
-    <h2 className="text-center text-xl ">13000+ Best Councellors from India for Online Consultation</h2>
+    <div className="w-full h-fit top-20 relative px-12    lg:top-0  py-6 ">
+    <h1  className="text-center text-2xl font-semibold ">Our Pandits</h1>
+    <h2 className="text-center text-xl ">13000+ Best Pandits from India for You</h2>
     <Carousel
       swipeable={true}
       draggable={true}
@@ -65,11 +65,11 @@ function AstroCouncellorSection({showblur}) {
       itemClass="carousel-item-padding-40-px"
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
-      className='pb-6'
+      className=' pb-12 mt-4'
     >
     
       {
-        AstroCarsdata.map((obj)=>{return <AstroCard obj={obj}/> })
+        PanditCarsdata.map((obj)=>{return <PanditCard obj={obj}/> })
       }
     
      
@@ -78,4 +78,4 @@ function AstroCouncellorSection({showblur}) {
   )
 }
 
-export default AstroCouncellorSection;
+export default PanditsSection

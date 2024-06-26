@@ -3,10 +3,10 @@ import React from 'react';
 
 function PanditCard({ obj }) {
   return (
-    <div className="flex justify-center mt-6  ">
-      <div className=" w-full mx-4 bg-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl">
-        <div className=' relative'>
-            <button className='w-1/4 absolute top-0 bg-green-200 text-xs rounded-r-md '>Book Now</button>
+    <div className="flex justify-center mt-6  hover:cursor-pointer">
+      <div className="relative w-full mx-4 bg-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl">
+        <div >
+            <button className='w-1/4 absolute top-0 bg-green-300 text-xs rounded-r-md '>Book Now</button>
           <img
             className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md bg-gradient-to-r from-yellow-500 to-yellow-300"
             src={obj.img}
