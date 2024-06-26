@@ -10,6 +10,7 @@ import AstroCouncellorsSection from "../components/HomeComponents/AstroCouncello
 import HomeStats from "../components/HomeComponents/HomeStats";
 import HomeServices from "../components/HomeComponents/HomeServices";
 import HomeTestimonial from "../components/HomeComponents/HomeTestimonial";
+import Blogs from "../components/HomeComponents/Blogs";
 
 const HomePage = ({ showblur }) => {
   return (
@@ -27,14 +28,15 @@ const HomePage = ({ showblur }) => {
      
          {/* <Services/> */}
      <HomeServices/>
-      <HomeStats/>
+     
       <AstrologerSection showblur={showblur}/>
       <PanditsSection showblur={showblur}/>
       <AstroCouncellorsSection/>
-
-      <Horoscopes/>
+      <HomeStats/>
+ <Horoscopes/> 
       {/* <TestimonialSlider showblur={showblur}/> */}
       <HomeTestimonial/>
+      <Blogs/>
     </div>
   );
 };
