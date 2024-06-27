@@ -45,7 +45,7 @@ function AstrologerSection({showblur}) {
         </button>
       );
   return (
-    <div className="w-full h-fit top-16 relative px-12   lg:top-0  py-6 ">
+    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6 ">
     <h1  className="text-center text-2xl font-semibold ">Our Astrologers</h1>
     <h2 className="text-center text-xl ">14000+ Best Astrologers from India To Predict your Destiny</h2>
     <Carousel
