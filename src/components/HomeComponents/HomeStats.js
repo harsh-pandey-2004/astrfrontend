@@ -2,10 +2,10 @@ import React from 'react'
 
 const HomeStats = () => {
   return (
-    <div className='flex flex-col  sm:flex-row items-center justify-evenly gap-3  w-full py-8 bg-gradient-to-t from-black to-yellow-400 text-white'>
+    <div style={{background: 'linear-gradient(to bottom,#f7c100, black)'}}   className='flex flex-col  sm:flex-row items-center justify-evenly gap-4 w-full py-8  text-white'>
         <div>
                 <p className='text-xl'>29,335</p>
-                <p>Total Astrologers</p>
+                <p >Total Astrologers</p>
         </div>
 
 

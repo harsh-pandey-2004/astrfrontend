@@ -88,15 +88,15 @@ function App() {
             }
           />
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit/>} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit/>}/>
 
-          <Route path="/blogs" element={<BlogPage/>} />
+          <Route path="/blogs" element={<BlogPage/>}/>
           <Route path="/panditdashboard/:id" element={<MainPanditDash/>}/>
           <Route
             path="/panditdashboard/:id/shedule"
             element={<PanditSchedule />}
           ></Route>
-          <Route path="/panditsetprofile/:id" element={<ProfileForm/>} />
+          <Route path="/panditsetprofile/:id" element={<ProfileForm/>}/>
 
           {/* //kundali ROutes */}
           <Route path="/freekundali" element={<FreeKundali/>}></Route>
@@ -111,7 +111,7 @@ function App() {
           <Route path="/register-page" element={<RegisterForm/>}></Route>
           <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>
           <Route path="/dashboard/:id" element={<Dashboard />}>
-            <Route path="Transactions" element={<Transactions/>} />
+            <Route path="Transactions" element={<Transactions/>}/>
             <Route path="OrderHistory" element={<OrderHistory/>} />
             <Route path="Support" element={<Support/>} />
             <Route path="ChatHistory" element={<ChatHistory/>} />

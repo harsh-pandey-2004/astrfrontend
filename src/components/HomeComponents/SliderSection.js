@@ -26,22 +26,22 @@ const Carousel = () => {
 
   return (
     <div
-      className={`w-full h-[100vh] bg-black relative top-20  lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh] `}
+     className={`  w-full h-[100vh] main-Slider relative top-20  lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh] `}
     >
-      <div className="w-[95%] h-[50vh] mx-auto py-10 rounded-md lg:w-[90%]">
-        <Slider {...settings}>
-          <div>
+      <div className="px-2 w-[90%] h-[50vh] mx-auto py-10 rounded-md lg:w-[90%]">
+        <Slider {...settings}  >
+          <div >
             <img
               src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
               alt="Image 1"
-              className="w-full h-[50vh] rounded-md"
+              className="w-full  h-[50vh] rounded-md"
             />
           </div>
           <div>
             <img
               src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
               alt="Image 2"
-              className="w-full h-[50vh] rounded-md"
+              className="w-full  h-[50vh] rounded-md"
             />
           </div>
           <div>
@@ -53,8 +53,8 @@ const Carousel = () => {
           </div>
         </Slider>
       </div>
-      <div className="grid grid-cols-3 relative top-16 sm:grid-cols-3 lg:grid-cols-6 w-[90%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%] ">
-       <Link to="/book-a-pooja"><div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+      <div className=" grid grid-cols-3 relative top-16 sm:grid-cols-3 lg:grid-cols-6 w-[90%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%] ">
+       <Link to="/book-a-pooja"><div  className="flex flex-col items-center justify-center sm:bg-white  rounded-lg lg:px-5 lg:py-3 w-full min-w-36  hover:shadow-white hover:-translate-y-2 transition duration-300">
           <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
             <img
               src="https://clipartspub.com/images600_/wedding-clipart-png-kalash- 9.png"

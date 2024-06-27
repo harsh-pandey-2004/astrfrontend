@@ -22,7 +22,7 @@ function AstroCard({ obj }) {
            <Link to="/chat-with-astrologer"> <button>
             <div className="W-6 h-6 rounded-full xl:w-12 xl:h-12">
             <img
-              src="https://www.svgrepo.com/show/263720/chat.svg"
+              src="https://static.vecteezy.com/system/resources/previews/000/423/920/original/vector-chat-icon.jpg"
               className="w-full h-full "
             ></img>
           </div>
@@ -31,7 +31,7 @@ function AstroCard({ obj }) {
       <Link to="/call-to-astrologer">  <button>
            <div className="w-6 h-6 rounded-full xl:w-12 xl:h-12">
             <img
-              src="https://cdn.vectorstock.com/i/1000v/80/35/phone-icon-on-green-button-eps-10-vector-26438035.jpg"
+              src="https://www.clipartkey.com/mpngs/m/218-2180655_phone-call-icon-png.png"
               className="w-full h-full"
             ></img>
           </div>
