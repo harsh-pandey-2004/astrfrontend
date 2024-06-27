@@ -48,7 +48,7 @@ const TabComponent = () => {
       <div className="container mx-auto py-6 pb-20">
         <ul
           role="tablist"
-          className="nav nav-pills flex justify-center space-x-6 border-b border-gray-300 pb-3"
+          className="nav nav-pills flex justify-center space-x-6  border-[#fae13b] pb-3 border-b-[2px]"
         >
           {tabs.map((tab) => (
             <li key={tab.id} role="presentation" className="nav-item">
@@ -60,8 +60,8 @@ const TabComponent = () => {
                 aria-selected={activeTab === tab.id}
                 className={`nav-link px-4 py-2 rounded-t-lg focus:outline-none ${
                   activeTab === tab.id
-                    ? "active bg-blue-500 text-white shadow-md"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "active bg-[#f5d713] text-white shadow-md"
+                    : "text-gray-700 hover:bg-[#f5d713]"
                 } transition duration-300`}
               >
                 {tab.label}

@@ -15,15 +15,15 @@ const Doshas = () => {
       switch (activeTab) {
         case "Manglik":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
           break;
         case "Kalsarpa":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=23/02/1985&tob=05:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=23/02/1985&tob=05:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
           break;
         case "Sadesati":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
           break;
         default:
           break;
