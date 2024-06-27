@@ -1,67 +1,68 @@
 import React from 'react';
+import './Kundali.css'; // Assuming this file contains your custom styles
 
 const Basic = () => {
   return (
-    <div className="container mx-auto py-3">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="border border-gray-200 rounded-lg shadow-md bg-white p-6">
-          <h2 className="text-xl font-semibold mb-4">Basic Details</h2>
-          <div className="grid grid-cols-2 gap-4">
+    <div className="container mx-auto py-8 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="border border-gray-200 rounded-lg bg-white p-8 kundali-boxes-shadow">
+          <h2 className="text-3xl font-bold mb-6 text-[#fae13b] text-shadow">Basic Details</h2>
+          <div className="grid grid-cols-2 gap-4 text-lg text-gray-800">
             <div className="font-semibold">Name:</div>
-            <div>Harsh</div>
+            <div className="text-yellow-700">Harsh</div>
             <div className="font-semibold">Date:</div>
-            <div>01/01/1990</div>
+            <div className="text-yellow-700">01/01/1990</div>
             <div className="font-semibold">Time:</div>
-            <div>03:22 PM</div>
+            <div className="text-yellow-700">03:22 PM</div>
             <div className="font-semibold">Place:</div>
-            <div>Delhi, Delhi, India</div>
+            <div className="text-yellow-700">Delhi, Delhi, India</div>
             <div className="font-semibold">Latitude:</div>
-            <div>28.65</div>
+            <div className="text-yellow-700">28.65</div>
             <div className="font-semibold">Longitude:</div>
-            <div>77.23</div>
+            <div className="text-yellow-700">77.23</div>
             <div className="font-semibold">Timezone:</div>
-            <div>GMT<span>+</span>5.5</div>
+            <div className="text-yellow-700">GMT<span>+</span>5.5</div>
             <div className="font-semibold">Sunrise:</div>
-            <div>7:14:10</div>
+            <div className="text-yellow-700">7:14:10</div>
             <div className="font-semibold">Sunset:</div>
-            <div>17:35:10</div>
+            <div className="text-yellow-700">17:35:10</div>
             <div className="font-semibold">Ayanamsha:</div>
-            <div>23.71738</div>
+            <div className="text-yellow-700">23.71738</div>
           </div>
         </div>
-        <div className="border border-gray-200 rounded-lg shadow-md bg-white p-6">
-          <h2 className="text-xl font-semibold mb-4">Avakhada Details</h2>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="border border-gray-200 rounded-lg shadow-lg bg-white p-8 kundali-boxes-shadow">
+          <h2 className="text-3xl font-bold mb-6 text-[#fae13b] text-shadow">Avakhada Details</h2>
+          <div className="grid grid-cols-2 gap-4 text-lg text-gray-800">
             <div className="font-semibold">Varna:</div>
-            <div>Vaishya</div>
+            <div className="text-yellow-700">Vaishya</div>
             <div className="font-semibold">Vashya:</div>
-            <div>Nara</div>
+            <div className="text-yellow-700">Nara</div>
             <div className="font-semibold">Yoni:</div>
-            <div>Ashva</div>
+            <div className="text-yellow-700">Ashva</div>
             <div className="font-semibold">Gan:</div>
-            <div>Rakshasa</div>
+            <div className="text-yellow-700">Rakshasa</div>
             <div className="font-semibold">Nadi:</div>
-            <div>Adhya</div>
+            <div className="text-yellow-700">Adhya</div>
             <div className="font-semibold">Sign:</div>
-            <div>Aquarius</div>
+            <div className="text-yellow-700">Aquarius</div>
             <div className="font-semibold">Sign Lord:</div>
-            <div>Saturn</div>
+            <div className="text-yellow-700">Saturn</div>
             <div className="font-semibold">Nakshatra-Charan:</div>
-            <div>Shatabhisha</div>
+            <div className="text-yellow-700">Shatabhisha</div>
             <div className="font-semibold">Yog:</div>
-            <div>Siddhi</div>
+            <div className="text-yellow-700">Siddhi</div>
             <div className="font-semibold">Karan:</div>
-            <div>Bav</div>
+            <div className="text-yellow-700">Bav</div>
             <div className="font-semibold">Tithi:</div>
-            <div>ShuklaPanchami</div>
+            <div className="text-yellow-700">Shukla Panchami</div>
             <div className="font-semibold">Yunja:</div>
-            <div>Antya</div>
+            <div className="text-yellow-700">Antya</div>
             <div className="font-semibold">Tatva:</div>
-            <div>Air</div>
+            <div className="text-yellow-700">Air</div>
             <div className="font-semibold">Name alphabet:</div>
-            <div>Go</div>
+            <div className="text-yellow-700">Go</div>
             <div className="font-semibold">Paya:</div>
-            <div>Copper</div>
+            <div className="text-yellow-700">Copper</div>
           </div>
         </div>
       </div>

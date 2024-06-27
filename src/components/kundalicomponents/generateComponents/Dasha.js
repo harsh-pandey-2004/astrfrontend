@@ -21,7 +21,7 @@ const Dashas = () => {
               lat: 11,
               lon: 77,
               tz: 5.5,
-              api_key: "11cf1c42-cb07-5db3-8a36-c70297406946",
+              api_key: "339e6e74-a1ea-5093-8ef3-e31f5e45cc79",
               lang: "en",
             },
             headers: {

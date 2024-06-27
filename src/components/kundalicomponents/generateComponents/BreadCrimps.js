@@ -1,14 +1,14 @@
 import React from "react";
-
+import "./Kundali.css"
 const Breadcrumbs = () => {
   return (
-    <div className="container mx-auto px-4 py-4 bg-white shadow-md rounded-lg">
+    <div className="container mx-auto px-4 py-4 bg-white kundali-boxes-shadow rounded-lg">
       <ul className="flex items-center space-x-4 text-gray-700">
         <li>
           <a
             href="/"
             aria-label="home"
-            className="text-blue-600 hover:text-blue-800"
+            className="text-[#f5d713] hover:text-[#f5d713]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const Breadcrumbs = () => {
           </a>
         </li>
         <li>
-          <a href="/freekundli" className="text-blue-600 hover:text-blue-800">
+          <a href="/freekundli" className="text-[#f5d713] hover:text-[#f5d713]">
             Free Kundli
           </a>
         </li>
@@ -37,7 +37,7 @@ const Breadcrumbs = () => {
           </div>
         </li>
         <li className="ml-auto">
-          <button className="btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300">
+          <button className="btn bg-[#f5d713] hover:bg-[#f2d742] text-white px-4 py-2 rounded flex items-center space-x-2 transition duration-300">
             <span>Share</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

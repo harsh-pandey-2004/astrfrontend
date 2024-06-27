@@ -89,7 +89,7 @@ const GemstoneSection = () => {
     const fetchGemData = async () => {
       try {
         const response = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/utilities/gem-details?gem=${selectedGem}&lang=en&api_key=11cf1c42-cb07-5db3-8a36-c70297406946`
+          `https://api.vedicastroapi.com/v3-json/utilities/gem-details?gem=${selectedGem}&lang=en&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79`
         );
         setGemData(response.data.response.response);
       } catch (error) {

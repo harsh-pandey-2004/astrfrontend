@@ -10,13 +10,13 @@ const Kp = () => {
       try {
         // Fetch KP Planets
         const planetsResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en"
         );
         setKpPlanets(planetsResponse.data.response);
 
         // Fetch KP Houses
         const housesResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=11cf1c42-cb07-5db3-8a36-c70297406946&lang=en"
+          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en"
         );
         setKpHouses(housesResponse.data.response);
       } catch (error) {
