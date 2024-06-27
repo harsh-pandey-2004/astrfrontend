@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Blogs = () => {
   return (
-    <div  className='my-8 text-center w-full bg-slate-100  flex gap-6 py-4  px-14'>
+    <div  className='my-8 text-center w-full bg-slate-100  md:flex xs:flex-col gap-6 py-4  px-14'>
         {/* News */}
-        <div className=' rounded-md w-1/3  px-4 bg-white '> 
+        <div className=' rounded-md md:w-1/3 xs:w-full  px-4 bg-white '> 
             <h1 className='text-start text-2xl font-semibold py-3'>What's the News?</h1>
 
             <div>
@@ -24,10 +24,10 @@ const Blogs = () => {
 
 
         {/* Blogs */}
-        <div className=' rounded-md w-2/3 px-4 bg-white '>
+        <div className=' rounded-md md:w-2/3 xs:w-full px-4 bg-white '>
         <h1 className='text-start text-2xl font-semibold py-3'>Blogs & Articles</h1>
-        <div className='flex items-center gap-2 mt-2'>
-            <div className='w-1/3 '>
+        <div className='md:flex items-center xs:flex-col  gap-2 mt-2'>
+            <div className='md:w-1/3 xs:w-full'>
                 <img src="	https://cdn.dribbble.com/userupload/8499887/file/original-0f594a7654e48c5d78f0064a6a94cb26.png?resize=1504x1128"
               className='rounded-md ' />
                <p className='text-gray-500 font-semibold text-start py-2'>ASTROLOGY</p>
@@ -36,7 +36,7 @@ const Blogs = () => {
             </div>
 
 
-            <div className='w-1/3 '>
+            <div className='md:w-1/3 xs:w-full'>
                 <img src="	https://cdn.dribbble.com/userupload/11329041/file/original-d8438ac72e3d871340074c12affed0f1.jpg?resize=1400x790"
               className='rounded-md h-40' />
                <p className='text-gray-500 font-semibold text-start py-2'>HOROSCOPES</p>
@@ -45,7 +45,7 @@ const Blogs = () => {
             </div>
 
 
-            <div className='w-1/3 '>
+            <div className='md:w-1/3 xs:w-full'>
                 <img src="	https://cdn.dribbble.com/userupload/8499887/file/original-0f594a7654e48c5d78f0064a6a94cb26.png?resize=1504x1128"
               className='rounded-md' />
                <p className='text-gray-500 font-semibold text-start py-2'>ASTROLOGY</p>
@@ -57,7 +57,7 @@ const Blogs = () => {
         </div>
         <div className='mt-8  '>
             <p className='text-start text-lg font-semibold'>Some Trending Topics</p>
-            <div className='flex items-center gap-4 mt-2'>
+            <div className='md:flex xs:flex-col  items-center gap-4 mt-2'>
                 <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Astrology Basics</button>
                 <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Planetry influences</button>
                 <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Relationships</button>

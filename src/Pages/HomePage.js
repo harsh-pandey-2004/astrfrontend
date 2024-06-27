@@ -11,6 +11,7 @@ import HomeStats from "../components/HomeComponents/HomeStats";
 import HomeServices from "../components/HomeComponents/HomeServices";
 import HomeTestimonial from "../components/HomeComponents/HomeTestimonial";
 import Blogs from "../components/HomeComponents/Blogs";
+import NewServices from "../components/HomeComponents/NewServices";
 
 const HomePage = ({ showblur }) => {
   return (
@@ -27,7 +28,11 @@ const HomePage = ({ showblur }) => {
     
      
          {/* <Services/> */}
-     <HomeServices/>
+     {/* <HomeServices/> */}
+
+     
+     <NewServices/>
+
      
       <AstrologerSection showblur={showblur}/>
       <PanditsSection showblur={showblur}/>
