@@ -109,3 +109,15 @@
   }
 }
 
+
+@media(max-width:750px){
+  .NewServices{
+    margin-top: 4.5rem;
+  }
+}
+
+@media(max-width:400px){
+  .ServiceImg{
+    margin-top:2rem;
+  }
+}
