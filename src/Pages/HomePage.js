@@ -13,6 +13,7 @@ import HomeTestimonial from "../components/HomeComponents/HomeTestimonial";
 import Blogs from "../components/HomeComponents/Blogs";
 import NewServices from "../components/HomeComponents/NewServices";
 import { Whyastro } from "../components/HomeComponents/Whyastro";
+import Faqs from "../components/HomeComponents/Faqs";
 
 const HomePage = ({ showblur }) => {
   return (
@@ -44,6 +45,7 @@ const HomePage = ({ showblur }) => {
       <HomeTestimonial/>
       <Blogs/>
       <Whyastro/>
+      <Faqs/>
     </div>
   );
 };
