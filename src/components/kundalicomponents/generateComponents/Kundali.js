@@ -13,22 +13,22 @@ const Kundali = () => {
     const fetchData = async () => {
       try {
         const horoscopeResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en"
+          "https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
         );
         setHoroscopeData(horoscopeResponse.data.response);
 
         const planetReportResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&planet=Jupiter&lang=en"
+          "https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&planet=Jupiter&lang=en"
         );
         setPlanetReportData(planetReportResponse.data.response[0]);
 
         const personalCharacteristicsResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en"
+          "https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
         );
         setPersonalCharacteristicsData(personalCharacteristicsResponse.data.response);
 
         const ascendantReportResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en"
+          "https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
         );
         setAscendantReportData(ascendantReportResponse.data.response[0]);
       } catch (error) {

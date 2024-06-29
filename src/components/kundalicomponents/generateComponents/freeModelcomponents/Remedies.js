@@ -15,8 +15,8 @@ const TabNavigation = () => {
         <li className="flex-1">
           <button
             onClick={() => handleTabClick("rudraksha")}
-            className={`py-2 px-4 w-full block text-center border-b-4 border-transparent hover:border-blue-500 focus:outline-none ${
-              activeTab === "rudraksha" ? "border-blue-500" : ""
+            className={`py-2 px-4 w-full block text-center border-b-4 border-transparent hover:border-[#f5d713] focus:outline-none ${
+              activeTab === "rudraksha" ? "border-[#f5d713]" : ""
             }`}
           >
             Rudraksha
@@ -25,8 +25,8 @@ const TabNavigation = () => {
         <li className="flex-1">
           <button
             onClick={() => handleTabClick("gemstones")}
-            className={`py-2 px-4 w-full block text-center border-b-4 border-transparent hover:border-blue-500 focus:outline-none ${
-              activeTab === "gemstones" ? "border-blue-500" : ""
+            className={`py-2 px-4 w-full block text-center border-b-4 border-transparent hover:border-[#f5d713] focus:outline-none ${
+              activeTab === "gemstones" ? "border-[#f5d713]" : ""
             }`}
           >
             Gemstones
