@@ -5,7 +5,7 @@ const VimshottariDashaTab = () => {
     <div>
        <div className="col-12">
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <div className="bg-blue-500 text-white py-4 px-6 flex justify-between items-center">
+        <div className="bg-[#f5d713] text-white py-4 px-6 flex justify-between items-center">
           <span className="text-lg font-semibold">Rahu Mahadasha</span>
           <span className="text-sm text-gray-300">24-09-1987 - 23-09-2005</span>
         </div>

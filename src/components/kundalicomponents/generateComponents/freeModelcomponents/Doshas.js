@@ -15,15 +15,15 @@ const Doshas = () => {
       switch (activeTab) {
         case "Manglik":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
           break;
         case "Kalsarpa":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=23/02/1985&tob=05:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=23/02/1985&tob=05:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
           break;
         case "Sadesati":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=339e6e74-a1ea-5093-8ef3-e31f5e45cc79&lang=en";
+            "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
           break;
         default:
           break;
@@ -50,21 +50,26 @@ const Doshas = () => {
       case "Manglik":
         return (
           <div>
-            <h3 className="font-bold text-xl">Manglik Dosha</h3>
-            <p>{content.bot_response}</p>
+            <h3 className="font-bold text-2xl text-[#f5d713]">Manglik Dosha</h3>
+            <p className="text-md">{content.bot_response}</p>
             <p>
-              <span className="font-bold text-xl">Score:</span> {content.score}%
+              <span className="font-bold text-2xl text-[#f5d713]">Score:</span>{" "}
+              {content.score}%
             </p>
-            <h4 className="font-bold text-xl">Factors:</h4>
+            <h4 className="font-bold text-2xl text-[#f5d713]">Factors:</h4>
             <ul>
               {content.factors?.map((factor, index) => (
-                <li key={index}>{factor}</li>
+                <li key={index} className="text-md">
+                  {factor}
+                </li>
               ))}
             </ul>
-            <h4 className="font-bold text-xl">Aspects:</h4>
+            <h4 className="font-bold text-2xl text-[#f5d713]">Aspects:</h4>
             <ul>
               {content.aspects?.map((aspect, index) => (
-                <li key={index}>{aspect}</li>
+                <li key={index} className="text-md">
+                  {aspect}
+                </li>
               ))}
             </ul>
           </div>
@@ -72,24 +77,34 @@ const Doshas = () => {
       case "Kalsarpa":
         return (
           <div>
-            <h3 className="font-bold text-xl">Kalsarpa Dosha</h3>
-            <p>{content.bot_response}</p>
+            <h3 className="font-bold text-2xl text-[#f5d713]">
+              Kalsarpa Dosha
+            </h3>
+            <p className="">{content.bot_response}</p>
             <p>
-              <span className="font-bold text-xl">Dosha Direction:</span>{" "}
+              <span className="font-bold text-2xl text-[#f5d713]">
+                Dosha Direction:
+              </span>{" "}
               {content.dosha_direction}
             </p>
             <p>
-              <span className="font-bold text-xl">Dosha Type:</span>{" "}
-              {content.dosha_type}
+              <span className="font-bold text-2xl text-[#f5d713]">
+                Dosha Type:
+              </span>{" "}
+              <p className="text-md">{content.dosha_type}</p>
             </p>
             <p>
-              <span className="font-bold text-xl">Rahu-Ketu Axis:</span>{" "}
-              {content.rahu_ketu_axis}
+              <span className="font-bold text-2xl text-[#f5d713]">
+                Rahu-Ketu Axis:
+              </span>{" "}
+              <p className="text-md">{content.rahu_ketu_axis}</p>
             </p>
-            <h4 className="font-bold text-xl">Remedies:</h4>
+            <h4 className="font-bold text-2xl text-[#f5d713]">Remedies:</h4>
             <ul>
               {content.remedies?.map((remedy, index) => (
-                <li key={index}>{remedy}</li>
+                <li key={index} className="text-md">
+                  {remedy}
+                </li>
               ))}
             </ul>
           </div>
@@ -97,18 +112,22 @@ const Doshas = () => {
       case "Sadesati":
         return (
           <div>
-            <h3 className="font-bold text-xl">Pitra Dosha</h3>
-            <p>{content.bot_response}</p>
-            <h4 className="font-bold text-xl">Effects:</h4>
+            <h3 className="font-bold text-2xl text-[#f5d713]">Pitra Dosha</h3>
+            <p className="text-md">{content.bot_response}</p>
+            <h4 className="font-bold text-2xl text-[#f5d713]">Effects:</h4>
             <ul>
               {content.effects?.map((effect, index) => (
-                <li key={index}>{effect}</li>
+                <li key={index} className="text-md">
+                  {effect}
+                </li>
               ))}
             </ul>
-            <h4 className="font-bold text-xl">Remedies:</h4>
+            <h4 className="font-bold  text-[#f5d713] text-2xl">Remedies:</h4>
             <ul>
               {content.remedies?.map((remedy, index) => (
-                <li key={index}>{remedy}</li>
+                <li key={index} className="text-md">
+                  {remedy}
+                </li>
               ))}
             </ul>
           </div>
@@ -123,7 +142,7 @@ const Doshas = () => {
       <ul
         id="pills-report-tab-third"
         role="tablist"
-        className="flex border-b border-gray-200 bg-white"
+        className="flex border-b border-yellow-200 bg-white"
       >
         <li role="presentation" className="flex-auto">
           <button
@@ -132,7 +151,7 @@ const Doshas = () => {
             role="tab"
             aria-selected={activeTab === "Manglik" ? "true" : "false"}
             className={`text-gray-700 px-4 py-2 w-full focus:outline-none ${
-              activeTab === "Manglik" ? "border-b-2 border-blue-500" : ""
+              activeTab === "Manglik" ? "border-b-2 border-[#f5d713]" : ""
             }`}
           >
             Manglik
@@ -145,7 +164,7 @@ const Doshas = () => {
             role="tab"
             aria-selected={activeTab === "Kalsarpa" ? "true" : "false"}
             className={`text-gray-700 px-4 py-2 w-full focus:outline-none ${
-              activeTab === "Kalsarpa" ? "border-b-2 border-blue-500" : ""
+              activeTab === "Kalsarpa" ? "border-b-2 border-[#f5d713]" : ""
             }`}
           >
             Kalsarpa
@@ -158,7 +177,7 @@ const Doshas = () => {
             role="tab"
             aria-selected={activeTab === "Sadesati" ? "true" : "false"}
             className={`text-gray-700 px-4 py-2 w-full focus:outline-none ${
-              activeTab === "Sadesati" ? "border-b-2 border-blue-500" : ""
+              activeTab === "Sadesati" ? "border-b-2 border-[#f5d713]" : ""
             }`}
           >
             Sadesati

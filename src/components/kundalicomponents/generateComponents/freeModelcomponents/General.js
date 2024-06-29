@@ -23,7 +23,7 @@ const Tabs = () => {
             key={tabName}
             role="presentation"
             className={`-mb-px mr-1 flex-auto ${
-              activeTab === tabName ? "border-blue-500" : ""
+              activeTab === tabName ? "border-[#f5d713]" : ""
             }`}
           >
             <button
@@ -31,12 +31,12 @@ const Tabs = () => {
               role="tab"
               aria-selected={activeTab === tabName ? "true" : "false"}
               className={`inline-flex items-center justify-center w-full py-2 px-4 font-medium text-sm leading-5 text-gray-700 bg-white border border-transparent focus:outline-none transition duration-150 ease-in-out ${
-                activeTab === tabName ? "text-blue-500 border-blue-500" : ""
+                activeTab === tabName ? "text-[#f5d713] border-[#f5d713]" : ""
               }`}
               style={{
                 borderBottomWidth: activeTab === tabName ? "2px" : "0px",
-                borderBottomColor: activeTab === tabName ? "#4299e1" : "",
-                backgroundColor: activeTab === tabName ? "#f0f5f9" : "",
+                borderBottomColor: activeTab === tabName ? "#f5d713" : "",
+                backgroundColor: activeTab === tabName ? "#f5d713" : "",
               }}
               onClick={() => handleTabClick(tabName)}
             >

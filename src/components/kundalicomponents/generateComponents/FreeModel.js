@@ -34,8 +34,8 @@ const FreeModal = () => {
           <button
             id="pills-repo100-tab"
             type="button"
-            className={`text-blue-500 px-4 py-2 rounded-md focus:outline-none focus:bg-blue-100 ${
-              activeTab === "General" ? "bg-blue-100" : ""
+            className={`text-[#f5d713] px-4 py-2 rounded-md focus:outline-none focus:bg-yellow-100 ${
+              activeTab === "General" ? "bg-yellow-100" : ""
             }`}
             onClick={() => handleTabClick("General")}
           >
@@ -46,8 +46,8 @@ const FreeModal = () => {
           <button
             id="pills-repo200-tab"
             type="button"
-            className={`text-blue-500 px-4 py-2 rounded-md focus:outline-none focus:bg-blue-100 ${
-              activeTab === "Remedies" ? "bg-blue-100" : ""
+            className={`text-[#f5d713] px-4 py-2 rounded-md focus:outline-none focus:bg-yellow-100 ${
+              activeTab === "Remedies" ? "bg-yellow-100" : ""
             }`}
             onClick={() => handleTabClick("Remedies")}
           >
@@ -58,8 +58,8 @@ const FreeModal = () => {
           <button
             id="pills-repo300-tab"
             type="button"
-            className={`text-blue-500 px-4 py-2 rounded-md focus:outline-none focus:bg-blue-100 ${
-              activeTab === "Dosha" ? "bg-blue-100" : ""
+            className={`text-[#f5d713] px-4 py-2 rounded-md focus:outline-none focus:bg-yellow-100 ${
+              activeTab === "Dosha" ? "bg-yellow-100" : ""
             }`}
             onClick={() => handleTabClick("Dosha")}
           >
