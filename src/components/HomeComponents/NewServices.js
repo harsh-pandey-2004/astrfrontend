@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const NewServices = () => {
     const[service,setService]=useState("kundli");
   return (
-    <div className='px-16 pb-12   bg-black NewServices'>
+    <div className='pl-20 pb-12  bg-black NewServices pt-10'>
         <h1 className='text-3xl  font-semibold text-start pb-4 text-white '> Astro Services That we Provide</h1>
         <div className='md:flex xs:flex-col items-center  gap-36  '>
             <div className='md:w-2/5 w-full'>
