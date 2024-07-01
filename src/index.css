@@ -110,7 +110,7 @@
 }
 
 
-@media(max-width:750px){
+@media(max-width:1000px){
   .NewServices{
     margin-top: 4.5rem;
   }
@@ -121,3 +121,4 @@
     margin-top:2rem;
   }
 }
+

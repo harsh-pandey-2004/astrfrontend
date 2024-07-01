@@ -70,28 +70,30 @@ const NewKundli = () => {
   };
 
   return (
-    <div className="md:w-3/5 xs:w-full flex flex-col gap-3">
-      <p className="text-xl text-gray-700 font-semibold">New Kundli</p>
-      <form className="p-3 border-[1px] rounded-lg flex flex-col gap-4 shadow-md" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-1">
-          <label htmlFor="name">Name</label>
+    <div className="md:1/2 xs:w-full flex flex-col gap-3">
+      <p className="text-xl text-gray-700 font-bold">New Kundli</p>
+      <form className="p-3   flex flex-col gap-4 " onSubmit={handleSubmit}>
+        <div className="flex items-center ">
+          <div className="w-full">
+             <div className="flex flex-col gap-1 w-full">
+          <label htmlFor="name" >Name</label>
           <input
             type="text"
             placeholder="Enter Name"
             id="name"
             name="name"
-            className="border rounded-md p-1 focus:outline-none"
+            className="border border-black rounded-md p-1 focus:outline-none "
             value={formData.name}
             onChange={handleInputChange}
           />
-        </div>
+            </div>
 
-        <div className="flex flex-col gap-1">
-          <label htmlFor="gender">Gender</label>
+        <div className="flex flex-col gap-1 w-full">
+          <label htmlFor="gender" >Gender</label>
           <select
             id="gender"
             name="gender"
-            className="border rounded-md p-1 text-slate-600 focus:outline-none"
+            className="border border-black rounded-md p-1 text-slate-600 focus:outline-none"
             value={formData.gender}
             onChange={handleInputChange}
           >
@@ -99,16 +101,23 @@ const NewKundli = () => {
             <option>Female</option>
           </select>
         </div>
+          </div>
+
+          <div>
+
+          </div>
+        </div>
+       
 
         {/* Birth Details */}
         <div className="flex flex-col gap-3">
-          <p>Birth Details</p>
+          <p >Birth Details</p>
           <div className="md:flex xs:flex-col flex-wrap w-full justify-between">
             <div className="flex flex-col">
               <label>Day</label>
               <select
                 name="day"
-                className="border rounded-md p-1 focus:outline-none pr-32"
+                className="border border-black rounded-md p-1 focus:outline-none pr-32"
                 value={formData.day}
                 onChange={handleInputChange}
               >
@@ -125,7 +134,7 @@ const NewKundli = () => {
               <label>Month</label>
               <select
                 name="month"
-                className="border rounded-md p-1 focus:outline-none pr-32"
+                className="border border-black rounded-md p-1 focus:outline-none pr-32"
                 value={formData.month}
                 onChange={handleInputChange}
               >
@@ -142,7 +151,7 @@ const NewKundli = () => {
               <label>Year</label>
               <select
                 name="year"
-                className="border rounded-md p-1 focus:outline-none pr-32"
+                className="border  border-black rounded-md p-1 focus:outline-none pr-32"
                 value={formData.year}
                 onChange={handleInputChange}
               >
@@ -161,7 +170,7 @@ const NewKundli = () => {
               <label>Hour</label>
               <select
                 name="hour"
-                className="border rounded-md p-1 focus:outline-none pr-32"
+                className="border  border-black rounded-md p-1 focus:outline-none pr-32"
                 value={formData.hour}
                 onChange={handleInputChange}
               >
@@ -178,7 +187,7 @@ const NewKundli = () => {
               <label>Minute</label>
               <select
                 name="minute"
-                className="border rounded-md p-1 focus:outline-none pr-28"
+                className="border  border-black rounded-md p-1 focus:outline-none pr-28"
                 value={formData.minute}
                 onChange={handleInputChange}
               >
@@ -195,7 +204,7 @@ const NewKundli = () => {
               <label>Second</label>
               <select
                 name="second"
-                className="border rounded-md p-1 focus:outline-none pr-24"
+                className="border  border-black rounded-md p-1 focus:outline-none pr-24"
                 value={formData.second}
                 onChange={handleInputChange}
               >
@@ -217,7 +226,7 @@ const NewKundli = () => {
             type="text"
             name="birthPlace"
             placeholder="Enter your birth place"
-            className="border rounded-md p-1 focus:outline-none"
+            className="border  border-black rounded-md p-1 focus:outline-none"
             value={formData.birthPlace}
             onChange={handleInputChange}
           />
@@ -238,7 +247,7 @@ const NewKundli = () => {
 
         <button
           type="submit"
-          className="border mt-2 rounded-full py-2 text-yellow-400 bg-gray-800 hover:bg-yellow-400 hover:text-black transition duration-400 hover:border shadow-xl"
+          className="border mt-2 rounded-full py-2 text-white bg-black hover:bg-yellow-400 hover:text-black transition duration-400 hover:border shadow-xl"
         >
           Generate Horoscope
         </button>

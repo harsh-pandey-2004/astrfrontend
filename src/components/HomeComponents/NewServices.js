@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 const NewServices = () => {
     const[service,setService]=useState("kundli");
   return (
-    <div className='pl-20 pb-12  bg-black NewServices pt-10'>
+    <div className='md:pl-20 pb-12  bg-black NewServices pt-10'>
         <h1 className='text-3xl  font-semibold text-start pb-4 text-white '> Astro Services That we Provide</h1>
-        <div className='md:flex xs:flex-col items-center  gap-36  '>
+        <div className='md:flex xs:flex-col  items-center  gap-36  '>
             <div className='md:w-2/5 w-full'>
               <p className='text-gray-400'>Our services include booking poojas, astrology consultations, Vastu making, and more. We aim to provide spiritual guidance, harmony in living spaces, and personalized astrological insights to enhance your overall well-being and spiritual journey.</p>
              <div className='grid grid-cols-2 gap-4  mt-8 outline '>
