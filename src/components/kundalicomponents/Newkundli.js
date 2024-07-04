@@ -88,7 +88,7 @@ const NewKundli = () => {
           />
             </div>
 
-        <div className="flex flex-col gap-1 w-full">
+        <div className="flex flex-col gap-1 w-full mt-2">
           <label htmlFor="gender" >Gender</label>
           <select
             id="gender"
@@ -110,10 +110,10 @@ const NewKundli = () => {
        
 
         {/* Birth Details */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mt-1">
           <p >Birth Details</p>
-          <div className="md:flex xs:flex-col flex-wrap w-full justify-between">
-            <div className="flex flex-col">
+          <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
+            <div className="flex flex-col w-1/4">
               <label>Day</label>
               <select
                 name="day"
@@ -130,7 +130,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-1/4">
               <label>Month</label>
               <select
                 name="month"
@@ -147,7 +147,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-1/4">
               <label>Year</label>
               <select
                 name="year"
@@ -165,8 +165,8 @@ const NewKundli = () => {
             </div>
           </div>
 
-          <div className="md:flex xs:flex-col flex-wrap w-full justify-between">
-            <div className="flex flex-col">
+          <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
+            <div className="flex flex-col w-1/4">
               <label>Hour</label>
               <select
                 name="hour"
@@ -183,7 +183,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-1/4">
               <label>Minute</label>
               <select
                 name="minute"
@@ -200,7 +200,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-1/4">
               <label>Second</label>
               <select
                 name="second"
