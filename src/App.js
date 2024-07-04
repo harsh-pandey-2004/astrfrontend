@@ -47,6 +47,7 @@ import TalktoAstroCouncellor from "./components/AstroCounceler/TalkwithConcellor
 import ChattoAstroCouncellor from "./components/AstroCounceler/ChatwithCouncellor";
 import MainDashAstro from "./components/astrologercomponents/Maindashastro";
 import MaindashCouncellor from "./components/AstroCounceler/MaindashCouncellor";
+import HowToRead from "./components/kundalicomponents/KnowMore/HowToRead";
 
 
 
@@ -104,6 +105,8 @@ function App() {
             path="/freekundali/basic-details"
             element={<TabComponent />}
           ></Route>
+
+          <Route path="/how-to-read" element={<HowToRead/>}/>
 
           {/* //// */}
           <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
