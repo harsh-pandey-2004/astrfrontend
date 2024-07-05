@@ -4,6 +4,8 @@ import { RxDotFilled } from "react-icons/rx";
 import Vedio5 from "../../../vedios/vedio5.mp4"
 import KnowHead from './KnowHead';
 import KnowFaqs from './KnowFaqs';
+import { Link } from 'react-router-dom';
+import Parallax from '../../kundalimatching components/Parallax';
 
 const HowToRead = () => {
   return (
@@ -30,20 +32,23 @@ const HowToRead = () => {
             <p className='pl-2 pt-6'>A person's kundli involves in it the reasons for a certain issue in your life. For illustration, in case you're not able to discover a work or your marriage is getting postponed, the reason and arrangements for such complications can be found with the assistance of your Kundli. </p>
         </div>
 
+
+   
+
         
         <div className='px-12 py-6'>
         <h1 className='text-start font-semibold  text-2xl pt-6 pl-2 '> Getting to know planets, signs and houses in crystal gazing  </h1>
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 1 - Meaning of Planets in Astrology</p>
-        <p className='rounded-md p-2 border bg-slate-200 border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and</p>
+        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and             <span className='pl-24 text-yellow-600'> <Link to="/planets-in-astro">read more...</Link></span> </p>
          
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 2 - Meaning of Planets in Astrology</p>
-        <p className='rounded-md p-2 border bg-slate-200 border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and</p>
+        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and        <span className='pl-24 text-yellow-600'>read more...</span></p>
        
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 3 - Meaning of Planets in Astrology</p>
-        <p className='rounded-md p-2 border bg-slate-200 border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and</p>
+        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and     <span className='pl-24 text-yellow-600'>read more...</span></p>
        
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 4 - Meaning of Planets in Astrology</p>
-        <p className='rounded-md p-2 border bg-slate-200 border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and</p>
+        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and      <span className='pl-24 text-yellow-600'>read more...</span></p>
         </div>
         <KnowFaqs/>
 

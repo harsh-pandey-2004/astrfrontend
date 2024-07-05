@@ -48,6 +48,8 @@ import ChattoAstroCouncellor from "./components/AstroCounceler/ChatwithCouncello
 import MainDashAstro from "./components/astrologercomponents/Maindashastro";
 import MaindashCouncellor from "./components/AstroCounceler/MaindashCouncellor";
 import HowToRead from "./components/kundalicomponents/KnowMore/HowToRead";
+import PlanetaryTab from "./components/kundalicomponents/generateComponents/firstSection.js/PlanetaryTab";
+import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAstro";
 
 
 
@@ -107,6 +109,7 @@ function App() {
           ></Route>
 
           <Route path="/how-to-read" element={<HowToRead/>}/>
+          <Route path="/planets-in-astro" element={<PlanetsInAstro/>} />
 
           {/* //// */}
           <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
