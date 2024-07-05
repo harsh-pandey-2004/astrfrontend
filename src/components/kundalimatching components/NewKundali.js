@@ -56,16 +56,16 @@ const NewKundli = () => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-1">
-      <p className="text-xl text-gray-700 font-semibold text-center">
-        Fill Up Partner's Detail
+    <div className="w-full flex flex-col gap-1 px-12">
+      <p className="text-2xl text-gray-700 font-semibold text-center ">
+      Fill in Partner's Information
       </p>
 
-      <form onSubmit={handleSubmit} className="flex gap-4 justify-between w-full flex-col lg:flex-row">
+      <form onSubmit={handleSubmit} className="flex gap-4 justify-between w-full flex-col lg:flex-row mt-6">
         {/* Boy's Details */}
-        <div className="border-[1px] rounded-lg shadow-md p-4 w-full">
+        <div className=" p-4 w-full">
           <div>
-            <p className="text-center bg-yellow-300 py-2 px-0 mb-6 rounded-lg">
+            <p className="text-center bg-black text-white py-2 px-0 mb-6 rounded-lg">
               Boy's Details
             </p>
             <div className="flex flex-col gap-1 pb-4">
@@ -76,7 +76,7 @@ const NewKundli = () => {
                 id="name"
                 value={boyDetails.name}
                 onChange={(e) => handleInputChange(e, setBoyDetails)}
-                className="border rounded-md p-1 focus:outline-none"
+                className="border border-black rounded-md p-1 focus:outline-none "
               />
             </div>
 
@@ -90,7 +90,7 @@ const NewKundli = () => {
                     id="day"
                     value={boyDetails.day}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(31).keys()].map((day) => (
                       <option key={day + 1} value={day + 1}>
@@ -109,7 +109,7 @@ const NewKundli = () => {
                     id="month"
                     value={boyDetails.month}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                     className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {Array.from({ length: 12 }, (_, index) => (
                       <option key={index + 1} value={index + 1}>
@@ -128,7 +128,7 @@ const NewKundli = () => {
                     id="year"
                     value={boyDetails.year}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {Array.from({ length: 2025 - 1928 }, (_, index) => (
                       <option key={1928 + index} value={1928 + index}>
@@ -147,7 +147,7 @@ const NewKundli = () => {
                     id="hour"
                     value={boyDetails.hour}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                     className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(24).keys()].map((hour) => (
                       <option key={hour} value={hour}>
@@ -166,7 +166,7 @@ const NewKundli = () => {
                     id="minute"
                     value={boyDetails.minute}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(60).keys()].map((min) => (
                       <option key={min} value={min}>
@@ -185,7 +185,7 @@ const NewKundli = () => {
                     id="second"
                     value={boyDetails.second}
                     onChange={(e) => handleInputChange(e, setBoyDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                     className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(60).keys()].map((sec) => (
                       <option key={sec} value={sec}>
@@ -206,16 +206,16 @@ const NewKundli = () => {
                 id="birthPlace"
                 value={boyDetails.birthPlace}
                 onChange={(e) => handleInputChange(e, setBoyDetails)}
-                className="border rounded-md p-1 focus:outline-none"
+                 className="border border-black rounded-md p-1 focus:outline-none "
               />
             </div>
           </div>
         </div>
 
         {/* Girl's Details */}
-        <div className="border-[1px] rounded-lg shadow-md p-4 w-full">
+        <div className=" p-4 w-full">
           <div>
-            <p className="text-center bg-yellow-300 py-2 px-0 mb-6 rounded-lg">
+            <p className="text-center bg-black text-white py-2 px-0 mb-6 rounded-lg">
               Girl's Details
             </p>
             <div className="flex flex-col gap-1 pb-4">
@@ -226,7 +226,7 @@ const NewKundli = () => {
                 id="name"
                 value={girlDetails.name}
                 onChange={(e) => handleInputChange(e, setGirlDetails)}
-                className="border rounded-md p-1 focus:outline-none"
+                 className="border border-black rounded-md p-1 focus:outline-none "
               />
             </div>
 
@@ -240,7 +240,7 @@ const NewKundli = () => {
                     id="day"
                     value={girlDetails.day}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(31).keys()].map((day) => (
                       <option key={day + 1} value={day + 1}>
@@ -259,7 +259,7 @@ const NewKundli = () => {
                     id="month"
                     value={girlDetails.month}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                   className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {Array.from({ length: 12 }, (_, index) => (
                       <option key={index + 1} value={index + 1}>
@@ -278,7 +278,7 @@ const NewKundli = () => {
                     id="year"
                     value={girlDetails.year}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {Array.from({ length: 2025 - 1928 }, (_, index) => (
                       <option key={1928 + index} value={1928 + index}>
@@ -297,7 +297,7 @@ const NewKundli = () => {
                     id="hour"
                     value={girlDetails.hour}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(24).keys()].map((hour) => (
                       <option key={hour} value={hour}>
@@ -316,7 +316,7 @@ const NewKundli = () => {
                     id="minute"
                     value={girlDetails.minute}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                     className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(60).keys()].map((min) => (
                       <option key={min} value={min}>
@@ -335,7 +335,7 @@ const NewKundli = () => {
                     id="second"
                     value={girlDetails.second}
                     onChange={(e) => handleInputChange(e, setGirlDetails)}
-                    className="border rounded-md p-1 focus:outline-none pr-8"
+                    className="border border-black rounded-md p-1 focus:outline-none "
                   >
                     {[...Array(60).keys()].map((sec) => (
                       <option key={sec} value={sec}>
@@ -356,7 +356,7 @@ const NewKundli = () => {
                 id="birthPlace"
                 value={girlDetails.birthPlace}
                 onChange={(e) => handleInputChange(e, setGirlDetails)}
-                className="border rounded-md p-1 focus:outline-none"
+                className="border border-black rounded-md p-1 focus:outline-none "
               />
             </div>
           </div>
@@ -365,7 +365,7 @@ const NewKundli = () => {
 
       <button
         onClick={handleSubmit}
-        className="w-full border mt-2 rounded-full py-2 text-yellow-400 bg-gray-800 hover:bg-yellow-400 hover:text-black transition duration-400 hover:border shadow-xl"
+        className="w-full border mt-2 rounded-full py-2 text-white bg-black hover:bg-yellow-400 hover:text-black transition duration-400 hover:border shadow-xl"
       >
         Match Horoscope
       </button>
