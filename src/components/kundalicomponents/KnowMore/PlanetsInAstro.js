@@ -1,6 +1,7 @@
 import React from 'react'
 import PlanetHead from './PlanetHead'
 import Vedio6 from "../../../vedios/vedio6.mp4";
+import { RxDotFilled } from "react-icons/rx";
 const PlanetsInAstro = () => {
   return (
     <div className='mb-12'>
@@ -140,11 +141,28 @@ const PlanetsInAstro = () => {
             <p className='py-6 px-20'>Have you seen those kundli charts or charts, which really appear like a few kind of rocket science to disentangle? The chart, too called the birth chart, is an amalgamation of 12 houses. Each of these 12 houses in soothsaying implies or speak to a thing or two. For case, the moment house speaks to riches, the fifth house speaks to children and so on.Each of these houses is ruled by a zodiac sign. Moreover, planets in soothsaying (specified over) move from one house to another all through a person's life in this way modifying the perspective (instruction, cherish, career, etc.) of that house from time to time. Once more you may understand all of this within the up and coming chapters. For presently, all you wish to get it is the 12 houses in soothsaying and what they speak to. </p>
             </div>
 
-            <div>
-            <h1 className='px-20 text-xl font-semibold'>Astrological Houses in a birth chart and their interpretations</h1>
-            <p className='pt-2'><span></span></p>
-            </div>
 
+         <div className='flex items-center '>
+            <div className=' w-1/2'>
+            <h1 className='px-20 text-xl font-semibold'>Astrological Houses in a birth chart and their interpretations :</h1>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>First House:</span>  It is the house of Self.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Second House:</span>  It is the house of Wealth and Family.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Third House:</span>  It is the house of Siblings, Courage and Valour.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Fourth House:</span>  It is a house of Mother and Happiness.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Fifth House:</span>   It is the house of Children and Knowledge.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Sixthe House:</span>  It is the house of Enemies, Debts and Diseases.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Seventh House:</span>  It is the house of Marriage and Partnership.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Eighth House:</span>   It is the house of Longevity or Ayu Bhava.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Ninth House:</span>  It is the house of Luck, Father and Religion.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Tenth House:</span>  It is the house of Career or Profession.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Eleventh House:</span>  It is the house of Income & Gains.</p>
+            <p className='pt-2 px-20  flex items-center'><span className='font-semibold  flex items-center  w-fit pr-1'><RxDotFilled/>Twelfth House:</span>  It is the house of Expenditure & Losses.</p>
+            </div>
+            <div className='w-1/2'>
+             <img src="https://images.astroyogi.com/astroyogi2017/english/images/kundli/houses_in_kundli_728x409.jpg?w=528"
+             className='pr-20 rounded-md'/>
+            </div>
+        </div> 
 
         </div>
     </div>
