@@ -5,9 +5,9 @@ const Header = () => {
   return (
     <div className="bg-black py-4 w-full">
       <div className="w-full mx-auto px-6">
-        <div className="flex items-center justify-between space-x-4 max-w-3xl mx-auto">
+        <div className="flex items-center justify-between gap-5 max-w-3xl mx-auto flex-col md:flex-row ">
           {/* Search by City */}
-          <div className="w-1/2">
+          <div className="lg:w-1/2 w-full">
             <div className="flex items-center border border-yellow-400 rounded-md px-2 py-1 w-full">
               <input
                 placeholder="Search by City"
@@ -17,7 +17,7 @@ const Header = () => {
           </div>
 
           {/* Search by God */}
-          <div className="w-1/2">
+          <div className="lg:w-1/2 w-full">
             <div className="flex items-center border border-yellow-400 rounded-md px-2 py-1 w-full">
               <input
                 placeholder="Search by God"

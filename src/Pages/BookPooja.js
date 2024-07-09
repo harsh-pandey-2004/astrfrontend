@@ -20,15 +20,16 @@ const BookPooja = (props) => {
       } 
          flex flex-col bg-[#ffff]  relative top-20 lg:top-0   w-full`}
     >
-      <div className="flex   px-16 bg-black pb-2">
-        <div className="w-1/2 outline pt-16 ">
-          <h1 className=" text-white text-lg font-semibold pl-2   w-fit ">
+      <div className="w-full flex flex-col">
+      <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2">
+        <div className="lg:w-1/2 outline pt-16 w-full">
+          <h1 className=" text-white text-base font-semibold pl-2 sm:text-lg   w-fit ">
             Perform Poojas Remotely at Prestigious Temples
           </h1>
           <div className="flex flex-col gap-2 text-white pl-2 mt-6">
-            <p className=" text-5xl">What We Generally</p>
-            <p className=" text-5xl"></p>
-            <p className=" text-5xl">Offers...</p>
+            <p className="text-3xl lg:text-5xl">What We Generally</p>
+            <p className="text-3xl lg:text-5xl"></p>
+            <p className=" text-3xl lg:text-5xl">Offers...</p>
           </div>
           <p className="mt-6 text-gray-400 pb-6 pl-2">
             Welcome to our platform where you can participate in traditional
@@ -50,7 +51,7 @@ const BookPooja = (props) => {
           </p>
         </div>
 
-        <div className="w-1/2  pt-16 relative pl-10">
+        <div className="lg:w-1/2 pt-5 lg:pt-16 relative lg:pl-10 w-full">
           <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
           <video
             autoPlay
@@ -64,8 +65,12 @@ const BookPooja = (props) => {
           </video>
         </div>
       </div>
+      <Header />
+      </div>
+    
+      
       <div className="flex flex-col  items-center justify-center w-screen  ">
-        <Header />
+        
 
         {/* <Preference /> */}
 

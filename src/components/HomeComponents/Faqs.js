@@ -12,7 +12,7 @@ function Faqs() {
     <h1 className='text-center text-3xl font-semibold text-black'>Frequently Asked Questions </h1> 
     {/* <h2 className='text-center text-xl text-white  '>Why Is Astrology So Accurate?</h2>
     <p className='px-12 mt-6 text-gray-400'>First and foremost, the accuracy of our astrology predictions is thanks to the expertise of the hundreds of knowledgeable and experienced astrologers we have on board. The precision in astrology comes from our astrologers' deep understanding of planets, planetary configurations, constellations, and how these celestial bodies influence human life and behavior as they move, shift, or even stay still.</p>    */}
-     <div className='mt-6  border-b border-black      max-w-5xl mx-auto transition-all duration-500 ease-in-out'>
+     <div className='mt-6  border-b border-black      max-w-[85rem] mx-auto transition-all duration-500 ease-in-out'>
        <div className='py-2 flex justify-between items-center'> 
            <p className='font-semibold py-2'>Why Should You Choose Astrocaptain For An Astrology Horoscope?</p>
            <div className='p-1   rounded-sm '  >{slot==1 ? <RxCross1 className=' hover:cursor-pointer  ' onClick={()=>{setSlot(-1);}}/>:<FaPlus className=' hover:cursor-pointer' onClick={()=>{setSlot(1);}}/>}</div>
@@ -25,7 +25,7 @@ function Faqs() {
         </div>
      </div>
 
-     <div className=' border-b border-black      max-w-5xl mx-auto '>
+     <div className=' border-b border-black      max-w-[85rem] mx-auto '>
        <div className='py-2 flex justify-between items-center'> 
            <p className='font-semibold  py-2'>How Can Online Astrology Help Me In Predicting The Future?</p>
            <div className='p-1  rounded-sm'  >{slot==2 ? <RxCross1 className=' hover:cursor-pointer' onClick={()=>{setSlot(-2);}}/>:<FaPlus className=' hover:cursor-pointer' onClick={()=>{setSlot(2);}}/>}</div>
@@ -37,7 +37,7 @@ function Faqs() {
         </div>
      </div>
 
-     <div className=' border-b border-black      max-w-5xl mx-auto '>
+     <div className=' border-b border-black      max-w-[85rem] mx-auto '>
        <div className='py-2 flex justify-between items-center'> 
            <p className=' font-semibold py-2'>How reliable is the Astrocaptain app?</p>
            <div className='p-1  rounded-sm'  >{slot==3 ? <RxCross1 className=' hover:cursor-pointer' onClick={()=>{setSlot(-3);}}/>:<FaPlus className=' hover:cursor-pointer' onClick={()=>{setSlot(3);}}/>}</div>
@@ -52,7 +52,7 @@ function Faqs() {
       
        </div>
 
-     <div className=' border-b border-black     max-w-5xl mx-auto '>
+     <div className=' border-b border-black     max-w-[85rem] mx-auto '>
        <div className='py-2 flex justify-between items-center'> 
            <p className=' font-semibold py-2'>How much does Astrocaptain cost?</p>
            <div className='p-1  rounded-sm'  >{slot==4 ? <RxCross1 className=' hover:cursor-pointer' onClick={()=>{setSlot(-4);}}/>:<FaPlus className=' hover:cursor-pointer' onClick={()=>{setSlot(4);}}/>}</div>

@@ -13,15 +13,15 @@ import {
 const Footer = ({ showblur }) => {
   return (
     <div
-      className={`bg-gray-200 text-black  flex flex-col py-3  relative top-10 lg:-top-6 ${
+      className={`bg-black text-white  flex flex-col py-3  relative top-10  ${
         showblur
           ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none overflow-hidden"
           : ""
       }`}
     >
       <div className=" px-5">
-        <h1 className="text-center text-2xl font-bold md:text-left">
-          AstroTalk
+        <h1 className="text-center text-5xl font-bold md:text-left my-5">
+          Astro<span className="text-[#f6c300]">Captain</span>
         </h1>
         <p className="font-serif text-sm">
           Astrotalk is the best astrology website for online Astrology

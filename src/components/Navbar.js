@@ -70,6 +70,7 @@ const Navbar = ({ showbluefn }) => {
                 >
                   Astrologer
                   <CaretDown />
+                  <a ></a>
                 </span>
               </Link>
               {showDropdown && (

@@ -29,25 +29,40 @@ function PanditsSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-          className="hidden 980px:block  md:absolute md:top-6 md:right-20 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
-          onClick={onClick}
+        className="absolute top-12 right-20 transform -translate-y-1/2 z-10 "
+        onClick={onClick}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          className="h-10 w-10"
         >
-          {"<"}
-        </button>
+          {" "}
+          <path
+            fill="#FFD43B"
+            d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z"
+          />
+        </svg>
+      </button>
       );
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-          className="hidden 980px:block  md:absolute md:top-6 md:right-4 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
-          onClick={onClick}
-        >
-          {">"}
-        </button>
+      className="absolute top-12 right-4 transform -translate-y-1/2 z-10  "
+      onClick={onClick}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-10 h-10">
+        <path
+          fill="#FFD43B"
+          d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"
+        />
+      </svg>
+    </button>
       );
   return (
     <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
-    <h1 className=" text-2xl font-semibold md:absolute  md:top-0  md:left-1/3 md:pl-32 ">Our Pandits</h1>
-    <h2 className=" text-xl md:absolute md:top-8 md:left-1/4 md:pl-24   ">13000+ Best Pandits from India for You</h2>
+    <h1 className=" text-2xl font-semibold absolute  top-0  left-1/3 pl-32 ">Our Pandits</h1>
+    <h2 className=" text-xl absolute top-8 left-1/4 pl-32   ">13000+ Best Pandits from India for You</h2>
     <Carousel
       swipeable={true}
       draggable={true}
