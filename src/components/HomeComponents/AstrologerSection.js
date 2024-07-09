@@ -29,7 +29,7 @@ function AstrologerSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-          className="absolute top-12 right-20 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
+          className="hidden 980px:block  md:absolute md:top-12 md:right-20 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
           onClick={onClick}
         >
           {"<"}
@@ -38,16 +38,16 @@ function AstrologerSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-          className="absolute top-12 right-4 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
+          className="hidden 980px:block md:absolute md:top-12 md:right-4 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
           onClick={onClick}
         >
           {">"}
         </button>
       );
   return (
-    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
-    <h1  className=" text-2xl font-semibold absolute  top-8  left-1/3 pl-24 ">Our Astrologers</h1>
-    <h2 className=" text-xl absolute top-16 left-1/4   ">14000+ Best Astrologers from India To Predict your Destiny</h2>
+    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6   ">
+    <h1  className="text-center text-2xl font-semibold md:absolute  md:top-8  md:left-1/3 md:pl-24 ">Our Astrologers</h1>
+    <h2 className=" text-center text-xl md:absolute md:top-16 md:left-1/4   ">14000+ Best Astrologers from India To Predict your Destiny</h2>
     <Carousel
       swipeable={true}
       draggable={true}

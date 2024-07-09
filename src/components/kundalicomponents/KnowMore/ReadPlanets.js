@@ -17,6 +17,8 @@ Planets, you must know, are the foremost fundamental component of crystal gazing
 
      <div >
      <h1 className='text-2xl font-semibold text-center'>Benefic and Malefic aspects of Planets</h1>
+
+     <div className='flex items-center'>
         <div className='w-1/2'>
      
      <p className='px-20 pt-6'>All the 9 planets in crystal gazing are categorised beneath 2 categories.. </p>
@@ -26,8 +28,9 @@ Planets, you must know, are the foremost fundamental component of crystal gazing
      in case we consider the planet Moon, Full Moon, i.e. the Moon close Purnima, is considered benefic. In any case, on the other hand, No Moon, i.e. Moon close Amavasya, is considered as a malefic one by the crystal gazers. </p>
      </div>
 
-      <div className='w-1/2'>
+      <div className='w-1/2 outline'>
       <img src=""/>
+      </div>
       </div>
      </div>
     </div>

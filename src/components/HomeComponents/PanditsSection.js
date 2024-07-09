@@ -29,7 +29,7 @@ function PanditsSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-          className="absolute top-6 right-20 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
+          className="hidden 980px:block  md:absolute md:top-6 md:right-20 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
           onClick={onClick}
         >
           {"<"}
@@ -38,7 +38,7 @@ function PanditsSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-          className="absolute top-6 right-4 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
+          className="hidden 980px:block  md:absolute md:top-6 md:right-4 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
           onClick={onClick}
         >
           {">"}
@@ -46,8 +46,8 @@ function PanditsSection({showblur}) {
       );
   return (
     <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
-    <h1 className=" text-2xl font-semibold absolute  top-0  left-1/3 pl-32 ">Our Pandits</h1>
-    <h2 className=" text-xl absolute top-8 left-1/4 pl-24   ">13000+ Best Pandits from India for You</h2>
+    <h1 className=" text-2xl font-semibold md:absolute  md:top-0  md:left-1/3 md:pl-32 ">Our Pandits</h1>
+    <h2 className=" text-xl md:absolute md:top-8 md:left-1/4 md:pl-24   ">13000+ Best Pandits from India for You</h2>
     <Carousel
       swipeable={true}
       draggable={true}
