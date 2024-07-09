@@ -1,26 +1,39 @@
-import React from 'react'
+import React from "react";
+import CountUp from "react-countup";
 
-const HomeStats = () => {
+const Stat = ({amount="22,758+" ,live="711" ,customers="45.5" ,type="pooja"}) => {
   return (
-    <div style={{background: 'linear-gradient(to bottom,#f7c100, black)'}}   className='HomeStats flex flex-col  sm:flex-row items-center justify-evenly gap-4 w-full py-8  text-white '>
-        <div>
-                <p className='text-xl'>29,335</p>
-                <p >Total Astrologers</p>
-        </div>
+    <div className="flex flex-col lg:flex-row items-center justify-evenly gap-7 sm:gap-3 w-full py-8 bg-gradient-to-t from-yellow-700 to-[#f6c300] text-white stat-container">
+      <div className="flex flex-col items-center">
+        <p className=" text-3xl md:text-5xl font-bold stat-number">
+          <CountUp
+            end={parseFloat(amount.replace(/,/g, ""))}
+            duration={2}
+            separator=","
+          />
+          +
+        </p>
+        <p className="stat-text text-2xl">Total {type}</p>
+      </div>
 
+      <div className="flex flex-col items-center">
+        <p className="text-3xl md:text-5xl font-bold stat-number">
+          <CountUp end={live} duration={2} /> Million Minutes
+        </p>
+        <p className="stat-text text-2xl">Total Minutes of Live Pooja</p>
+      </div>
 
-        <div>
-                <p className='text-xl'>499 Million Minutes</p>
-                <p>Total Chat/Call Minutes</p>
-        </div>
-
-
-        <div>
-                <p className='text-xl'>70.4 Million</p>
-                <p>Total Customers</p> 
-        </div>
+      <div className="flex flex-col items-center">
+        <p className="text-3xl md:text-5xl font-bold stat-number">
+          <CountUp end={customers} duration={2} /> Million
+        </p>
+        <p className="stat-text text-2xl">Total Customers</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeStats;
+export default Stat;
+
+// Usage example
+// <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />

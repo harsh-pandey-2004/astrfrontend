@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Blogs = () => {
   return (
-    <div  className=' text-center w-full bg-slate-100  md:flex xs:flex-col gap-6 py-4  px-14'>
+    <div  className=' text-center w-full   md:flex xs:flex-col gap-6 py-4  px-14'>
         {/* News */}
         <div className=' rounded-md md:w-1/3 xs:w-full  px-4 bg-white '> 
             <h1 className='text-start text-2xl font-semibold py-3'>What's the News?</h1>
@@ -18,7 +18,7 @@ const Blogs = () => {
                 <p className='text-start text-gray-500'>Last Few Hours to invoke the 8 forms of Wealth Goddess Lakshmi and the benefic blessings of Rahu in Pisces to remove obstacles to wealth creation, fulfill sincere...</p>
            
                  <Link to="/">
-                 <p className='hover:text-yellow-500 hover:border-b-yellow-500  my-8 text-blue-600 border-b-blue-600 border-b w-fit ml-32'>View all News and Events</p></Link>
+                 <p className='hover:text-yellow-500 hover:border-b-yellow-500  my-8 text-[#f6c300] border-b-[#f6c300] border-b w-fit ml-32'>View all News and Events</p></Link>
             </div>
         </div>
 
@@ -58,9 +58,9 @@ const Blogs = () => {
         <div className='mt-8  '>
             <p className='text-start text-lg font-semibold'>Some Trending Topics</p>
             <div className='md:flex xs:flex-col  items-center gap-4 mt-2'>
-                <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Astrology Basics</button>
-                <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Planetry influences</button>
-                <button className='px-2 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white'>Relationships</button>
+                <button className='px-2 py-1 rounded-full border-2 border-yellow-500 hover:bg-[#f6c300] hover:text-white'>Astrology Basics</button>
+                <button className='px-2 py-1 rounded-full border-2 border-[#f6c300] hover:bg-[#f6c300] hover:text-white'>Planetry influences</button>
+                <button className='px-2 py-1 rounded-full border-2 border-[#f6c300] hover:bg-[#f6c300] hover:text-white'>Relationships</button>
             </div>
 
         </div>
