@@ -29,7 +29,7 @@ const Carousel = () => {
     <div
       className={`w-full h-[100vh] main-Slider relative  overflow-hidden top-20 lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh]`}
     >
-      <div className="px-2 w-[90%] h-[50vh] mx-auto py-10 rounded-md lg:w-[90%]">
+      <div className="px-2 w-[90%] h-[50vh] mx-auto pt-3 rounded-md lg:w-[90%]">
         <Slider {...settings}>
           <div>
             <video width="1520" height="120" autoPlay loop muted >
