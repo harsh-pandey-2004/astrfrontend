@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Whyastro = () => {
   return (
-    <div className=' mb-8  py-4'>
+    <div className=' mb-8 px-2 py-4'>
         <h1 className='text-center text-2xl font-semibold pt-3' >WHY ASTROLOGY ?</h1>
         <h2 className='text-center text-lg font-semibold '>Understanding the Divine: Astrology Reveals the Will of God </h2>
         <p className='px-12 mt-6'>Astrology, often referred to as the "will of the stars," is a profound and ancient predictive science. It has captivated the human spirit for centuries, providing insights into various aspects of life. Despite the evolving world, astrology remains a beacon of wisdom, guiding individuals through its intricate methods and timeless claims.Our country has given the world a precious gift in the form of the study of the Sun, the Moon, and the planets in our galaxy.</p>

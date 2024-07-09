@@ -24,6 +24,10 @@ function AstrologerSection({ showblur }) {
     },
   };
 
+ 
+
+
+   
   const CustomLeftArrow = ({ onClick }) => (
     <button
       className="absolute top-12 right-20 transform -translate-y-1/2 z-10 "
@@ -57,6 +61,8 @@ function AstrologerSection({ showblur }) {
     </button>
   );
   return (
+    
+  
     <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
       <h1 className=" text-2xl font-semibold absolute  top-8  left-1/3 pl-24 ">
         Our Astrologers
