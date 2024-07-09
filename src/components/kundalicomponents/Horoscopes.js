@@ -14,7 +14,7 @@ function Horoscopes() {
   }
 
   return (
-    <div className="bg-yellow-100  px-12 py-5 relative top-[4rem] lg:top-0">
+    <div className="  px-12 py-5 relative top-[4rem] lg:top-0">
       <h1 className="text-center text-2xl font-semibold">TODAY'S HOROSCOPE</h1>
       <Carousel
         showDots={myVariable}

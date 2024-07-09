@@ -1,3 +1,6 @@
+import HoroScope1 from "../../images/HoroIcon.JPG"
+import HoroScope2 from "../../images/cancer.png"
+
 export const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -147,14 +150,14 @@ export const Array = [
 export const horoscope = [
   {
     id: "1",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-01.webp",
+    img: HoroScope1,
     title: "ARIES",
     range: "MAR 21 - APR 19",
   },
 
   {
     id: "2",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-02.webp",
+    img: HoroScope2,
     title: "TAURUS",
     range: "APR 20 - MAY 20",
   },
