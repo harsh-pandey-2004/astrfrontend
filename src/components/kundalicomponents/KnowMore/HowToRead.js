@@ -41,8 +41,8 @@ const HowToRead = () => {
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 1 - Meaning of Planets in Astrology</p>
         <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and             <span className='pl-24 text-yellow-600'> <Link to="/planets-in-astro">read more...</Link></span> </p>
          
-        <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 2 - Meaning of Planets in Astrology</p>
-        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and        <span className='pl-24 text-yellow-600'>read more...</span></p>
+        <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 2 - Understanding Planets in Astrology</p>
+        <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>In portion 1 of how to examined kundli, we have learned the noteworthiness of kundli whereas too learning a thing or two     <span className='pl-24 text-yellow-600'><Link to="/read-planets">read more...</Link></span></p>
        
         <p className='pl-2 pt-4 font-semibold text-gray-700'> Step 3 - Meaning of Planets in Astrology</p>
         <p className='rounded-md p-2 border  border-black  mt-2 hover:bg-black hover:text-white hover:cursor-pointer transition duration-300 '>Step 1 is the basic step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and     <span className='pl-24 text-yellow-600'>read more...</span></p>
