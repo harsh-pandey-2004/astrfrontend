@@ -122,3 +122,17 @@
   }
 }
 
+
+/* custom-carousel.css */
+.custom-dot-list-style .react-multi-carousel-dot button {
+  background: #f7c100 ; 
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+}
+
+.custom-dot-list-style .react-multi-carousel-dot--active button {
+  background: #f59e0b; 
+}
+

@@ -29,7 +29,7 @@ function AstrologerSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 w-10 h-10 hover:bg-gray-100"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
           onClick={onClick}
         >
           {"<"}
@@ -38,14 +38,14 @@ function AstrologerSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 w-10 h-10 hover:bg-gray-100"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-yellow-400  rounded-full p-2 w-10 h-10"
           onClick={onClick}
         >
           {">"}
         </button>
       );
   return (
-    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6 ">
+    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
     <h1  className="text-center text-2xl font-semibold ">Our Astrologers</h1>
     <h2 className="text-center text-xl ">14000+ Best Astrologers from India To Predict your Destiny</h2>
     <Carousel
@@ -65,7 +65,7 @@ function AstrologerSection({showblur}) {
       itemClass="carousel-item-padding-40-px"
       customLeftArrow={<CustomLeftArrow />}
       customRightArrow={<CustomRightArrow />}
-      className='pb-12 mt-4'
+      className='pb-12 mt-4 '
     >
     
       {

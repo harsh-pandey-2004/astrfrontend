@@ -1,5 +1,5 @@
 import React from 'react'
-import Vedio4 from "../../vedios/vedio4.mp4";
+import Vedio7 from "../../vedios/vedio7.mp4";
 const HeadMatch = () => {
   return (
     <div className='flex   px-16 bg-black pb-2'>
@@ -18,7 +18,7 @@ const HeadMatch = () => {
 
     <div className='w-1/2  pt-16 '>
     <video  autoPlay loop muted className='pt-16 rounded-md  '>
-           <source src={Vedio4} type="video/mp4" />
+           <source src={Vedio7} type="video/mp4" />
            Your browser does not support the video tag.
          </video>
 

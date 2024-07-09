@@ -15,7 +15,7 @@ function Faqs() {
            <p className='text-white py-2'>Why Should You Choose Astrocaptain For An Astrology Horoscope?</p>
            <div className='p-1 border border-white bg-white rounded-sm '  >{slot==1 ? <FaRegMinusSquare className='bg-white hover:cursor-pointer ' onClick={()=>{setSlot(-1);}}/>:<FaRegPlusSquare className='bg-white hover:cursor-pointer' onClick={()=>{setSlot(1);}}/>}</div>
         </div>  
-         {slot==1 && <p className='text-white pb-4'>AstroCaptain has consistently received high praise across various platforms, cultivating a satisfied and loyal user base. Our rigorous recruitment process ensures that only the finest astrologers join AstroCaptain, guaranteeing top-notch service for all your astrology needs.
+         {slot==1 && <p className=' text-white pb-4 transition-max-height duration-300 ease-in-out'>AstroCaptain has consistently received high praise across various platforms, cultivating a satisfied and loyal user base. Our rigorous recruitment process ensures that only the finest astrologers join AstroCaptain, guaranteeing top-notch service for all your astrology needs.
 Our extensive range of services includes online Kundli matching, horoscope predictions, daily and weekly horoscopes, numerology, tarot readings, shopping, and free blogs, among many others.
 Additionally, if you encounter any issues, you can directly reach out to the CEO to address your concerns. Exceptional service is our top priority, and we are committed to achieving it in every interaction with you.</p>}
      </div>

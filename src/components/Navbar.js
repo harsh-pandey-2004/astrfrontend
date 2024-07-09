@@ -230,7 +230,7 @@ const Navbar = ({ showbluefn }) => {
           <img src={AstroCaptionLogo} className="w-[60%]  "></img>
         </div>
         <div
-          className="flex items-center gap-1 bg-[#f6c003] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
+          className="flex items-center gap-1 bg-[#f6c300] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
