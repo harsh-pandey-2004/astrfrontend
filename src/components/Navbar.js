@@ -14,49 +14,51 @@ const Navbar = ({ showbluefn }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showhorodropDown, setshowhorodropDown] = useState(false);
   const [showAstrodropDown, setshowAstrodropDown] = useState(false);
-  const [showCounclrdropDown, setshowCounclrdropDown]=useState(false);
+  const [showCounclrdropDown, setshowCounclrdropDown] = useState(false);
   const toggleNav = () => {
     setShowNav(!showNav);
     showbluefn(!showNav);
   };
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-   setshowhorodropDown(false);
-   setshowCounclrdropDown(false);
+    setshowhorodropDown(false);
+    setshowCounclrdropDown(false);
   };
 
-  const toggleDropdownCounclr=()=>{
+  const toggleDropdownCounclr = () => {
     setshowCounclrdropDown(!showCounclrdropDown);
-    
     setShowDropdown(false);
-  }
+  };
 
-  const toggleDropdownHoro = () => {
-   setshowhorodropDown(true);
-    setShowDropdown(false);
+  const handleMouseEnterHoro = () => {
+    setshowhorodropDown(true);
   };
-  const toggleDropdownAstro = () => {
-    setshowAstrodropDown(!showAstrodropDown);
+
+  const handleMouseLeaveHoro = () => {
+    setshowhorodropDown(false);
   };
+
+  const handleMouseEnterAstro = () => {
+    setshowAstrodropDown(true);
+  };
+
+  const handleMouseLeaveAstro = () => {
+    setshowAstrodropDown(false);
+  };
+
   return (
     <>
       <div className=" flex lg:hidden  w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
         <div onClick={toggleNav} className="lg:hidden">
-          {!showNav ? <HambugerIcon/> : <CrossIcon/>}
+          {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
             showNav ? "opacity-100 scale-100 " : "opacity-0 scale-95"
-          } ${showCounclrdropDown ? "pb-56" :"pb-28"} w-64  bg-black text-white fixed top-[5rem]  sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-scroll `}
+          } ${
+            showCounclrdropDown ? "pb-56" : "pb-28"
+          } w-64  bg-black text-white fixed top-[5rem]  sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-scroll `}
         >
-          {/* <div
-            className={`h-1/3 flex bg-gray-200  bg-back bg-cover bg-center bg-no-repeat  w-full overflow-hidden`}
-          >
-            <div className="font-serif font-normal text-lg  left-3 h-full">
-              <p className="text-center font-sans"></p>
-              <p className="text-center font-sans"></p>
-            </div>
-          </div> */}
           <div
             className={`py-6 h-[35.2rem]  ${showDropdown && "h-[49rem]"} ${
               showhorodropDown && "h-[59.7rem]"
@@ -70,7 +72,7 @@ const Navbar = ({ showbluefn }) => {
                 >
                   Astrologer
                   <CaretDown />
-                  <a ></a>
+                  <a></a>
                 </span>
               </Link>
               {showDropdown && (
@@ -112,20 +114,6 @@ const Navbar = ({ showbluefn }) => {
                 </div>
               )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <Link to={"/book-a-pandit"}>
                 <span className="transEffect hover:hover-effect px-5">
                   Book Pandit
@@ -158,61 +146,6 @@ const Navbar = ({ showbluefn }) => {
                 <span className=" hover:hover-effect px-5">Book Pooja</span>
               </Link>
 
-
-              {/* <Link to={"/"}>
-                <div
-                  className="trasEffect hover:hover-effect px-5 flex justify-between"
-                  onClick={toggleDropdownHoro}
-                >
-                  Horoscopes
-                  <CaretDown />
-                </div>
-              </Link>
-              {showhorodropDown && (
-                <div className=" flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3 z-50">
-                  <Link to={"/kundali-matching"}>
-                    <div className="px-5 py-2  transEffect hover:hover-effect ">
-                      Horoscope 2024
-                    </div>
-                  </Link>
-                  <Link to={"/kundali-matching"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Today's Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/kundali-matching"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Weekly Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/kundali-matching"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Monthly Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/kundali-matching"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Yearly Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/kundali-matching"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Yesterday's Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/free-kundali"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Tommorow's Horoscope
-                    </div>
-                  </Link>
-                  <Link to={"/free-kundali"}>
-                    <div className="trasEffect hover:hover-effect px-5">
-                      Chinese Horoscope
-                    </div>
-                  </Link>
-                </div>
-              )} */}
-
               <Link to={"/shop-on-astro"}>
                 <span className=" hover:hover-effect px-5">Prasaad</span>
               </Link>
@@ -231,28 +164,27 @@ const Navbar = ({ showbluefn }) => {
           <img src={AstroCaptionLogo} className="w-[60%]  "></img>
         </div>
         <div
-          className="flex items-center gap-1 bg-[#f6c300] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
+          className="flex items-center gap-1 border-[#f6c300] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
           Login
         </div>
       </div>
-               {/* Web nav */}
+      {/* Web nav */}
       <div>
         <div className="hidden lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black text-white">
           <div className="flex items-center lg:w-52 xl:w-[18rem] ">
             <Link to="/">
-            <img src={AstroCaptionLogo} className=""></img>       
+              <img src={AstroCaptionLogo} className=""></img>
             </Link>
-            
           </div>
           <div>
             <div className="flex  flex-row gap-4 xl:text-base font-sans xl:gap-10 font-normal lg:gap-5  w-full grow lg:text-sm">
               <div
                 className="relative"
-                onMouseEnter={toggleDropdownAstro}
-                onMouseLeave={toggleDropdownAstro}
+                onMouseEnter={handleMouseEnterAstro}
+                onMouseLeave={handleMouseLeaveAstro}
               >
                 <Link to={"/"}>
                   <div className="transEffect hover:hover-effect flex gap-1 ">
@@ -316,8 +248,8 @@ const Navbar = ({ showbluefn }) => {
               </div>
               <div
                 className="relative"
-                onMouseEnter={toggleDropdownHoro}
-                onMouseLeave={toggleDropdownHoro}
+                onMouseEnter={handleMouseEnterHoro}
+                onMouseLeave={handleMouseLeaveHoro}
               >
                 <Link to={"/"}>
                   <div className="transEffect hover:hover-effect relative">
@@ -362,7 +294,7 @@ const Navbar = ({ showbluefn }) => {
             </div>
           </div>
           <div
-            className="flex items-center gap-1  bg-[#f6c003] px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
+            className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
             onClick={() => navigate("/register-page")}
           >
             <AccountLogo />
