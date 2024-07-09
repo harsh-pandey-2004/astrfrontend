@@ -29,7 +29,7 @@ function PanditsSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-          className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 w-10 h-10 hover:bg-gray-100"
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
           onClick={onClick}
         >
           {"<"}
@@ -38,7 +38,7 @@ function PanditsSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-          className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-gray-200 rounded-full p-2 w-10 h-10 hover:bg-gray-100"
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10 bg-yellow-400 rounded-full p-2 w-10 h-10 "
           onClick={onClick}
         >
           {">"}
