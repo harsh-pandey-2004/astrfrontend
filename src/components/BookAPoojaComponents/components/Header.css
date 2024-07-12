@@ -1,0 +1,147 @@
+/* For the Select component */
+.select-input__control {
+  background-color: transparent !important;
+  border: 2px solid #f6c300 !important; /* Yellow border */
+  color: #fff !important;
+  border-radius: 0.375rem !important; /* Rounded corners */
+  box-shadow: none !important; /* Remove default shadow */
+}
+
+.select-input__control--is-focused {
+  border-color: #f6c300 !important; /* Yellow border on focus */
+  box-shadow: 0 0 5px #f6c300 !important; /* Yellow shadow on focus */
+}
+
+.select-input__menu {
+  background-color: #000 !important; /* Black dropdown */
+  color: #f6c300 !important; /* Yellow text */
+}
+
+.select-input__single-value {
+  color: #f6c300 !important; /* Yellow selected value */
+}
+
+.select-input__placeholder {
+  color: #f6c300 !important; /* Yellow placeholder text */
+}
+
+/* Targeting the dropdown indicator (caret) */
+.select-input__dropdown-indicator svg {
+  fill: #f6c300 !important; /* Yellow caret icon */
+}
+
+.select-input__indicator-separator {
+  display: none; /* Remove the separator line */
+}
+
+/* For the DatePicker component */
+.date-input {
+  background-color: transparent;
+  border: 2px solid #f6c300; /* Yellow border */
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.375rem; /* Rounded corners */
+  width: 100%;
+  box-shadow: none; /* Remove default shadow */
+}
+
+.date-input::placeholder {
+  color: #f6c300; /* Yellow placeholder text */
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #f6c300; /* Yellow border on focus */
+  box-shadow: 0 0 5px #f6c300; /* Yellow shadow on focus */
+}
+.react-datepicker {
+  font-family: Arial, sans-serif; /* Example font */
+}
+
+.react-datepicker-wrapper {
+  width: 100%; /* Adjust width as needed */
+}
+
+.react-datepicker__input-container {
+  width: 100%; /* Adjust width as needed */
+}
+
+.react-datepicker__current-month {
+  color: #f6c300; /* Yellow text for current month */
+}
+
+.react-datepicker__day {
+  color: #fff; /* White text for day */
+  background-color: #000; /* Black background for day */
+}
+/* Day names color */
+.react-datepicker__day-name {
+  color: #fff !important; /* White text for day names */
+  padding-top: 10px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #f6c300; /* Yellow background for selected day */
+  color: #000 !important; /* Black text for selected day */
+}
+/* Current date color */
+.react-datepicker__day--today {
+  color: #000 !important;
+  background: white; /* Black text for today's date */
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #f6c300; /* Yellow background for keyboard-selected day */
+  color: #000; /* Black text for keyboard-selected day */
+}
+
+.react-datepicker__day--today {
+  color: #f6c300; /* Yellow text for today's date */
+}
+
+.react-datepicker__day--disabled {
+  opacity: 0.4; /* Adjust opacity for disabled days */
+}
+
+.react-datepicker__week {
+  display: flex;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.react-datepicker__day-name {
+  width: 2rem; /* Adjust day name cell width */
+  color: #000; /* White text for day names */
+}
+
+.react-datepicker__triangle {
+  border-bottom-color: #000; /* Black triangle for the dropdown arrow */
+}
+
+.react-datepicker__header {
+  background-color: #000; /* Black header background */
+  border-bottom: none; /* Remove bottom border */
+  border-top-left-radius: 0.375rem; /* Adjust border radius */
+  border-top-right-radius: 0.375rem; /* Adjust border radius */
+  padding-top: 0.8rem; /* Adjust top padding */
+}
+
+.react-datepicker__navigation {
+  top: 1.5rem; /* Adjust navigation position */
+}
+
+.react-datepicker__navigation--previous {
+  border-right-color: #f6c300; /* Yellow border color for previous navigation */
+}
+
+.react-datepicker__navigation--next {
+  border-left-color: #f6c300; /* Yellow border color for next navigation */
+}
+.react-datepicker__day:hover {
+  background-color: #f6c300; /* Yellow background on hover */
+  color: #000; /* Black text on hover */
+}

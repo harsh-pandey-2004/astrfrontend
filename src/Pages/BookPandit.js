@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
-import PanditTestimonial from "../components/BookaPanditComponents/PanditTestimonial";
+import { SearchLogo } from "../icons/icons";
+import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
+import Stat from "../components/BookAPoojaComponents/components/Stat";
+import Workflow from "../components/BookAPoojaComponents/components/Workflow";
+import Destinations from "../components/BookAPoojaComponents/components/Destinations";
+import Preference from "../components/BookAPoojaComponents/components/Preference";
+import Header from "../components/BookAPoojaComponents/components/Header";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
+import Vedio3 from "../vedios/panditpagebg.mp4";
+import axios from "axios";
+import Workflow1 from "../components/BookAPoojaComponents/Workflow1";
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -73,7 +79,9 @@ const BookPandit = (props) => {
     }
 
     try {
-      const res = await axios.get("https://astrobackend.onrender.com/api/panditpooja");
+      const res = await axios.get(
+        "https://astrobackend.onrender.com/api/panditpooja"
+      );
       console.log(res);
       const filteredData = res.data.data.filter(
         (pandit) =>
@@ -92,59 +100,66 @@ const BookPandit = (props) => {
     <div
       className={`${
         showblur &&
-        "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"
+        "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full "
       } 
-       flex flex-col bg-white gap-5 relative top-20 lg:top-0 lg:pt-5 pt-10 py-20 w-full`}
+       flex flex-col bg-[#ffff]  relative top-20 lg:top-0   w-full`}
     >
-      <h1 className="text-3xl text-center font-sans font-bold md:text-4xl text-[#f6c003] mb-2">
-        Book a Pandit
-      </h1>
-      <p className="text-lg text-center font-sans font-medium text-[#f1d980] md:text-xl mb-5">
-        Filter by price, location, and type of Pooja
-      </p>
-      <div className="flex flex-col lg:flex-row justify-between items-center w-[95%] lg:w-[80%] mx-auto gap-4">
-        <input
-          placeholder="Enter Pooja Name"
-          name="nameOfPooja"
-          className="p-3 rounded border-2 border-gray-300 outline-none shadow-sm w-full lg:w-1/4"
-          onChange={handleChange}
-          value={response.nameOfPooja}
-        />
-        <select
-          className="p-3 rounded border-2 border-gray-300 outline-none shadow-sm w-full lg:w-1/4"
-          name="location"
-          onChange={handleChange}
-          value={response.location}
-        >
-          <option value="" disabled>
-            Select Location
-          </option>
-          {indianStatesAndUTs.map((state) => (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          ))}
-        </select>
-        <DatePicker
-          className="p-3 rounded border-2 border-gray-300 outline-none shadow-sm w-full lg:w-full"
-          placeholderText="Select a Date"
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat="yyyy/MM/dd"
-          value={selectedDate}
-        />
-        <button
-          onClick={handleClick}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Search
-        </button>
+      <div className="w-full flex flex-col">
+        <div className="flex flex-col-reverse lg:flex-row lg:p-16 px-5 bg-black pb-2">
+          <div className="lg:w-1/2 outline pt-16 w-full">
+            <h1 className="text-white text-base font-semibold pl-2 sm:text-lg w-fit ">
+              Book a Pandit for Your Sacred Rituals
+            </h1>
+            <div className="flex flex-col gap-2 text-white pl-2 mt-6">
+              <p className="text-3xl lg:text-4xl">
+                Experience Traditional Poojas
+              </p>
+              <p className="text-3xl lg:text-4xl">from </p>
+              <p className="text-3xl lg:text-4xl">the Comfort of Your Home</p>
+            </div>
+            <p className="mt-6 text-gray-400 pb-6 pl-2">
+              In today's fast-paced world, finding time to visit temples for
+              traditional rituals can be challenging. Our "Book a Pandit"
+              service brings the spiritual experience to you, allowing you to
+              partake in sacred ceremonies from the convenience of your home.
+              Whether it's for personal solace, family events, or special
+              occasions, you can now connect with experienced pandits who will
+              guide you through authentic poojas. Choose your desired ritual,
+              select a convenient time, and our pandits will perform the
+              ceremonies live, ensuring you receive blessings and spiritual
+              fulfillment. Embrace the tranquility and divine connection that
+              comes with traditional rituals, all without the need for travel.
+              Start your spiritual journey with us today and bring the divine
+              blessings to your doorstep.
+            </p>
+          </div>
+
+          <div className="lg:w-1/2 pt-5 lg:pt-28 relative lg:pl-10 w-full shadow-lg">
+            <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
+            <video
+              autoPlay
+              loop
+              muted
+              className="rounded-md z-20"
+              style={{
+                filter: "brightness(70%) contrast(120%)",
+                boxShadow: "0 0 20px 5px #f6c300", // Add this line for the yellow shadow
+              }}
+            >
+              <source src={Vedio3} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <Header />
       </div>
-      <div className="w-[95%] lg:w-[80%] mx-auto">
-        <ResponseCard filterData={filterData} />
-      </div>
-      <div className="w-[95%] lg:w-[80%] mx-auto">
-        <PanditTestimonial />
+
+      <div className="flex flex-col items-center justify-center w-screen">
+        {/* <Preference /> */}
+        <Destinations />
+<Workflow1/>
+        <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
+        <Testimonials />
       </div>
     </div>
   );
