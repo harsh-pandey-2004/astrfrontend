@@ -47,6 +47,7 @@ function AstrologerProfileForm() {
         `https://astrobackend.onrender.com/api/update-astrologer-profile/${id}`,
         formData
       );
+     
       console.log(response.data.Astrologer.Skills);
       console.log(response.data.Astrologer.slug);
       navigate(`/astrologerdashboard/${response.data.Astrologer && response.data.Astrologer.slug}`);

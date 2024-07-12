@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate} from "react-router-dom";
 
 const NewKundli = () => {
+
+ const navigate=useNavigate();
+ 
+ 
+
   const [boyDetails, setBoyDetails] = useState({
     name: "",
     day: 1,
@@ -53,6 +59,8 @@ const NewKundli = () => {
     e.preventDefault();
     console.log("Boy's Details:", boyDetails);
     console.log("Girl's Details:", girlDetails);
+    const details={boy:boyDetails,girl:girlDetails};
+    navigate("/match-report", { state: { details } });
   };
 
   return (
@@ -363,12 +371,12 @@ const NewKundli = () => {
         </div>
       </form>
 
-      <button
+     <button
         onClick={handleSubmit}
         className="w-full border mt-2 rounded-full py-2 text-white bg-black hover:bg-yellow-400 hover:text-black transition duration-400 hover:border shadow-xl"
       >
         Match Horoscope
-      </button>
+      </button> 
     </div>
   );
 };
