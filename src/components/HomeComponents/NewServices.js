@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 const NewServices = () => {
     const[service,setService]=useState("kundli");
   return (
-    <div className='md:pl-20 pb-12  bg-black NewServices pt-10'>
+    <div className='md:pl-20 pb-12  bg-black NewServices sm:pt-10 px-4'>
         <h1 className='text-3xl  font-semibold text-start pb-4 text-white '> Astro Services That we Provide</h1>
-        <div className='md:flex xs:flex-col  items-center  gap-36  '>
+        <div className='md:flex xs:flex-col  items-center gap-5  md:gap-36  flex flex-col-reverse'>
             <div className='md:w-2/5 w-full'>
               <p className='text-gray-400'>Our services include booking poojas, astrology consultations, Vastu making, and more. We aim to provide spiritual guidance, harmony in living spaces, and personalized astrological insights to enhance your overall well-being and spiritual journey.</p>
-             <div className='grid grid-cols-2 gap-4  mt-8 outline '>
+             <div className='grid sm:grid-cols-2 grid-cols-1 gap-4  mt-8 outline '>
              <div className={`border ${service=="kundli" ? " shadow-md shadow-yellow-400 border-yellow-400" : "border-slate-700"}  h-34 rounded-md  p-2 hover:cursor-pointer  transition`}  onClick={()=>{setService("kundli");}}>
                     <p className='text-white'>Free Kundli</p>
                     <p className='text-gray-400'>Get your personalized Kundli for free, offering deep insights into your life and future.</p>
