@@ -63,11 +63,11 @@ function AstrologerSection({ showblur }) {
   return (
     
   
-    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
-      <h1 className=" text-2xl font-semibold absolute  top-8  left-1/3 pl-24 ">
+    <div className="w-full sm:w-[95%] mx-auto h-fit sm:top-16 relative sm:px-12   lg:top-0  sm:py-6 py-3 px-4">
+      <h1 className=" text-2xl font-semibold sm:absolute  top-8  sm:left-1/3 sm:pl-24 text-center mb-3 sm:mb-0">
         Our Astrologers
       </h1>
-      <h2 className=" text-xl absolute top-16 left-[27%]   ">
+      <h2 className=" text-lg sm:absolute top-16 left-[27%]  sm:text-xl ">
         14000+ Best Astrologers from India To Predict your Destiny
       </h2>
       <Carousel

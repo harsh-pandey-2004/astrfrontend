@@ -29,7 +29,7 @@ function PanditsSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-        className="absolute top-12 right-20 transform -translate-y-1/2 z-10 "
+        className="absolute sm:top-12  top-8 right-20 transform -translate-y-1/2 z-10 "
         onClick={onClick}
       >
         <svg
@@ -48,7 +48,7 @@ function PanditsSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-      className="absolute top-12 right-4 transform -translate-y-1/2 z-10  "
+      className="absolute sm:top-12  top-8 right-4 transform -translate-y-1/2 z-10  "
       onClick={onClick}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-10 h-10">
@@ -60,9 +60,9 @@ function PanditsSection({showblur}) {
     </button>
       );
   return (
-    <div className="w-[95%] mx-auto h-fit top-16 relative px-12   lg:top-0  py-6  ">
-    <h1 className=" text-2xl font-semibold absolute  top-0  left-1/3 pl-32 ">Our Pandits</h1>
-    <h2 className=" text-xl absolute top-8 left-1/4 pl-32   ">13000+ Best Pandits from India for You</h2>
+    <div className="w-full sm:w-[95%] mx-auto h-fit sm:top-16   relative sm:px-12 px-5 py-3   lg:top-0  sm:py-6  ">
+    <h1 className=" text-2xl font-semibold sm:absolute  top-0  sm:left-1/3 sm:pl-32 text-center mb-3 sm:mb-0">Our Pandits</h1>
+    <h2 className=" text-lg sm:absolute sm:top-8 sm:left-1/4 sm:pl-32   sm:text-xl">13000 + Best Pandits from India for You</h2>
     <Carousel
       swipeable={true}
       draggable={true}

@@ -42,7 +42,7 @@ const HomeTestimonial = () => {
 
     return (
         <div className='flex flex-col gap-12 py-6 mb-6'>
-            <h1 className="text-center text-3xl font-semibold px-12">Customer Reviews</h1>
+            <h1 className="text-center text-2xl  sm:text-4xl font-semibold sm:px-12 px-5">Customer Reviews</h1>
             <Carousel
                 responsive={responsive}
                 infinite={true}

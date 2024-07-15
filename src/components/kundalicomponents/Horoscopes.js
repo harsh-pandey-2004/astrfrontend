@@ -31,8 +31,8 @@ function Horoscopes() {
   );
 
   return (
-    <div className="px-12 py-5 lg:py-14 relative top-[4rem] lg:top-0">
-      <h1 className="text-center text-4xl font-semibold">TODAY'S HOROSCOPE</h1>
+    <div className="sm:px-12 px-5 py-5 lg:py-14 relative sm:top-[4rem] lg:top-0">
+      <h1 className="text-center text-2xl sm:text-4xl font-semibold">TODAY'S HOROSCOPE</h1>
       <Carousel
         showDots={myVariable}
         removeArrowOnDeviceType={["mobile"]}

@@ -27,31 +27,31 @@ const Carousel = () => {
 
   return (
     <div
-      className={`w-full h-[100vh] main-Slider relative  overflow-hidden top-20 lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh]`}
+      className={`w-full h-[70vh] main-Slider relative  overflow-hidden top-20 lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh]`}
     >
-      <div className="px-2 w-[90%] h-[50vh] mx-auto pt-3 rounded-md lg:w-[90%]">
+      <div className="px-2 w-[100%] h-[65vh] mx-auto pt-3 rounded-md lg:w-[90%]">
         <Slider {...settings}>
           <div>
-            <video width="1520" height="120" autoPlay loop muted >
+            <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
           <div>
-            <video width="1520" height="120" autoPlay loop muted >
+            <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
           <div>
-            <video width="1620" height="120" autoPlay loop muted >
+            <video width="1620" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
         </Slider>
       </div>
-      <div className="grid grid-cols-3 relative top-16 sm:grid-cols-3 lg:grid-cols-6 w-[90%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%]">
+      <div className="grid grid-cols-3 relative  top-[-5rem] sm:top-16 sm:grid-cols-3 lg:grid-cols-6 w-[100%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%]">
         <Link to="/book-a-pooja">
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
