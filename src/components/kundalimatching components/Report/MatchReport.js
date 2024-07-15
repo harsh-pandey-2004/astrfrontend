@@ -25,31 +25,39 @@ const MatchReport = () => {
 
   // function to get Boy lat&long
   const getBoyCoordinates = async (cityName) => {
-    const apiKey = '50b47f443c7e4f06a422fd8a33223ccc';
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
 
     try {
       const response = await axios.get(url);
-      const { lat, lng } = response.data.results[0].geometry;
-      setBoyLat(Math.floor(lat));
-      setBoyLong(Math.floor(lng));
-      console.log('Boy Coordinates:', { lat, lng });
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setBoyLat(location.lat);
+        setBoyLong(location.lng);
+        console.log('Boy Coordinates:', { boyLat: location.lat, boyLong: location.lng });
+      } else {
+        throw new Error('Unable to find location');
+      }
     } catch (error) {
-      console.error('Error fetching boy coordinates:', error);
+      console.error('Error fetching girl coordinates:', error);
     }
   };
 
   // function to get Girl lat&long
   const getGirlCoordinates = async (cityName) => {
-    const apiKey = '50b47f443c7e4f06a422fd8a33223ccc';
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
 
     try {
       const response = await axios.get(url);
-      const { lat, lng } = response.data.results[0].geometry;
-      setGirlLat(Math.floor(lat));
-      setGirlLong(Math.floor(lng));
-      console.log('Girl Coordinates:', { lat, lng });
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setGirlLat(location.lat);
+        setGirlLong(location.lng);
+        console.log('Girl Coordinates:', { girlLat: location.lat, girlLong: location.lng });
+      } else {
+        throw new Error('Unable to find location');
+      }
     } catch (error) {
       console.error('Error fetching girl coordinates:', error);
     }
