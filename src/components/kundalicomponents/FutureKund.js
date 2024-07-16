@@ -6,7 +6,7 @@ function FutureKund() {
         <h1 className='text-center text-2xl font-semibold '>Get Your Free Kundli Online and Unveil Your Future</h1>
         <h3 className='text-center text-lg font-semibold '>Generate Your Kundli by Date of Birth Online</h3>
 
-        <div className='mt-6 flex flex-col gap-6 px-12 whitespace-normal '>
+        <div className='mt-6 flex flex-col gap-6 px-4 md:px-12 whitespace-normal '>
             <p>A person's Kundli is one of the most sought-after elements in astrology. It provides detailed information about the positions of stars and planets at the time of your birth, which are then used to make further predictions. These predictions cover various aspects of life such as love, career, health, business, finance, and marriage. In essence, creating a Kundli is essential for anyone looking to improve their decision-making capabilities over time.</p>
             <p >A Janam Kundli is crafted by examining the precise positions of the planets at the time of your birth, determining your <span className='text-yellow-600'>Sun sign</span>,<span className='text-yellow-600'>Moon sign</span> , and other astrological elements. The Kundli comprises predictions and charts that help astrologers understand your future, identify challenging times, and highlight periods of good fortune.</p>
             <p >With the shift in culture, people are becoming increasingly tech-savvy and prefer having everything at their fingertips. Consequently, the process of making a Janam Kundli has also transitioned online, making it more affordable, accessible, and detailed. At AstroCaptain, we offer free online Janam Kundli services, enabling our extensive user base to gain insights about themselves and plan their lives more effectively.</p>

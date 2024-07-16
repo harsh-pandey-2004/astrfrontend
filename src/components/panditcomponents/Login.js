@@ -28,8 +28,8 @@ const PanditLoginForm = () => {
       ...response,
       mobile: phoneNumber,
     });
-    console.log(a.data)
-    navigate(`/panditsetprofile/${a.data.user._id}`);
+    console.log(a.data.user.slug);
+    navigate(`/panditsetprofile/${a.data.user.slug}`);
   };
 
   return (

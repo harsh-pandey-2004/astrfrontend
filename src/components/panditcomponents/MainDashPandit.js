@@ -1,5 +1,5 @@
 import Sidebar from "./PanditDash/panditdashcomponents/Sidebar";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Profile from "./PanditDash/Profile";
 // import Schedule from "./PanditDash";
 import Stats from "./PanditDash/Stats";
@@ -10,11 +10,12 @@ import { useState } from "react";
 
 function MainPanditDash() {
   const [response, setResponse] = useState([]);
-  const { id } = useParams();
+  const location=useLocation();
+  const slug=location.pathname.split('/').pop();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${slug}`);
         console.log(a.data.panditData);
         setResponse(a.data.panditData);
         
@@ -23,7 +24,7 @@ function MainPanditDash() {
       }
     };
     fetchData();
-  }, [id]);
+  }, [slug]);
   return (
     <div className="flex relative overflow-hidden top-24 lg:top-0">
       

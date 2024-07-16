@@ -64,14 +64,14 @@ const NewKundli = () => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-1 px-12">
+    <div className="w-full flex flex-col gap-1  px-4 md:px-12">
       <p className="text-2xl text-gray-700 font-semibold text-center ">
       Fill in Partner's Information
       </p>
 
       <form onSubmit={handleSubmit} className="flex gap-4 justify-between w-full flex-col lg:flex-row mt-6">
         {/* Boy's Details */}
-        <div className=" p-4 w-full">
+        <div className=" py-4 md:p-4 w-full">
           <div>
             <p className="text-center bg-black text-white py-2 px-0 mb-6 rounded-lg">
               Boy's Details
@@ -221,7 +221,7 @@ const NewKundli = () => {
         </div>
 
         {/* Girl's Details */}
-        <div className=" p-4 w-full">
+        <div className="py-4 md:p-4 w-full">
           <div>
             <p className="text-center bg-black text-white py-2 px-0 mb-6 rounded-lg">
               Girl's Details

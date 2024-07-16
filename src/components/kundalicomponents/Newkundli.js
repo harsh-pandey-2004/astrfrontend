@@ -70,11 +70,11 @@ const NewKundli = () => {
   };
 
   return (
-    <div className="md:1/2 xs:w-full flex flex-col gap-3">
+    <div className="w-full flex flex-col gap-3 ">
       <p className="text-xl text-gray-700 font-bold">New Kundli</p>
-      <form className="p-3   flex flex-col gap-4 " onSubmit={handleSubmit}>
-        <div className="flex items-center ">
-          <div className="w-full">
+      <form className="md:p-3   flex flex-col gap-4  " onSubmit={handleSubmit}>
+        <div className="flex items-center  ">
+          <div className="w-full ">
              <div className="flex flex-col gap-1 w-full">
           <label htmlFor="name" >Name</label>
           <input
@@ -113,7 +113,7 @@ const NewKundli = () => {
         <div className="flex flex-col gap-3 mt-1">
           <p >Birth Details</p>
           <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Day</label>
               <select
                 name="day"
@@ -130,7 +130,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Month</label>
               <select
                 name="month"
@@ -147,7 +147,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Year</label>
               <select
                 name="year"
@@ -166,7 +166,7 @@ const NewKundli = () => {
           </div>
 
           <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Hour</label>
               <select
                 name="hour"
@@ -183,7 +183,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Minute</label>
               <select
                 name="minute"
@@ -200,7 +200,7 @@ const NewKundli = () => {
               </select>
             </div>
 
-            <div className="flex flex-col w-1/4">
+            <div className="flex flex-col w-full md:w-1/4">
               <label>Second</label>
               <select
                 name="second"

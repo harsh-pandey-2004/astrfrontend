@@ -33,7 +33,7 @@ const BlogPage = (props) => {
     <div>
       <div className={`${ showblur  &&
        "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"} 
-      text-center relative top-24 lg:top-0`}>
+      text-center relative top-24 lg:top-16`}>
         <BlogSection blogs={blogs} categories={categories} />
       </div>
     </div>

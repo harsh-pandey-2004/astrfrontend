@@ -4,14 +4,14 @@ import Vedio6 from "../../../vedios/vedio6.mp4";
 import { RxDotFilled } from "react-icons/rx";
 const PlanetsInAstro = () => {
   return (
-    <div className='mb-12'>
+    <div className='relative top-20 lg:top-16 mb-12'>
         <PlanetHead/>
         <div className=' py-12'>
            <h1 className='text-2xl font-semibold text-center'>Introduction to Planets in Astrology</h1>
            <p className='py-6 px-20'>Step 1 is the early on step. So in step 1 of learning how to perused your kundli, we are going learn approximately planets and houses in soothsaying as they are the soul and heart of any kundli along side signs in kundli. Each planet and house in crystal gazing signifies a thing or two. They carry particular characteristics, which seem either bear positive or negative comes about on the local. In crystal gazing, planets, signs and houses do not work in stagnation and all of them are subordinate on each other and contribute in bringing a alter within the life of a individual. </p>
             <div className='px-20 '>
                 <p className='text-2xl font-semibold '>The Nine Planets in Astrology are :-</p>
-                <div className='flex items-center justify-between mt-6'>
+                <div className='flex flex-wrap   md:flex-row items-center justify-between mt-6'>
                     <div className='w-72'>
                         <div className='group bg-black w-72 h-56 flex items-center justify-center'><img src="https://cdn.pixabay.com/photo/2012/01/09/09/10/sun-11582_1280.jpg" className=' rounded-full  group-hover:scale-105 transition duration-500 h-52 w-52'/></div>
                         <p className='text-lg font-bold pt-1'>Sun Facts </p>
@@ -31,7 +31,7 @@ const PlanetsInAstro = () => {
                     </div>
                 </div>
 
-                <div className='flex items-center justify-between mt-6'>
+                <div className='flex flex-wrap   md:flex-row items-center justify-between mt-6'>
                     <div className='w-72'>
                         <div className='group bg-black w-72 h-56 flex items-center justify-center'><img src="https://cdn.pixabay.com/photo/2012/01/09/09/33/mercury-11591_1280.png" className=' rounded-full  group-hover:scale-105 transition duration-500 h-52 w-52'/></div>
                         <p className='text-lg font-bold pt-1'>Mercury Facts</p>
@@ -52,7 +52,7 @@ const PlanetsInAstro = () => {
                     </div>
                 </div>
 
-                <div className='flex items-center justify-between mt-6'>
+                <div className='flex flex-wrap   md:flex-row items-center justify-between mt-6'>
                     <div className='w-72'>
                         <div className='group bg-black w-72 h-56 flex items-center justify-center'><img src="https://cdn.pixabay.com/photo/2012/11/28/10/54/saturn-67671_1280.jpg" className=' rounded-full  group-hover:scale-105 transition duration-500 h-52 w-52'/></div>
                         <p className='text-lg font-bold pt-1'>Saturn Facts</p>

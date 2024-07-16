@@ -10,7 +10,7 @@ const FreeKundali = (props) => {
   return (
     <div className={`${ showblur  &&
       "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"}
-       flex flex-col  top-20 relative lg:top-0 `}>
+       flex flex-col  top-20 relative lg:top-16 `}>
       <Head />
       <Kundlis />
       <Visit />

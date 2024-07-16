@@ -8,7 +8,6 @@ function Service({obj}) {
        
         <img src={obj.img}
         height={100} width={100} className='self-center'/>
-
         <p className='text-center  text-sm font-semibold'>{obj.title}</p>
         <p className='text-sm text-gray-400 font-light w-full text-center'>{obj.desc}</p>
     </motion.div>

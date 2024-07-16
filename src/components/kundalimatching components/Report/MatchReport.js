@@ -92,7 +92,7 @@ const MatchReport = () => {
   }, [boyLat, boyLong, girlLat, girlLong]);
 
   return (
-    <div className='mx-auto '>
+    <div className='mx-auto  top-20 relative lg:top-24 h-fit w-full'>
       <Header />
       {loading ? (
         <Spinner  /> // Show spinner while loading

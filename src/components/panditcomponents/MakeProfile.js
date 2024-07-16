@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 function ProfileForm() {
-  const { id } = useParams();
+  const location = useLocation();
+  const slug=location.pathname.split('/').pop();
   const navigate = useNavigate();
   const initialState = {
     firstName: "",
@@ -26,11 +27,11 @@ function ProfileForm() {
     e.preventDefault();
     try {
       let a = await axios.patch(
-        `https://astrobackend.onrender.com/api/update-pandit-profile/${id}`,
+        `https://astrobackend.onrender.com/api/update-pandit-profile/${slug}`,
         response
       );
       console.log(a.data);
-      navigate(`/panditdashboard/${id}`);
+      navigate(`/panditdashboard/${slug}`);
     } catch (error) {
       console.log("ERRR:", error);
     }

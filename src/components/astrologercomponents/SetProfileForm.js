@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Select from "react-select";
 
 function AstrologerProfileForm() {
-  const { id } = useParams();
+  const location=useLocation();
+  const slug=location.pathname.split('/').pop();
 
   const navigate = useNavigate();
   const initialState = {
@@ -42,15 +43,16 @@ function AstrologerProfileForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(formData);
+    console.log(slug);
     try {
       const response = await axios.patch(
-        `https://astrobackend.onrender.com/api/update-astrologer-profile/${id}`,
+        `https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
         formData
       );
      
-      console.log(response.data.Astrologer.Skills);
-      console.log(response.data.Astrologer.slug);
-      navigate(`/astrologerdashboard/${response.data.Astrologer && response.data.Astrologer.slug}`);
+      console.log(response.data);
+      console.log(response.data.Astrologerr.slug);
+      navigate(`/astrologerdashboard/${response.data.Astrologerr && response.data.Astrologerr.slug}`);
     } catch (error) {
       console.error("Error:", error);
     }

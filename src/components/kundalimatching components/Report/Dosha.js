@@ -4,7 +4,7 @@ const Dosha = ( {kundli}) => {
   
   console.log( kundli && kundli.response.score);
   return (
-    <div className="my-4 px-20">
+    <div className="my-4 px-20 h-96">
       <h3 className="text-lg font-bold">Dosha</h3>
 
       <div className='flex items-center justify-center mt-4'>
