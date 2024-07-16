@@ -51,6 +51,7 @@ import HowToRead from "./components/kundalicomponents/KnowMore/HowToRead";
 import PlanetaryTab from "./components/kundalicomponents/generateComponents/firstSection.js/PlanetaryTab";
 import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAstro";
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
+import MatchReport from "./components/kundalimatching components/Report/MatchReport";
 
 
 
@@ -115,6 +116,8 @@ function App() {
 
           {/* //// */}
           <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
+          <Route path="/match-report" element={<MatchReport/>}/>
+
           <Route path="/pooja-booking" element={<PujaCartForm/>}></Route>
           <Route path="/register-page" element={<RegisterForm/>}></Route>
           <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>

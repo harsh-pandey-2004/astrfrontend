@@ -26,7 +26,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log();
+    
     try {
       console.log({
         ...response,
@@ -38,6 +38,7 @@ const RegisterForm = () => {
         mobile: phoneNumber,
         countrycode: countryCode,
       });
+      console.log(a);
       navigate(`verify-phone/${phoneNumber}`)
     } catch (error) {
       console.log("Error in Fetching :", error);

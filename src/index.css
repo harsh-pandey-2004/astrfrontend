@@ -142,3 +142,10 @@ body {
   background: #f59e0b; 
 }
 
+
+.kundali-matching-shadow{
+  box-shadow: 2px 3px 17px 1px rgba(173, 181, 25, 0.75);
+-webkit-box-shadow: 2px 3px 17px 1px  rgba(234, 179, 8, 0.75);
+-moz-box-shadow: 2px 3px 17px 1px  rgba(234, 179, 8, 0.75);
+}
+
