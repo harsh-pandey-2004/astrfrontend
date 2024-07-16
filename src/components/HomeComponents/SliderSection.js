@@ -51,7 +51,7 @@ const Carousel = () => {
           </div>
         </Slider>
       </div>
-      <div className="grid grid-cols-3 relative  top-[-5rem] sm:top-16 sm:grid-cols-3 lg:grid-cols-6 w-[100%] sm:w-[90%] lg:w-[88%] lg:top-20 sm:gap-4 xl:w-[80%]">
+      <div className="grid grid-cols-3 relative  top-[-5rem] sm:top-0 sm:grid-cols-3 lg:grid-cols-6 w-[100%] sm:w-[90%] lg:w-[88%]  sm:gap-4 xl:w-[80%]">
         <Link to="/book-a-pooja">
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">

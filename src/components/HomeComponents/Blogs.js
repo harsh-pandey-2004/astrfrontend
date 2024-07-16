@@ -39,7 +39,7 @@ const Blogs = () => {
         <h1 className="sm:text-start text-2xl font-semibold py-3 text-center">
           Blogs & Articles
         </h1>
-        <div className="mt-3 mb-2  sm:hidden block">
+        <div className="mt-3  sm:hidden block">
           <p className="text-start text-lg font-semibold">
             Some Trending Topics
           </p>
