@@ -22,7 +22,7 @@ const BookPooja = (props) => {
     >
       <div className="w-full flex flex-col">
       <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2">
-        <div className="lg:w-1/2 outline pt-32 w-full">
+        <div className="lg:w-1/2 outline sm:pt-32 pt-10 w-full">
           <h1 className=" text-white text-base font-semibold pl-2 sm:text-lg   w-fit ">
             Perform Poojas Remotely at Prestigious Temples
           </h1>

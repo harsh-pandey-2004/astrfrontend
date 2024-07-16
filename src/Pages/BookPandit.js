@@ -106,7 +106,7 @@ const BookPandit = (props) => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-col-reverse lg:flex-row lg:p-16 px-5 bg-black pb-2">
-          <div className="lg:w-1/2 outline pt-16 w-full">
+          <div className="lg:w-1/2 outline sm:pt-16 pt-8 w-full">
             <h1 className="text-white text-base font-semibold pl-2 sm:text-lg w-fit ">
               Book a Pandit for Your Sacred Rituals
             </h1>
@@ -154,7 +154,7 @@ const BookPandit = (props) => {
         <Header />
       </div>
 
-      <div className="flex flex-col items-center justify-center w-screen">
+      <div className="flex flex-col items-center justify-center w-full">
         {/* <Preference /> */}
         <Destinations />
 <Workflow1/>

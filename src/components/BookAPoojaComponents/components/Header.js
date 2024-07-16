@@ -137,7 +137,7 @@ const Header = () => {
       <div className="w-full mx-auto px-6">
         <div className="flex items-center justify-center gap-5 flex-col md:flex-row mx-auto">
           {/* Enter Pooja Name */}
-          <div className="w-full pl-56">
+          <div className="w-full sm:pl-56">
             <div className={`select-input ${isPoojaDropdownOpen ? 'is-open' : ''}`}>
               <Select
                 name="nameOfPooja"
