@@ -38,7 +38,7 @@ const HomePage = ({ showblur }) => {
      
       <AstrologerSection showblur={showblur}/>
       <PanditsSection showblur={showblur}/>
-      {/* <AstroCouncellorsSection/> */}
+      <AstroCouncellorsSection/>
       <HomeStats/>
  <Horoscopes/> 
       {/* <TestimonialSlider showblur={showblur}/> */}
