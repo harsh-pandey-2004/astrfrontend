@@ -55,7 +55,7 @@ const Blogs = () => {
             </button>
           </div>
         </div>
-        <div className="md:flex items-center xs:flex-col  gap-2 mt-2 flex flex-col-reverse">
+        <div className="md:flex items-center xs:flex-col md:flex-row  gap-2 mt-2 flex flex-col-reverse">
           <div className="md:w-1/3 xs:w-full">
             <img
               src="	https://cdn.dribbble.com/userupload/8499887/file/original-0f594a7654e48c5d78f0064a6a94cb26.png?resize=1504x1128"

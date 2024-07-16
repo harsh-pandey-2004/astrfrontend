@@ -29,7 +29,7 @@ function AstroCouncellorSection({showblur}) {
 
       const CustomLeftArrow = ({ onClick }) => (
         <button
-      className="absolute top-12 right-20 transform -translate-y-1/2 z-10 "
+      className="absolute top-12 right-20 transform -translate-y-1/2 z-10"
       onClick={onClick}
     >
       <svg
@@ -48,7 +48,7 @@ function AstroCouncellorSection({showblur}) {
     
       const CustomRightArrow = ({ onClick }) => (
         <button
-      className="absolute top-12 right-4 transform -translate-y-1/2 z-10  "
+      className="absolute top-12 right-4 transform -translate-y-1/2 z-10   "
       onClick={onClick}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-10 h-10">
@@ -60,9 +60,9 @@ function AstroCouncellorSection({showblur}) {
     </button>
       );
   return (
-    <div className="w-[95%] mx-auto h-fit top-20 relative px-12  lg:top-0  py-6  ">
-    <h1  className=" text-2xl font-semibold absolute  top-0 left-1/3 pl-24 ">Our AstroCouncellors</h1>
-    <h2 className=" text-xl absolute top-8 left-[29%]">13000+ Best Councellors from India for Online Consultation</h2>
+    <div className="w-full lg:w-[95%] mx-auto h-fit lg:top-0 relative lg:px-12     lg:py-6 py-3 px-4">
+    <h1  className=" text-2xl font-semibold lg:absolute  top-8  lg:left-1/3 lg:pl-24 text-center mb-3 lg:mb-0">Our AstroCouncellors</h1>
+    <h2 className="text-lg lg:absolute top-16 left-[29%]  lg:text-xl text-center ">13000+ Best Councellors from India for Online Consultation</h2>
     <Carousel
       swipeable={true}
       draggable={true}
