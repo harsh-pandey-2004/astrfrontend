@@ -29,7 +29,7 @@ const AstroCouncellForm = () => {
       mobile: phoneNumber,
     });
     console.log(a.data)
-    navigate(`/astrocouncellor/${a.data.Astrologer._id}`);
+    navigate(`/astrocouncellor/${a.data.Astrologer.slug}`);
   };
 
   return (

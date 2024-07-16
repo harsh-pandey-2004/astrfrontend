@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserDetails = ({details}) => {
   return (
-    <div className="flex items-center justify-center gap-6 my-4 px-20">
+    <div className="flex  items-center justify-center gap-6 my-4 px-20">
       <div className=' border  border-black rounded-md hover:shadow-xl  transition duration-300 w-1/2 '>
         <h3 className="text-lg  border-b text-white bg-black rounded-t-md  pl-2 py-2 flex items-center gap-3"> 
         <img src="https://www.svgrepo.com/show/119307/groom.svg" className=' rounded-full bg-yellow-500' height={30} width={30} />

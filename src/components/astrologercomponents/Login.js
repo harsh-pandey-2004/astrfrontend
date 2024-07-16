@@ -31,8 +31,8 @@ const AstrologerLoginForm = () => {
       ...response,
       mobile: phoneNumber,
     });
-    console.log("astro:",a.data)
-    navigate(`/astrologersetprofile/${a.data.Astrologer._id}`);
+    console.log("astro:",a.data.Astrologer.slug);
+    navigate(`/astrologersetprofile/${a.data.Astrologer.slug}`);
   };
 
   return (

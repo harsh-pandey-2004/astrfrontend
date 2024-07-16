@@ -20,7 +20,7 @@ const KundliMatching = (props) => {
   return (
     <div className={`${ showblur  &&
       "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"}
-       flex flex-col  top-28 relative lg:top-0`}>
+       flex flex-col   relative top-20 md:top-24  lg:top-16`}> 
        
         <HeadMatch/>
         <div className=' flex-col gap-6  max-h-fit mt-10 mb-12 '>

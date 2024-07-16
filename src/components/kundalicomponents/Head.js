@@ -2,10 +2,10 @@ import React from 'react'
 import Vedio3 from "../../vedios/vedio3.mp4";
 const Head = () => {
   return (
-    <div className='md:flex xs:flex-col    px-16 bg-black pb-2'>
+    <div className=' flex flex-col-reverse md:flex-row   px-4  md:px-16 bg-black pb-2'>
       
-       <div className='md:w-1/2 xs:w-full outline pt-16 '>
-       <h1 className=' text-white text-lg font-semibold pl-2   w-fit '>Astrology Facts...</h1>
+       <div className='md:w-1/2 xs:w-full outline  md:pt-16 '>
+       <h1 className=' text-white text-lg font-semibold pl-2 pt-6 md:pt-0 w-fit '>Astrology Facts...</h1>
        <div className='flex flex-col gap-2 text-white pl-2 mt-6'>
        <p className='text-3xl md:text-5xl'>Everything You Need</p>
        <p  className='text-2xl md:text-5xl'>To Know About</p>
@@ -15,8 +15,8 @@ const Head = () => {
        
        </div>
 
-       <div className=' md:w-1/2 xs:w-full  md:pt-16 '>
-       <video  autoPlay loop muted className='pt-16 rounded-md  '>
+       <div className='w-full md:w-1/2  pt-4 md:pt-16 '>
+       <video  autoPlay loop muted className='md:pt-16 rounded-md  '>
               <source src={Vedio3} type="video/mp4" />
               Your browser does not support the video tag.
             </video>

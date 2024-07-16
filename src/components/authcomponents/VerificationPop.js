@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams ,useLocation} from "react-router-dom";
 import axios from "axios";
 const VerifyPhone = () => {
-  const { id } = useParams();
+  const location=useLocation();
+  const phoneNumber=location.pathname.split('/').pop();
+ 
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [resendTimer, setResendTimer] = useState(41);
   const [response, setResponse] = useState([]);
   const navigate = useNavigate();
   async function getUser() {
     try {
+      console.log(phoneNumber);
+      console.log({otp:otp.join("")});
       let a = await axios.post(
-        `https://astrobackend.onrender.com/api/otp-verification/${id}`,
-        otp
+        `https://astrobackend.onrender.com/api/otp-verification/${phoneNumber}`,
+        {otp:otp.join("")}
       );
+      console.log(a);
       setResponse(a.data);
       if (a.data) {
         // console.log(a.data.user._id)
@@ -68,7 +73,7 @@ const VerifyPhone = () => {
       </h1>
       <div className="mb-6">
         <h6 className="text-sm otp_sent_number text-center">
-          OTP sent to <span className="font-semibold">+91-{id}</span>
+          OTP sent to <span className="font-semibold">+91-{phoneNumber}</span>
         </h6>
       </div>
       <div>
