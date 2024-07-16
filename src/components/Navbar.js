@@ -48,13 +48,13 @@ const Navbar = ({ showbluefn }) => {
 
   return (
     <>
-      <div className=" flex lg:hidden  w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
+      <div className=" flex lg:hidden   w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
-            showNav ? "opacity-100 scale-100 " : "opacity-0 scale-95"
+            showNav ? "opacity-100 scale-100 " : "opacity-0 scale-95 hidden"
           } ${
             showCounclrdropDown ? "pb-56" : "pb-28"
           } w-64  bg-black text-white fixed top-[5rem]  sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-scroll `}

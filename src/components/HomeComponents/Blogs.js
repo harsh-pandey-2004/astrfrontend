@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Blogs = () => {
   return (
-    <div className=" text-center w-full   md:flex xs:flex-col gap-6 py-4  sm:px-14">
+    <div className=" text-center w-full   md:flex xs:flex-col gap-6 pb-4  sm:px-14">
       {/* News */}
       <div className=" rounded-md md:w-1/3 xs:w-full  px-4 bg-white ">
         <h1 className="text-start text-2xl font-semibold py-3">

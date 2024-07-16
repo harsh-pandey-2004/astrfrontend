@@ -75,24 +75,21 @@ const TalktoAstro = () => {
 
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
-      console.log(astro);
       const matchesName = astro.firstName
-        .toLowerCase()
-        .includes(astroname.toLowerCase());
+        ? astro.firstName.toLowerCase().includes(astroname.toLowerCase())
+        : false;
       const matchesSkills =
         selectedSkills.length === 0 ||
         selectedSkills.some((skill) => astro.Skills.includes(skill));
       const matchesLanguages =
         selectedLanguages.length === 0 ||
-        selectedLanguages.some((language) =>
-          astro.languages.includes(language)
-        );
+        selectedLanguages.some((language) => astro.languages.includes(language));
       const matchesGender =
         selectedGender === "" || astro.gender === selectedGender;
-
+  
       return matchesName && matchesSkills && matchesLanguages && matchesGender;
     });
-
+  
     if (sortCriteria === "price_high_to_low") {
       filtered = filtered.sort((a, b) => {
         if (!b.price) return -1;
@@ -102,17 +99,14 @@ const TalktoAstro = () => {
     } else if (sortCriteria === "price_low_to_high") {
       filtered = filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
     } else if (sortCriteria === "experience_high_to_low") {
-      filtered = filtered.sort(
-        (a, b) => (b.experience || 0) - (a.experience || 0)
-      );
+      filtered = filtered.sort((a, b) => (b.experience || 0) - (a.experience || 0));
     } else if (sortCriteria === "experience_low_to_high") {
-      filtered = filtered.sort(
-        (a, b) => (a.experience || 0) - (b.experience || 0)
-      );
+      filtered = filtered.sort((a, b) => (a.experience || 0) - (b.experience || 0));
     }
-
+  
     setFilteredData(filtered);
   };
+  
 
   const clearAllFilters = () => {
     setAstroname("");
@@ -131,6 +125,7 @@ const TalktoAstro = () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astrologer-data`
       );
+      // console.log(response.data.Astrodata)
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
     };
@@ -159,7 +154,7 @@ const TalktoAstro = () => {
   ]);
 
   return (
-    <div className="mb-28 w-full h-full flex">
+    <div className="mb-28 w-full h-full flex relative top-20">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
           Talk to Astrologer

@@ -33,7 +33,7 @@ const languageOptions = [
 
 const genderOptions = ["Male", "Female"];
 
-const TalktoAstro = () => {
+const ChatAstro = () => {
   const [astroData, setAstroData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [astroname, setAstroname] = useState("");
@@ -41,6 +41,7 @@ const TalktoAstro = () => {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [selectedGender, setSelectedGender] = useState("");
   const [sortCriteria, setSortCriteria] = useState("");
+  const [showFilters, setShowFilters] = useState(false); // State to manage filter popup visibility
 
   const handleSkillChange = (skill) => {
     setSelectedSkills((prevSkills) => {
@@ -77,8 +78,8 @@ const TalktoAstro = () => {
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
       const matchesName = astro.firstName
-        .toLowerCase()
-        .includes(astroname.toLowerCase());
+        ? astro.firstName.toLowerCase().includes(astroname.toLowerCase())
+        : false;
       const matchesSkills =
         selectedSkills.length === 0 ||
         selectedSkills.some((skill) => astro.Skills.includes(skill));
@@ -158,8 +159,26 @@ const TalktoAstro = () => {
     selectedGender,
   ]);
 
+  useEffect(() => {
+    // Function to handle scroll behavior when filter popup is shown on small devices
+    const handleScrollBehavior = () => {
+      if (showFilters) {
+        document.body.style.overflow = "hidden"; // Disable scroll
+      } else {
+        document.body.style.overflow = "auto"; // Enable scroll
+      }
+    };
+
+    handleScrollBehavior(); // Initial setup
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto"; // Reset scroll behavior
+    };
+  }, [showFilters]);
+
   return (
-    <div className="mb-28 w-full h-full flex">
+    <div className="mb-28 w-full h-full flex relative top-20">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
           Chat With Astrologer
@@ -212,12 +231,13 @@ const TalktoAstro = () => {
 
         <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
           {filteredData.map((obj) => (
-           <Link to={`/chat-with-astrologer/${obj.slug}`}> <ChatCard key={obj._id} obj={obj} type={"chat"} /> </Link>
+            <Link to={`/chat-with-astrologer/${obj.slug}`} key={obj._id}>
+              <ChatCard obj={obj} type={"chat"} />
+            </Link>
           ))}
         </div>
       </div>
-
-      <div className="w-1/3 h-full p-6">
+      <div className="w-1/3 h-full p-6 hidden lg:block pt-8">
         <div className="flex justify-between">
           <h1 className="font-semibold text-2xl">Filters</h1>
           <button className="text-xl text-blue-500" onClick={clearAllFilters}>
@@ -228,69 +248,182 @@ const TalktoAstro = () => {
         <div className="mt-4">
           <h2 className="text-lg font-medium">Skills</h2>
           <div className="grid grid-cols-2">
-          {skillsOptions.map((skill) => (
-            <div key={skill} className="flex items-center mt-2">
-              <input
-                type="checkbox"
-                id={`skill-${skill}`}
-                value={skill}
-                checked={selectedSkills.includes(skill)}
-                onChange={() => handleSkillChange(skill)}
-                className="mr-2 hover:cursor-pointer"
-              />
-              <label htmlFor={`skill-${skill}`} className="text-gray-700">
-                {skill}
-              </label>
-            </div>
-          ))}
+            {skillsOptions.map((skill) => (
+              <div key={skill} className="flex items-center mt-2">
+                <input
+                  type="checkbox"
+                  id={`skill-${skill}`}
+                  value={skill}
+                  checked={selectedSkills.includes(skill)}
+                  onChange={() => handleSkillChange(skill)}
+                  className="mr-2 hover:cursor-pointer"
+                />
+                <label htmlFor={`skill-${skill}`} className="text-gray-700">
+                  {skill}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-4">
           <h2 className="text-lg font-medium">Language</h2>
           <div className="grid grid-cols-2">
-          {languageOptions.map((language) => (
-            <div key={language} className="flex items-center mt-2">
-              <input
-                type="checkbox"
-                id={`language-${language}`}
-                value={language}
-                checked={selectedLanguages.includes(language)}
-                onChange={() => handleLanguageChange(language)}
-                className="mr-2 hover:cursor-pointer "
-              />
-              <label htmlFor={`language-${language}`} className="text-gray-700">
-                {language}
-              </label>
-            </div>
-          ))}
+            {languageOptions.map((language) => (
+              <div key={language} className="flex items-center mt-2">
+                <input
+                  type="checkbox"
+                  id={`language-${language}`}
+                  value={language}
+                  checked={selectedLanguages.includes(language)}
+                  onChange={() => handleLanguageChange(language)}
+                  className="mr-2 hover:cursor-pointer "
+                />
+                <label
+                  htmlFor={`language-${language}`}
+                  className="text-gray-700"
+                >
+                  {language}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="mt-4">
           <h2 className="text-lg font-medium">Gender</h2>
           <div className="grid grid-cols-2">
-          {genderOptions.map((gender) => (
-            <div key={gender} className="flex items-center mt-2">
-              <input
-                type="radio"
-                id={`gender-${gender}`}
-                name="gender"
-                value={gender}
-                checked={selectedGender === gender}
-                onChange={() => handleGenderChange(gender)}
-                className="mr-2 hover:cursor-pointer"
-              />
-              <label htmlFor={`gender-${gender}`} className="text-gray-700">
-                {gender}
-              </label>
-            </div>
-          ))}
+            {genderOptions.map((gender) => (
+              <div key={gender} className="flex items-center mt-2">
+                <input
+                  type="radio"
+                  id={`gender-${gender}`}
+                  name="gender"
+                  value={gender}
+                  checked={selectedGender === gender}
+                  onChange={() => handleGenderChange(gender)}
+                  className="mr-2 hover:cursor-pointer"
+                />
+                <label htmlFor={`gender-${gender}`} className="text-gray-700">
+                  {gender}
+                </label>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+      {/* Filter Popup for Mobile Devices */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-300 sm:hidden">
+        <button
+          className="block w-full bg-blue-500 text-white text-center py-2 rounded-lg mb-2"
+          onClick={() => setShowFilters(true)}
+        >
+          Filter
+        </button>
+        {showFilters && (
+         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-sm overflow-y-auto">
+    <div className="flex justify-between">
+      <h1 className="font-semibold text-xl">Filters</h1>
+      <button
+        className="text-xl text-blue-500"
+        onClick={() => setShowFilters(false)}
+      >
+        Close
+      </button>
+    </div>
+
+    <div className="mt-16">
+      <h2 className="text-lg font-medium">Skills</h2>
+      <div className="grid grid-cols-2">
+        {skillsOptions.map((skill) => (
+          <div key={skill} className="flex items-center mt-2">
+            <input
+              type="checkbox"
+              id={`skill-${skill}`}
+              value={skill}
+              checked={selectedSkills.includes(skill)}
+              onChange={() => handleSkillChange(skill)}
+              className="mr-2 hover:cursor-pointer"
+            />
+            <label
+              htmlFor={`skill-${skill}`}
+              className="text-gray-700"
+            >
+              {skill}
+            </label>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-4">
+      <h2 className="text-lg font-medium">Language</h2>
+      <div className="grid grid-cols-2">
+        {languageOptions.map((language) => (
+          <div key={language} className="flex items-center mt-2">
+            <input
+              type="checkbox"
+              id={`language-${language}`}
+              value={language}
+              checked={selectedLanguages.includes(language)}
+              onChange={() => handleLanguageChange(language)}
+              className="mr-2 hover:cursor-pointer"
+            />
+            <label
+              htmlFor={`language-${language}`}
+              className="text-gray-700"
+            >
+              {language}
+            </label>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-4">
+      <h2 className="text-lg font-medium">Gender</h2>
+      <div className="grid grid-cols-2">
+        {genderOptions.map((gender) => (
+          <div key={gender} className="flex items-center mt-2">
+            <input
+              type="radio"
+              id={`gender-${gender}`}
+              name="gender"
+              value={gender}
+              checked={selectedGender === gender}
+              onChange={() => handleGenderChange(gender)}
+              className="mr-2 hover:cursor-pointer"
+            />
+            <label
+              htmlFor={`gender-${gender}`}
+              className="text-gray-700"
+            >
+              {gender}
+            </label>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="mt-4">
+      <button
+        className="w-full bg-blue-500 text-white text-center py-2 rounded-lg"
+        onClick={() => {
+          setShowFilters(false);
+          filterAstrologers();
+        }}
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</div>
+
+        )}
       </div>
     </div>
   );
 };
 
-export default TalktoAstro;
+export default ChatAstro;
