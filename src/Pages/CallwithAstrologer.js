@@ -12,6 +12,7 @@ const CallwithAstrologer = (props) => {
         <div className="flex gap-5 w-full items-center lg:justify-between justify-center">
           <h1 className=" px-2 py-2 rounded-md bg-orange-500  hover:shadow-lg  border-2 transition-all text-md w-44 lg:px-8 lg:py-4 lg:w-60 text-white  text-center">
             Talk to Astrologer
+            {/*hello*/}
           </h1>
           <p>Balance : $0</p>
         </div>
