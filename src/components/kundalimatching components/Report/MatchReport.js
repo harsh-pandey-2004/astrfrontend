@@ -6,6 +6,9 @@ import Dosha from './Dosha';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from './Spinner';
+import RangeSlider from './RangeSlider';
+
+
 
 const MatchReport = () => {
   // fetched the form details
@@ -92,12 +95,13 @@ const MatchReport = () => {
   }, [boyLat, boyLong, girlLat, girlLong]);
 
   return (
-    <div className='mx-auto  top-20 relative lg:top-24 h-fit w-full'>
-      <Header />
+    <div className='mx-auto  top-24 relative lg:top-24 h-fit w-full'>
+      <Header kundli={kundli}/>
       {loading ? (
         <Spinner  /> // Show spinner while loading
       ) : (
         <>
+          <RangeSlider min={0} max={36} step={1} kundli={kundli} />
           <UserDetails details={details} />
           <MatchPoints kundli={kundli} />
           <Dosha kundli={kundli}/>
