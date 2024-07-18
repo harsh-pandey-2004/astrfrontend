@@ -73,7 +73,7 @@ const Blogs = () => {
           <div className="md:w-1/3 xs:w-full">
             <img
               src="	https://cdn.dribbble.com/userupload/11329041/file/original-d8438ac72e3d871340074c12affed0f1.jpg?resize=1400x790"
-              className="rounded-md h-40"
+              className="rounded-md md:h-40"
             />
             <p className="text-gray-500 font-semibold text-start py-2">
               HOROSCOPES

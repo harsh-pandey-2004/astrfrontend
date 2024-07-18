@@ -46,6 +46,14 @@ const Navbar = ({ showbluefn }) => {
     setshowAstrodropDown(false);
   };
 
+  const closeNav = () => {
+    setShowNav(false);
+    showbluefn(false);
+  };
+  const handleClick = () => {
+    window.location.href = "/";
+  };
+
   return (
     <>
       <div className=" flex lg:hidden   w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
@@ -77,12 +85,12 @@ const Navbar = ({ showbluefn }) => {
               </Link>
               {showDropdown && (
                 <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
-                  <Link to={"/chat-with-astrologer"}>
+                  <Link to={"/chat-with-astrologer"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Chat Astrologer
                     </span>
                   </Link>
-                  <Link to={"/call-to-astrologer"}>
+                  <Link to={"/call-to-astrologer"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Call Astrologer
                     </span>
@@ -101,12 +109,12 @@ const Navbar = ({ showbluefn }) => {
               </Link>
               {showCounclrdropDown && (
                 <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
-                  <Link to={"/chat-astrocouncellor"}>
+                  <Link to={"/chat-astrocouncellor"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Chat AstroCouncellor
                     </span>
                   </Link>
-                  <Link to={"/talk-astrocouncellor"}>
+                  <Link to={"/talk-astrocouncellor"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Call AstroCouncellor
                     </span>
@@ -130,12 +138,12 @@ const Navbar = ({ showbluefn }) => {
               </Link>
               {showDropdown && (
                 <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
-                  <Link to={"/kundali-matching"}>
+                  <Link to={"/kundali-matching"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Kundali Matching
                     </span>
                   </Link>
-                  <Link to={"/freekundali"}>
+                  <Link to={"/freekundali"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Free Kundali
                     </span>
@@ -161,7 +169,7 @@ const Navbar = ({ showbluefn }) => {
           </div>
         </div>
         <div className="flex justify-center ">
-          <img src={AstroCaptionLogo} className="w-[60%]  "></img>
+          <img  onClick={handleClick} src={AstroCaptionLogo} className="w-[60%]  "></img>
         </div>
         <div
           className="flex items-center gap-1 border-[#f6c300] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
