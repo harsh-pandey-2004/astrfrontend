@@ -5,11 +5,12 @@ import { IoStar } from "react-icons/io5";
 import { RiMessage2Fill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
 import RatingsCard from "./RatingsCard";
+import "./SingleAstro.css";
 
 const SingleAstro = () => {
   const { id } = useParams();
-
   const [astrologer, setAstrologer] = useState({});
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +21,23 @@ const SingleAstro = () => {
       setAstrologer(response.data.Data);
     };
     fetchData();
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.body.classList.add("disable-scroll");
+    } else {
+      document.body.classList.remove("disable-scroll");
+    }
+  }, [isPopupOpen]);
+
+  const handleChatNowClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const qualifications = [
     "CA Inter (Group I)",
@@ -43,7 +60,9 @@ const SingleAstro = () => {
 
   return (
     <div className="mb-12">
-      <div className=" rounded-md w-full mx-auto flex lg:flex-row flex-col gap-12 p-6  items-center justify-between pt-24 lg:pb-16 lg:pt-40 bg-gradient-to-b from-orange-200 to-[#f6c300]">
+      <div
+        className={`rounded-md w-full mx-auto flex lg:flex-row flex-col gap-12 p-6 items-center relative justify-between pt-24 lg:pb-16 lg:pt-40 bg-gradient-to-b from-orange-200 to-[#f6c300]`}
+      >
         <div className="flex flex-col lg:flex-row lg:gap-20 gap-5">
           <div className="flex flex-col items-center justify-center gap-1">
             <img
@@ -52,17 +71,11 @@ const SingleAstro = () => {
               width={250}
               className="bg-gray-200 rounded-full"
             />
-            {/* <button className="border rounded-md px-10 py-2  bg-black text-[#f6c300]">
-            Follow
-          </button> */}
           </div>
-
-          <div className="flex flex-col gap-3 justify-center  w-full">
+          <div className="flex flex-col gap-3 justify-center w-full">
             <p className="text-2xl font-semibold text-center lg:text-start">
-              {" "}
               {astrologer.firstName} {astrologer.lastName}
             </p>
-
             <div className="flex flex-col justify-center">
               <p className="text-gray-700 text-lg">
                 <span className="text-lg font-semibold pr-3">Skills:</span>
@@ -87,62 +100,91 @@ const SingleAstro = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col  gap-16  justify-center    ">
+        <div className="flex flex-col gap-16 justify-center">
           <div className="flex items-center justify-between sm:justify-center">
-            <div className=" flex flex-col items-center justify-center border-r border-black  py-6  sm:pr-8 pr-3">
+            <div className="flex flex-col items-center justify-center border-r border-black py-6 sm:pr-8 pr-3">
               <p className="font-bold text-xl">{astrologer.experience}</p>
-              <p className="text-gray-700  text-lg">years of exp</p>
+              <p className="text-gray-700 text-lg">years of exp</p>
             </div>
-
-            <p className="flex gap-1 flex-col sm:px-8 items-center   border-black  py-7 text-gray-700  text-lg px-3">
+            <p className="flex gap-1 flex-col sm:px-8 items-center border-black py-7 text-gray-700 text-lg px-3">
               <RiMessage2Fill />
               37K mins
             </p>
-          
           </div>
-
-          <div className="flex gap-4 justify-center items-center ">
-           
-            <button className="border rounded-md bg-black text-white px-12 py-2 hover:text-[#f6c300] hover:-translate-y-1 transition-all">
+          <div className="flex gap-4 justify-center items-center">
+            <button
+              className="border rounded-md bg-black text-white px-12 py-2 hover:text-[#f6c300] hover:-translate-y-1 transition-all"
+              onClick={handleChatNowClick}
+            >
               Chat Now
             </button>
           </div>
         </div>
       </div>
-
-      {/* About */}
-      <div className="max-w-full mx-auto mt-6  rounded-md p-6">
-        <h1 className="text-center text-4xl  font-semibold">
+      <div className="max-w-full mx-auto mt-6 rounded-md p-6">
+        <h1 className="text-center text-4xl font-semibold">
           About <span className="text-[#f6c300]">{astrologer.firstName}</span>
         </h1>
-        <p className="text-gray-700 text-base mt-2">
-          He is from Mambalam, Chennai, and speaks Tamil and English. He has
-          done his CA Inter (Group I) and has 4 years’ experience as an
-          astrologer. He is also a member of the Indian Council for Astrological
-          Sciences. Though he began his career in the field of Accounting &
-          Auditing, he began to pursue Vedic Astrology in his early 20s for pure
-          passion. He is an avid reader of the ancient Shastras & Vedic
-          Scriptures including Bhagavad Gita, Upanishads, Vyakarana, Smrithis &
-          Puranas. He is an expert in Vedic Astrology (Parashara method).
-          Besides, he also practices Prashnam, Jaimini System of Astrology,
-          Muhurtha Fixing, Numerology, Horoscope Matching and Medical Astrology.
-          He also uses Pushkara Navamsha technique and Subhathuva - Paabhthuva
-          technique to make more accurate predictions. He can offer effective
-          remedies for all problems and has helped many clients to achieve their
-          goals in life.
-        </p>
-        <h1 className=" text-xl font-semibold mt-4">Qualifications</h1>
+        <p className="text-gray-700 text-base mt-2">{astrologer.about}</p>
+        <h1 className="text-xl font-semibold mt-4">Qualifications</h1>
         <ul className="list-disc list-inside text-gray-700 text-base mt-2">
           {qualifications.map((qual, index) => (
             <li key={index}>{qual}</li>
           ))}
         </ul>
       </div>
-
-      {/* Ratings Card */}
-      <div className="w-full mx-auto mt-6  rounded-md p-6">
+      <div className="w-full mx-auto mt-6 rounded-md p-6">
         <RatingsCard ratingData={ratingData} />
       </div>
+
+      {isPopupOpen && (
+        <div className="sm:absolute  fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
+          <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
+            <button
+              className="absolute top-5 right-5 text-white hover:text-gray-100"
+              onClick={handleClosePopup}
+            >
+              ✕
+            </button>
+            <div className=" flex flex-col p-4">
+              <div className="flex items-center space-x-4 mb-4 border-b-2 pb-4 border-b-[#f6c300]">
+                <img
+                  src="https://placehold.co/40x40"
+                  alt="User profile picture"
+                  className="rounded-full"
+                />
+                <div>
+                  <h2 className="text-lg font-semibold">
+                    {astrologer.firstName + " " + astrologer.lastName}
+                  </h2>
+                  <p className="text-sm text-[var(--muted-foreground)]">
+                    {`${new Date().getDate()}/${
+                      new Date().getMonth() + 1
+                    }/${new Date().getFullYear()}`}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col space-y-4   overflow-y-scroll   h-[38vh] scrollbar ">
+                <div className="self-start bg-[#f6c300] rounded-full px-4 py-2 max-w-xs">
+                  Hi Prasanna! What's up?
+                </div>
+                <div className="self-end bg-white text-black  rounded-full px-4 py-2 max-w-xs">
+                  Good, Thx, how r u?
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4 mt-4 w-full absolute bottom-5 left-0 px-5">
+                <input
+                  type="text"
+                  placeholder="type here..."
+                  className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
