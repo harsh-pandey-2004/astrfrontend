@@ -52,6 +52,11 @@ import PlanetaryTab from "./components/kundalicomponents/generateComponents/firs
 import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAstro";
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
 import MatchReport from "./components/kundalimatching components/Report/MatchReport";
+import RangeSlider from "./components/kundalimatching components/Report/RangeSlider";
+
+
+
+
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -112,8 +117,9 @@ function App() {
           <Route path="/read-planets" element={<ReadPlanets />} />
 
           {/* //// */}
-          <Route path="/kundali-matching" element={<KundliMatching />}></Route>
-          <Route path="/match-report" element={<MatchReport />} />
+          <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
+          <Route path="/match-report" element={<MatchReport/>}/>
+        
 
           <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
           <Route path="/register-page" element={<RegisterForm />}></Route>

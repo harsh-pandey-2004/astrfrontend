@@ -3,7 +3,7 @@ import React from 'react'
 export const Whyastro = () => {
   return (
     <div className=' mb-8 px-2 py-4'>
-        <h1 className='text-center text-2xl font-semibold py-3' >WHY ASTROLOGY ?</h1>
+        <h1 className='text-center text-4xl font-semibold py-3' >WHY ASTROLOGY ?</h1>
         <h2 className='text-center text-lg font-semibold '>Understanding the Divine: Astrology Reveals the Will of God </h2>
         <p className=' px-4 sm:px-12 mt-6'>Astrology, often referred to as the "will of the stars," is a profound and ancient predictive science. It has captivated the human spirit for centuries, providing insights into various aspects of life. Despite the evolving world, astrology remains a beacon of wisdom, guiding individuals through its intricate methods and timeless claims.Our country has given the world a precious gift in the form of the study of the Sun, the Moon, and the planets in our galaxy.</p>
         <p className=' px-4 sm:px-12 mt-3'>Our country has given the world a precious gift in the form of the study of the Sun, the Moon, and the planets in our galaxy. This science of calculating the impact of planetary movements is called horoscope astrology. Ancient records show how astrology has been among us for centuries, guiding us on the path of happiness and success. This treasure trove of knowledge has helped many to traverse through the rough times in their lives. It is, therefore, the torch that guides individuals through difficult pathways and roadblocks for a brighter future. AstroCaptain brings this precious wisdom of astrology within your reach with its expert astrologers who can act as your guide, friend, and counselor in this maze that is life!</p>

@@ -14,47 +14,47 @@ const MatchPoints = ({ kundli }) => {
   ];
 
   return (
-    <div className="mt-8 px-20">
+    <div className="mt-8 px-4 md:px-20">
       <h3 className="text-2xl font-bold">Match Ashtakoot Points</h3>
       <table className="min-w-full bg-white  border-collapse mt-4 rounded-md kundali-matching-shadow ">
         <thead className='bg-black text-yellow-500 '>
           <tr >
-            <th className="border  border-black   py-2 px-4">Attribute</th>
-            <th className="border  border-black py-2 px-4">Male</th>
-            <th className="border  border-black py-2 px-4">Female</th>
-            <th className="border  border-black py-2 px-4">Received</th>
-            <th className="border  border-black py-2 px-4"> of</th>
-            <th className="border  border-black py-2 px-4">Area Of Life</th>
-            <th className="border  border-black py-2 px-4">Description</th>
-            <th className="border  border-black py-2 v">Meaning</th>
+            <th className="border  border-black   py-2 px-2 md:px-4 text-sm md:text-base">Attribute</th>
+            <th className="border  border-black py-2 px-2 md:px-4 text-sm md:text-base">Male</th>
+            <th className="border  border-black py-2 px-2 md:px-4 text-sm md:text-base">Female</th>
+            <th className="border  border-black py-2 px-2 md:px-4 text-sm md:text-base">Received</th>
+            <th className="border  border-black py-2 px-4 hidden md:table-cell"> of</th>
+            <th className="border  border-black py-2 px-4 hidden md:table-cell ">Area Of Life</th>
+            <th className="border  border-black py-2 px-4 hidden md:table-cell">Description</th>
+            <th className="border  border-black py-2  hidden md:table-cell">Meaning</th>
           </tr>
         </thead>
         <tbody>
           {matchPoints.map((point, index) => (
             <tr key={index}>
-              <td className="border py-2 px-4 text-black font-semibold">{point.attribute}</td>
-              <td className="border py-2 px-4">{point.male}</td>
-              <td className="border py-2 px-4">{point.female}</td>
-              <td className="border py-2 px-4">{point.received}</td>
-              <td className="border py-2 px-4">{point.outOf}</td>
-              <td className="border py-2 px-4">{point.areaOfLife}</td>
-              <td className="border py-2 px-4">{point.description}</td>
-              <td className="border py-2 px-4">{point.meaning}</td>
+              <td className="border py-2 px-2 md:px-4 text-black font-semibold text-sm md:text-base">{point.attribute}</td>
+              <td className="border py-2 px-2 md:px-4 text-sm md:text-base">{point.male}</td>
+              <td className="border py-2 px-2 md:px-4 text-sm md:text-base">{point.female}</td>
+              <td className="border py-2 px-2 md:px-4 text-sm md:text-base">{point.received}</td>
+              <td className="border py-2  px-4 hidden md:table-cell ">{point.outOf}</td>
+              <td className="border py-2 px-4 hidden md:table-cell">{point.areaOfLife}</td>
+              <td className="border py-2 px-4 hidden md:table-cell">{point.description}</td>
+              <td className="border py-2 px-4 hidden md:table-cell">{point.meaning}</td>
             </tr>
           ))}
           <tr>
-            <td className='border py-2 px-4 text-lg  text-black font-semibold'> Total</td>
+            <td className='border py-2 px-4 text-sm md:text-lg  text-black font-semibold'> Total</td>
             <td className='border py-2 px-4 '></td>
             <td className='border py-2 px-4 '></td>
-            <td className='border py-2 px-4 font-bold text-yellow-500'>{ kundli &&  kundli.response.score}</td>
-            <td className='border py-2 px-4 font-bold text-yellow-500'>36</td>
-            <td className='border py-2 px-4 '></td>
-            <td className='border py-2 px-4 '></td>
+            <td className='border py-2 px-4 font-bold text-yellow-500 text-sm md:text-base'>{ kundli &&  kundli.response.score}</td>
+            <td className='border py-2 px-4 font-bold text-yellow-500 hidden md:table-cell'>36</td>
+            <td className='border py-2 px-4 hidden md:table-cell'></td>
+            <td className='border py-2 px-4 hidden md:table-cell'></td>
 
           </tr>
         </tbody>
       </table>
-      <p className="mt-6 py-3 w-full text-center border rounded-md bg-black text-yellow-500 ">{ kundli && kundli.response.bot_response} </p>
+      <p className="mt-6 py-3 w-full text-center border rounded-md bg-black text-yellow-500 px-2 md:px-0">{ kundli && kundli.response.bot_response} </p>
     </div>
   );
 };
