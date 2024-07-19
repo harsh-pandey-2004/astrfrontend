@@ -53,9 +53,6 @@ import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAst
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
 import MatchReport from "./components/kundalimatching components/Report/MatchReport";
 
-
-
-
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -72,8 +69,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
-          <Route path="/call-to-astrologer" element={<TalktoAstro/>} />
-          <Route path="/chat-with-astrologer/:id" element={<SingleAstro/>} />
+          <Route path="/call-to-astrologer" element={<TalktoAstro />} />
+          <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
           <Route
             path="/shop-on-astro"
             element={
@@ -93,58 +90,55 @@ function App() {
             }
           />
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit/>}/>
+          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
-          <Route path="/blogs" element={<BlogPage/>}/>
-          <Route path="/panditdashboard/:id" element={<MainPanditDash/>}/>
+          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
           <Route
             path="/panditdashboard/:id/shedule"
             element={<PanditSchedule />}
           ></Route>
-          <Route path="/panditsetprofile/:id" element={<ProfileForm/>}/>
+          <Route path="/panditsetprofile/:id" element={<ProfileForm />} />
 
           {/* //kundali ROutes */}
-          <Route path="/freekundali" element={<FreeKundali/>}></Route>
+          <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route
             path="/freekundali/basic-details"
             element={<TabComponent />}
           ></Route>
 
-          <Route path="/how-to-read" element={<HowToRead/>}/>
-          <Route path="/planets-in-astro" element={<PlanetsInAstro/>} />
-          <Route path="/read-planets" element={<ReadPlanets/>}/>
+          <Route path="/how-to-read" element={<HowToRead />} />
+          <Route path="/planets-in-astro" element={<PlanetsInAstro />} />
+          <Route path="/read-planets" element={<ReadPlanets />} />
 
           {/* //// */}
-          <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
-          <Route path="/match-report" element={<MatchReport/>}/>
+          <Route path="/kundali-matching" element={<KundliMatching />}></Route>
+          <Route path="/match-report" element={<MatchReport />} />
 
-          <Route path="/pooja-booking" element={<PujaCartForm/>}></Route>
-          <Route path="/register-page" element={<RegisterForm/>}></Route>
-          <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>
+          <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
+          <Route path="/register-page" element={<RegisterForm />}></Route>
+          <Route path="/book-a-pooja/:id" element={<Bookpoojasub />}></Route>
           <Route path="/dashboard/:id" element={<Dashboard />}>
-            <Route path="Transactions" element={<Transactions/>}/>
-            <Route path="OrderHistory" element={<OrderHistory/>} />
-            <Route path="Support" element={<Support/>} />
-            <Route path="ChatHistory" element={<ChatHistory/>} />
+            <Route path="Transactions" element={<Transactions />} />
+            <Route path="OrderHistory" element={<OrderHistory />} />
+            <Route path="Support" element={<Support />} />
+            <Route path="ChatHistory" element={<ChatHistory />} />
           </Route>
           <Route
             path="/panditregister"
-            element={<PanditRegisterForm/>}
+            element={<PanditRegisterForm />}
           ></Route>
-          <Route path="/loginpandit" element={<PanditLoginForm/>}></Route>
+          <Route path="/loginpandit" element={<PanditLoginForm />}></Route>
           <Route
             path="/panditregister/panditverify-phone/:id"
             element={<PanditVerifyPhone />}
           ></Route>
 
-
-               {/* Not changed */}
+          {/* Not changed */}
           <Route
             path="/poojapandit/:poojaId/pandit/:panditId/date/:date/time/:time"
             element={<BookPanditForm />}
           ></Route>
-
-
 
           <Route
             path="/register-page/verify-phone/:id"
@@ -157,7 +151,7 @@ function App() {
             path="/astrologerlogin"
             element={<AstrologerLoginForm />}
           ></Route>
-          <Route path="/astrologerdashboard/:id" element={<MainDashAstro/>}/>
+          <Route path="/astrologerdashboard/:id" element={<MainDashAstro />} />
           <Route
             path="/astrologerregister"
             element={<AstrologerRegistrationForm />}
@@ -176,7 +170,10 @@ function App() {
             path="/astrocouncellorlogin"
             element={<AstroCouncellForm />}
           ></Route>
-          <Route path="astrocouncellordashboard/:id" element={<MaindashCouncellor/>}/>
+          <Route
+            path="astrocouncellordashboard/:id"
+            element={<MaindashCouncellor />}
+          />
           <Route
             path="/astrocouncellorregister"
             element={<AstroCouncellorRegistrationForm />}
