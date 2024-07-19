@@ -12,15 +12,27 @@ const Navbar = ({ showbluefn }) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown1, setShowDropdown1] = useState(false);
   const [showhorodropDown, setshowhorodropDown] = useState(false);
   const [showAstrodropDown, setshowAstrodropDown] = useState(false);
   const [showCounclrdropDown, setshowCounclrdropDown] = useState(false);
+
   const toggleNav = () => {
     setShowNav(!showNav);
     showbluefn(!showNav);
   };
+
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+    setShowDropdown1(false);
+    setshowhorodropDown(false);
+    setshowCounclrdropDown(false);
+  };
+
+  const toggleDropdown1 = () => {
+    setShowDropdown1(!showDropdown1);
+    setShowDropdown(false);
     setshowhorodropDown(false);
     setshowCounclrdropDown(false);
   };
@@ -28,6 +40,8 @@ const Navbar = ({ showbluefn }) => {
   const toggleDropdownCounclr = () => {
     setshowCounclrdropDown(!showCounclrdropDown);
     setShowDropdown(false);
+    setShowDropdown1(false);
+    setshowhorodropDown(false);
   };
 
   const handleMouseEnterHoro = () => {
@@ -50,10 +64,10 @@ const Navbar = ({ showbluefn }) => {
     setShowNav(false);
     showbluefn(false);
   };
+
   const handleClick = () => {
     window.location.href = "/";
   };
-
   return (
     <>
       <div className=" flex lg:hidden   w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
@@ -68,7 +82,7 @@ const Navbar = ({ showbluefn }) => {
           } w-64  bg-black text-white fixed top-[5rem]  sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-scroll `}
         >
           <div
-            className={`py-6 h-[35.2rem]  ${showDropdown && "h-[49rem]"} ${
+            className={`py-6 h-[35.2rem]  ${showDropdown && "h-[49rem]"}  ${showDropdown1 && "h-[49rem]"} ${
               showhorodropDown && "h-[59.7rem]"
             }`}
           >
@@ -122,7 +136,7 @@ const Navbar = ({ showbluefn }) => {
                 </div>
               )}
 
-              <Link to={"/book-a-pandit"}>
+              <Link to={"/book-a-pandit"} onClick={closeNav}>
                 <span className="transEffect hover:hover-effect px-5">
                   Book Pandit
                 </span>
@@ -130,13 +144,13 @@ const Navbar = ({ showbluefn }) => {
               <Link>
                 <span
                   className="trasEffect hover:hover-effect px-5 flex justify-between"
-                  onClick={toggleDropdown}
+                  onClick={toggleDropdown1}
                 >
                   Kundali
                   <CaretDown />
                 </span>
               </Link>
-              {showDropdown && (
+              {showDropdown1 && (
                 <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
                   <Link to={"/kundali-matching"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
@@ -150,14 +164,14 @@ const Navbar = ({ showbluefn }) => {
                   </Link>
                 </div>
               )}
-              <Link to={"/book-a-pooja"}>
+              <Link to={"/book-a-pooja"} onClick={closeNav}>
                 <span className=" hover:hover-effect px-5">Book Pooja</span>
               </Link>
 
-              <Link to={"/shop-on-astro"}>
+              <Link to={"/shop-on-astro"} onClick={closeNav}>
                 <span className=" hover:hover-effect px-5">Prasaad</span>
               </Link>
-              <Link to={"/blogs"}>
+              <Link to={"/blogs"} onClick={closeNav}>
                 <span className="transEffect hover:hover-effect px-5">
                   Blog
                 </span>
@@ -169,7 +183,7 @@ const Navbar = ({ showbluefn }) => {
           </div>
         </div>
         <div className="flex justify-center ">
-          <img  onClick={handleClick} src={AstroCaptionLogo} className="w-[60%]  "></img>
+          <img  onClick={handleClick} src={AstroCaptionLogo} className="w-[80%] h-[100%]  "></img>
         </div>
         <div
           className="flex items-center gap-1 border-[#f6c300] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
