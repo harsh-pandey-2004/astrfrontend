@@ -13,7 +13,7 @@ function Faqs() {
       </h1>
       {/* <h2 className='text-center text-xl text-white  '>Why Is Astrology So Accurate?</h2>
     <p className='px-12 mt-6 text-gray-400'>First and foremost, the accuracy of our astrology predictions is thanks to the expertise of the hundreds of knowledgeable and experienced astrologers we have on board. The precision in astrology comes from our astrologers' deep understanding of planets, planetary configurations, constellations, and how these celestial bodies influence human life and behavior as they move, shift, or even stay still.</p>    */}
-      <div className="mt-6 border-b border-black md:w-[93%]  w-[95%]    mx-auto transition-all duration-500 ease-in-out px-3">
+      <div className="mt-6 border-b border-black md:w-[92%]  w-[95%]    mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className="font-semibold py-2">
             Why Should You Choose Astrocaptain For An Astrology Horoscope?
@@ -58,7 +58,7 @@ function Faqs() {
         </div>
       </div>
 
-      <div className="   border-b border-black  w-[95%]     md:w-[93%] mx-auto transition-all duration-500 ease-in-out px-3">
+      <div className="   border-b border-black  w-[95%]     md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className="font-semibold  py-2">
             How Can Online Astrology Help Me In Predicting The Future?
@@ -106,7 +106,7 @@ function Faqs() {
         </div>
       </div>
 
-      <div className="   border-b border-black  w-[95%]    md:w-[93%] mx-auto transition-all duration-500 ease-in-out px-3">
+      <div className="   border-b border-black  w-[95%]    md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className=" font-semibold py-2">
             How reliable is the Astrocaptain app?
@@ -154,7 +154,7 @@ function Faqs() {
         </div>
       </div>
 
-      <div className="    border-b border-black w-[95%]    md:w-[93%] mx-auto transition-all duration-500 ease-in-out px-3 ">
+      <div className="    border-b border-black w-[95%]    md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3 ">
         <div className="py-2 flex justify-between items-center">
           <p className=" font-semibold py-2">
             How much does Astrocaptain cost?
