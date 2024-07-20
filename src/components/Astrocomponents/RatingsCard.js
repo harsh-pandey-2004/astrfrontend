@@ -23,7 +23,7 @@ const RatingsCard = ({ ratingData }) => {
   };
 
   return (
-    <div className='border rounded-md p-6 bg-white shadow-lg max-w-md  mt-6'>
+    <div className='border rounded-md p-6 bg-white shadow-lg max-w-md  mt-6 shadow-[#f6c300]'>
       <h2 className='text-2xl font-semibold mb-4'>Ratings & Reviews</h2>
       <div className='flex items-center mb-4'>
         <div className='text-4xl font-bold mr-2'>{overallRating}</div>
@@ -41,7 +41,7 @@ const RatingsCard = ({ ratingData }) => {
             </div>
             <div className='w-full bg-gray-200 rounded-full h-2 mx-2'>
               <div
-                className='bg-green-400 h-2 rounded-full'
+                className='bg-[#f6c300] h-2 rounded-full'
                 style={{ width: `${(item.count / totalReviews) * 100}%` }}
               ></div>
             </div>

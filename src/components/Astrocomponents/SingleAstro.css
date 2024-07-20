@@ -1,0 +1,18 @@
+/* Custom scrollbar styles */
+.scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    background: #f6c300;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #333;    /* Color of the scrollbar handle */
+    border-radius: 20px;       /* Roundness of the handle */
+    border: 3px solid #f6c300; /* Padding around handle */
+  }
+  body.disable-scroll {
+    overflow: hidden;
+  }
+  
