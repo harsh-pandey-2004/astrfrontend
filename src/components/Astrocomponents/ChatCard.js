@@ -50,7 +50,7 @@ function ChatCard({ obj, type }) {
         </div>
       </div>
 
-      <button className="flex items-center justify-center py-1 gap-4 border border-green-600 text-green-600 hover:text-white hover:bg-green-600 transition duration-500 rounded-md  mx-auto w-9/12 ">
+      <button className="flex items-center justify-center py-1 gap-4 border border-[#f6c300] text-[#f6c300] hover:text-white hover:bg-[#f6c300] transition duration-500 rounded-md  mx-auto w-9/12 ">
         <p>{type == "chat" ? "Chat Now" : "Talk Now"}</p> <LuPhone />
       </button>
     </div>
