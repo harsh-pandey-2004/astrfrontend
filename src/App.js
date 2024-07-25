@@ -53,6 +53,9 @@ import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAst
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
 import MatchReport from "./components/kundalimatching components/Report/MatchReport";
 import RangeSlider from "./components/kundalimatching components/Report/RangeSlider";
+import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
+import SingleCoun from "./components/AstroCounceler/SingleCoun";
+import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
 
 
 
@@ -76,7 +79,8 @@ function App() {
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
-          <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
+          <Route path="/chat-with-astrologer/:slug" element={<SingleAstro />} />
+          <Route path="/call-to-astrologer/:slug" element={<SingleTalkAstro/>}/>
           <Route
             path="/shop-on-astro"
             element={
@@ -201,13 +205,14 @@ function App() {
             path="/chat-astrocouncellor"
             element={<ChattoAstroCouncellor />}
           ></Route>
+
           <Route
-            path="/chat-to-astrocouncellor/:id"
-            element={<ChattoAstroCouncellor />}
+            path="/chat-to-astrocouncellor/:slug"
+            element={<SingleCoun />}
           ></Route>
           <Route
-            path="/talk-to-astrocouncellor/:id"
-            element={<ChattoAstroCouncellor />}
+            path="/talk-to-astrocouncellor/:slug"
+            element={<SingleTalkCoun />}
           ></Route>
         </Routes>
         <Footer showblur={showblur} />

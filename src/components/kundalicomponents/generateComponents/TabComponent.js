@@ -43,12 +43,12 @@ const TabComponent = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen h-fit relative top-0 bg-gray-50 ">
+    <div className="w-full min-h-screen h-fit relative top-0 bg-gray-50  ">
       <Breadcrumbs />
       <div className="container mx-auto py-6 pb-20">
         <ul
           role="tablist"
-          className="nav nav-pills flex flex-wrap justify-evenly space-x-6  border-[#fae13b] pb-3 border-b-[2px] outline"
+          className="nav nav-pills flex flex-wrap justify-evenly space-x-6  border-[#fae13b] pb-3 border-b-[2px] n"
         >
           {tabs.map((tab) => (
             <li key={tab.id} role="presentation" className="nav-item">

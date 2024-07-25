@@ -4,41 +4,29 @@ import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import { RiMessage2Fill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
-import RatingsCard from "./RatingsCard";
-import "./SingleAstro.css";
+import RatingsCard from "../Astrocomponents/RatingsCard";
+import "../Astrocomponents/SingleAstro.css";
 
-const SingleAstro = () => {
+const SingleTalkCoun = () => {
   const { slug} = useParams();
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `https://astrobackend.onrender.com/api/astrologer/${slug}`
+        `https://astrobackend.onrender.com/api/astroCouncelor/${slug}`
       );
-      console.log(response.data.Data);
+
       setAstrologer(response.data.Data);
     };
     fetchData();
   }, [slug]);
 
-  useEffect(() => {
-    if (isPopupOpen) {
-      document.body.classList.add("disable-scroll");
-    } else {
-      document.body.classList.remove("disable-scroll");
-    }
-  }, [isPopupOpen]);
+ 
 
-  const handleChatNowClick = () => {
-    setIsPopupOpen(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
+ 
 
   const qualifications = [
     "CA Inter (Group I)",
@@ -96,7 +84,7 @@ const SingleAstro = () => {
                 </span>
               </p>
               <p className="text-lg text-gray-700 font-bold ">
-                ₹{astrologer.chatPrice}/min
+                ₹{astrologer.talkPrice}/min
               </p>
             </div>
           </div>
@@ -115,9 +103,9 @@ const SingleAstro = () => {
           <div className="flex gap-4 justify-center items-center">
             <button
               className="border rounded-md bg-black text-white px-12 py-2 hover:text-[#f6c300] hover:-translate-y-1 transition-all"
-              onClick={handleChatNowClick}
+             
             >
-              Chat Now
+              Call Now
             </button>
           </div>
         </div>
@@ -138,56 +126,9 @@ const SingleAstro = () => {
         <RatingsCard ratingData={ratingData} />
       </div>
 
-      {isPopupOpen && (
-        <div className="sm:absolute  fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
-          <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
-            <button
-              className="absolute top-5 right-5 text-white hover:text-gray-100"
-              onClick={handleClosePopup}
-            >
-              ✕
-            </button>
-            <div className=" flex flex-col p-4">
-              <div className="flex items-center space-x-4 mb-4 border-b-2 pb-4 border-b-[#f6c300]">
-                <img
-                  src="https://placehold.co/40x40"
-                  alt="User profile picture"
-                  className="rounded-full"
-                />
-                <div>
-                  <h2 className="text-lg font-semibold">
-                    {astrologer.firstName + " " + astrologer.lastName}
-                  </h2>
-                  <p className="text-sm text-[var(--muted-foreground)]">
-                    {`${new Date().getDate()}/${
-                      new Date().getMonth() + 1
-                    }/${new Date().getFullYear()}`}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col space-y-4   overflow-y-scroll   h-[38vh] scrollbar ">
-                <div className="self-start bg-[#f6c300] rounded-full px-4 py-2 max-w-xs">
-                  Hi Prasanna! What's up?
-                </div>
-                <div className="self-end bg-white text-black  rounded-full px-4 py-2 max-w-xs">
-                  Good, Thx, how r u?
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 mt-4 w-full absolute bottom-5 left-0 px-5">
-                <input
-                  type="text"
-                  placeholder="type here..."
-                  className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+    
     </div>
   );
 };
 
-export default SingleAstro;
+export default SingleTalkCoun;
