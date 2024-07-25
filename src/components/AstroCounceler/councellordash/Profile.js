@@ -86,10 +86,10 @@ console.log(response);
 
   return (
     <div className="w-4/5 h-screen py-4 absolute right-0 bg-orange-50 overflow-y-auto">
+    <br/>
       <h1 className="text-center text-3xl">
         Welcome! Astro {formData.firstName}
       </h1>
-
       <div className="md:w-3/5 xs:w-full mx-auto mt-6 rounded-lg px-4 pb-2 shadow-md bg-yellow-100">
         <form onSubmit={handleSubmit}>
           <div className="border-b border-black pb-2">
