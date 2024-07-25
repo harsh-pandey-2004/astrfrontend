@@ -1,45 +1,89 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Radar } from 'react-chartjs-2';
+import axios from 'axios';
 
 const Asthavarga = () => {
   const [chartData, setChartData] = useState(null);
+  const location = useLocation();
+  const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+  const [pointsArr, setPointsArr] = useState(null);
+  const { formData } = location.state || {}; // Default to an empty object if location.state is undefined
+  console.log(formData);
 
+  // Fetching user's lat & long
+  const getUserCoordinates = async (cityName) => {
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+
+    try {
+      const response = await axios.get(url);
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setUserLat(location.lat);
+        setUserLong(location.lng);
+      } else {
+        throw new Error('Unable to find location');
+      }
+    } catch (error) {
+      console.error('Error fetching user coordinates:', error);
+    }
+  };
+
+  // Fetch Ashtakvarga details
+  const fetchDetails = async () => {
+   
+    const tz = 5.5; // Time zone, adjust as necessary
+    const apiKey = '98d42535-b080-5dad-a6dc-5084c3f6d243';
+
+    const url = `https://api.vedicastroapi.com/v3-json/horoscope/ashtakvarga?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=${tz}&api_key=${apiKey}&lang=en`;
+
+    try {
+      const response = await axios.get(url);
+      console.log(response.data.response.ashtakvarga_points);
+      setPointsArr(response.data.response.ashtakvarga_points);
+    } catch (error) {
+      console.error('Error fetching Ashtakvarga details:', error);
+    }
+  };
+
+  // Use effect to get coordinates and fetch details
   useEffect(() => {
-    // Mock data for testing purposes
-    const mockData = {
-      ashtakvarga_order: ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"],
-      ashtakvarga_points: [
-        [3, 3, 2, 3, 6, 4, 5, 5],
-        [6, 3, 4, 7, 4, 4, 3, 5],
-        [3, 3, 2, 5, 4, 3, 3, 3],
-        [2, 6, 4, 4, 4, 4, 6, 5],
-        [4, 5, 4, 4, 6, 3, 5, 6],
-        [5, 5, 7, 5, 2, 4, 5, 2],
-        [3, 2, 2, 5, 4, 3, 2, 3],
-        [6, 5, 2, 8, 1, 1, 3, 7],
-      ]
-    };
+    if (formData && formData.birthPlace) {
+      getUserCoordinates(formData.birthPlace);
+    }
+  }, [formData]);
 
-    // Process the mock data for chart rendering
-    const radarChartData = {
-      labels: mockData.ashtakvarga_order,
-      datasets: [
-        {
-          label: 'Points',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
-          data: mockData.ashtakvarga_points[0], // Using the first set of points for simplicity
-        },
-      ],
-    };
+  // Fetch details once coordinates are set
+  useEffect(() => {
+    if (userLat && userLong) {
+      fetchDetails(userLat, userLong);
+    }
+  }, [userLat, userLong]);
 
-    // Set the chart data state
-    setChartData(radarChartData);
-  }, []);
+  // Update chart data when pointsArr is set
+  useEffect(() => {
+    if (pointsArr) {
+      const radarChartData = {
+        labels: ["Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Ascendant"],
+        datasets: [
+          {
+            label: 'Points',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
+            data: pointsArr[3], // Example: using the fourth set of points
+          },
+        ],
+      };
+
+      setChartData(radarChartData);
+    }
+  }, [pointsArr]);
 
   if (!chartData) {
     return <div>Loading...</div>;

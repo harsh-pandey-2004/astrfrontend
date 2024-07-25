@@ -1,34 +1,72 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Kundali.css"
+import { useLocation } from "react-router-dom";
 const Kundali = () => {
   const [selectedType, setSelectedType] = useState("Basic Kundali");
   const [horoscopeData, setHoroscopeData] = useState(null);
   const [planetReportData, setPlanetReportData] = useState(null);
   const [personalCharacteristicsData, setPersonalCharacteristicsData] = useState(null);
   const [ascendantReportData, setAscendantReportData] = useState(null);
+  const location=useLocation();
+  const {formData}=location.state;
+  console.log(formData);
+  
+
+  const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+
+  const getUserCoordinates = async (cityName) => {
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+  
+    try {
+      const response = await axios.get(url);
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setUserLat(location.lat);
+        setUserLong(location.lng);
+        console.log('User Coordinates:', { userLat: location.lat, userLong: location.lng });
+      } else {
+        throw new Error('Unable to find location');
+      }
+    } catch (error) {
+      console.error('Error fetching user coordinates:', error);
+    }
+  };
+
+  useEffect(() => {
+    getUserCoordinates(formData.birthPlace);
+   
+  }, [formData]);
+
+
+
 
   useEffect(() => {
     // Function to fetch data from API
     const fetchData = async () => {
       try {
         const horoscopeResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
+          `https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
         );
+        console.log(horoscopeResponse.data.response);
         setHoroscopeData(horoscopeResponse.data.response);
 
         const planetReportResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&planet=Jupiter&lang=en"
+          `https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&planet=Jupiter&lang=en`
         );
+        console.log(planetReportResponse);
+     
         setPlanetReportData(planetReportResponse.data.response[0]);
 
         const personalCharacteristicsResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
+          `https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
         );
         setPersonalCharacteristicsData(personalCharacteristicsResponse.data.response);
 
         const ascendantReportResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=11/03/1994&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
+          `https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
         );
         setAscendantReportData(ascendantReportResponse.data.response[0]);
       } catch (error) {
@@ -37,8 +75,11 @@ const Kundali = () => {
     };
 
     // Call the function to fetch data
-    fetchData();
-  }, []);
+    if(userLat !== null && userLong !==null){
+      fetchData();
+    }
+   
+  }, [userLat,userLong]);
 
   const handleTypeChange = (type) => {
     setSelectedType(type);

@@ -1,22 +1,83 @@
 import React from 'react'
-
+import { useState,useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 const VimshottariDashaTab = () => {
+  const location=useLocation();
+  const {formData}=location.state;
+  console.log(formData);
+
+  const[dashas,setDashas]=useState(null);
+  const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+
+  const getUserCoordinates = async (cityName) => {
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+  
+    try {
+      const response = await axios.get(url);
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setUserLat(location.lat);
+        setUserLong(location.lng);
+        console.log('User Coordinates:', { userLat: location.lat, userLong: location.lng });
+      } else {
+        throw new Error('Unable to find location');
+      }
+    } catch (error) {
+      console.error('Error fetching user coordinates:', error);
+    }
+  };
+
+  useEffect(() => {
+    getUserCoordinates(formData.birthPlace);
+   
+  }, [formData]);
+
+
+  useEffect(()=>{
+    const fetchDasha=async()=>{
+      try{
+        const res=await fetch(`https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en`);
+        const data=await res.json();
+        console.log(data);
+        setDashas(data.response.dashas);
+      
+
+      }catch(err){
+        console.log(err);
+        console.log(err.message);
+      }
+    }
+
+
+    if(userLat!=null && userLong!=null){
+      fetchDasha();
+    }
+     
+
+  },[userLat,userLong]);
+
+ 
   return (
     <div>
-       <div className="col-12">
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+       <div className="col-12 ">
+      {dashas && dashas.map((obj)=>{return <div className="bg-white shadow-md rounded-lg overflow-hidden mb-6" obj={obj}>
         <div className="bg-[#f5d713] text-white py-4 px-6 flex justify-between items-center">
-          <span className="text-lg font-semibold">Rahu Mahadasha</span>
-          <span className="text-sm text-gray-300">24-09-1987 - 23-09-2005</span>
+          <span className="text-lg font-semibold">{obj.dasha} Mahadasha</span>
+          <span className="text-sm  text-black">{obj.dasha_start_year} - {obj.dasha_start_year}</span>
         </div>
         <div className="p-6">
           <p className="text-gray-700">
-            The conjunction of Rahu in the ninth of the Kundli could be an ominous omen of certain events that could lead to separation from siblings. It also hints at some parent health issues being transferred to the child. However, this won't be a serious kind of ailment. On the upside, when Rahu camps in the favourable sign, you will have the fortune of good education and your family will be blessed with the opportunity to travel to foreign countries. Also, you will have a friend circle that will help you in establishing your professional goal. You will be lucky to find a loyal partner, however, you must constrain your speech when with them.
-            <br /><br />
-            The planet Rahu is in the Capricorn sign of the Kundli. This placement will bring happiness and comfort to the life of the native. Even though things won't go as smoothly as you would like them to go, however, you will experience smooth sailing when it comes to your love and professional life. The placement of Rahu in Capricorn indicates that you will find respect and reverence in society. There is a possibility, however, that things change for worse towards the end of this Dasha period if you are not careful about your life decisions. Health and disease is something for you to be on the lookout for. Rahu in Capricorn further indicates that your happiness can be dependent on the loyalty that your subordinates and your loved ones show to you.
+            {obj.prediction}
+           
+           
           </p>
         </div>
-      </div>
+      </div> })}
+
+      
     </div>
     </div>
   )

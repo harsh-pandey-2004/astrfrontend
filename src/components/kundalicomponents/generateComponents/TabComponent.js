@@ -48,7 +48,7 @@ const TabComponent = () => {
       <div className="container mx-auto py-6 pb-20">
         <ul
           role="tablist"
-          className="nav nav-pills flex justify-center space-x-6  border-[#fae13b] pb-3 border-b-[2px]"
+          className="nav nav-pills flex flex-wrap justify-evenly space-x-6  border-[#fae13b] pb-3 border-b-[2px] outline"
         >
           {tabs.map((tab) => (
             <li key={tab.id} role="presentation" className="nav-item">

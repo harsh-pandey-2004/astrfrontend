@@ -1,7 +1,46 @@
 import React from 'react';
 import './Kundali.css'; // Assuming this file contains your custom styles
-
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
 const Basic = () => {
+const location=useLocation();
+const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+const { formData } = location.state;
+  console.log(formData);
+
+
+//fetching user's lat&long
+const getUserCoordinates = async (cityName) => {
+  const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+
+  try {
+    const response = await axios.get(url);
+    if (response.data.status === 'OK') {
+      const location = response.data.results[0].geometry.location;
+      setUserLat(location.lat);
+      setUserLong(location.lng);
+      console.log('User Coordinates:', { userLat: location.lat, userLong: location.lng });
+    } else {
+      throw new Error('Unable to find location');
+    }
+  } catch (error) {
+    console.error('Error fetching user coordinates:', error);
+  }
+};
+
+
+useEffect(() => {
+  getUserCoordinates(formData.birthPlace);
+ 
+}, [formData]);
+
+
+
+
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -9,17 +48,17 @@ const Basic = () => {
           <h2 className="text-3xl font-bold mb-6 text-[#fae13b] text-shadow">Basic Details</h2>
           <div className="grid grid-cols-2 gap-4 text-lg text-gray-800">
             <div className="font-semibold">Name:</div>
-            <div className="text-yellow-700">Harsh</div>
+            <div className="text-yellow-700">{formData.name}</div>
             <div className="font-semibold">Date:</div>
-            <div className="text-yellow-700">01/01/1990</div>
+            <div className="text-yellow-700">{formData.day}/{formData.month}/{formData.year}</div>
             <div className="font-semibold">Time:</div>
-            <div className="text-yellow-700">03:22 PM</div>
+            <div className="text-yellow-700">{formData.hour}:{formData.minute} PM</div>
             <div className="font-semibold">Place:</div>
-            <div className="text-yellow-700">Delhi, Delhi, India</div>
+            <div className="text-yellow-700">{formData.birthPlace}</div>
             <div className="font-semibold">Latitude:</div>
-            <div className="text-yellow-700">28.65</div>
+            <div className="text-yellow-700">{userLat}</div>
             <div className="font-semibold">Longitude:</div>
-            <div className="text-yellow-700">77.23</div>
+            <div className="text-yellow-700">{userLong}</div>
             <div className="font-semibold">Timezone:</div>
             <div className="text-yellow-700">GMT<span>+</span>5.5</div>
             <div className="font-semibold">Sunrise:</div>

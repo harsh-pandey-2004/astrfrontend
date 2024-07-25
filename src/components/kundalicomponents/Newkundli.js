@@ -58,7 +58,7 @@ const NewKundli = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData)
-    navigate("/freekundali/basic-details", { state: formData });
+    navigate("/freekundali/basic-details", { state: {formData} });
   };
 
   const getMonthName = (monthIndex) => {

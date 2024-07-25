@@ -58,6 +58,7 @@ import RangeSlider from "./components/kundalimatching components/Report/RangeSli
 
 
 
+
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -109,7 +110,7 @@ function App() {
           <Route path="/freekundali" element={<FreeKundali/>}></Route>
           <Route
             path="/freekundali/basic-details"
-            element={<TabComponent />}
+            element={<TabComponent/>}
           ></Route>
 
           <Route path="/how-to-read" element={<HowToRead/>}/>
