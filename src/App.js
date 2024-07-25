@@ -53,6 +53,7 @@ import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAst
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
 import MatchReport from "./components/kundalimatching components/Report/MatchReport";
 import RangeSlider from "./components/kundalimatching components/Report/RangeSlider";
+import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 
 
 
@@ -97,7 +98,7 @@ function App() {
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
-          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
           <Route
             path="/panditdashboard/:id/shedule"
