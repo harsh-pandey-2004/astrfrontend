@@ -25,7 +25,7 @@ function MaindashCouncellor() {
     fetchData();
   }, [slug]);
   return (
-    <div className="flex relative overflow-hidden top-24 lg:top-0">
+    <div className="md:flex  relative overflow-hidden top-24 lg:top-0">
       
       <Sidebar response={response}/>
       <div className="h-screen w-4/5">

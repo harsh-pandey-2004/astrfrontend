@@ -4,8 +4,8 @@ import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 function Sidebar({ response }) {
   return (
-    <div className="sidebar w-1/5    h-screen flex flex-col items-center overflow-y-auto ">
-      <div className="flex flex-col items-center gap-2 border-b-2 border-black pt-6 pb-2 w-full">
+    <div className="sidebar w-1/5   h-screen flex flex-col items-center  ">
+      <div className="flex flex-col  items-center gap-2 border-b-2 border-black pt-6 pb-2 w-full">
         <div className="relative  rounded-full ">
           <img
             src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
@@ -25,7 +25,7 @@ function Sidebar({ response }) {
         <p className="font-semibold"> +91 {response && response.mobile}</p>
       </div>
 
-      <div className="flex flex-col items-center gap-4 pt-4  text-center">
+      <div className="  flex flex-col items-center gap-4 pt-4  text-center">
         <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100  ">
           {" "}
           <Link to="/"> Edit Profile </Link>{" "}
