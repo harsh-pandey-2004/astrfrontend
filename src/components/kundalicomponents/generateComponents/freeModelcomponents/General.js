@@ -9,6 +9,7 @@ const Tabs = () => {
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
+    console.log(activeTab);
   };
 
   return (
@@ -18,7 +19,7 @@ const Tabs = () => {
         role="tablist"
         className="flex border-b border-gray-200 bg-white"
       >
-        {["General", "Planetary", "Vimshottari Dasha", "Yoga"].map((tabName) => (
+        {["General", "Planetary", "MahaDashas", "Yoga"].map((tabName) => (
           <li
             key={tabName}
             role="presentation"
@@ -52,7 +53,7 @@ const Tabs = () => {
         <div className={`py-4 px-4 ${activeTab === "Planetary" ? "block" : "hidden"}`}>
           <PlanetaryTab />
         </div>
-        <div className={`py-4 px-4 ${activeTab === "Vimshottari Dasha" ? "block" : "hidden"}`}>
+        <div className={`py-4 px-4 ${activeTab === "MahaDashas" ? "block" : "hidden"}`}>
           <VimshottariDashaTab />
         </div>
         <div className={`py-4 px-4 ${activeTab === "Yoga" ? "block" : "hidden"}`}>
