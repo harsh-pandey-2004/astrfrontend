@@ -1,6 +1,8 @@
 import React from "react";
 import Vedio3 from "../../vedios/vedio4.mp4";
 import ServicesVastu from "./ServicesVastu";
+import ServicesWeProvide from "./ServicesWeProvide";
+import OurSpecialists from "./OurSpecialists";
 
 const VastuMainPage = ({ showblur }) => {
   return (
@@ -11,9 +13,9 @@ const VastuMainPage = ({ showblur }) => {
       } 
          flex flex-col bg-[#ffff]  relative top-20 lg:top-0   w-full`}
     >
-      <div className="w-full h-fit ">
-        <div className="w-full flex flex-col">
-          <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2">
+      <div className="w-full min-h-screen h-fit">
+        <div className="w-full flex flex-col min-h-screen h-fit">
+          <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2 lg:h-screen items-center">
             <div className="lg:w-1/2 outline md:pt-32 pt-10 w-full">
               <h1 className=" text-white text-base font-semibold pl-2 sm:text-lg   w-fit ">
                 Vastu Shastra: Harmonizing Your Space
@@ -38,7 +40,7 @@ const VastuMainPage = ({ showblur }) => {
               </p>
             </div>
 
-            <div className="lg:w-1/2 pt-20  lg:pt-36 relative lg:pl-10 w-full animate-pulse ">
+            <div className="lg:w-1/2 md:pt-20  lg:pt-36 relative lg:pl-10 w-full animate-pulse ">
               <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
               <img
                 src="https://th.bing.com/th/id/R.b3ee389dea86803d8445065eb87f77ea?rik=GNwqdkJKWQVlYA&riu=http%3a%2f%2fvastusolutions.co.uk%2fwp-content%2fuploads%2f2013%2f09%2fVastu-Pyramid-copy-1024x657.png&ehk=5AFQKGm0nTLN%2fyaTfE4GswHIq22ClPPo3HVRXT8QzfM%3d&risl=&pid=ImgRaw&r=0"
@@ -49,6 +51,8 @@ const VastuMainPage = ({ showblur }) => {
         </div>
       </div>
       <ServicesVastu/>
+      <ServicesWeProvide/>
+      <OurSpecialists/>
     </div>
   );
 };
