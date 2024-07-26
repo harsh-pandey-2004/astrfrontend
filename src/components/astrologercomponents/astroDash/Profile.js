@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Profile = ({ response }) => {
   const [newSkill, setNewSkill] = useState("");
@@ -34,7 +35,7 @@ const Profile = ({ response }) => {
   const toggleEditMode = () => {
     setEditMode(!editMode);
   };
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -85,7 +86,20 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="w-full h-full md:mt-24 flex flex-col items-center p-4 overflow-auto">
+    <div className="sm:mt-12 w-full h-full md:mt-24 flex flex-col items-center p-4 overflow-auto mt-[-1rem]">
+      <div className="md:hidden h-[3rem] w-full flex justify-evenly items-center">
+        <img src="/round.png" alt="calendar" className="h-6 w-6" />
+        <img
+          src="/mail.png"
+          alt="calendar"
+          className="h-6 w-6"
+          onClick={() => navigate("/mail")}
+        />
+        <img src="/edit.png" alt="calendar" className="h-5 w-5" />
+        <img src="/graph.png" alt="calendar" className="h-6 w-6" />
+        <img src="/support.png" alt="calendar" className="h-6 w-6" />
+        <img src="/logout.png" alt="calendar" className="h-7 w-7" />
+      </div>
       <div className="w-full md:h-auto h-full bg-[#f6c300] rounded-lg shadow-lg p-4 flex flex-col">
         <h1 className="text-3xl font-bold text-start text-gray-800 mb-4">
           Welcome, Astro {formData.firstName}!
@@ -261,7 +275,6 @@ const Profile = ({ response }) => {
             </div>
           </div>
         </form>
-        
       </div>
     </div>
   );
