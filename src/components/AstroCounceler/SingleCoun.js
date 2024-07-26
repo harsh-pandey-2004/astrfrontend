@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import { RiMessage2Fill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
-import RatingsCard from "./RatingsCard";
-import "./SingleAstro.css";
+import RatingsCard from "../Astrocomponents/RatingsCard";
+import "../Astrocomponents/SingleAstro.css";
 
-const SingleAstro = () => {
+const SingleCoun = () => {
   const { slug} = useParams();
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
@@ -16,9 +16,9 @@ const SingleAstro = () => {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `https://astrobackend.onrender.com/api/astrologer/${slug}`
+        `https://astrobackend.onrender.com/api/astroCouncelor/${slug}`
       );
-      console.log(response.data.Data);
+
       setAstrologer(response.data.Data);
     };
     fetchData();
@@ -190,4 +190,4 @@ const SingleAstro = () => {
   );
 };
 
-export default SingleAstro;
+export default SingleCoun;

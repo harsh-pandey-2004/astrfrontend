@@ -33,7 +33,7 @@ const AstroCouncellForm = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded  pb-8 my-4 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-0 md:w-3/4 sm:top-32 sm:w-4/5">
+    <div className="bg-white shadow-md rounded  pb-8 mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
       <form
         autoComplete="on"
         className="flex flex-col "
