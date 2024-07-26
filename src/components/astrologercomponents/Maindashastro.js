@@ -1,3 +1,4 @@
+import React from "react";
 import Sidebar from "./astroDash/astrodashcom/Sidebar";
 import { Routes, Route, useParams } from "react-router-dom";
 import Profile from "./astroDash/Profile";
