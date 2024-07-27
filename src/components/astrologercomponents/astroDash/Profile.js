@@ -87,7 +87,7 @@ const Profile = ({ response }) => {
 
   return (
     <div className="sm:mt-12 w-full h-full md:mt-24 flex flex-col items-center p-4 overflow-auto mt-[-1rem]">
-      <div className="md:hidden h-[3rem] w-full flex justify-evenly items-center">
+      <div className="md:hidden lg:hidden h-[3rem] w-full flex justify-evenly items-center">
         <img src="/round.png" alt="calendar" className="h-6 w-6" />
         <img
           src="/mail.png"
@@ -257,7 +257,7 @@ const Profile = ({ response }) => {
               {!editMode && (
                 <button
                   type="button"
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-white bg-blue-700 hover:bg-black transition"
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-white bg-black hover:bg-blue-600 transition"
                   onClick={toggleEditMode}
                 >
                   Edit
