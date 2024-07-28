@@ -3,6 +3,8 @@ import Vedio3 from "../../vedios/vedio4.mp4";
 import ServicesVastu from "./ServicesVastu";
 import ServicesWeProvide from "./ServicesWeProvide";
 import OurSpecialists from "./OurSpecialists";
+import Stats from "./Stats";
+import Reviews from "./Reviews";
 
 const VastuMainPage = ({ showblur }) => {
   return (
@@ -53,6 +55,8 @@ const VastuMainPage = ({ showblur }) => {
       <ServicesVastu/>
       <ServicesWeProvide/>
       <OurSpecialists/>
+      <Stats/>
+      <Reviews/>
     </div>
   );
 };
