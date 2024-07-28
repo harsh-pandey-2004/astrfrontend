@@ -13,6 +13,7 @@ const Navbar = ({ showbluefn }) => {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown1, setShowDropdown1] = useState(false);
+  const [showDropdown2, setShowDropdown2] = useState(false);
   const [showhorodropDown, setshowhorodropDown] = useState(false);
   const [showAstrodropDown, setshowAstrodropDown] = useState(false);
   const [showCounclrdropDown, setshowCounclrdropDown] = useState(false);
@@ -25,6 +26,7 @@ const Navbar = ({ showbluefn }) => {
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
     setShowDropdown1(false);
+    setShowDropdown2(false);
     setshowhorodropDown(false);
     setshowCounclrdropDown(false);
   };
@@ -33,12 +35,22 @@ const Navbar = ({ showbluefn }) => {
     setShowDropdown1(!showDropdown1);
     setShowDropdown(false);
     setshowhorodropDown(false);
+    setShowDropdown2(false);
+    setshowCounclrdropDown(false);
+  };
+
+  const toggleDropdown2 = () => {
+    setShowDropdown2(!showDropdown2);
+    setShowDropdown1(false);
+    setShowDropdown(false);
+    setshowhorodropDown(false);
     setshowCounclrdropDown(false);
   };
 
   const toggleDropdownCounclr = () => {
     setshowCounclrdropDown(!showCounclrdropDown);
     setShowDropdown(false);
+    setShowDropdown2(false);
     setShowDropdown1(false);
     setshowhorodropDown(false);
   };
@@ -69,37 +81,33 @@ const Navbar = ({ showbluefn }) => {
   };
   return (
     <>
-      <div className=" flex lg:hidden   w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static ">
+      <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static">
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
         <div
           className={`${
-            showNav ? "opacity-100 scale-100 " : "opacity-0 scale-95 hidden"
+            showNav ? "opacity-100 scale-100" : "opacity-0 scale-95 hidden"
           } ${
             showCounclrdropDown ? "pb-56" : "pb-28"
-          } w-64  bg-black text-white fixed top-[5rem] sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-scroll `}
+          } w-64 bg-black text-white fixed top-[5rem] sm:top-[6.5rem] md:top-[6.5rem] left-0 transform transition-all duration-300 h-full z-50 overflow-y-auto`}
         >
-          <div
-            className={`py-6 h-[35.2rem]  ${showDropdown && "h-[42rem]"}  ${
-              showDropdown1 && "h-[42rem]"
-            } ${showhorodropDown && "h-[59.7rem]"}`}
-          >
-            <div className="flex flex-col gap-8  text-md font-sans  ">
+          <div className="py-6 h-full flex flex-col">
+            <div className="flex flex-col gap-8 text-md font-sans flex-grow">
               <Link>
                 <span
-                  className="trasEffect hover:hover-effect px-5 flex justify-between "
+                  className="trasEffect hover:hover-effect px-5 flex justify-between"
                   onClick={toggleDropdown}
                 >
-                Astrologer
+                  Astrologer
                   <CaretDown />
                 </span>
               </Link>
               {showDropdown && (
-                <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
+                <div className="flex flex-col gap-5 shadow-xl py-3">
                   <Link to={"/chat-astrocouncellor"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
-                    Chat Astrologer
+                      Chat Astrologer
                     </span>
                   </Link>
                   <Link to={"/talk-astrocouncellor"} onClick={closeNav}>
@@ -110,17 +118,18 @@ const Navbar = ({ showbluefn }) => {
                 </div>
               )}
 
+              {/*fixing the astrologercoucelor*/}
               <Link>
                 <span
-                  className="trasEffect hover:hover-effect px-5 flex justify-between "
-                  onClick={toggleDropdownCounclr}
+                  className="trasEffect hover:hover-effect px-5 flex justify-between"
+                  onClick={toggleDropdown2}
                 >
                   AstroCouncellor
                   <CaretDown />
                 </span>
               </Link>
-              {showCounclrdropDown && (
-                <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
+              {showDropdown2 && (
+                <div className="flex flex-col gap-5 shadow-xl py-3">
                   <Link to={"/chat-astrocouncellor"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Chat AstroCouncellor
@@ -133,6 +142,8 @@ const Navbar = ({ showbluefn }) => {
                   </Link>
                 </div>
               )}
+
+              {/*Fix end here*/}
 
               <Link to={"/book-a-pandit"} onClick={closeNav}>
                 <span className="transEffect hover:hover-effect px-5">
@@ -149,7 +160,7 @@ const Navbar = ({ showbluefn }) => {
                 </span>
               </Link>
               {showDropdown1 && (
-                <div className="flex flex-col gap-5 mt-[-.8rem] shadow-xl py-3">
+                <div className="flex flex-col gap-5 shadow-xl py-3">
                   <Link to={"/kundali-matching"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Kundali Matching
@@ -163,38 +174,39 @@ const Navbar = ({ showbluefn }) => {
                 </div>
               )}
               <Link to={"/book-a-pooja"} onClick={closeNav}>
-                <span className=" hover:hover-effect px-5">Book Pooja</span>
+                <span className="hover:hover-effect px-5">Book Pooja</span>
               </Link>
 
               <Link to={"/shop-on-astro"} onClick={closeNav}>
-                <span className=" hover:hover-effect px-5">Prasaad</span>
+                <span className="hover:hover-effect px-5">Prasaad</span>
               </Link>
               <Link to={"/blogs"} onClick={closeNav}>
                 <span className="transEffect hover:hover-effect px-5">
                   Blog
                 </span>
               </Link>
-              <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center rounded mt-32">
-                Logout
-              </span>
             </div>
+            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center rounded mt-auto">
+              Logout
+            </span>
           </div>
         </div>
         <div className="flex justify-center ">
           <img
             onClick={handleClick}
             src={AstroCaptionLogo}
-            className="w-[90%] h-[100%]  "
+            className="w-[90%] h-[100%]"
           ></img>
         </div>
         <div
-          className="flex   items-center gap-1 border-[#f6c300] border-2 px-  rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
+          className="flex items-center gap-1 border-[#f6c300] border-2 px- rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
           Login
         </div>
       </div>
+
       {/* Web nav */}
       <div>
         <div className="hidden lg:fixed lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black z-50 text-white">
