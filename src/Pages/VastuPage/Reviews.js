@@ -35,7 +35,7 @@ const Reviews = () => {
   };
 
   return (
-    <div className="reviews-carousel ">
+    <div className="reviews-carousel w-full">
       <h2 className="carousel-title">Client Reviews</h2>
       <Slider {...settings}>
         {reviews.map((review) => (
