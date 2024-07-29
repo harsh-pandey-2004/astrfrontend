@@ -5,6 +5,8 @@ import ServicesWeProvide from "./ServicesWeProvide";
 import OurSpecialists from "./OurSpecialists";
 import Stats from "./Stats";
 import Reviews from "./Reviews";
+import Blogs from "./Blogs";
+import BlogCard from "./Blogs";
 
 const VastuMainPage = ({ showblur }) => {
   return (
@@ -56,6 +58,7 @@ const VastuMainPage = ({ showblur }) => {
       <ServicesWeProvide/>
       <OurSpecialists/>
       <Stats/>
+      <BlogCard/>
       <Reviews/>
     </div>
   );
