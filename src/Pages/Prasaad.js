@@ -2,7 +2,9 @@ import React from 'react'
 
 const Prasaad = () => {
   return (
-    <div>Prasaad</div>
+    <div className='h-screen relative top-20'>
+      Prasaad
+    </div>
   )
 }
 

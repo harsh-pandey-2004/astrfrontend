@@ -56,6 +56,7 @@ import RangeSlider from "./components/kundalimatching components/Report/RangeSli
 import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
 import SingleCoun from "./components/AstroCounceler/SingleCoun";
 import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
+import Prasaad from "./Pages/Prasaad"
 
 
 
@@ -84,7 +85,7 @@ function App() {
           <Route
             path="/shop-on-astro"
             element={
-              <ShopAstro IsmenuClicked={IsmenuClicked} showblur={showblur} />
+              <Prasaad/>
             }
           />
           <Route
