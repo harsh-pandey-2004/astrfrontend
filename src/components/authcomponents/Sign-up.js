@@ -49,7 +49,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="bg-black shadow-md rounded pb-8   mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[12.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
+    <div  className="bg-black shadow-md rounded pb-8 mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem]  lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
       <form
         autoComplete="on"
         className="flex flex-col"
@@ -156,6 +156,7 @@ const RegisterForm = () => {
         </div>
       </form>
     </div>
+    
   );
 };
 
