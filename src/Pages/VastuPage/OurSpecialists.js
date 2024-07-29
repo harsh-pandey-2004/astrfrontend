@@ -29,6 +29,27 @@ const specialists = [
       twitter: "#",
     },
   },
+  {
+    id: 2,
+    name: "Ayush Tiwari",
+    occupation: "Structural Engineer",
+    qualifications: [
+      "BTECH-Civil Engineering - Motilal Nehru National Institute Of Technology",
+    ],
+    achievements: [
+      "Project Management: Managed a 35km road project and a district shopping complex, ensuring compliance, timely delivery, and quality standards.",
+
+      "      Maintenance and Construction: Handled structural maintenance and construction projects, focusing on longevity and safety.",
+    ],
+    experience: "10 years",
+    image:
+      "https://media.licdn.com/dms/image/C5603AQGVCu9_gSh4JA/profile-displayphoto-shrink_800_800/0/1517349707719?e=1727913600&v=beta&t=QwJYKPy6ql94AMZd17yP_d1ik1k_H1ICZEdE6KPqxTs",
+    socialLinks: {
+      linkedin: "#",
+      instagram: "#",
+      twitter: "#",
+    },
+  },
 ];
 
 const SpecialistCard = ({ specialist }) => (
@@ -70,13 +91,13 @@ const SpecialistCard = ({ specialist }) => (
           <h3 className="text-xl font-semibold text-gray-800 mb-2 flex items-center">
             <FaTrophy className="mr-2 text-yellow-500" /> Achievements
           </h3>
-          <ul className="list-disc pl-5 space-y-2">
+          <ul className=" pl-5 space-y-2">
             {specialist.achievements.map((ach, index) => (
               <li
                 key={index}
                 className="text-[#f6c300] bg-black p-2 rounded-md shadow-sm flex items-center"
               >
-                <FaTrophy className="mr-2 c" /> {ach}
+                <FaTrophy className="mr-2 w-5 h-5 c" /> {ach}
               </li>
             ))}
           </ul>

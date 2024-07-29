@@ -58,7 +58,9 @@ const SingleAstro = () => {
       { stars: 1, count: 5 },
     ],
   };
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="mb-12">
       <div

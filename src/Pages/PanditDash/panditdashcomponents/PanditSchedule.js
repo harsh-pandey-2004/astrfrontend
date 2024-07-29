@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -12,7 +12,9 @@ const Schedule = () => {
   const [selectedDates, setSelectedDates] = useState([]);
   const [isBooked, setIsBooked] = useState(false);
   const [lastScheduleEndDate, setLastScheduleEndDate] = useState(null);
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   const handleSelectSlot = ({ start, end }) => {
     if (!isBooked) {
       const selected = {

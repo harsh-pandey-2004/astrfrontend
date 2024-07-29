@@ -152,7 +152,9 @@ const TalktoAstro = () => {
     selectedLanguages,
     selectedGender,
   ]);
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="mb-28 w-full h-full flex relative top-20">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">

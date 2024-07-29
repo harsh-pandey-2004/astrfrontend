@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Vedio3 from "../../vedios/vedio4.mp4";
 import ServicesVastu from "./ServicesVastu";
 import ServicesWeProvide from "./ServicesWeProvide";
@@ -9,6 +9,9 @@ import Blogs from "./Blogs";
 import BlogCard from "./Blogs";
 
 const VastuMainPage = ({ showblur }) => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div
       className={`${

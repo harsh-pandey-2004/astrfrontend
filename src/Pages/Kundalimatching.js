@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NewKundli from '../components/kundalimatching components/NewKundali';
 import SaveKundli from '../components/kundalimatching components/SaveKundali';
 
@@ -16,7 +16,9 @@ const KundliMatching = (props) => {
   ];
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 100 }, (_, i) => currentYear - i);
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className={`${ showblur  &&
       "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full"}
