@@ -162,7 +162,7 @@ const TalktoAstroCouncellor = () => {
   ]);
 
   return (
-    <div className="mb-28 w-full h-full flex">
+    <div className="mb-28 w-full h-full flex relative top-20">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
           Talk to AstrologerCouncellor
