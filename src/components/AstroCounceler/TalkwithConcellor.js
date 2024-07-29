@@ -40,7 +40,9 @@ const TalktoAstroCouncellor = () => {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [selectedGender, setSelectedGender] = useState("");
   const [sortCriteria, setSortCriteria] = useState("");
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   const handleSkillChange = (skill) => {
     setSelectedSkills((prevSkills) => {
       const updatedSkills = prevSkills.includes(skill)

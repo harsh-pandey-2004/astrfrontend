@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
 import Stat from "../components/BookAPoojaComponents/components/Stat";
@@ -95,7 +95,9 @@ const BookPandit = (props) => {
       console.log("Error :", error);
     }
   };
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div
       className={`${

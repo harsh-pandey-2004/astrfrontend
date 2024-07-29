@@ -18,7 +18,9 @@ const MatchReport = () => {
   console.log(details.boy.hour);
   console.log(details.boy.minute);
 
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   const[kundli,setKundli]=useState(null);
   const [boyLat, setBoyLat] = useState(null);
   const [boyLong, setBoyLong] = useState(null);

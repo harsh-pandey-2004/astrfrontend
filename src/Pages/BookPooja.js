@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
 import Stat from "../components/BookAPoojaComponents/components/Stat";
@@ -11,7 +11,9 @@ import Vedio3 from "../vedios/vedio4.mp4";
 
 const BookPooja = (props) => {
   const showblur = props.showblur;
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div
       className={`${

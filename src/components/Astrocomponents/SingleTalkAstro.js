@@ -11,7 +11,9 @@ const SingleTalkAstro = () => {
   const { slug} = useParams();
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
- 
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
 
   useEffect(() => {
     const fetchData = async () => {
