@@ -6,7 +6,7 @@ import valueimg from "../../images/value.png"
 const ServicesWeProvide = () => {
   return (
     <div className=" h-fit py-10 ">
-      <h1 className="mt-5 text-center text-4xl font-serif text-black font-medium">Services We Provide</h1>
+      <h1 className="my-5 text-center text-5xl font-serif text-black">Services We <span className="text-[#f6c300]">Provide</span> </h1>
       <div className="grid grid-cols-1 gap-8 justify-center p-8 flex-col sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div className="service-card bg-white text-black p-6 rounded-lg shadow-custom transition-transform duration-300 hover:transform hover:-translate-y-2 border-t-4 border-[#f6c300] ">
          <img src={Homeimg} alt='# ' className='h-14 w-14 mx-auto'></img>
