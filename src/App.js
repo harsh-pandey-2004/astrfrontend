@@ -58,6 +58,9 @@ import SingleCoun from "./components/AstroCounceler/SingleCoun";
 import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
 import Prasaad from "./Pages/Prasaad"
 
+import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
+
+
 
 
 
@@ -103,7 +106,7 @@ function App() {
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
-          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
           <Route
             path="/panditdashboard/:id/shedule"
