@@ -59,6 +59,9 @@ import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
 import Prasaad from "./Pages/Prasaad"
 
 import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
+import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
+import VastuTypePage from "./Pages/VastuPage/VastuTypePage";
+import PricingPage from "./Pages/VastuPage/PricingPage";
 
 
 
@@ -218,7 +221,12 @@ function App() {
             path="/talk-to-astrocouncellor/:slug"
             element={<SingleTalkCoun />}
           ></Route>
+        {/* //vastu routes */}
+        <Route path="/vastuType/:id" element={<VastuIndiPage/>}></Route>
+        <Route path="/vastuType" element={<VastuTypePage/>}></Route>
+        <Route path="/vastupricing" element={<PricingPage/>}></Route>
         </Routes>
+
         <Footer showblur={showblur} />
       </BrowserRouter>
     </div>

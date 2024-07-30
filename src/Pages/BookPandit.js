@@ -136,21 +136,13 @@ const BookPandit = (props) => {
             </p>
           </div>
 
-          <div className="lg:w-1/2 pt-5 lg:pt-28 relative lg:pl-10 w-full shadow-lg">
-            <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
-            <video
-              autoPlay
-              loop
-              muted
-              className="rounded-md z-20"
-              style={{
-                filter: "brightness(70%) contrast(120%)",
-                boxShadow: "0 0 20px 5px #f6c300", // Add this line for the yellow shadow
-              }}
-            >
-              <source src={Vedio3} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center">
+            <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
+            <img
+              src="https://panditforpujainpune.com/wp-content/uploads/2021/04/priest-s.png"
+              alt="Temple"
+              className="filter brightness-75 contrast-125 "
+            />
           </div>
         </div>
         <Header />
