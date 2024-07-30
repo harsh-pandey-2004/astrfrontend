@@ -10,7 +10,7 @@ const VastuIndiPage = () => {
   useEffect(() => {
     const fetchVastu = async () => {
       try {
-        let a = await axios.get(`http://localhost:3000/api/vastu/${id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/vastu/${id}`);
         setResponse(a.data);
         console.log(a.data);
       } catch (error) {
