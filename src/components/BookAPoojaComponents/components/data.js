@@ -1,15 +1,24 @@
+import Temple from "../../../images/tirupati.webp"
+import Temple2 from "../../../images/kashi.webp"
+import Temple3 from "../../../images/Vaishno-Devi.webp"
+import Temple4 from "../../../images/Meenakshi-temple.webp"
+import Temple5 from "../../../images/siddhi-vinyak.webp"
+import Temple6 from "../../../images/jagannath-temple.webp"
+import Temple7 from "../../../images/kedarnath-temple.webp"
+import Temple8 from "../../../images/Mahakaleshwar.webp"
+
 const temples=[
     {
         id:"1",
         name:"Tirupati Balaji Temple",
-        img:"https://1.bp.blogspot.com/-wKnFD52P0t4/UVmB9fgtbSI/AAAAAAAAACo/WHictk0IAY4/s1600/tirupati+balaji+temple.jpg",
+        img:Temple,
         place:" Tirumala, Andhra Pradesh",
         god:" Lord Venkateswara",
     },
     {
         id:"2",
         name:"Kashi Vishwanath Temple",
-        img:"https://wallpapercave.com/wp/wp10431727.jpg",
+        img:Temple2,
         place:"Varanasi, Uttar Pradesh",
         god:" Lord Shiva (Vishwanath)",
 
@@ -18,7 +27,7 @@ const temples=[
     {
       id:"3",
       name:"Vaishno Devi Temple",
-      img:"https://blogs.revv.co.in/blogs/wp-content/uploads/2020/11/Vaishno-Devi-Temple-Vaishno-Devi.jpg",
+      img:Temple3,
       place:" Katra, Jammu and Kashmir",
         god:" Mata Vaishno Devi",
     },
@@ -26,7 +35,7 @@ const temples=[
     {
         id:"4",
         name:"Meenakshi Temple",
-        img:"https://th.bing.com/th/id/OIP.pNCXDt0gEeYeMpanx7pSjQHaE8?rs=1&pid=ImgDetMain",
+        img:Temple4,
         place:"Madurai, Tamil Nadu",
         god:"Goddess Meenakshi (Parvati)",
     },
@@ -34,7 +43,7 @@ const temples=[
     {
         id:"5",
         name:"Siddhivinayak Temple",
-        img:"https://th.bing.com/th/id/OIP.pNCXDt0gEeYeMpanx7pSjQHaE8?rs=1&pid=ImgDetMain",
+        img:Temple5,
         place:"Mumbai, Maharashtra",
         god:" Lord Ganesha",
     },
@@ -42,7 +51,7 @@ const temples=[
     {
         id:"6",
         name:"Jagannath Temple",
-        img:"https://wallpapercave.com/wp/wp8207335.jpg",
+        img:Temple6,
         place:" Puri, Odisha",
         god:"Lord Jagannath"
     },
@@ -50,7 +59,7 @@ const temples=[
     {
         id:"7",
         name:"Kedarnath Temple",
-        img:"https://wallpapercave.com/wp/wp6896096.jpg",
+        img:Temple7,
         place:"Kedarnath, Uttarakhand",
         god:"Lord Shiva (Kedarnath)",
     },
@@ -58,7 +67,7 @@ const temples=[
     {
        id:"8",
        name:"Mahakaleshwar Temple",
-       img:"https://th.bing.com/th/id/OIP.tP-7_15qWRQmJ1GVs6cEsAHaE6?rs=1&pid=ImgDetMain",
+       img:Temple8,
        place:" Ujjain, Madhya Pradesh",
        god:"Lord Shiva (Mahakaleshwar)",
 
