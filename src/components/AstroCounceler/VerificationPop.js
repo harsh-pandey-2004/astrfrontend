@@ -11,7 +11,7 @@ const AstroCouncellorVerify = () => {
 
   async function getUser() {
     try {
-      console.log({ otp: otp.join("") })
+      console.log({ otp: otp.join("") });
       const response = await axios.post(`https://astrobackend.onrender.com/api/astroCouncelor-otp-verification/${id}`, { otp: otp.join("") });
       if (response.data) {
         navigate(`/astrocouncellorlogin`);
@@ -56,10 +56,10 @@ const AstroCouncellorVerify = () => {
   };
 
   return (
-    <div id="verify_mbl_nmbr" className="border-2 w-1/3 rounded mx-auto mt-8 pb-4">
-      <h1 className="text-2xl font-bold mb-6 bg-orange-400 w-full p-3 text-center rounded">Verify</h1>
+    <div id="verify_mbl_nmbr" className=" w-1/3 rounded mx-auto mb-16 pb-4 relative top-[6rem] bg-black">
+      <h1 className="text-2xl font-bold mb-6 bg-yellow-400 w-full p-3 text-center rounded text-black">Verify</h1>
       <div className="mb-6">
-        <h6 className="text-sm otp_sent_number text-center">
+        <h6 className="text-sm otp_sent_number text-center text-yellow-300">
           OTP sent to <span className="font-semibold">+91-{id}</span>
         </h6>
       </div>
@@ -73,7 +73,7 @@ const AstroCouncellorVerify = () => {
                 inputMode="numeric"
                 maxLength="1"
                 type="text"
-                className="w-12 h-12 border border-gray-300 rounded text-center mr-2"
+                className="w-12 h-12 border  rounded text-center mr-2 text-black bg-yellow-100"
                 value={value}
                 onChange={(e) => handleOtpChange(index, e.target.value)}
               />
@@ -81,7 +81,7 @@ const AstroCouncellorVerify = () => {
           </div>
           <button
             type="submit"
-            className="mt-3 bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 w-[90%] rounded"
+            className="mt-3 bg-yellow-400  hover:box-shadow1 hover:shadow-yellow-400 hover:cursor-pointer text-black font-bold py-2 px-4 w-[90%] rounded"
             disabled={otp.some((val) => val === "")}
           >
             LOGIN
@@ -90,13 +90,13 @@ const AstroCouncellorVerify = () => {
         {error && <div className="text-red-500 text-center">{error}</div>}
         <div className="flex justify-between items-center px-7">
           <div>
-            <h6 className="text-sm cursor-pointer">
-              Resend OTP available in <span className="text-danger">{resendTimer}s</span>
+            <h6 className="text-sm text-yellow-300">
+              Resend OTP available in <span className="font-bold">{resendTimer}s</span>
             </h6>
           </div>
           <button
             type="button"
-            className={`${resendTimer === 0 ? "font-bold" : "font-light text-gray-400"}`}
+            className={`text-yellow-500 ${resendTimer === 0 ? "font-bold" : "font-light text-gray-400"}`}
             onClick={handleResendOtp}
             disabled={resendTimer > 0}
           >

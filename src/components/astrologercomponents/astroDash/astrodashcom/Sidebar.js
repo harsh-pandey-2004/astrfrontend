@@ -2,63 +2,69 @@ import React from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
+
 function Sidebar({ response }) {
   return (
-    <div className="hidden md:block sidebar w-1/5 md:mt-[6rem] h-screen flex flex-col items-center  ">
-      <div className="  flex flex-col items-center gap-2 border-b-2 border-black pt-6 pb-2 w-full">
-        <div className=" relative  rounded-full ">
+    <div className="hidden mb-16 md:block sidebar w-1/5 md:mt-[6rem] h-screen flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
+      <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">
+        <div className="relative rounded-full">
           <img
             src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
             height={100}
             width={100}
             className="rounded-full"
           />
-
-          <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white">
+          <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white text-black">
             <FaCamera />
           </div>
         </div>
-
-        <p className="font-semibold text-blue-400">
-          {response && response.firstName  +""+  response.lastName}
+        <p className="font-semibold text-white">
+          {response && response.firstName + " " + response.lastName}
         </p>
-        <p className="font-semibold"> +91 {response && response.mobile}</p>
+        <p className="text-sm text-gray-400">+91 {response && response.mobile}</p>
       </div>
 
-      <div className="flex h-full  flex-col items-center gap-4 pt-4  text-center">
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%] bg-slate-100  ">
-          {" "}
-          <Link to="/"> Edit Profile </Link>{" "}
-        </div>
+      <div className="flex  flex-col items-center gap-4 pt-4 text-center w-full   h-full ">
+        <Link
+          to={`profile`}
+          className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
+        >
+          Edit Profile
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%]  bg-slate-100  ">
-          {" "}
-          <Link to="/mail" className="flex items-center justify-center gap-2">
-            {" "}
-            <IoIosMail />
-            Mail us{" "}
-          </Link>
-        </div>
+        <Link
+          to={`mail`}
+          className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400 flex items-center justify-center gap-2"
+        >
+          <IoIosMail />
+          Mail us
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%]  bg-slate-100 ">
-          {" "}
-          <Link to={`/panditdashboard/${response._id}/shedule`}>Schedule </Link>
-        </div>
+        <Link
+          to={`/panditdashboard/${response._id}/shedule`}
+          className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
+        >
+          Schedule
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%] bg-slate-100  ">
-          {" "}
-          <Link to="/bookings">Bookings </Link>
-        </div>
+        <Link
+          to="/bookings"
+          className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
+        >
+          Bookings
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%]  bg-slate-100">
-          {" "}
-          <Link to="/stats">Stats </Link>
-        </div>
+        <Link
+          to="/stats"
+          className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
+        >
+          Stats
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%]  bg-slate-100 ">
+        <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Support
         </div>
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-[75%]  bg-slate-100 ">
+        <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Logout From Other Devices
         </div>
       </div>

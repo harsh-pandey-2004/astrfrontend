@@ -57,7 +57,6 @@ import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
 import SingleCoun from "./components/AstroCounceler/SingleCoun";
 import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
 import Prasaad from "./Pages/Prasaad"
-
 import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 
 
@@ -166,7 +165,7 @@ function App() {
             path="/astrologerlogin"
             element={<AstrologerLoginForm />}
           ></Route>
-          <Route path="/astrologerdashboard/:id" element={<MainDashAstro />} />
+          <Route path="/astrologerdashboard/:id/*" element={<MainDashAstro />} />
           <Route
             path="/astrologerregister"
             element={<AstrologerRegistrationForm />}

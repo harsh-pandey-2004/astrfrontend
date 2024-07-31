@@ -26,15 +26,15 @@ function Maindashastro() {
     fetchData();
   }, [slug]);
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-grow relative overflow-hidden top-24 lg:top-0">
+    <div className="flex flex-col min-h-screen ">
+      <div className="flex flex-grow relative overflow-hidden  top-24 lg:top-0">
         <Sidebar response={response} />
         <div className="h-full md:w-4/5 w-full overflow-y-auto">
           <Routes>
-            <Route path="/" element={<Profile response={response} />} />
+            <Route path='profile' element={<Profile response={response} />} />
             {/* <Route path="/schedule" element={<Schedule />} /> */}
             {/* <Route path="/stats" element={<Stats />} /> */}
-            <Route path="/mail" element={<MailPage response={response} />} />
+            <Route path='mail' element={<MailPage response={response} />} />
           </Routes>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ response }) => {
   const [newSkill, setNewSkill] = useState("");
@@ -35,6 +35,7 @@ const Profile = ({ response }) => {
   const toggleEditMode = () => {
     setEditMode(!editMode);
   };
+
   const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -75,7 +76,7 @@ const Profile = ({ response }) => {
     e.preventDefault();
     try {
       const respond = await axios.patch(
-        `https://astrobackend.onrender.com/api/update-astrologer-profile/${response._id}`,
+        `https://astrobackend.onrender.com/api/update-astrologer-profile/${response.slug}`,
         formData
       );
       console.log(respond.data); // Handle the response data if needed
@@ -86,28 +87,28 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="sm:mt-12 w-full h-full md:mt-24 flex flex-col items-center p-4 overflow-auto mt-[-1rem]">
+    <div className="sm:mt-12 w-full  h-full md:mt-24 flex flex-col items-center p-4 overflow-auto bg-black text-white">
       <div className="md:hidden lg:hidden h-[3rem] w-full flex justify-evenly items-center">
-        <img src="/round.png" alt="calendar" className="h-6 w-6" />
+        <img src="/round.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
         <img
           src="/mail.png"
           alt="calendar"
-          className="h-6 w-6"
+          className="h-6 w-6 text-yellow-400"
           onClick={() => navigate("/mail")}
         />
-        <img src="/edit.png" alt="calendar" className="h-5 w-5" />
-        <img src="/graph.png" alt="calendar" className="h-6 w-6" />
-        <img src="/support.png" alt="calendar" className="h-6 w-6" />
-        <img src="/logout.png" alt="calendar" className="h-7 w-7" />
+        <img src="/edit.png" alt="calendar" className="h-5 w-5 text-yellow-400" />
+        <img src="/graph.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
+        <img src="/support.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
+        <img src="/logout.png" alt="calendar" className="h-7 w-7 text-yellow-400" />
       </div>
-      <div className="w-full md:h-auto h-full bg-[#f6c300] rounded-lg shadow-lg p-4 flex flex-col">
-        <h1 className="text-3xl font-bold text-start text-gray-800 mb-4">
+      <div className="w-full md:h-auto h-full bg-black text-yellow-400  rounded-lg shadow-lg p-4 flex flex-col">
+        <h1 className="text-3xl font-bold  mb-4  text-start">
           Welcome, Astro {formData.firstName}!
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-gray-700 font-medium">
+              <label className="text-gray-300 font-medium">
                 <b>First Name</b>
               </label>
               <input
@@ -115,13 +116,13 @@ const Profile = ({ response }) => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
 
             <div>
-              <label className="text-gray-700 font-medium">
+              <label className="text-gray-300 font-medium">
                 <b>Last Name</b>
               </label>
               <input
@@ -129,7 +130,7 @@ const Profile = ({ response }) => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
@@ -137,20 +138,20 @@ const Profile = ({ response }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-gray-700 font-medium">Chat Price</label>
+              <label className="text-gray-300 font-medium">Chat Price</label>
               <input
                 type="text"
                 name="chatPrice"
                 value={formData.chatPrice}
                 onChange={handleInputChange}
-                className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
 
             <div>
-              <label className="text-gray-700 font-medium">Gender</label>
-              <p className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm">
+              <label className="text-gray-300 font-medium">Gender</label>
+              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
                 {response.gender}
               </p>
             </div>
@@ -158,32 +159,31 @@ const Profile = ({ response }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-gray-700 font-medium">Experience</label>
+              <label className="text-gray-300 font-medium">Experience</label>
               <input
                 type="text"
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
 
             <div>
-              <label className="text-gray-700 font-medium">
-                Live in (City)
-              </label>
-              <p className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm">
+              <label className="text-gray-300 font-medium">Live in (City)</label>
+              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
                 {response.city}
               </p>
             </div>
-            <div className="">
-              <label className="text-gray-700 font-medium">Skills</label>
+
+            <div>
+              <label className="text-gray-300 font-medium">Skills</label>
               <ul className="space-y-2">
                 {formData.skills.map((skill, index) => (
                   <li
                     key={index}
-                    className="flex items-center bg-gray-100 border border-gray-300 rounded-lg p-2 text-sm"
+                    className="flex items-center bg-gray-800 border border-gray-600 rounded-lg p-2 text-sm text-white"
                   >
                     <input
                       type="text"
@@ -191,7 +191,7 @@ const Profile = ({ response }) => {
                       onChange={(e) =>
                         handleSkillsChange(index, e.target.value)
                       }
-                      className="flex-grow bg-transparent border-none focus:outline-none"
+                      className="flex-grow bg-transparent border-none text-white focus:outline-none"
                       readOnly={!editMode}
                     />
                     {editMode && (
@@ -211,7 +211,7 @@ const Profile = ({ response }) => {
                 <div className="flex mt-2 gap-1">
                   <input
                     type="text"
-                    className="flex-grow bg-gray-100 border border-gray-300 rounded-lg p-2 text-sm"
+                    className="flex-grow bg-gray-800 border border-yellow-400 rounded-lg p-2 text-sm text-white"
                     placeholder="Add a new skill"
                     value={newSkill}
                     onChange={(e) => setNewSkill(e.target.value)}
@@ -229,13 +229,13 @@ const Profile = ({ response }) => {
             </div>
 
             <div>
-              <label className="text-gray-700 font-medium">Languages</label>
+              <label className="text-gray-300 font-medium">Languages</label>
               <input
                 type="text"
                 name="languages"
                 value={formData.languages}
                 onChange={handleInputChange}
-                className="bg-gray-100 border border-gray-300 rounded-lg p-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
@@ -246,32 +246,18 @@ const Profile = ({ response }) => {
               {editMode && (
                 <button
                   type="submit"
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-white bg-green-500 hover:bg-green-600 transition"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
                 >
                   Save
                 </button>
               )}
-            </div>
-
-            <div className="flex w-full space-x-4">
-              {!editMode && (
-                <button
-                  type="button"
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-white bg-black hover:bg-blue-600 transition"
-                  onClick={toggleEditMode}
-                >
-                  Edit
-                </button>
-              )}
-              {editMode && (
-                <button
-                  type="button"
-                  className="px-4 py-2 border border-gray-300 rounded-lg text-white bg-red-600 hover:bg-red-700 transition"
-                  onClick={toggleEditMode}
-                >
-                  Cancel
-                </button>
-              )}
+              <button
+                type="button"
+                className="px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-700 transition"
+                onClick={toggleEditMode}
+              >
+                {editMode ? "Cancel" : "Edit"}
+              </button>
             </div>
           </div>
         </form>
