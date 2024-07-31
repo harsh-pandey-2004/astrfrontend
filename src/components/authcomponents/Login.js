@@ -27,6 +27,15 @@ const LoginForm = () => {
       ...response,
       mobile: phoneNumber,
     });
+    if (a.data.success) {
+      const userId = a.data.user._id;
+      console.log(userId);
+      localStorage.setItem('userId', userId);
+      alert('Login successful!');
+      // Redirect or perform any other actions after successful login
+    } else {
+      alert('Login failed. Please check your credentials.');
+    }
     console.log(a.data);
   };
 

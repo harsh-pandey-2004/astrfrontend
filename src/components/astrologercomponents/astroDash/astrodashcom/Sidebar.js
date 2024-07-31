@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Sidebar({ response }) {
+  
+  const [isShow, setIsShow] = useState(false)
   return (
     <div className="hidden md:block sidebar w-1/5 md:mt-[6rem] h-screen flex flex-col items-center  ">
       <div className="  flex flex-col items-center gap-2 border-b-2 border-black pt-6 pb-2 w-full">
@@ -14,10 +16,10 @@ function Sidebar({ response }) {
             className="rounded-full"
           />
 
-          <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white">
-            <FaCamera />
+            <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white">
+              <FaCamera />
+            </div>
           </div>
-        </div>
 
         <p className="font-semibold text-blue-400">
           {response && response.firstName  +""+  response.lastName}

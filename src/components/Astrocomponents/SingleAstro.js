@@ -3,15 +3,54 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import { RiMessage2Fill } from "react-icons/ri";
-import { FaPhone } from "react-icons/fa6";
 import RatingsCard from "./RatingsCard";
 import "./SingleAstro.css";
+import { io } from 'socket.io-client';
 
 const SingleAstro = () => {
   const { slug} = useParams();
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
+  const [currentChat, setCurrentChat] = useState(null);
+  const [userId, setUserId] = useState(null);
+
+  const socket = io('/user-namespace', {
+    auth: {
+      token: astrologer._id,
+    },
+  });
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+  }, []);
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log('Connected to server');
+    });
+
+    socket.on('loadChats', (data) => {
+      setMessages(data.chats);
+    });
+
+    socket.on('loadNewChat', (data) => {
+      if (astrologer._id === data.receiver_id && currentChat === data.sender_id) {
+        setMessages((prevMessages) => [...prevMessages, data]);
+      }
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('loadChats');
+      socket.off('loadNewChat');
+    };
+  }, [currentChat, astrologer._id]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +73,11 @@ const SingleAstro = () => {
 
   const handleChatNowClick = () => {
     setIsPopupOpen(true);
+    setCurrentChat(astrologer._id);
+    socket.emit('joinRoom', { userId, astrologerId: astrologer._id });
+    socket.emit('existChat', { sender_id: userId, receiver_id: astrologer._id });
+    console.log(`User connected to astrologer with ID: ${astrologer._id} and user ID: ${userId}`);
+    console.log(`isPopupOpen: ${isPopupOpen}`);  // Debug log
   };
 
   const handleClosePopup = () => {
@@ -125,23 +169,31 @@ const SingleAstro = () => {
         </div>
       </div>
       <div className="max-w-full mx-auto mt-6 rounded-md p-6">
-        <h1 className="text-center text-4xl font-semibold">
-          About <span className="text-[#f6c300]">{astrologer.firstName}</span>
-        </h1>
-        <p className="text-gray-700 text-base mt-2">{astrologer.about}</p>
-        <h1 className="text-xl font-semibold mt-4">Qualifications</h1>
-        <ul className="list-disc list-inside text-gray-700 text-base mt-2">
-          {qualifications.map((qual, index) => (
-            <li key={index}>{qual}</li>
-          ))}
+        <h1 className="text-2xl font-semibold mb-4">Qualifications:</h1>
+        <ul className="list-disc list-inside text-lg">
+          <li>CA Inter (Group I)</li>
+          <li>Member of the Indian Council for Astrological Sciences</li>
+          <li>Expert in Vedic Astrology (Parashara method)</li>
+          <li>Practices Prashnam, Jaimini System of Astrology, Muhurtha Fixing, Numerology, Horoscope Matching and Medical Astrology</li>
         </ul>
       </div>
-      <div className="w-full mx-auto mt-6 rounded-md p-6">
-        <RatingsCard ratingData={ratingData} />
+      <div className="max-w-full mx-auto mt-6 rounded-md p-6">
+        <h1 className="text-2xl font-semibold mb-4">Ratings and Reviews:</h1>
+        <RatingsCard ratingData={{
+          overallRating: 4.3,
+          totalReviews: 150,
+          ratingBreakdown: [
+            { stars: 5, count: 90 },
+            { stars: 4, count: 30 },
+            { stars: 3, count: 15 },
+            { stars: 2, count: 10 },
+            { stars: 1, count: 5 },
+          ],
+        }} />
       </div>
 
       {isPopupOpen && (
-        <div className="sm:absolute  fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
+        <div className="sm:absolute fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
           <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
             <button
               className="absolute top-5 right-5 text-white hover:text-gray-100"
@@ -149,7 +201,7 @@ const SingleAstro = () => {
             >
               ✕
             </button>
-            <div className=" flex flex-col p-4">
+            <div className="flex flex-col p-4">
               <div className="flex items-center space-x-4 mb-4 border-b-2 pb-4 border-b-[#f6c300]">
                 <img
                   src="https://placehold.co/40x40"
@@ -167,23 +219,31 @@ const SingleAstro = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="flex flex-col space-y-4   overflow-y-scroll   h-[38vh] scrollbar ">
-                <div className="self-start bg-[#f6c300] rounded-full px-4 py-2 max-w-xs">
-                  Hi Prasanna! What's up?
-                </div>
-                <div className="self-end bg-white text-black  rounded-full px-4 py-2 max-w-xs">
-                  Good, Thx, how r u?
-                </div>
+              <div className="flex flex-col space-y-4 overflow-y-scroll h-[38vh] scrollbar">
+                {messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`self-${msg.sender_id === userId ? 'end' : 'start'} ${msg.sender_id === userId ? 'bg-white text-black' : 'bg-[#f6c300]'} rounded-full px-4 py-2 max-w-xs`}
+                  >
+                    {msg.message}
+                  </div>
+                ))}
               </div>
-
-              <div className="flex items-center space-x-4 mt-4 w-full absolute bottom-5 left-0 px-5">
-                <input
-                  type="text"
-                  placeholder="type here..."
-                  className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
-                />
-              </div>
+            </div>
+            <div className="flex items-center space-x-4 mt-4 w-full absolute bottom-5 left-0 px-5">
+              <input
+                type="text"
+                placeholder="type here..."
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-[#f6c300] rounded-full px-4 py-2"
+              >
+                Send
+              </button>
             </div>
           </div>
         </div>

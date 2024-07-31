@@ -8,6 +8,7 @@ import MailPage from "./astroDash/MailPage";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import Astro_Messages from "./astroDash/Astro_Messages";
 
 function Maindashastro() {
   const [response, setResponse] = useState([]);
@@ -17,6 +18,7 @@ function Maindashastro() {
     const fetchData = async () => {
       try {
         let a = await axios.get(`https://astrobackend.onrender.com/api/astrologer/${slug.id}`);
+        // console.log(a.data.Data);
         console.log(a.data.Data);
         setResponse(a.data.Data);
       } catch (error) {
