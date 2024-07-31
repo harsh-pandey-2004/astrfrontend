@@ -10,6 +10,7 @@ import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/panditpagebg.mp4";
 import axios from "axios";
 import Workflow1 from "../components/BookAPoojaComponents/Workflow1";
+import Pandit from "../../src/images/pan1.webp"
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -139,7 +140,7 @@ const BookPandit = (props) => {
           <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center">
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
-              src="https://panditforpujainpune.com/wp-content/uploads/2021/04/priest-s.png"
+              src={Pandit}
               alt="Temple"
               className="filter brightness-75 contrast-125 "
             />

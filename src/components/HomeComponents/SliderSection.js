@@ -4,6 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import Vedio1 from "../../vedios/vedio1.mp4";
+import Kalash from "../../images/kalash.webp"
+import Sweet from "../../images/ladoo.webp"
+import Pandit from "../../images/indian-pandit.webp"
+import Phone from "../../images/phone-icon.webp"
+import Cart from "../../images/cart.webp"
 
 const Carousel = () => {
   const settings = {
@@ -56,7 +61,7 @@ const Carousel = () => {
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
-                src="https://clipartspub.com/images600_/wedding-clipart-png-kalash-9.png"
+                src={Kalash}
                 className="w-full h-full rounded-full bg-transparent"
               />
             </div>
@@ -68,7 +73,7 @@ const Carousel = () => {
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
-                src="https://th.bing.com/th?id=OIP.LzVXShDGn1HH05l37ITCxQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                src={Sweet}
                 className="w-full h-full"
               />
             </div>
@@ -80,7 +85,7 @@ const Carousel = () => {
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
-                src="https://cdn.vectorstock.com/i/1000v/83/91/indian-pandit-cartoon-vector-35888391.jpg"
+                src={Pandit}
                 className="w-full h-full"
               />
             </div>
@@ -106,7 +111,7 @@ const Carousel = () => {
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 p-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
-                src="https://cdn.vectorstock.com/i/1000v/80/35/phone-icon-on-green-button-eps-10-vector-26438035.jpg"
+                src={Phone}
                 className="w-full h-full"
               />
             </div>
@@ -118,7 +123,7 @@ const Carousel = () => {
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
-                src="https://th.bing.com/th/id/OIP.EartXcMOlfNCdGoVdwWURAHaF7?rs=1&pid=ImgDetMain"
+                src={Cart}
                 className="w-full h-full"
               />
             </div>
