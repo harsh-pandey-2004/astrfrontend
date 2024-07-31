@@ -239,7 +239,7 @@ const SingleAstro = () => {
                 className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
               />
               <button
-                onClick={handleSubmit}
+                // onClick={handleSubmit}
                 className="bg-[#f6c300] rounded-full px-4 py-2"
               >
                 Send
