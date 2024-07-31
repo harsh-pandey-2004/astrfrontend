@@ -57,7 +57,6 @@ import RangeSlider from "./components/kundalimatching components/Report/RangeSli
 
 
 
-
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {
@@ -157,7 +156,7 @@ function App() {
             path="/astrologerlogin"
             element={<AstrologerLoginForm />}
           ></Route>
-          <Route path="/astrologerdashboard/:id" element={<MainDashAstro />} />
+          <Route path="/astrologerdashboard/:id/*" element={<MainDashAstro />} />
           <Route
             path="/astrologerregister"
             element={<AstrologerRegistrationForm />}
