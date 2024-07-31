@@ -1,65 +1,67 @@
 .how-it-works .step-card {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-  }
-  
-  .how-it-works .step-card .gif-container img {
-    max-height: 500px;
-    margin: auto;
-    width: 50%;
-    border-radius: 8px;
-    transition: filter 0.3s ease-in-out;
-  }
-  
-  .how-it-works .step-number {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-  }
-  
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.how-it-works .step-card .gif-container img {
+  max-height: 500px;
+  margin: auto;
+  width: 50%;
+  border-radius: 8px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.how-it-works .step-number {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.how-it-works .arrow {
+  position: absolute;
+  top: 50%;
+  right: -1.5rem;
+  transform: translateY(-50%) translateX(50%);
+}
+
+@media (max-width: 768px) {
   .how-it-works .arrow {
-    position: absolute;
-    top: 50%;
-    right: -1.5rem;
-    transform: translateY(-50%) translateX(50%);
-  }
-  
-  @media (max-width: 768px) {
-    .how-it-works .arrow {
       right: -1rem;
       transform: translateY(-50%) translateX(30%);
-    }
   }
-  
-  .how-it-works .icon {
-    font-size: 1.5rem;
+  .how-it-works .step-card {
+      margin: 0 auto; /* Center the step cards on small screens */
   }
-  
-  .how-it-works .step-card:hover {
-    background: linear-gradient(45deg, #f6c300, #f3a300);
-    color: white;
-    cursor: pointer;
-    transform: scale(1.05);
-  }
-  
-  .how-it-works .step-card:hover h3,
-  .how-it-works .step-card:hover p {
-    color: white;
-  }
-  
-  .how-it-works .step-card:hover .arrow i {
-    color: white;
-  }
-  
-  .how-it-works .step-card:hover .gif-container img {
-    filter: brightness(0) invert(1);
-  }
-  
-  .how-it-works .step-card h3,
-  .how-it-works .step-card p {
-    transition: color 0.3s ease-in-out;
-  }
-  
+}
+
+.how-it-works .icon {
+  font-size: 1.5rem;
+}
+
+.how-it-works .step-card:hover {
+  background: linear-gradient(45deg, #f6c300, #f3a300);
+  color: white;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.how-it-works .step-card:hover h3,
+.how-it-works .step-card:hover p {
+  color: white;
+}
+
+.how-it-works .step-card:hover .arrow i {
+  color: white;
+}
+
+.how-it-works .step-card:hover .gif-container img {
+  filter: brightness(0) invert(1);
+}
+
+.how-it-works .step-card h3,
+.how-it-works .step-card p {
+  transition: color 0.3s ease-in-out;
+}
