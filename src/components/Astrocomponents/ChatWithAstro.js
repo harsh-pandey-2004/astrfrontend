@@ -185,7 +185,9 @@ const ChatAstro = () => {
       document.body.style.overflow = "auto"; // Reset scroll behavior
     };
   }, [showFilters, showSortOptions]);
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="mb-28 w-full h-full flex relative top-20">
       <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
@@ -195,7 +197,7 @@ const ChatAstro = () => {
     background: '#f6c300',
     WebkitBackgroundClip: 'text',
     backgroundClip: 'text',
-    textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000'
+   
   }}>Chat With Astrologer</span>
 </h1>
 <h2 className="text-center text-xl text-[#f6c300] font-semibold mb-6 relative">
@@ -204,7 +206,7 @@ const ChatAstro = () => {
     background: '#f6c300',
     WebkitBackgroundClip: 'text',
     backgroundClip: 'text',
-    textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000'
+   
   }}>Find Your Perfect Astrologer Match</span>
 </h2>
 
@@ -237,7 +239,7 @@ const ChatAstro = () => {
         </div>
       </div>
 
-      <div className="w-1/3 h-full p-6 hidden lg:block pt-8">
+      <div className="w-1/3 h-full p-6 hidden lg:block pt-8 ">
         <div className="flex justify-between mb-6">
           <h1 className="font-semibold text-2xl">Filters</h1>
           <button

@@ -8,7 +8,8 @@ import "./SingleAstro.css";
 import { io } from 'socket.io-client';
 
 const SingleAstro = () => {
-  const { id } = useParams();
+  const { slug} = useParams();
+  console.log(slug);
   const [astrologer, setAstrologer] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -54,13 +55,13 @@ const SingleAstro = () => {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
-        `https://astrobackend.onrender.com/api/astrologer/${id}`
+        `https://astrobackend.onrender.com/api/astrologer/${slug}`
       );
       console.log(response.data.Data);
       setAstrologer(response.data.Data);
     };
     fetchData();
-  }, [id]);
+  }, [slug]);
 
   useEffect(() => {
     if (isPopupOpen) {
@@ -81,70 +82,29 @@ const SingleAstro = () => {
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
-    console.log(`isPopupOpen: ${isPopupOpen}`);  // Debug log
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   fetch('/save-chat', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       sender_id: userId,
-  //       receiver_id: currentChat,
-  //       message: newMessage,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         setMessages((prevMessages) => [...prevMessages, data.data]);
-  //         setNewMessage('');
-  //         socket.emit('newChat', data.data);
-  //       } else {
-  //         alert(data.msg);
-  //       }
-  //     })
-  //     .catch((error) => console.error('Error:', error));
-  // };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3000/api/save-chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sender_id: userId,
-          receiver_id: currentChat,
-          message: newMessage,
-        }),
-      });
-  
-      if (!response.ok) {
-        // If the response is not ok, log the error
-        const errorText = await response.text();
-        console.error('Error:', errorText);
-        return;
-      }
-  
-      const data = await response.json();
-      if (data.success) {
-        setMessages((prevMessages) => [...prevMessages, data.data]);
-        setNewMessage('');
-        socket.emit('newChat', data.data);
-      } else {
-        alert(data.msg);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-  
+  const qualifications = [
+    "CA Inter (Group I)",
+    "Member of the Indian Council for Astrological Sciences",
+    "Expert in Vedic Astrology (Parashara method)",
+    "Practices Prashnam, Jaimini System of Astrology, Muhurtha Fixing, Numerology, Horoscope Matching and Medical Astrology",
+  ];
 
+  const ratingData = {
+    overallRating: 4.3,
+    totalReviews: 150,
+    ratingBreakdown: [
+      { stars: 5, count: 90 },
+      { stars: 4, count: 30 },
+      { stars: 3, count: 15 },
+      { stars: 2, count: 10 },
+      { stars: 1, count: 5 },
+    ],
+  };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="mb-12">
       <div

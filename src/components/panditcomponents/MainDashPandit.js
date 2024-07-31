@@ -25,6 +25,9 @@ function MainPanditDash() {
     };
     fetchData();
   }, [slug]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="flex relative overflow-hidden top-24 lg:top-0">
       

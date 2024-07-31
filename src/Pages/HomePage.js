@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AstrologerSection from "../components/HomeComponents/AstrologerSection";
 
 import Carousel from "../components/HomeComponents/SliderSection";
@@ -16,6 +16,9 @@ import { Whyastro } from "../components/HomeComponents/Whyastro";
 import Faqs from "../components/HomeComponents/Faqs";
 
 const HomePage = ({ showblur }) => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div
       className={`${

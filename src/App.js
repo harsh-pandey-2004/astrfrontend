@@ -53,6 +53,17 @@ import PlanetsInAstro from "./components/kundalicomponents/KnowMore/PlanetsInAst
 import ReadPlanets from "./components/kundalicomponents/KnowMore/ReadPlanets";
 import MatchReport from "./components/kundalimatching components/Report/MatchReport";
 import RangeSlider from "./components/kundalimatching components/Report/RangeSlider";
+import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
+import SingleCoun from "./components/AstroCounceler/SingleCoun";
+import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
+import Prasaad from "./Pages/Prasaad"
+
+import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
+import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
+import VastuTypePage from "./Pages/VastuPage/VastuTypePage";
+import PricingPage from "./Pages/VastuPage/PricingPage";
+
+
 
 
 
@@ -74,11 +85,12 @@ function App() {
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
-          <Route path="/chat-with-astrologer/:id" element={<SingleAstro />} />
+          <Route path="/chat-with-astrologer/:slug" element={<SingleAstro />} />
+          <Route path="/call-to-astrologer/:slug" element={<SingleTalkAstro/>}/>
           <Route
             path="/shop-on-astro"
             element={
-              <ShopAstro IsmenuClicked={IsmenuClicked} showblur={showblur} />
+              <Prasaad/>
             }
           />
           <Route
@@ -96,7 +108,7 @@ function App() {
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
-          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
           <Route
             path="/panditdashboard/:id/shedule"
@@ -108,7 +120,7 @@ function App() {
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route
             path="/freekundali/basic-details"
-            element={<TabComponent />}
+            element={<TabComponent/>}
           ></Route>
 
           <Route path="/how-to-read" element={<HowToRead />} />
@@ -199,15 +211,21 @@ function App() {
             path="/chat-astrocouncellor"
             element={<ChattoAstroCouncellor />}
           ></Route>
+
           <Route
-            path="/chat-to-astrocouncellor/:id"
-            element={<ChattoAstroCouncellor />}
+            path="/chat-to-astrocouncellor/:slug"
+            element={<SingleCoun />}
           ></Route>
           <Route
-            path="/talk-to-astrocouncellor/:id"
-            element={<ChattoAstroCouncellor />}
+            path="/talk-to-astrocouncellor/:slug"
+            element={<SingleTalkCoun />}
           ></Route>
+        {/* //vastu routes */}
+        <Route path="/vastuType/:id" element={<VastuIndiPage/>}></Route>
+        <Route path="/vastuType" element={<VastuTypePage/>}></Route>
+        <Route path="/vastupricing" element={<PricingPage/>}></Route>
         </Routes>
+
         <Footer showblur={showblur} />
       </BrowserRouter>
     </div>

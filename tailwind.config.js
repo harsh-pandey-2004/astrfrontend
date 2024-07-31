@@ -3,8 +3,20 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      clipPath: {
+        "card-shape": "polygon(0 0, 100% 0, 100% 80%, 0 60%)",
+      },
+      colors: {
+        "custom-gold": "#f6c300",
+      },
+      boxShadow: {
+        custom: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      },
+      transitionProperty: {
+        transform: "transform",
+      },
       screens: {
-        '980px': '980px',
+        "980px": "980px",
       },
      backgroundImage:{
       'parallax':'url("https://cdn.pixabay.com/photo/2020/04/30/20/14/sky-5114499_1280.jpg")',

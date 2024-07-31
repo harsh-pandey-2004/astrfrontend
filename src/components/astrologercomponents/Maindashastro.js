@@ -1,3 +1,4 @@
+import React from "react";
 import Sidebar from "./astroDash/astrodashcom/Sidebar";
 import { Routes, Route, useParams } from "react-router-dom";
 import Profile from "./astroDash/Profile";
@@ -11,7 +12,7 @@ import Astro_Messages from "./astroDash/Astro_Messages";
 
 function Maindashastro() {
   const [response, setResponse] = useState([]);
-  const  slug  = useParams();
+  const slug = useParams();
   console.log(slug);
   useEffect(() => {
     const fetchData = async () => {
@@ -27,18 +28,21 @@ function Maindashastro() {
     fetchData();
   }, [slug]);
   return (
-    <div className="flex relative overflow-hidden top-24 lg:top-0">
-      
-      <Sidebar response={response}/>
-      <div className="h-screen w-4/5">
-        <Routes>
-          <Route path="profile" element={<Profile response={response} />} />
-          {/* <Route path="/schedule" element={<Schedule />} /> */}
-          {/* <Route path="/stats" element={<Stats />} /> */}
-          <Route path="messages" element={<Astro_Messages astrologerId={response._id} />} />
-          <Route path="mail" element={<MailPage response={response} />} />
-        </Routes>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex flex-grow relative overflow-hidden top-24 lg:top-0">
+        <Sidebar response={response} />
+        <div className="h-full md:w-4/5 w-full overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Profile response={response} />} />
+            {/* <Route path="/schedule" element={<Schedule />} /> */}
+            {/* <Route path="/stats" element={<Stats />} /> */}
+            <Route path="/mail" element={<MailPage response={response} />} />
+          </Routes>
+        </div>
       </div>
+      <footer className="md:hidden bg-white text-white py-4 mt-8 text-center">
+       
+      </footer>
     </div>
   );
 }

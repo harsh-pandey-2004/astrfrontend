@@ -1,31 +1,68 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import "./Kundali.css"
 const Kp = () => {
   const [kpPlanets, setKpPlanets] = useState([]);
   const [kpHouses, setKpHouses] = useState([]);
+  const location=useLocation();
+  const {formData}=location.state;
+  console.log(formData);
+
+
+  const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+
+  const getUserCoordinates = async (cityName) => {
+    const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+  
+    try {
+      const response = await axios.get(url);
+      if (response.data.status === 'OK') {
+        const location = response.data.results[0].geometry.location;
+        setUserLat(location.lat);
+        setUserLong(location.lng);
+        console.log('User Coordinates:', { userLat: location.lat, userLong: location.lng });
+      } else {
+        throw new Error('Unable to find location');
+      }
+    } catch (error) {
+      console.error('Error fetching user coordinates:', error);
+    }
+  };
+
+
+  useEffect(() => {
+    getUserCoordinates(formData.birthPlace);
+   
+  }, [formData]);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch KP Planets
         const planetsResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
+          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
         );
+        console.log(planetsResponse.data.response)
         setKpPlanets(planetsResponse.data.response);
 
         // Fetch KP Houses
         const housesResponse = await axios.get(
-          "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en"
+          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
         );
         setKpHouses(housesResponse.data.response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
-    fetchData();
-  }, []);
+if(userLat!=null && userLong!=null){
+  fetchData();
+}
+   
+  }, [userLat,userLong]);
 
   return (
     <div className="kundali-boxes-shadow p-6">

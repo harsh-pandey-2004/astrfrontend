@@ -2,7 +2,7 @@ import React from "react";
 import "./Kundali.css"
 const Breadcrumbs = () => {
   return (
-    <div className="container mx-auto px-4 py-4 bg-white kundali-boxes-shadow rounded-lg">
+    <div className="container mx-auto px-4 py-4 bg-white kundali-boxes-shadow rounded-lg ">
       <ul className="flex items-center space-x-4 text-gray-700">
         <li>
           <a

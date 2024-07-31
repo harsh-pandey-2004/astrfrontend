@@ -1,13 +1,47 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { useLocation } from "react-router-dom";
 const Doshas = () => {
   const [activeTab, setActiveTab] = useState("Manglik");
   const [content, setContent] = useState({});
+  const [userLat, setUserLat] = useState(null);
+  const [userLong, setUserLong] = useState(null);
+
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
   };
+
+     const location=useLocation();
+     const {formData}=location.state;
+     console.log(formData);
+
+ 
+
+const getUserCoordinates = async (cityName) => {
+  const apiKey = 'AIzaSyDZ-0Ods3pdyF7QL_4frjNnhSeaxxEvo00';
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}`;
+
+  try {
+    const response = await axios.get(url);
+    if (response.data.status === 'OK') {
+      const location = response.data.results[0].geometry.location;
+      setUserLat(location.lat);
+      setUserLong(location.lng);
+      console.log('User Coordinates:', { userLat: location.lat, userLong: location.lng });
+    } else {
+      throw new Error('Unable to find location');
+    }
+  } catch (error) {
+    console.error('Error fetching user coordinates:', error);
+  }
+};
+
+useEffect(() => {
+  getUserCoordinates(formData.birthPlace);
+ 
+}, [formData]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,15 +49,15 @@ const Doshas = () => {
       switch (activeTab) {
         case "Manglik":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
+            `https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en`;
           break;
         case "Kalsarpa":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=23/02/1985&tob=05:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
+            `https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en`;
           break;
         case "Sadesati":
           url =
-            "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=f663f685-7535-59d4-965b-fafc8b1fb0be&lang=en";
+            `https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en`;
           break;
         default:
           break;
@@ -31,6 +65,7 @@ const Doshas = () => {
       if (url) {
         try {
           const response = await axios.get(url);
+          console.log(response.data.response);
           setContent(response.data.response);
         } catch (error) {
           setContent({ error: "Error fetching data" });
@@ -38,7 +73,10 @@ const Doshas = () => {
       }
     };
 
-    fetchData();
+    if(userLat!=null && userLong!=null){
+      fetchData();
+    }
+    
   }, [activeTab]);
 
   const renderContent = () => {

@@ -18,7 +18,9 @@ const MatchReport = () => {
   console.log(details.boy.hour);
   console.log(details.boy.minute);
 
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   const[kundli,setKundli]=useState(null);
   const [boyLat, setBoyLat] = useState(null);
   const [boyLong, setBoyLong] = useState(null);
@@ -69,7 +71,7 @@ const MatchReport = () => {
   // fetching match-details
   const fetchKundli = async () => {
     try {
-      const url = `https://api.vedicastroapi.com/v3-json/matching/ashtakoot?boy_dob=${details.boy.day}/${details.boy.month}/${details.boy.year}&boy_tob=${details.boy.hour}:${details.boy.minute}&boy_tz=5.5&boy_lat=${boyLat}&boy_lon=${boyLong}&girl_dob=${details.girl.day}/${details.girl.month}/${details.girl.year}&girl_tob=${details.girl.hour}:${details.girl.minute}&girl_tz=5.5&girl_lat=${girlLat}&girl_lon=${girlLong}&api_key=4d62b18a-64d2-5948-827b-5d418589a8b5&lang=en`;
+      const url = `https://api.vedicastroapi.com/v3-json/matching/ashtakoot?boy_dob=${details.boy.day}/${details.boy.month}/${details.boy.year}&boy_tob=${details.boy.hour}:${details.boy.minute}&boy_tz=5.5&boy_lat=${boyLat}&boy_lon=${boyLong}&girl_dob=${details.girl.day}/${details.girl.month}/${details.girl.year}&girl_tob=${details.girl.hour}:${details.girl.minute}&girl_tz=5.5&girl_lat=${girlLat}&girl_lon=${girlLong}&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`;
       console.log('Fetching Kundli with URL:', url);
       const response = await axios.get(url);
       console.log(response.data);
