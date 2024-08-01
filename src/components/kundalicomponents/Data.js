@@ -1,5 +1,9 @@
 import HoroScope1 from "../../images/HoroIcon.JPG"
 import HoroScope2 from "../../images/cancer.png"
+import Monk from "../../images/monk.webp"
+import ganesh from "../../images/2170188.webp"
+import rashi from "../../images/rashi.webp"
+import Pandit1 from "../../images/p-38889.webp"
 
 export const responsive = {
   superLargeDesktop: {
@@ -23,31 +27,31 @@ export const responsive = {
 export const PandirArray = [
   {
     id: "1",
-    img: "https://th.bing.com/th/id/OIP.l3GuLhK7nKY-kl1yOJhugAHaE8?rs=1&pid=ImgDetMain",
+    img: Monk,
     name: "Krishan Jha",
     Region: "Bihar",
   },
   {
     id: "3",
-    img: "https://thumbs.dreamstime.com/b/swamiji-maheshwarananda-rio-de-janeiro-june-indian-monk-swamiji-maheshwarananda-spiritual-leader-rio-conference-105211225.jpg",
+    img: Monk,
     name: "Krishan Baneergee",
     Region: "Bengal",
   },
   {
     id: "2",
-    img: "https://c8.alamy.com/comp/2KAPAY6/tamil-hindu-priest-performs-special-prayers-honouring-lord-ganesh-during-the-nambiyaandaar-nambi-ustavam-thiruvizha-pooja-at-a-hindu-temple-in-ontario-canada-on-19-july-2017-this-pooja-is-part-of-the-15-day-long-festival-that-honours-lord-ganesh-which-culminates-with-the-extravagant-chariot-procession-during-this-puja-an-idol-of-lord-ganesh-is-paraded-around-the-temple-as-prayers-are-performed-photo-by-creative-touch-imaging-ltdnurphoto-please-use-credit-from-credit-field-2KAPAY6.jpg",
+    img:Monk,
     name: "Krishan Dutt",
     Region: "Uttrakand",
   },
   {
     id: "4",
-    img: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Puja%2C_a_ritual_prayer_ceremony_India.jpg",
+    img: Monk,
     name: "Krishan Iyer",
     Region: "South",
   },
   {
     id: "5",
-    img: "https://c8.alamy.com/comp/KX2T29/portrait-of-a-pandit-holy-man-in-asansol-india-KX2T29.jpg",
+    img:Monk,
     name: "Krishan Sharma",
     Region: "Madhya Pradesh",
   },
@@ -56,42 +60,41 @@ export const PandirArray = [
 export const PoojaArray = [
   {
     id: "1",
-    img: "https://wallpaperaccess.com/full/2170188.jpg",
+    img: ganesh,
     pooja: "Maha Ganpati Hom",
   },
   {
     id: "2",
-    img: "https://wallpaperaccess.com/full/5989489.jpg",
+    img:ganesh,
     pooja: "SatyaNarayan Pooja",
   },
   {
     id: "3",
-    img: "https://th.bing.com/th/id/OIP.axQTBpr5MJf5VwvpDLYjDwAAAA?rs=1&pid=ImgDetMain",
+    img:ganesh,
     pooja: "GrihPravesh Pooja",
   },
   {
     id: "4",
-    img: "https://th.bing.com/th/id/R.e5169efbc441f94c0f8cbeeae48e374e?rik=WfUDj0saK0JqBA&riu=http%3a%2f%2fbhagyavijay.in%2fwp-content%2fuploads%2f2019%2f09%2fVastu-B.png&ehk=%2bhMCnAXP%2f%2bgSv6x9Wvn5XBPnm79%2bCUQTFt6x8eGJjtA%3d&risl=&pid=ImgRaw&r=0",
-    pooja: "Vastu Shanti Pooja",
+    img:ganesh,
   },
   {
     id: "5",
-    img: "https://th.bing.com/th/id/OIP.1pznyHerhrDwIuCN9AoGwAAAAA?rs=1&pid=ImgDetMain",
+    img:ganesh,
     pooja: "RudraAbhishek Pooja",
   },
   {
     id: "6",
-    img: "https://wallpapers.com/images/hd/lord-hanuman-3d-sunlight-ozgajnmyme7pqki0.jpg",
+    img:ganesh,
     pooja: "Hanuman Chalisa Path",
   },
   {
     id: "7",
-    img: "https://www.desktopbackground.org/download/1440x900/2012/07/19/423389_goddess-durga-hd-wallpaper-goddess-durga-pictures_1920x1440_h.jpg",
+    img:ganesh,
     pooja: "Durga Saptashati Chandi Path ",
   },
   {
     id: "8",
-    img: "https://th.bing.com/th/id/OIP.G1kJIa0k2XijJC56K46DuwHaHa?pid=ImgDet&w=161&h=161&c=7",
+    img:ganesh,
     pooja: "Mahamrityunjay Hom",
   },
 ];
@@ -99,49 +102,49 @@ export const PoojaArray = [
 export const Array = [
   {
     id: "1",
-    img: "https://thumbnails.yayimages.com/1600/0/5db/5db88d.jpg",
+    img:rashi,
     title: "Today's Horoscope ",
     desc: "	 Unsure about how your day will unfold? Get free Aries horoscope online prediction from top astrologer. Read your Aries Zodiac Sign Horoscope today! ",
   },
 
   {
     id: "2",
-    img: "https://res.cloudinary.com/jerrick/image/upload/fl_progressive,q_auto,w_1024/5ecba1ce11f355001eb2042f.jpg",
+    img:rashi,
     title: "Free Kundli",
     desc: " Generate your free online kundli report from Astrotalk. Our Kundli software can help you predict the future for yourself by reading the birth chart. ",
   },
 
   {
     id: "3",
-    img: "https://th.bing.com/th/id/OIP.wdWk7DlHR74I644RPtM2OwHaHa?rs=1&pid=ImgDetMain",
+    img:rashi,
     title: "Compatibility",
     desc: " Confused by love? Remove the doubts &amp; find the sparks! Check the compatibility with your partner using our tool and ignite a love that lasts forever.",
   },
 
   {
     id: "4",
-    img: "https://thumbs.dreamstime.com/z/diwali-festival-graphic-elements-two-indian-children-characters-rangoli-large-diya-lamp-color-powder-plate-isolated-231332476.jpg",
+    img:rashi,
     title: "Festival 2024",
     desc: " Festivals are myriad celebrations, each a unique form of joy. Explore the diverse world of festivities – a realm of celebration. ",
   },
 
   {
     id: "5",
-    img: "https://kundli-matching.com/wp-content/uploads/2022/05/cropped-2022-05-21.png",
+    img:rashi,
     title: "Kundli Matching",
     desc: " Check Love Compatibility and Marriage Prediction online at Astrotalk. Get the best Horoscope and kundli matching predictions today! ",
   },
 
   {
     id: "6",
-    img: "https://th.bing.com/th/id/OIP.4qZXzJlEw9K0v8KfRxy9DwAAAA?w=250&h=250&rs=1&pid=ImgDetMain",
+    img:rashi,
     title: "Chinese Horoscope",
     desc: " Are you a playful cat, a clever mouse, or a roaring lion? Discover your inner spirit animal with Chinese astrology. Find out now! ",
   },
 
   {
     id: "7",
-    img: "	https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/55/ed/96/55ed9668-af25-879b-f36a-0655acce84d2/source/512x512bb.jpg",
+    img:rashi,
     title: "Today Panchang",
     desc: " Panchang enlists a record of auspicious dates and times for any auspicious task such as marriage, celebration, puja, starting any business etc. ",
   },
@@ -236,7 +239,7 @@ export const horoscope = [
 export const PanditData = [
   {
     id: "1",
-    img: "https://aws.astrotalk.com/consultant_pic/p-43095.jpg",
+    img:Pandit1,
     name: "Nirbhay",
     location: "Varanasi",
     language: "English, Hindi",
@@ -248,7 +251,7 @@ export const PanditData = [
   },
   {
     id: "2",
-    img: "https://aws.astrotalk.com/consultant_pic/p-67956.jpg",
+    img:Pandit1,
     name: "Amit",
     location: "Luckhnow",
     language: "Tamil, Hindi",
@@ -260,7 +263,7 @@ export const PanditData = [
   },
   {
     id: "3",
-    img: "https://aws.astrotalk.com/consultant_pic/p-41733.jpg",
+    img:Pandit1,
     name: "Ramanand",
     location: "Bihar",
     language: "Bhojpuri, Hindi",
@@ -272,7 +275,7 @@ export const PanditData = [
   },
   {
     id: "4",
-    img: "https://aws.astrotalk.com/consultant_pic/p-38889.jpg",
+    img: Pandit1,
     name: "Sadhvi",
     location: "Maharashtra",
     language: " Hindi,Marathi",
@@ -284,7 +287,7 @@ export const PanditData = [
   },
   {
     id: "5",
-    img: "https://aws.astrotalk.com/consultant_pic/p-45119.jpg",
+    img:Pandit1,
     name: "GopalDas",
     location: "Vrindavan",
     language: " Hindi,English",
@@ -296,7 +299,7 @@ export const PanditData = [
   },
   {
     id: "6",
-    img: "https://aws.astrotalk.com/consultant_pic/p-51244.jpg",
+    img:Pandit1,
     name: "Paramhans",
     location: "Ujjain",
     language: " Hindi,Marathi",
@@ -308,7 +311,7 @@ export const PanditData = [
   },
   {
     id: "7",
-    img: "https://aws.astrotalk.com/consultant_pic/p-60044.jpg",
+    img:Pandit1,
     name: "Sanvi",
     location: "Kerela",
     language: "Tamil,English",
@@ -320,7 +323,7 @@ export const PanditData = [
   },
   {
     id: "8",
-    img: "https://aws.astrotalk.com/consultant_pic/p-66900.jpg",
+    img:Pandit1,
     name: "Shraddha",
     location: "Kota",
     language: "English,Hindi",
@@ -332,7 +335,7 @@ export const PanditData = [
   },
   {
     id: "9",
-    img: "https://aws.astrotalk.com/consultant_pic/p-42745.jpg",
+    img:Pandit1,
     name: "Rajanji",
     location: "Varanasi",
     language: "English,Hindi",

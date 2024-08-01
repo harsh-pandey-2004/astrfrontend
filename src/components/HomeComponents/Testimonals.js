@@ -1,4 +1,5 @@
 import React from "react";
+import pexel from "../../images/pexels-photo-3183181.webp"
 
 import Marquee from "react-fast-marquee";
 const TestimonialSlider = ({ showblur }) => {
@@ -20,7 +21,7 @@ const TestimonialSlider = ({ showblur }) => {
         <Marquee>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
             <img
-              src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
+              src={pexel}
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
@@ -30,7 +31,7 @@ const TestimonialSlider = ({ showblur }) => {
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
             <img
-              src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
+              src={pexel}
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
@@ -40,7 +41,7 @@ const TestimonialSlider = ({ showblur }) => {
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
             <img
-              src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
+              src={pexel}
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">
@@ -50,7 +51,7 @@ const TestimonialSlider = ({ showblur }) => {
           </div>
           <div className="flex flex-col items-center justify-center border-2 px-10 gap-5 mx-5 py-10 border-b-4 border-b-orange-500 shadow-2xl">
             <img
-              src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
+              src={pexel}
               className="w-28 h-28 rounded-full"
             ></img>
             <div className="flex flex-col items-center gap-2">

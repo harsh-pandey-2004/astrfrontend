@@ -1,5 +1,6 @@
 import React from "react";
 import { SearchLogo } from "../icons/icons";
+import shop from "../../src/images/shop-astro.webp"
 
 const ShopAstro = (props) => {
   const IsMenuClicked=props.IsmenuClicked;
@@ -37,7 +38,7 @@ const ShopAstro = (props) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-3/4">
         <div className="relative rounded-md hover:shadow-2xl cursor-pointer">
           <img
-            src="https://d1gcna0o0ldu5v.cloudfront.net/fit-in/350x350/images/9a5aca23-1b68-4edb-9e83-a8cefe152d24.jpg"
+            src={shop}
             className="rounded-md w-full"
           ></img>
          

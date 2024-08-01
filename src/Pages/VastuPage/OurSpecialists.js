@@ -6,6 +6,7 @@ import {
   FaCertificate,
   FaTrophy,
 } from "react-icons/fa";
+import special from "../../images/special.webp";
 
 const specialists = [
   {
@@ -21,8 +22,7 @@ const specialists = [
       "Expertise includes design of steel structures, water tanks, industrial facilities, commercial multistory, and high-rise buildings.",
     ],
     experience: "15 years",
-    image:
-      "https://media.licdn.com/dms/image/C5603AQGVCu9_gSh4JA/profile-displayphoto-shrink_800_800/0/1517349707719?e=1727913600&v=beta&t=QwJYKPy6ql94AMZd17yP_d1ik1k_H1ICZEdE6KPqxTs",
+    image: special,
     socialLinks: {
       linkedin: "#",
       instagram: "#",
@@ -42,8 +42,7 @@ const specialists = [
       "      Maintenance and Construction: Handled structural maintenance and construction projects, focusing on longevity and safety.",
     ],
     experience: "10 years",
-    image:
-      "https://media.licdn.com/dms/image/C5603AQGVCu9_gSh4JA/profile-displayphoto-shrink_800_800/0/1517349707719?e=1727913600&v=beta&t=QwJYKPy6ql94AMZd17yP_d1ik1k_H1ICZEdE6KPqxTs",
+    image: special,
     socialLinks: {
       linkedin: "#",
       instagram: "#",

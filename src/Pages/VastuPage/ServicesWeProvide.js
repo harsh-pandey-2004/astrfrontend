@@ -1,8 +1,8 @@
 import React from "react";
-import Homeimg from "../../images/home.png";
-import lampimg from "../../images/lamp.png";
-import officeimg from "../../images/office.png";
-import valueimg from "../../images/value.png";
+import Homeimg from "../../images/home.webp";
+import lampimg from "../../images/lamp.webp";
+import officeimg from "../../images/office.webp";
+import valueimg from "../../images/value.webp";
 import { useNavigate } from "react-router-dom";
 const ServicesWeProvide = () => {
   const navigate = useNavigate();

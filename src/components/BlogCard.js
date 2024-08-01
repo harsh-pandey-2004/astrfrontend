@@ -1,10 +1,11 @@
 import React from "react";
+import Pexel from "../images/pexels-photo-3183181.webp"
 
 const BlogCard = ({ title, category, content, index }) => {
   return (
 <div class=" mx-auto bg-white shadow-xl rounded-lg overflow-hidden mb-4 cursor-pointer hover:shadow-2xl relative">
   <img
-    src="https://images.pexels.com/photos/3183181/pexels-photo-3183181.jpeg"
+    src={Pexel}
     alt="1"
     class="w-full h-40 sm:h-60 object-cover"
   />

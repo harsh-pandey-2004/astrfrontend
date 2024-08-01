@@ -1,6 +1,7 @@
 
 import React from "react";
 import { FilterIcon, SearchLogo, SortIcon } from "../icons/icons";
+import pandit from "../images/astrologer.webp"
 
 const CallwithAstrologer = (props) => {
   const showblur=props.showblur;
@@ -54,7 +55,7 @@ const CallwithAstrologer = (props) => {
         <div className="flex gap-4  p-5 justify-between rounded-md shadow-2xl font-sans border-2 hover:box-shadow cursor-pointer">
           <div className="flex flex-col gap-3 items-center justify-center">
             <img
-              src="https://th.bing.com/th/id/R.0301819f445a8855c4a577a6763fb62d?rik=TT%2fgaYZuz1YEig&riu=http%3a%2f%2fanhede.se%2fwp-content%2fuploads%2f2014%2f01%2f130221-2528.jpg&ehk=LToqkipED3KxGj7CVuMoQrvi487RY2HN6IPZ59FCWNQ%3d&risl=&pid=ImgRaw&r=0"
+              src={pandit}
               className="w-14 h-14 rounded-full bg-cover  bg-center"
             ></img>
             <div>⭐⭐⭐⭐⭐</div>

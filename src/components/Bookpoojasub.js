@@ -5,6 +5,13 @@ import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { responsive } from "../components/kundalicomponents/Data";
 import { useNavigate } from "react-router-dom";
+import Kathmandu from "../images/Kathmandu.webp"
+import Smartpuja from "../images/smartpuja-puja-and-homas-performed.webp"
+import SmartPandit from "../images/samrt-total-pandits.webp"
+import SmartPujas from "../images/smartpuja-total-unique-services.webp"
+import Special from "../images/Special-Offer.webp"
+
+
 const Bookpoojasub = () => {
   const [hideoffer, sethideOffer] = useState(false);
   const navigate = useNavigate()
@@ -109,7 +116,7 @@ const Bookpoojasub = () => {
           <div className="md:w-1/2">
             <div className="aspect-w-16 aspect-h-9">
               <img
-                src="https://imgcld.yatra.com/ytimages/image/upload/v1438930398/Kathmandu_4.jpg"
+                src={Kathmandu}
                 alt="temple"
                 className="object-cover rounded-lg shadow-lg"
               />
@@ -150,7 +157,7 @@ const Bookpoojasub = () => {
                 <div className="countdown-box">
                   <div className="countdown-number-circle  text-white">
                     <img
-                      src="https://www.smartpuja.com/img/home/countdown/smartpuja-puja-and-homas-performed.svg"
+                      src={Smartpuja}
                       alt="pujas and homas performed"
                       className="block mx-auto w-[70%] bg-cover"
                       width="57"
@@ -166,7 +173,7 @@ const Bookpoojasub = () => {
                 <div className="countdown-box">
                   <div className="countdown-number-circle  text-white">
                     <img
-                      src="https://www.smartpuja.com/img/home/countdown/samrt-total-pandits.svg"
+                      src={SmartPandit}
                       alt="Pandits and Purohits"
                       className="block mx-auto w-[70%] bg-cover"
                       width="83"
@@ -182,7 +189,7 @@ const Bookpoojasub = () => {
                 <div className="countdown-box">
                   <div className="countdown-number-circle  text-white">
                     <img
-                      src="https://www.smartpuja.com/img/home/countdown/smartpuja-total-unique-services.svg"
+                      src={SmartPujas}
                       alt="Cities and More"
                       className="block mx-auto w-[70%] bg-cover"
                       width="80"
@@ -250,7 +257,7 @@ const Bookpoojasub = () => {
           </p>
           <div className="w-20 h-20 absolute left-4">
             <img
-              src="https://th.bing.com/th/id/R.13ba389d75392a92835e7c68b70acc5a?rik=%2fPINe%2f6Uy0prgA&riu=http%3a%2f%2fwww.atomtechsoft.com%2fimages%2fatomtechsoftbundaloffer.gif&ehk=CqNZhNuCLkrpE5itcbTmGA4M5%2fVlByuSzvd5RtPUE4w%3d&risl=&pid=ImgRaw&r=0"
+              src={Special}
               className="w-full h-full"
             ></img>
           </div>

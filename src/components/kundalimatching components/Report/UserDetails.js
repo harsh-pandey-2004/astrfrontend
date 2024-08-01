@@ -1,4 +1,5 @@
 import React from 'react';
+import girl from "../../../images/girl.webp"
 
 const UserDetails = ({details}) => {
   return (
@@ -18,7 +19,7 @@ const UserDetails = ({details}) => {
       </div>
       <div className='border border-black  rounded-md hover:shadow-xl transition duration-300 w-full md:w-1/2'>
         <h3 className="text-lg  border-b text-white bg-black rounded-t-md pl-2 py-2 flex items-center gap-3 ">
-            <img src="https://i.pinimg.com/originals/d5/e2/c7/d5e2c7de217e62c44f2930b2b0a21543.png" height={30} width={30} className='rounded-full bg-yellow-500 '/>
+            <img src={girl} height={30} width={30} className='rounded-full bg-yellow-500 '/>
             <p className='text-yellow-500'>Basic Details</p>
             <p className='border border-yellow-500 rounded-md text-sm px-1 text-yellow-500'>female</p>
             </h3>

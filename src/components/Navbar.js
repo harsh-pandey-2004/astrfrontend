@@ -8,6 +8,8 @@ import {
   HambugerIcon,
 } from "../icons/icons";
 
+import post from "../images/new-post.webp"
+
 const Navbar = ({ showbluefn }) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
@@ -294,7 +296,7 @@ const Navbar = ({ showbluefn }) => {
                       <CaretDown />
                       <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full px-2 right-0 text-white py-[1px]">
                         <img
-                          src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
+                          src={post}
                           className="h-5 w-10"
                         ></img>
                       </span>
@@ -321,7 +323,7 @@ const Navbar = ({ showbluefn }) => {
                   Vastu Making
                   <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full  right-[-1rem] text-white ">
                     <img
-                      src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
+                      src={post}
                       className="h-5 w-10"
                     ></img>
                   </span>

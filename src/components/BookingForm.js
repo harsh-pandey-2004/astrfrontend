@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+import calender from "../images/calendar-icon.webp"
 const PujaCartForm = () => {
   const [formData, setFormData] = useState({
     date: "",
@@ -97,7 +98,7 @@ const PujaCartForm = () => {
               placeholderText="Select your Prefered Date"
             />
             <img
-              src="https://epuja.co.in/img/calendar-icon.png"
+              src={calender}
               alt="calendar"
               onClick={() => document.getElementById("quick_puja_date").click()}
             />

@@ -1,4 +1,5 @@
 import React from "react";
+import Right from "../../images/right-arrow.webp"
 
 const Workflow1 = () => {
   return (
@@ -12,12 +13,12 @@ const Workflow1 = () => {
               Set Details about Pooja and States
             </p>
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className="hidden md:block"
             />
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className=" md:hidden sm:block transform rotate-90 my-6 mx-auto"
             />
@@ -26,12 +27,12 @@ const Workflow1 = () => {
           <div className="md:flex  xs:flex-col items-center gap-4  justify-center ">
             <p className="border-2 border-black rounded-md w-72  sm:w-44 h-32 text-center py-6 px-2 bg-yellow-400 text-white"> Set your Required Time Schedule </p>
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className="hidden md:block"
             />
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className=" md:hidden sm:block transform rotate-90 my-6 mx-auto"
             />
@@ -42,7 +43,7 @@ const Workflow1 = () => {
             Search For the Pooja Booking
             </p>
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className="transform rotate-90 "
             />
@@ -55,12 +56,12 @@ const Workflow1 = () => {
             Go for the Data if available
             </p>
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className="hidden md:block transform rotate-180  "
             />
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className=" md:hidden sm:block transform rotate-90 my-6 mx-auto"
             />
@@ -71,12 +72,12 @@ const Workflow1 = () => {
             Click on Book now after Reading all info
             </p>
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className="hidden md:block transform rotate-180"
             />
             <img
-              src="https://th.bing.com/th/id/R.fdeb923d963b131c3df59e878b8ed81c?rik=9I1RcMp7F3i5RA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fb6L%2f9cRb6L9bi.jpg&ehk=BVJmloJisu9dMbB%2fQTPVUel7iBembgbtfbSnaK%2bYHqE%3d&risl=&pid=ImgRaw&r=0"
+              src={Right}
               width={100}
               className=" md:hidden sm:block transform rotate-90 my-6 mx-auto"
             />

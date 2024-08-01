@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RxDotFilled } from "react-icons/rx";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import shiv from "../../images/wp6808310.webp"
 const PoojaPandit = () => {
   const [response, setResponse] = useState([]);
   const [responsePandit, setResponsePandit] = useState([]);
@@ -62,7 +63,7 @@ const PoojaPandit = () => {
 
         <div className="flex flex-col gap-6 w-1/2 ">
           <img
-            src="https://wallpapercave.com/wp/wp6808310.jpg"
+            src={shiv}
             className="rounded-md w-2/3 mx-auto"
           />
           <div className="flex flex-col justify-center items-center italic">

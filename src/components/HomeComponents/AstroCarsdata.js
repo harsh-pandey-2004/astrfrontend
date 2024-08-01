@@ -1,31 +1,37 @@
+import Pandit1 from "../../images/p-38889.webp"
+import Pandit2 from "../../images/p-41733.webp"
+import Pandit3 from "../../images/p-42745.webp"
+import Pandit4 from "../../images/p-45119.webp"
+import Pandit5 from "../../images/p-51244.webp"
+
 const AstroCarsdata=[
     {
         name:"Prateek",
-        img:"https://d1gcna0o0ldu5v.cloudfront.net/fit-in/78x78/consultant_pic/p-38160.jpg",
+        img:Pandit1,
         desc:"Vedic Astrology",
         exp:"9"
     },
     {
         name:"Mridul",
-        img:"	https://d1gcna0o0ldu5v.cloudfront.net/fit-in/78x78/consultant_pic/p-39334.jpg",
+        img:Pandit2,
         desc:"Tarot Reading",
          exp:"2"
     },
     {
         name:"Deepika",
-        img:"https://d1gcna0o0ldu5v.cloudfront.net/fit-in/78x78/consultant_pic/p-37603.jpg",
+        img:Pandit3,
         desc:"Palm-Reading",
          exp:"1"
     },
     {
         name:"Shipra",
-        img:"https://d1gcna0o0ldu5v.cloudfront.net/fit-in/78x78/consultant_pic/p-37782.jpg",
+        img:Pandit3,
         desc:"Vedic Astrology",
          exp:"3"
     },
     {
         name:"Anand",
-        img:"https://aws.astrotalk.com/consultant_pic/p-42745.jpg",
+        img:Pandit3,
         desc:"Tarot Reading",
          exp:"3"
     }
