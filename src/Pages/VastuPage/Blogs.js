@@ -5,7 +5,7 @@ import Mission from "../../images/mission.png";
 import checkList from "../../images/check-list.png";
 import stopWatch from "../../images/stopwatch.png";
 import Surveyor from "../../images/surveyor.png";
-import Call from "../../images/call.png";
+import Call from "../../images/call.webp";
 
 const HowItWorks = () => {
   const steps = [
