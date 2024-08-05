@@ -1,9 +1,11 @@
 import React from 'react'
 import { FaQuoteLeft } from "react-icons/fa";
+import Laptop from "../../../images/woman-with-laptop-smiling.webp"
+
 const Testimonial = () => {
   return (
     <div className=' md:flex xs:flex-col  md:items-center md:justify-evenly  md:px-20 xs:px-6  '>
-          <img src="https://landingfoliocom.imgix.net/store/collection/saasui/images/testimonial/3/woman-with-laptop-smiling.png"
+          <img src={Laptop}
           height={300} width={350} className='mx-4'/>
          
          

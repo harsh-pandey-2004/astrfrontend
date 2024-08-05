@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import God from "../../images/ashtalakshmi-Rahu-laf-Hp.webp"
+import Circle from "../../images/blog1.webp"
+import Circle2 from "../../images/blog2.webp"
+
 
 const Blogs = () => {
   return (
@@ -12,7 +16,7 @@ const Blogs = () => {
 
         <div>
           <img
-            src="https://www.astroved.com/wp-content/uploads/2024/06/ashtalakshmi-Rahu-laf-Hp.jpg"
+            src={God}
             className="border-2 rounded-md border-gray-100"
           />
           <div className="text-xl text-start font-normal my-3">
@@ -58,7 +62,7 @@ const Blogs = () => {
         <div className="md:flex items-center xs:flex-col md:flex-row  gap-2 mt-2 flex flex-col-reverse">
           <div className="md:w-1/3 xs:w-full">
             <img
-              src="	https://cdn.dribbble.com/userupload/8499887/file/original-0f594a7654e48c5d78f0064a6a94cb26.png?resize=1504x1128"
+              src={Circle}
               className="rounded-md "
             />
             <p className="text-gray-500 font-semibold text-start py-2">
@@ -72,7 +76,7 @@ const Blogs = () => {
 
           <div className="md:w-1/3 xs:w-full">
             <img
-              src="	https://cdn.dribbble.com/userupload/11329041/file/original-d8438ac72e3d871340074c12affed0f1.jpg?resize=1400x790"
+              src={Circle2}
               className="rounded-md md:h-40"
             />
             <p className="text-gray-500 font-semibold text-start py-2">
@@ -86,7 +90,7 @@ const Blogs = () => {
 
           <div className="md:w-1/3 xs:w-full">
             <img
-              src="	https://cdn.dribbble.com/userupload/8499887/file/original-0f594a7654e48c5d78f0064a6a94cb26.png?resize=1504x1128"
+              src={Circle}
               className="rounded-md"
             />
             <p className="text-gray-500 font-semibold text-start py-2">
