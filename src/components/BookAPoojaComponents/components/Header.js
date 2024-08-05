@@ -6,51 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import "./Header.css"; // Add this line to import your custom CSS
 
-const indianStatesAndUTs = [
-  {
-    value: "Andaman and Nicobar Islands",
-    label: "Andaman and Nicobar Islands",
-  },
-  { value: "Andhra Pradesh", label: "Andhra Pradesh" },
-  { value: "Arunachal Pradesh", label: "Arunachal Pradesh" },
-  { value: "Assam", label: "Assam" },
-  { value: "Bihar", label: "Bihar" },
-  { value: "Chandigarh", label: "Chandigarh" },
-  { value: "Chhattisgarh", label: "Chhattisgarh" },
-  {
-    value: "Dadra and Nagar Haveli and Daman and Diu",
-    label: "Dadra and Nagar Haveli and Daman and Diu",
-  },
-  { value: "Delhi", label: "Delhi" },
-  { value: "Goa", label: "Goa" },
-  { value: "Gujarat", label: "Gujarat" },
-  { value: "Haryana", label: "Haryana" },
-  { value: "Himachal Pradesh", label: "Himachal Pradesh" },
-  { value: "Jammu and Kashmir", label: "Jammu and Kashmir" },
-  { value: "Jharkhand", label: "Jharkhand" },
-  { value: "Karnataka", label: "Karnataka" },
-  { value: "Kerala", label: "Kerala" },
-  { value: "Ladakh", label: "Ladakh" },
-  { value: "Lakshadweep", label: "Lakshadweep" },
-  { value: "Madhya Pradesh", label: "Madhya Pradesh" },
-  { value: "Maharashtra", label: "Maharashtra" },
-  { value: "Manipur", label: "Manipur" },
-  { value: "Meghalaya", label: "Meghalaya" },
-  { value: "Mizoram", label: "Mizoram" },
-  { value: "Nagaland", label: "Nagaland" },
-  { value: "Odisha", label: "Odisha" },
-  { value: "Puducherry", label: "Puducherry" },
-  { value: "Punjab", label: "Punjab" },
-  { value: "Rajasthan", label: "Rajasthan" },
-  { value: "Sikkim", label: "Sikkim" },
-  { value: "Tamil Nadu", label: "Tamil Nadu" },
-  { value: "Telangana", label: "Telangana" },
-  { value: "Tripura", label: "Tripura" },
-  { value: "Uttar Pradesh", label: "Uttar Pradesh" },
-  { value: "Uttarakhand", label: "Uttarakhand" },
-  { value: "West Bengal", label: "West Bengal" },
-];
-
 const poojaOptions = [
   { value: "Satyanarayan Puja", label: "Satyanarayan Puja" },
   { value: "Durga Puja", label: "Durga Puja" },
@@ -74,12 +29,20 @@ const poojaOptions = [
   { value: "Bhoomi Puja", label: "Bhoomi Puja" },
 ];
 
+const pincodeOptions = [
+  { value: "110001", label: "110001" },
+  { value: "110002", label: "110002" },
+  { value: "110003", label: "110003" },
+  { value: "110004", label: "110004" },
+  // Add more pincode options as needed
+];
+
 const Header = () => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [response, setResponse] = useState({ nameOfPooja: "", location: "" });
+  const [response, setResponse] = useState({ nameOfPooja: "", pincode: "" });
   const [filterData, setFilterData] = useState([]);
   const [isPoojaDropdownOpen, setIsPoojaDropdownOpen] = useState(false);
-  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
+  const [isPincodeDropdownOpen, setIsPincodeDropdownOpen] = useState(false);
 
   const handleChange = (selectedOption, actionMeta) => {
     setResponse({ ...response, [actionMeta.name]: selectedOption });
@@ -101,7 +64,7 @@ const Header = () => {
           .padStart(2, "0")}`
       : null;
 
-    if (!formattedDate || !response.nameOfPooja || !response.location) {
+    if (!formattedDate || !response.nameOfPooja || !response.pincode) {
       console.error("Please fill in all fields");
       return;
     }
@@ -114,7 +77,7 @@ const Header = () => {
       const filteredData = res.data.data.filter(
         (pandit) =>
           pandit.availability.date.filter((e) => e == formattedDate) &&
-          pandit.city === response.location.value &&
+          pandit.pincode === response.pincode.value &&
           pandit.Skills.includes(response.nameOfPooja.value)
       );
       console.log(filteredData);
@@ -128,8 +91,8 @@ const Header = () => {
     setIsPoojaDropdownOpen(!isPoojaDropdownOpen);
   };
 
-  const toggleLocationDropdown = () => {
-    setIsLocationDropdownOpen(!isLocationDropdownOpen);
+  const togglePincodeDropdown = () => {
+    setIsPincodeDropdownOpen(!isPincodeDropdownOpen);
   };
 
   return (
@@ -152,18 +115,18 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Select State */}
+          {/* Enter Pincode */}
           <div className="w-full">
-            <div className={`select-input ${isLocationDropdownOpen ? 'is-open' : ''}`}>
+            <div className={`select-input ${isPincodeDropdownOpen ? 'is-open' : ''}`}>
               <Select
-                name="location"
-                options={indianStatesAndUTs}
+                name="pincode"
+                options={pincodeOptions}
                 classNamePrefix="select-input"
                 className="text-black w-full"
-                placeholder="Select State"
+                placeholder="Enter Pincode"
                 onChange={handleChange}
-                onMenuOpen={toggleLocationDropdown}
-                onMenuClose={toggleLocationDropdown}
+                onMenuOpen={togglePincodeDropdown}
+                onMenuClose={togglePincodeDropdown}
               />
             </div>
           </div>
@@ -182,7 +145,7 @@ const Header = () => {
         {/* Search Button */}
         <div className="mt-6">
           <button
-            className="w-full hover:bg-[#f6c300] bg-transparent border-2 border-[#f6c300] transition-colors delay-75 text-white py-2 px-4 rounded-md text-center"
+            className="w-full hover:bg-[#f6c300] bg-transparent text-yellow-500 border-2 border-[#f6c300] transition-colors delay-75  py-2 px-4 rounded-md text-center hover:text-white"
             onClick={handleClick}
           >
             Search

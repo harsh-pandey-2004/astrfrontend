@@ -8,7 +8,7 @@ import Preference from "../components/BookAPoojaComponents/components/Preference
 import Header from "../components/BookAPoojaComponents/components/Header";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/vedio4.mp4";
-import Mandir from "../../src/images/kedarnath.webp"
+import Reviews from "./VastuPage/Reviews";
 
 const BookPooja = (props) => {
   const showblur = props.showblur;
@@ -71,7 +71,7 @@ const BookPooja = (props) => {
         <Destinations />
         <Workflow />
         <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
-        <Testimonials />
+        <Reviews/>
       </div>
     </div>
   );

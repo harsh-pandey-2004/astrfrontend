@@ -10,7 +10,9 @@ import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/panditpagebg.mp4";
 import axios from "axios";
 import Workflow1 from "../components/BookAPoojaComponents/Workflow1";
-import Pandit from "../../src/images/pan1.webp"
+import UpcomingEvents from "../components/BookAPoojaComponents/components/UpcomingEvents";
+import Stats from "./VastuPage/Stats";
+import Reviews from "./VastuPage/Reviews";
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -96,9 +98,9 @@ const BookPandit = (props) => {
       console.log("Error :", error);
     }
   };
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div
       className={`${
@@ -151,10 +153,10 @@ const BookPandit = (props) => {
 
       <div className="flex flex-col items-center justify-center w-full">
         {/* <Preference /> */}
-        <Destinations />
-<Workflow1/>
+        <UpcomingEvents />
+        <Workflow1 />
         <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
-        <Testimonials />
+        <Reviews/>
       </div>
     </div>
   );
