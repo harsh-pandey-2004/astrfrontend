@@ -12,7 +12,9 @@ const SingleCoun = () => {
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(

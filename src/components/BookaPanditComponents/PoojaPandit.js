@@ -22,6 +22,9 @@ const PoojaPandit = () => {
     fetchPooja();
     fetchPandit();
   }, []);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <div className="flex flex-col gap-20 max-w-5xl  mx-auto pt-8 mb-12   ">
       {/* Pooja Details */}

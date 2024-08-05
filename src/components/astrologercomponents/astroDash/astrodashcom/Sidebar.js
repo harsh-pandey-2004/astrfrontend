@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 function Sidebar({ response }) {
+  
+  const [isShow, setIsShow] = useState(false)
   return (
     <div className="hidden mb-16 md:block sidebar w-1/5 md:mt-[6rem] h-screen flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
       <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">

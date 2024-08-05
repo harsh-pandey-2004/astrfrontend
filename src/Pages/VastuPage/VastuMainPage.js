@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Vedio3 from "../../vedios/vedio4.mp4";
 import ServicesVastu from "./ServicesVastu";
 import ServicesWeProvide from "./ServicesWeProvide";
@@ -7,8 +7,12 @@ import Stats from "./Stats";
 import Reviews from "./Reviews";
 import Blogs from "./Blogs";
 import BlogCard from "./Blogs";
+import vastuMakingImage from "../../images/vastu-making.webp"; // Adjust path as needed
 
 const VastuMainPage = ({ showblur }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div
       className={`${
@@ -47,19 +51,20 @@ const VastuMainPage = ({ showblur }) => {
             <div className="lg:w-1/2 md:pt-20  lg:pt-36 relative lg:pl-10 w-full animate-pulse ">
               <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
               <img
-                src="https://th.bing.com/th/id/R.b3ee389dea86803d8445065eb87f77ea?rik=GNwqdkJKWQVlYA&riu=http%3a%2f%2fvastusolutions.co.uk%2fwp-content%2fuploads%2f2013%2f09%2fVastu-Pyramid-copy-1024x657.png&ehk=5AFQKGm0nTLN%2fyaTfE4GswHIq22ClPPo3HVRXT8QzfM%3d&risl=&pid=ImgRaw&r=0"
+                src={vastuMakingImage}
                 className="h-96 w-[90%] md:w-full md:h-full mx-auto"
-              ></img>
+                alt="Vastu Making"
+              />
             </div>
           </div>
         </div>
       </div>
-      <ServicesVastu/>
-      <ServicesWeProvide/>
-      <OurSpecialists/>
-      <Stats/>
-      <BlogCard/>
-      <Reviews/>
+      <ServicesVastu />
+      <ServicesWeProvide />
+      <OurSpecialists />
+      <Stats />
+      <BlogCard />
+      <Reviews />
     </div>
   );
 };

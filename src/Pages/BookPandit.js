@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
 import Stat from "../components/BookAPoojaComponents/components/Stat";
@@ -10,6 +10,9 @@ import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/panditpagebg.mp4";
 import axios from "axios";
 import Workflow1 from "../components/BookAPoojaComponents/Workflow1";
+import UpcomingEvents from "../components/BookAPoojaComponents/components/UpcomingEvents";
+import Stats from "./VastuPage/Stats";
+import Reviews from "./VastuPage/Reviews";
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -95,7 +98,9 @@ const BookPandit = (props) => {
       console.log("Error :", error);
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div
       className={`${
@@ -134,21 +139,13 @@ const BookPandit = (props) => {
             </p>
           </div>
 
-          <div className="lg:w-1/2 pt-5 lg:pt-28 relative lg:pl-10 w-full shadow-lg">
-            <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
-            <video
-              autoPlay
-              loop
-              muted
-              className="rounded-md z-20"
-              style={{
-                filter: "brightness(70%) contrast(120%)",
-                boxShadow: "0 0 20px 5px #f6c300", // Add this line for the yellow shadow
-              }}
-            >
-              <source src={Vedio3} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center">
+            <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
+            <img
+              src={Pandit}
+              alt="Temple"
+              className="filter brightness-75 contrast-125 "
+            />
           </div>
         </div>
         <Header />
@@ -156,10 +153,10 @@ const BookPandit = (props) => {
 
       <div className="flex flex-col items-center justify-center w-full">
         {/* <Preference /> */}
-        <Destinations />
-<Workflow1/>
+        <UpcomingEvents />
+        <Workflow1 />
         <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
-        <Testimonials />
+        <Reviews/>
       </div>
     </div>
   );
