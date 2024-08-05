@@ -26,7 +26,7 @@ const PanditRegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log();
+    
     try {
       console.log({
         ...response,
@@ -60,11 +60,11 @@ const PanditRegisterForm = () => {
           </h6>
         </div>
         <div className="flex  p-3 gap-2 rounded-lg flex-col items-start ">
-          <h6 className="text-lg  font-sans">Enter your Name</h6>
+          <h6 className="text-lg  font-sans text-white">Enter your Name</h6>
           <input
             type="text"
             placeholder="Enter your Name"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-600 border-2 w-full py-2 px-3"
+            className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white"
             value={response.name}
             name="name"
             onChange={handleChange}
@@ -104,11 +104,11 @@ const PanditRegisterForm = () => {
           </div>
         </div>
         <div className="flex p-3 gap-2 rounded-lg flex-col items-start ">
-          <h6 className="text-lg  test-white font-sans">Enter your Password</h6>
+          <h6 className="text-lg  test-white font-sans text-white">Enter your Password</h6>
           <input
             type="password"
             placeholder="Enter your Password"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-600 border-2 w-full py-2 px-3"
+            className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white"
             value={response.password}
             onChange={handleChange}
             name="password"
@@ -125,7 +125,7 @@ const PanditRegisterForm = () => {
           <p className="text-center  hover:text-blue-400 hover:underline cursor-pointer text-yellow-300" onClick={()=>navigate("/loginPandit")}>Already have Account ?</p>
         </div>
         <div className="mt-1 text-sm">
-          <p className="terms-line text-center">
+          <p className="terms-line text-center text-white">
             By Signing up, you agree to our{" "}
             <a
               href="https://astrotalk.com/terms-and-conditions"

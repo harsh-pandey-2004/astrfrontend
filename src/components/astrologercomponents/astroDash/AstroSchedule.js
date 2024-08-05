@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import "./astrodashcom/AstroSchedule.css"; // Ensure the CSS file is correctly imported
 
 const localizer = momentLocalizer(moment);
 
-const Schedule = () => {
+const AstroSchedule = () => {
   const { id } = useParams();
   const [selectedDates, setSelectedDates] = useState([]);
   const [isBooked, setIsBooked] = useState(false);
   const [lastScheduleEndDate, setLastScheduleEndDate] = useState(null);
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
+
   const handleSelectSlot = ({ start, end }) => {
     if (!isBooked) {
       const selected = {
@@ -61,11 +60,15 @@ const Schedule = () => {
 
   const currentDate = new Date();
 
-  return (
-    <div className="container mx-auto max-w-2xl  pb-20 relative top-32">
-      <h2 className="text-4xl text-center mb-4">Schedule</h2>
-      <p className="text-2xl text-center mb-8">Select Your Preferred Dates</p>
-      <div className="shadow-lg rounded-lg overflow-hidden">
+  return (<div className=' md:mt-12 w-4/5 h-screen  absolute right-0 bg-gray-800 overflow-y-auto'>
+    <div className="container mx-auto max-w-2xl pb-20 relative top-32 ">
+      <h2 className="text-3xl text-center font-semibold bg-yellow-400 pt-2 text-black">
+        Schedule
+      </h2>
+      <p className="text-xl text-center bg-yellow-400 pb-2 font-semibold text-black">
+        Select Your Preferred Dates
+      </p>
+      <div className="shadow-lg rounded-lg overflow-hidden bg-black text-yellow-500">
         <Calendar
           localizer={localizer}
           events={[]}
@@ -76,19 +79,39 @@ const Schedule = () => {
             (!lastScheduleEndDate || currentDate <= lastScheduleEndDate)
           }
           onSelectSlot={handleSelectSlot}
-          style={{ height: "500px" }}
-          className="w-full h-full"
-          eventPropGetter={(event) => ({
+          style={{ height: "500px", backgroundColor: "black" }}
+          className="w-full h-full calendar-custom"
+          eventPropGetter={() => ({
             style: {
-              backgroundColor: "#3182CE",
-              color: "#FFFFFF",
+              backgroundColor: "#FFD700", // Gold
+              color: "#000000", // Black
+            },
+          })}
+          dayPropGetter={(date) => {
+            // Highlight days in the selected date range
+            const isSelected = selectedDates.some(({ datesArray }) =>
+              datesArray.some(d => moment(d).isSame(date, 'day'))
+            );
+
+            return {
+              style: {
+                backgroundColor: isSelected ? 'rgba(255, 215, 0, 0.5)' : '#333333',
+                color: isSelected ? '#000000' : '#FFD700',
+              },
+            };
+          }}
+          headerPropGetter={() => ({
+            style: {
+              backgroundColor: "#FFD700",
+              color: "#000000",
+              fontWeight: "bold",
             },
           })}
         />
       </div>
       <div className="mt-8">
-        <h3 className="text-2xl mb-4">YOUR SCHEDULE:</h3>
-        <ul className="list-disc list-inside">
+        <h3 className="text-2xl mb-4 text-yellow-400">YOUR SCHEDULE:</h3>
+        <ul className="list-disc list-inside text-yellow-500">
           {selectedDates.map(({ start, end, datesArray }, index) => (
             <li key={index} className="text-lg">
               {moment(start).format("MMMM Do YYYY")} to{" "}
@@ -104,14 +127,15 @@ const Schedule = () => {
         {!isBooked && selectedDates.length > 0 && (
           <button
             onClick={handleBooking}
-            className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none focus:bg-green-600"
+            className="mt-4 px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500 focus:outline-none focus:bg-yellow-500"
           >
             Book Schedule
           </button>
         )}
       </div>
     </div>
+    </div>
   );
 };
 
-export default Schedule;
+export default AstroSchedule;

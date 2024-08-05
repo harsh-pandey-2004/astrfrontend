@@ -44,14 +44,14 @@ const Kp = () => {
       try {
         // Fetch KP Planets
         const planetsResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
+          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565`
         );
         console.log(planetsResponse.data.response)
         setKpPlanets(planetsResponse.data.response);
 
         // Fetch KP Houses
         const housesResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
+          `https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565`
         );
         setKpHouses(housesResponse.data.response);
       } catch (error) {

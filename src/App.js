@@ -57,7 +57,6 @@ import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
 import SingleCoun from "./components/AstroCounceler/SingleCoun";
 import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
 import Prasaad from "./Pages/Prasaad"
-
 import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
 import VastuTypePage from "./Pages/VastuPage/VastuTypePage";

@@ -48,25 +48,25 @@ const Kundali = () => {
     const fetchData = async () => {
       try {
         const horoscopeResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
+          `https://api.vedicastroapi.com/v3-json/horoscope/planet-details?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565`
         );
         console.log(horoscopeResponse.data.response);
         setHoroscopeData(horoscopeResponse.data.response);
 
         const planetReportResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&planet=Jupiter&lang=en`
+          `https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&planet=Jupiter&lang=en`
         );
         console.log(planetReportResponse);
      
         setPlanetReportData(planetReportResponse.data.response[0]);
 
         const personalCharacteristicsResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
+          `https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565`
         );
         setPersonalCharacteristicsData(personalCharacteristicsResponse.data.response);
 
         const ascendantReportResponse = await axios.get(
-          `https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243`
+          `https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565`
         );
         setAscendantReportData(ascendantReportResponse.data.response[0]);
       } catch (error) {

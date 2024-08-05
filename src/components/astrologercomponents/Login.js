@@ -36,19 +36,19 @@ const AstrologerLoginForm = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded  pb-8 my-4 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-0 md:w-3/4 sm:top-32 sm:w-4/5">
+    <div className="bg-black shadow-md rounded  pb-8 mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
       <form
         autoComplete="on"
         className="flex flex-col "
         onSubmit={handleSubmit}
       >
-        <h1 className="text-lg font-bold mb-4 p-4 bg-orange-400 text-center w-full rounded">
+        <h1 className="text-lg font-bold mb-4 p-4 bg-yellow-400 text-center w-full rounded">
           Login with Phone
         </h1>
 
         <div className="mx-3">
-          <h6 className="text-lg mb-2 font-sans">Enter your phone number</h6>
-          <div className="flex items-center justify-center bg-gray-300 p-3 gap-2 rounded">
+          <h6 className="text-lg mb-2 font-sans text-white">Enter your phone number</h6>
+          <div className="flex items-center justify-center bg-gray-700 p-3 gap-2 rounded">
             <div className="mr-2">
               <img
                 src="https://aws.astrotalk.com/assets/images/in.webp"
@@ -57,7 +57,7 @@ const AstrologerLoginForm = () => {
               />
             </div>
             <select
-              className="form-select bg-transparent text-gray-600"
+              className="form-select bg-transparent text-white"
               value={countryCode}
               onChange={handleCountryCOde}
               name="countryCode"
@@ -72,18 +72,18 @@ const AstrologerLoginForm = () => {
               onChange={handlePhoneNumberChange}
               required
               type="text"
-              className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-600 "
+              className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 "
               placeholder="Enter mobile no."
               pattern="[1-9]{1}[0-9]{9}"
             />
           </div>
         </div>
         <div className="flex p-3 gap-2 rounded-lg flex-col items-start ">
-          <h6 className="text-lg  font-sans">Enter your Password</h6>
+          <h6 className="text-lg  font-sans text-white">Enter your Password</h6>
           <input
             type="password"
             placeholder="Enter your Password"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-600 border-2 w-full py-2 px-3"
+            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3"
             value={response.password}
             onChange={handleChange}
             name="password"
@@ -91,7 +91,7 @@ const AstrologerLoginForm = () => {
         </div>
         <button
           type="submit"
-          className="bg-orange-400 hover:box-shadow1 text-white font-sans py-2 px-4 rounded-lg w-[95%] mx-auto"
+          className="bg-yellow-400 hover:box-shadow1 text-black font-sans py-2 px-4 rounded-lg w-[95%] mx-auto"
         >
           Log in <i className="fa fa-arrow-right"></i>
         </button>
@@ -103,7 +103,7 @@ const AstrologerLoginForm = () => {
               href="https://astrotalk.com/terms-and-conditions"
               rel="noopener"
               target="_blank"
-              className="text-blue-400 underline"
+              className="text-yellow-400 underline"
             >
               Terms of Use
             </a>{" "}
@@ -112,7 +112,7 @@ const AstrologerLoginForm = () => {
               href="https://astrotalk.com/privacy-policies"
               rel="noopener"
               target="_blank"
-              className="text-blue-400 underline"
+              className="text-yellow-400 underline"
             >
               Privacy Policy
             </a>
