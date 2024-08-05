@@ -182,11 +182,11 @@ const Navbar = ({ showbluefn }) => {
               </Link>
               <Link to={"/blogs"} onClick={closeNav}>
                 <span className="transEffect hover:hover-effect px-5">
-                  Blog
+                  Vastu
                 </span>
               </Link>
             </div>
-            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center rounded mt-auto">
+            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center font-bold rounded mx-1 my-3">
               Logout
             </span>
           </div>
@@ -199,7 +199,7 @@ const Navbar = ({ showbluefn }) => {
           ></img>
         </div>
         <div
-          className="flex items-center gap-1 border-[#f6c300] border-2 px- rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
+          className="flex items-center gap-1 border-[#f6c300] border-2 font-sans text-sm p-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />

@@ -6,10 +6,12 @@ import Circle2 from "../../images/blog2.webp"
 
 
 const Blogs = () => {
-  return (
-    <div className=" text-center w-full   md:flex xs:flex-col gap-6 pb-4  sm:px-14">
+  return ( 
+    <div className="justify-center">
+
+    <div className="text-center w-full shadow-md md:flex xs:flex-col gap-6 py-2 sm:px-14">
       {/* News */}
-      <div className=" rounded-md md:w-1/3 xs:w-full  px-4 bg-white ">
+      <div className=" rounded-md border-r-4 md:w-1/3 xs:w-full px-4 bg-white ">
         <h1 className="text-start text-2xl font-semibold py-3">
           What's the News?
         </h1>
@@ -17,21 +19,21 @@ const Blogs = () => {
         <div>
           <img
             src={God}
-            className="border-2 rounded-md border-gray-100"
+            className="border-2 rounded-lg border-gray-100"
           />
           <div className="text-xl text-start font-normal my-3">
-            <p>Last Few Hrs: Invoke Boons of 8</p>
-            <p>Lakshmi & Rahu in Pisces</p>
+            <p className="text-xs">Last Few Hrs: Invoke Boons of 8</p>
+            <p className="font-medium">Lakshmi & Rahu in Pisces</p>
           </div>
 
-          <p className="text-start text-gray-500">
+          <p className="text-start text-gray-500 font-sans">
             Last Few Hours to invoke the 8 forms of Wealth Goddess Lakshmi and
             the benefic blessings of Rahu in Pisces to remove obstacles to
             wealth creation, fulfill sincere...
           </p>
 
           <Link to="/">
-            <p className="hover:text-yellow-500 hover:border-b-yellow-500  my-8 text-[#f6c300] border-b-[#f6c300] border-b w-fit ml-32">
+            <p className="hover:text-yellow-500 hover:border-b-yellow-500 my-8 text-[#f6c300] border-b-[#f6c300] border-b w-fit text-center">
               View all News and Events
             </p>
           </Link>
@@ -43,12 +45,12 @@ const Blogs = () => {
         <h1 className="sm:text-start text-2xl font-semibold py-3 text-center">
           Blogs & Articles
         </h1>
-        <div className="mt-3  sm:hidden block">
+        <div className="mt-2  sm:hidden block">
           <p className="text-start text-lg font-semibold">
             Some Trending Topics
           </p>
           <div className="md:flex xs:flex-col  items-center gap-4 mt-2 grid grid-cols-2">
-            <button className="px-2 py-2 sm:py-1 rounded-full border-2 border-yellow-500 hover:bg-[#f6c300] hover:text-white text-xs">
+            <button className="px-2 py-2 sm:py-1 rounded-full border-2 border-[#f6c300] hover:bg-[#f6c300] hover:text-white text-xs">
               Astrology Basics
             </button>
             <button className="px-2 py-2 sm:py-1 rounded-full border-2 border-[#f6c300] hover:bg-[#f6c300] hover:text-white text-xs">
@@ -68,7 +70,7 @@ const Blogs = () => {
             <p className="text-gray-500 font-semibold text-start py-2">
               ASTROLOGY
             </p>
-            <p className=" text-start text-lg font-semibold">
+            <p className=" text-start text-lg font-sans font-semibold">
               4 Zodiac Signs with
             </p>
             <p className=" text-start text-lg font-semibold">Singing Talent</p>
@@ -77,12 +79,12 @@ const Blogs = () => {
           <div className="md:w-1/3 xs:w-full">
             <img
               src={Circle2}
-              className="rounded-md md:h-40"
+              className="rounded-md"
             />
             <p className="text-gray-500 font-semibold text-start py-2">
               HOROSCOPES
             </p>
-            <p className=" text-start text-lg font-semibold">
+            <p className=" text-start text-lg font-sans font-semibold">
               4 Zodiac Signs who have
             </p>
             <p className=" text-start text-lg font-semibold">Soft Voice</p>
@@ -96,7 +98,7 @@ const Blogs = () => {
             <p className="text-gray-500 font-semibold text-start py-2">
               ASTROLOGY
             </p>
-            <p className=" text-start text-lg font-semibold">
+            <p className=" text-start text-lg font-sans font-semibold">
               4 Zodiac Signs with
             </p>
             <p className=" text-start text-lg font-semibold">Singing Talent</p>
@@ -119,6 +121,7 @@ const Blogs = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ function Faqs() {
   const [slot, setSlot] = useState(0);
 
   return (
-    <div className="    ">
+    <div className="  shadow-inner pt-4  ">
       <h1 className="text-center text-4xl font-semibold text-black">
         Frequently Asked Questions{" "}
       </h1>
@@ -16,7 +16,7 @@ function Faqs() {
       <div className="mt-6 border-b border-black md:w-[92%]  w-[95%]    mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className="font-semibold py-2">
-            Why Should You Choose Astrocaptain For An Astrology Horoscope?
+          ▪️ Why Should You Choose Astrocaptain For An Astrology Horoscope?
           </p>
           <div className="p-1   rounded-sm ">
             {slot == 1 ? (
@@ -61,7 +61,7 @@ function Faqs() {
       <div className="   border-b border-black  w-[95%]     md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className="font-semibold  py-2">
-            How Can Online Astrology Help Me In Predicting The Future?
+          ▪️ How Can Online Astrology Help Me In Predicting The Future?
           </p>
           <div className="p-1  rounded-sm">
             {slot == 2 ? (
@@ -109,7 +109,7 @@ function Faqs() {
       <div className="   border-b border-black  w-[95%]    md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3">
         <div className="py-2 flex justify-between items-center">
           <p className=" font-semibold py-2">
-            How reliable is the Astrocaptain app?
+          ▪️ How reliable is the Astrocaptain app?
           </p>
           <div className="p-1  rounded-sm">
             {slot == 3 ? (
@@ -157,7 +157,7 @@ function Faqs() {
       <div className="    border-b border-black w-[95%]    md:w-[92%] mx-auto transition-all duration-500 ease-in-out px-3 ">
         <div className="py-2 flex justify-between items-center">
           <p className=" font-semibold py-2">
-            How much does Astrocaptain cost?
+          ▪️ How much does Astrocaptain cost?
           </p>
           <div className="p-1  rounded-sm">
             {slot == 4 ? (
