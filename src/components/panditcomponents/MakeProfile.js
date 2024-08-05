@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import Select from "react-select";
+
 function ProfileForm() {
   const location = useLocation();
-  const slug=location.pathname.split('/').pop();
+  const slug = location.pathname.split("/").pop();
   const navigate = useNavigate();
   const initialState = {
     firstName: "",
@@ -23,6 +25,17 @@ function ProfileForm() {
   function handleChange(e) {
     setResponse({ ...response, [e.target.name]: e.target.value });
   }
+
+  function handleSelectChange(selectedOptions, action) {
+    const { name } = action;
+    setResponse((prevData) => ({
+      ...prevData,
+      [name]: selectedOptions
+        ? selectedOptions.map((option) => option.value)
+        : [],
+    }));
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -36,9 +49,50 @@ function ProfileForm() {
       console.log("ERRR:", error);
     }
   }
+
+  const skillsOptions = [
+    { value: "JavaScript", label: "JavaScript" },
+    { value: "React", label: "React" },
+    { value: "Node.js", label: "Node.js" },
+    { value: "Python", label: "Python" },
+    { value: "Java", label: "Java" },
+  ];
+
+  const languagesOptions = [
+    { value: "Hindi", label: "Hindi" },
+    { value: "English", label: "English" },
+    { value: "Marathi", label: "Marathi" },
+    { value: "Gujarati", label: "Gujarati" },
+    { value: "Tamil", label: "Tamil" },
+  ];
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      borderColor: "gray",
+      color: "black",
+    }),
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: "lightgray",
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      color: "black",
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: "black",
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "gray",
+    }),
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4 mb-8 relative top-[5rem]">
+      <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Create Your Profile
         </h2>
@@ -49,34 +103,36 @@ function ProfileForm() {
             </label>
             <input
               type="file"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => handleChange(e)}
               name="image"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              First Name
-            </label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded"
-              placeholder="First Name"
-              onChange={(e) => handleChange(e)}
-              name="firstName"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Last Name
-            </label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded"
-              placeholder="Last Name"
-              onChange={(e) => handleChange(e)}
-              name="lastName"
-            />
+          <div className="grid grid-cols-2 gap-3 mb-3">
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="w-full p-2 border rounded text-black"
+                placeholder="First Name"
+                onChange={(e) => handleChange(e)}
+                name="firstName"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="w-full p-2 border rounded text-black"
+                placeholder="Last Name"
+                onChange={(e) => handleChange(e)}
+                name="lastName"
+              />
+            </div>
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -88,7 +144,7 @@ function ProfileForm() {
                   type="radio"
                   name="gender"
                   value="Male"
-                  className="mr-2"
+                  className="mr-2 text-black"
                   onChange={(e) => handleChange(e)}
                 />
                 Male
@@ -98,7 +154,7 @@ function ProfileForm() {
                   type="radio"
                   name="gender"
                   value="Female"
-                  className="mr-2"
+                  className="mr-2 text-black"
                   onChange={(e) => handleChange(e)}
                 />
                 Female
@@ -111,7 +167,7 @@ function ProfileForm() {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               placeholder="Gotra"
               onChange={(e) => handleChange(e)}
               name="gotra"
@@ -123,7 +179,7 @@ function ProfileForm() {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               placeholder="Belongs To"
               onChange={(e) => handleChange(e)}
               name="belongsTo"
@@ -135,8 +191,8 @@ function ProfileForm() {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded"
-              placeholder="city"
+              className="w-full p-2 border rounded text-black"
+              placeholder="City"
               onChange={(e) => handleChange(e)}
               name="city"
             />
@@ -146,9 +202,8 @@ function ProfileForm() {
               Date of Birth
             </label>
             <input
-              type="text"
-              className="w-full p-2 border rounded"
-              placeholder="Date of Birth"
+              type="date"
+              className="w-full p-2 border rounded text-black"
               onChange={(e) => handleChange(e)}
               name="dob"
             />
@@ -159,8 +214,8 @@ function ProfileForm() {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded"
-              placeholder="experience"
+              className="w-full p-2 border rounded text-black"
+              placeholder="Experience"
               onChange={(e) => handleChange(e)}
               name="experience"
             />
@@ -169,33 +224,29 @@ function ProfileForm() {
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Skills
             </label>
-            <select
-              className="w-full p-2 border rounded"
-              onChange={(e) => handleChange(e)}
+            <Select
+              isMulti
               name="Skills"
-            >
-              <option>JavaScript</option>
-              <option>React</option>
-              <option>Node.js</option>
-              <option>Python</option>
-              <option>Java</option>
-            </select>
+              options={skillsOptions}
+              className="basic-multi-select text-black"
+              classNamePrefix="select"
+              styles={customStyles}
+              onChange={handleSelectChange}
+            />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Languages
             </label>
-            <select
-              className="w-full p-2 border rounded"
-              onChange={(e) => handleChange(e)}
+            <Select
+              isMulti
               name="languages"
-            >
-              <option>Hindi</option>
-              <option>English</option>
-              <option>Marathi</option>
-              <option>Gujrati</option>
-              <option>Tamil</option>
-            </select>
+              options={languagesOptions}
+              className="basic-multi-select text-black"
+              classNamePrefix="select"
+              styles={customStyles}
+              onChange={handleSelectChange}
+            />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -203,16 +254,16 @@ function ProfileForm() {
             </label>
             <input
               type="text"
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-black"
               placeholder="Professional Qualifications"
               onChange={(e) => handleChange(e)}
-              name="professionalqualifications"
+              name="professionalQualifications"
             />
           </div>
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
             >
               Register
             </button>

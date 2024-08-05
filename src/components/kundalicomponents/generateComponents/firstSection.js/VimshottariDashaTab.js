@@ -39,7 +39,7 @@ const VimshottariDashaTab = () => {
   useEffect(()=>{
     const fetchDasha=async()=>{
       try{
-        const res=await fetch(`https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en`);
+        const res=await fetch(`https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&lang=en`);
         const data=await res.json();
         console.log(data);
         setDashas(data.response.dashas);

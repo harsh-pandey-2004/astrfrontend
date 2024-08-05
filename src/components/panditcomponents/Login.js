@@ -23,7 +23,7 @@ const PanditLoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
+   console.log(response);
     let a = await axios.post("https://astrobackend.onrender.com/api/loginpandit", {
       ...response,
       mobile: phoneNumber,
@@ -44,7 +44,7 @@ const PanditLoginForm = () => {
         </h1>
 
         <div className="mx-3">
-          <h6 className="text-lg mb-2 font-sans">Enter your phone number</h6>
+          <h6 className="text-lg mb-2 font-sans text-white">Enter your phone number</h6>
           <div className="flex items-center justify-center bg-gray-700  p-3 gap-2 rounded">
             <div className="mr-2">
               <img
@@ -76,11 +76,11 @@ const PanditLoginForm = () => {
           </div>
         </div>
         <div className="flex p-3 gap-2 rounded-lg flex-col items-start ">
-          <h6 className="text-lg  font-sans">Enter your Password</h6>
+          <h6 className="text-lg  font-sans text-white">Enter your Password</h6>
           <input
             type="password"
             placeholder="Enter your Password"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3"
+            className="form-input  outline-none  rounded bg-transparent text-white placeholder:text-gray-400  border-2 w-full py-2 px-3"
             value={response.password}
             onChange={handleChange}
             name="password"

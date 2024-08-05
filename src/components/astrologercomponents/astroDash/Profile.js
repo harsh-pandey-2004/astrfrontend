@@ -87,7 +87,7 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="sm:mt-12 w-full  h-full md:mt-24 flex flex-col items-center p-4 overflow-auto bg-black text-white">
+    <div className="sm:mt-12 w-full  h-screen md:mt-24 flex flex-col items-center p-4  bg-black text-white">
       <div className="md:hidden lg:hidden h-[3rem] w-full flex justify-evenly items-center">
         <img src="/round.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
         <img

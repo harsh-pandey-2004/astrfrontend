@@ -21,7 +21,8 @@ function Sidebar({ response }) {
         <p className="font-semibold text-white">
           {response && response.firstName + " " + response.lastName}
         </p>
-        <p className="text-sm text-gray-400">+91 {response && response.mobile}</p>
+        {/* <a href="tel:+919569676072">Call Us: +1 (234) 567-890</a> */}
+        <p className="text-sm text-yellow-500">+91 {response && response.mobile}</p>
       </div>
 
       <div className="flex  flex-col items-center gap-4 pt-4 text-center w-full   h-full ">
@@ -41,7 +42,8 @@ function Sidebar({ response }) {
         </Link>
 
         <Link
-          to={`/panditdashboard/${response._id}/shedule`}
+          // to={`/panditdashboard/${response._id}/shedule`}
+          to={`schedule`}
           className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
         >
           Schedule

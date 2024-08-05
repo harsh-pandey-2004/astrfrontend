@@ -39,7 +39,7 @@ const PlanetaryTab = () => {
 
   const fetchPlanetReport=async()=>{
     try{
-      const response=await fetch(`https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&planet=Jupiter&lang=en`);
+      const response=await fetch(`https://api.vedicastroapi.com/v3-json/horoscope/planet-report?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&planet=Jupiter&lang=en`);
       const data= await response.json();
       console.log(data);
       setDesc(data.response[0].general_prediction);
