@@ -1,0 +1,89 @@
+.relative img {
+    filter: brightness(50%);
+    transition: filter 0.3s ease;
+  }
+  
+  .relative:hover img {
+    filter: brightness(70%);
+  }
+  
+  button {
+    transition: background-color 0.3s ease;
+  }
+  .relative img {
+    filter: brightness(50%);
+    transition: filter 0.3s ease;
+  }
+  
+  .relative:hover img {
+    filter: brightness(70%);
+  }
+  
+  button {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Additional styling for the popup and other elements */
+  .fixed {
+    position: fixed;
+  }
+  
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .bg-opacity-75 {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .z-50 {
+    z-index: 50;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .max-w-md {
+    max-width: 28rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .top-2 {
+    top: 0.5rem;
+  }
+  
+  .right-2 {
+    right: 0.5rem;
+  }
+  
+  .text-gray-700 {
+    color: #4a5568;
+  }
+  
+  .hover\:text-gray-900:hover {
+    color: #1a202c;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .p-8 {
+    padding: 2rem;
+  }
+  

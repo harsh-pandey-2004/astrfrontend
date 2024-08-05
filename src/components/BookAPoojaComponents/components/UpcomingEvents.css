@@ -1,0 +1,51 @@
+/* UpcomingEvents.css */
+.container {
+    max-width: 1200px;
+  }
+  
+  .slick-slide {
+    padding: 10px;
+  }
+  
+  .slick-dots li button:before {
+    color: #f6c300;
+  }
+  
+  .slick-prev, .slick-next {
+    color: #f6c300;
+  }
+  
+  .bg-white {
+    background-color: #fff;
+  }
+  
+  .rounded-lg {
+    border-radius: 1rem;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .transition-transform {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover\\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .text-gray-600 {
+    color: #718096;
+  }
+  
+  .text-gray-700 {
+    color: #4a5568;
+  }
+  
+
+  

@@ -35,7 +35,6 @@ const NewServices = () => {
              </div>
              </div>
 
-
             <div className='ServiceImg md:w-2/5 w-full   p-2  rounded-md border border-yellow-400  shadow-md shadow-yellow-400  '>
               {service=="kundli" && <div className='overflow-hidden'><img src="https://media.istockphoto.com/id/1387867659/photo/couple-holding-hands-at-beach.jpg?s=1024x1024&w=is&k=20&c=Z0PnGfGpIO5USDHsohPV3IldKPjEIA3IUo_PYJvQY9E=" className='rounded-md hover:scale-105 hover:cursor-pointer transition duration-300 '/> </div>}
               { service=="vastu" && <div className='overflow-hidden'> <img src="https://media.istockphoto.com/id/1156187680/photo/asian-traditional-vishuddha-chakra-symbol.jpg?s=1024x1024&w=is&k=20&c=tTIKjLszDr_TgvsnNBBRPPsUjQWC3LtHz-Ha_8cG2GQ=" className='rounded-md hover:scale-105 hover:cursor-pointer transition duration-300 '/> </div>}
