@@ -1,45 +1,50 @@
+import React, { useEffect, useState } from "react";
 import Sidebar from "./PanditDash/panditdashcomponents/Sidebar";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Profile from "./PanditDash/Profile";
-// import Schedule from "./PanditDash";
 import Stats from "./PanditDash/Stats";
 import MailPage from "./PanditDash/MailPage";
-import { useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
+import PanditSchedule from "./PanditDash/PanditSchedule";
 
 function MainPanditDash() {
   const [response, setResponse] = useState([]);
-  const location=useLocation();
-  const slug=location.pathname.split('/').pop();
+  const location = useLocation();
+  const slug = location.pathname.split('/').pop();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${slug}`);
         console.log(a.data.panditData);
         setResponse(a.data.panditData);
-        
       } catch (error) {
         console.log("error:", error);
       }
     };
     fetchData();
   }, [slug]);
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="flex relative overflow-hidden top-24 lg:top-0">
-      
-      <Sidebar response={response}/>
-      <div className="h-screen w-4/5">
-        <Routes>
-          <Route path="/" element={<Profile response={response} />} />
-          {/* <Route path="/schedule" element={<Schedule />} /> */}
-          {/* <Route path="/stats" element={<Stats />} /> */}
-          <Route path="/mail" element={<MailPage response={response} />} />
-        </Routes>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex flex-grow relative overflow-hidden top-24 lg:top-0">
+        <Sidebar response={response} />
+        <div className="h-full md:w-3/4 w-full overflow-y-auto">
+          <Routes>
+            {/* Redirect to profile as the default route */}
+            <Route path="/" element={<Navigate to="profile" />} />
+            <Route path="profile" element={<Profile response={response} />} />
+            <Route path="schedule" element={<PanditSchedule />} />
+            <Route path="stats" element={<Stats />} />
+            <Route path="mail" element={<MailPage response={response} />} />
+          </Routes>
+        </div>
       </div>
+      <footer className="md:hidden bg-white text-white py-4 mt-8 text-center"></footer>
     </div>
   );
 }

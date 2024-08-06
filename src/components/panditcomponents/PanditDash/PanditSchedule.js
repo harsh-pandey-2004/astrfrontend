@@ -4,11 +4,11 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "./astrodashcom/AstroSchedule.css"; // Ensure the CSS file is correctly imported
+import "./panditdashcomponents/PanditSchedule.css"; // Ensure the CSS file is correctly imported
 
 const localizer = momentLocalizer(moment);
 
-const AstroSchedule = () => {
+const PanditSchedule = () => {
   const { id } = useParams();
   const [selectedDates, setSelectedDates] = useState([]);
   const [isBooked, setIsBooked] = useState(false);
@@ -138,4 +138,4 @@ const AstroSchedule = () => {
   );
 };
 
-export default AstroSchedule;
+export default PanditSchedule;

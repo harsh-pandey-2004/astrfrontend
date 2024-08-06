@@ -57,7 +57,7 @@ const PanditLoginForm = () => {
               className="form-select bg-transparent text-white"
               value={countryCode}
               onChange={handleCountryCOde}
-              name="countryCode"
+              name="countryCode"n
             >
               <option value="+91">+91 India</option>
             </select>

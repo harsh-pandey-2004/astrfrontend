@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Profile = ({ response }) => {
-  const [newSkill, setNewSkill] = useState('');
+  const [newSkill, setNewSkill] = useState("");
   const [editMode, setEditMode] = useState(false); // State to toggle edit mode
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    mail: 'RamaKrishna@gmail.com',
-    Skills: ['Vedic Chanting', 'Astrology'],
-    experience: '',
-    languages: '',
-    chatPrice: '',
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    mail: "RamaKrishna@gmail.com",
+    skills: ["Vedic Chanting", "Astrology"],
+    experience: "",
+    languages: "",
+    gotra: "",
   });
 
   useEffect(() => {
-    console.log(response);
     if (response) {
       setFormData({
-        firstName: response.firstName || '',
-        lastName: response.lastName || '',
-        mobile: response.mobile || '',
-        mail: 'RamaKrishna@gmail.com',
-        Skills: response.Skills || ['Vedic Chanting', 'Astrology'],
-        experience: response.experience || '',
-        languages: response.languages || '',
-        gotra: response.gotra || '',
+        firstName: response.firstName || "",
+        lastName: response.lastName || "",
+        mobile: response.mobile || "",
+        mail: "RamaKrishna@gmail.com",
+        skills: response.Skills || ["Vedic Chanting", "Astrology"],
+        experience: response.experience || "",
+        languages: response.languages || "",
+        gotra: response.gotra || "",
       });
     }
   }, [response]);
@@ -45,29 +44,29 @@ const Profile = ({ response }) => {
   };
 
   const handleSkillsChange = (index, value) => {
-    const updatedSkills = [...formData.Skills];
+    const updatedSkills = [...formData.skills];
     updatedSkills[index] = value;
     setFormData({
       ...formData,
-      Skills: updatedSkills,
+      skills: updatedSkills,
     });
   };
 
   const handleAddSkill = () => {
-    if (newSkill.trim() && !formData.Skills.includes(newSkill.trim())) {
+    if (newSkill.trim() && !formData.skills.includes(newSkill.trim())) {
       setFormData({
         ...formData,
-        Skills: [...formData.Skills, newSkill.trim()],
+        skills: [...formData.skills, newSkill.trim()],
       });
-      setNewSkill('');
+      setNewSkill("");
     }
   };
 
   const handleDeleteSkill = (index) => {
-    const updatedSkills = formData.Skills.filter((_, i) => i !== index);
+    const updatedSkills = formData.skills.filter((_, i) => i !== index);
     setFormData({
       ...formData,
-      Skills: updatedSkills,
+      skills: updatedSkills,
     });
   };
 
@@ -81,106 +80,97 @@ const Profile = ({ response }) => {
       console.log(respond.data); // Handle the response data if needed
       toggleEditMode(); // Exit edit mode after saving
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className="w-4/5 h-screen py-4 absolute right-0 bg-orange-50 overflow-y-auto">
-      <h1 className="text-center text-3xl">
-        Welcome! Pandit {formData.firstName}
-      </h1>
-
-      <div className="md:w-3/5 xs:w-full mx-auto mt-6 rounded-lg px-4 pb-2 shadow-md bg-yellow-100">
-        <form onSubmit={handleSubmit}>
-          <div className="border-b border-black pb-2">
-            <div className="md:flex xs:flex-col gap-28 pt-2">
-              <div className="flex gap-1 md:flex-col">
-                <p className="text-gray-600">FirstName</p>
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  className="bg-yellow-100 focus:outline-none"
-                  readOnly={!editMode}
-                />
-              </div>
-
-              <div className="flex gap-1 md:flex-col">
-                <p className="text-gray-600">LastName</p>
-                <input
-                  type="text"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  className="bg-yellow-100 focus:outline-none"
-                  readOnly={!editMode}
-                />
-              </div>
+    <div className="sm:mt-12 h-screen md:mt-24 flex flex-col items-center p-4 bg-black text-white">
+      <div className="w-full md:h-auto h-full bg-black text-yellow-400 rounded-lg shadow-lg p-4 flex flex-col">
+        <h1 className="text-3xl font-bold mb-4 text-start">
+          Welcome, Pandit {formData.firstName}!
+        </h1>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-gray-300 font-medium">
+                <b>First Name</b>
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                readOnly={!editMode}
+              />
             </div>
 
-            <div className="md:flex xs:flex-col gap-36 mt-4">
-              <div className="flex gap-1 md:flex-col">
-                <p className="text-gray-600">Gotra</p>
-                <input
-                  type="text"
-                  name="chatPrice"
-                  value={formData.gotra}
-                  onChange={handleInputChange}
-                  className="bg-yellow-100 focus:outline-none"
-                  readOnly={!editMode}
-                />
-              </div>
-
-              <div className="flex md:flex-col">
-                <label htmlFor="gender" className="text-gray-600">
-                  Gender
-                </label>
-                <p className="bg-yellow-100">Male</p>
-              </div>
+            <div>
+              <label className="text-gray-300 font-medium">
+                <b>Last Name</b>
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                readOnly={!editMode}
+              />
             </div>
           </div>
 
-          <div className="md:flex xs:flex-col md:justify-between mt-6 border-b border-black pb-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <p className="text-gray-600 text-center">Experience</p>
+              <label className="text-gray-300 font-medium">Gotra</label>
+              <input
+                type="text"
+                name="gotra"
+                value={formData.gotra}
+                onChange={handleInputChange}
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                readOnly={!editMode}
+              />
+            </div>
+
+            <div>
+              <label className="text-gray-300 font-medium">Gender</label>
+              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
+                {response.gender}
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-gray-300 font-medium">Experience</label>
               <input
                 type="text"
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                className="bg-yellow-100 focus:outline-none text-center"
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
                 readOnly={!editMode}
               />
             </div>
 
-            <div className="flex md:flex-col pl-12 justify-center items-center">
-              <p className="text-gray-600">Live in(city)</p>
-              <p className="bg-yellow-100">{response.city}</p>
-            </div>
-
-            <div className="flex md:flex-col justify-center items-center">
-              <p className="text-gray-600">Languages</p>
-              <input
-                type="text"
-                name="languages"
-                value={formData.languages}
-                onChange={handleInputChange}
-                className="bg-yellow-100 focus:outline-none text-center"
-                readOnly={!editMode}
-              />
+            <div>
+              <label className="text-gray-300 font-medium">Live in (City)</label>
+              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
+                {response.city}
+              </p>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="mt-4 rounded w-full max-w-md">
-              <h2 className="text-xl mb-2">Skills</h2>
-              <ul className="mb-4">
-                {formData.Skills.map((skill, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="text-gray-300 font-medium">Skills</label>
+              <ul className="space-y-2">
+                {formData.skills.map((skill, index) => (
                   <li
                     key={index}
-                    className="flex justify-between items-center mb-2"
+                    className="flex items-center bg-gray-800 border border-gray-600 rounded-lg p-2 text-sm text-white"
                   >
                     <input
                       type="text"
@@ -188,13 +178,13 @@ const Profile = ({ response }) => {
                       onChange={(e) =>
                         handleSkillsChange(index, e.target.value)
                       }
-                      className="bg-yellow-100 focus:outline-none"
+                      className="flex-grow bg-transparent border-none text-white focus:outline-none"
                       readOnly={!editMode}
                     />
                     {editMode && (
                       <button
                         type="button"
-                        className="bg-yellow-300 px-2 py-1 rounded"
+                        className="ml-2 bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition"
                         onClick={() => handleDeleteSkill(index)}
                       >
                         Delete
@@ -203,18 +193,20 @@ const Profile = ({ response }) => {
                   </li>
                 ))}
               </ul>
+
               {editMode && (
-                <div className="md:flex xs:flex-col mb-4">
+                <div className="flex mt-2 gap-1">
                   <input
                     type="text"
-                    className="border px-2 flex-grow mr-2 rounded-md focus:outline-none bg-yellow-50"
+                    className="flex-grow bg-gray-800 border border-yellow-400 rounded-lg p-2 text-sm text-white"
                     placeholder="Add a new skill"
                     value={newSkill}
                     onChange={(e) => setNewSkill(e.target.value)}
                   />
+
                   <button
                     type="button"
-                    className="bg-blue-500 text-white px-4 py-1 rounded"
+                    className="bg-blue-600 text-white px-5 py-1 rounded-lg hover:bg-blue-700 transition"
                     onClick={handleAddSkill}
                   >
                     Add
@@ -222,24 +214,38 @@ const Profile = ({ response }) => {
                 </div>
               )}
             </div>
+
+            <div>
+              <label className="text-gray-300 font-medium">Languages</label>
+              <input
+                type="text"
+                name="languages"
+                value={formData.languages}
+                onChange={handleInputChange}
+                className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+                readOnly={!editMode}
+              />
+            </div>
           </div>
 
-          <div className="flex items-center justify-center w-full gap-2 mt-4">
-            <button
-              type="button"
-              className="px-4 py-1 border rounded-md text-black bg-yellow-300"
-              onClick={toggleEditMode}
-            >
-              {editMode ? 'Cancel' : 'Edit'}
-            </button>
-            {editMode && (
+          <div className="flex justify-between items-center mt-8">
+            <div className="flex space-x-4">
+              {editMode && (
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                >
+                  Save
+                </button>
+              )}
               <button
-                type="submit"
-                className="px-4 py-1 border rounded-md text-black bg-yellow-300"
+                type="button"
+                className="px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-700 transition"
+                onClick={toggleEditMode}
               >
-                Save
+                {editMode ? "Cancel" : "Edit"}
               </button>
-            )}
+            </div>
           </div>
         </form>
       </div>

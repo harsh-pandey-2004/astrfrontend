@@ -94,7 +94,7 @@ function AstroCouncellorProfileForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4 mb-8 relative top-[5rem]">
       <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
