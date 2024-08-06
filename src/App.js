@@ -108,7 +108,7 @@ function App() {
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
           <Route path="/blogs" element={<VastuMainPage />} />
-          <Route path="/panditdashboard/:id" element={<MainPanditDash />} />
+          <Route path="/panditdashboard/:id/*" element={<MainPanditDash />} />
           <Route
             path="/panditdashboard/:id/shedule"
             element={<PanditSchedule />}
@@ -131,10 +131,10 @@ function App() {
           <Route path="/match-report" element={<MatchReport/>}/>
         
 
-          <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
+          <Route path="/pooja-booking" element={<PujaCartForm/>}></Route>
           <Route path="/register-page" element={<RegisterForm />}></Route>
-          <Route path="/book-a-pooja/:id" element={<Bookpoojasub />}></Route>
-          <Route path="/dashboard/:id" element={<Dashboard />}>
+          <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>
+          <Route path="/dashboard/:id" element={<Dashboard/>}>
             <Route path="Transactions" element={<Transactions />} />
             <Route path="OrderHistory" element={<OrderHistory />} />
             <Route path="Support" element={<Support />} />
@@ -147,30 +147,30 @@ function App() {
           <Route path="/loginpandit" element={<PanditLoginForm />}></Route>
           <Route
             path="/panditregister/panditverify-phone/:id"
-            element={<PanditVerifyPhone />}
+            element={<PanditVerifyPhone/>}
           ></Route>
 
           {/* Not changed */}
           <Route
             path="/poojapandit/:poojaId/pandit/:panditId/date/:date/time/:time"
-            element={<BookPanditForm />}
+            element={<BookPanditForm/>}
           ></Route>
 
           <Route
             path="/register-page/verify-phone/:id"
-            element={<VerifyPhone />}
+            element={<VerifyPhone/>}
           ></Route>
           <Route path="/loginform" element={<LoginForm />}></Route>
 
           {/* //AstroRoutes */}
           <Route
             path="/astrologerlogin"
-            element={<AstrologerLoginForm />}
+            element={<AstrologerLoginForm/>}
           ></Route>
           <Route path="/astrologerdashboard/:id/*" element={<MainDashAstro />} />
           <Route
             path="/astrologerregister"
-            element={<AstrologerRegistrationForm />}
+            element={<AstrologerRegistrationForm/>}
           ></Route>
           <Route
             path="/astrologerregister/astrologerverify-phone/:id"

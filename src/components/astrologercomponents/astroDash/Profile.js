@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = ({ response }) => {
   const [newSkill, setNewSkill] = useState("");
   const [editMode, setEditMode] = useState(false); // State to toggle edit mode
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -24,7 +25,7 @@ const Profile = ({ response }) => {
         lastName: response.lastName || "",
         mobile: response.mobile || "",
         mail: "RamaKrishna@gmail.com",
-        skills: response.skills || ["Vedic Chanting", "Astrology"],
+         skills: response.Skills || ["Vedic Chanting", "Astrology"],
         experience: response.experience || "",
         languages: response.languages || "",
         chatPrice: response.chatPrice || "",
@@ -87,7 +88,7 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="sm:mt-12 w-full  h-screen md:mt-24 flex flex-col items-center p-4  bg-black text-white">
+    <div className="sm:mt-12   h-screen md:mt-24 flex flex-col items-center p-4  bg-black text-white">
       <div className="md:hidden lg:hidden h-[3rem] w-full flex justify-evenly items-center">
         <img src="/round.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
         <img

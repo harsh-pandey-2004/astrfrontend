@@ -1,0 +1,44 @@
+/* Background of the calendar */
+.rbc-calendar {
+    background-color: black;
+    color: yellow;
+}
+
+/* Selected date styling */
+.rbc-selected {
+    background-color: #FFD700 !important; /* Gold */
+    color: black !important; /* Black text */
+    border: 2px solid #FFD700 !important; /* Gold border for visibility */
+}
+
+/* Header styling */
+.rbc-header {
+    background-color: #FFD700; /* Gold */
+    color: black;
+}
+
+/* Day cell background */
+.rbc-day-bg {
+    background-color: #333333; /* Dark gray */
+    color: #FFD700; /* Gold */
+}
+
+/* Event styling */
+.rbc-event {
+    background-color: #FFD700; /* Gold */
+    color: black;
+}
+
+
+/* Highlight selected date range */
+.rbc-selected-range {
+    background-color: rgba(255, 215, 0, 0.5) !important; /* Semi-transparent gold */
+    color: black !important; /* Black text for better readability */
+    border: 1px solid #FFD700 !important; /* Gold border */
+}
+
+/* Ensure that individual selected dates also have the desired style */
+.rbc-day-bg.rbc-selected {
+    background-color: rgba(255, 215, 0, 0.5) !important; /* Semi-transparent gold */
+    color: black !important; /* Black text */
+}

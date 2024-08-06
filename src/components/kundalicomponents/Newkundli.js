@@ -112,7 +112,7 @@ const NewKundli = () => {
         {/* Birth Details */}
         <div className="flex flex-col gap-3 mt-1">
           <p >Birth Details</p>
-          <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
+          <div className="md:flex xs:flex-col w-full gap-2 ">
             <div className="flex flex-col w-full md:w-1/4">
               <label>Day</label>
               <select
@@ -165,7 +165,7 @@ const NewKundli = () => {
             </div>
           </div>
 
-          <div className="md:flex xs:flex-col flex-wrap w-full justify-between ">
+          <div className="md:flex xs:flex-col w-full gap-2 ">
             <div className="flex flex-col w-full md:w-1/4">
               <label>Hour</label>
               <select
