@@ -1,4 +1,4 @@
-.relative img {
+/* .relative img {
     filter: brightness(50%);
     transition: filter 0.3s ease;
   }
@@ -21,9 +21,9 @@
   
   button {
     transition: background-color 0.3s ease;
-  }
+  } */
   
-  /* Additional styling for the popup and other elements */
+  /* Additional styling for the popup and other elements
   .fixed {
     position: fixed;
   }
@@ -86,4 +86,4 @@
   .p-8 {
     padding: 2rem;
   }
-  
+   */
