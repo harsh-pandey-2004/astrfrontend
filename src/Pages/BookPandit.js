@@ -58,7 +58,7 @@ const BookPandit = (props) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [response, setResponse] = useState({ nameOfPooja: "", location: "" });
   const [filterData, setFilterData] = useState([]);
-
+const[pandit,setpandit]= useState()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setResponse({ ...response, [name]: value });
@@ -142,7 +142,7 @@ const BookPandit = (props) => {
           <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center">
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
-              src={Pandit}
+              // src={Pandit}
               alt="Temple"
               className="filter brightness-75 contrast-125 "
             />

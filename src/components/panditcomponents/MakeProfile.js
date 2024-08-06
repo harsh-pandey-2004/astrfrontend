@@ -39,6 +39,7 @@ function ProfileForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      console.log(slug)
       let a = await axios.patch(
         `https://astrobackend.onrender.com/api/update-pandit-profile/${slug}`,
         response
