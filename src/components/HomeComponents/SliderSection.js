@@ -74,7 +74,7 @@ const Carousel = () => {
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src={Sweet}
-                className="w-full h-full"
+                className="w-full h-full rounded-full bg-white"
               />
             </div>
             <p className="text-xs font-sans sm:text-base">Book a Prasad</p>
@@ -83,10 +83,10 @@ const Carousel = () => {
 
         <Link to="/book-a-pandit">
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
-            <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
+            <div className="W-10 h-10 rounded-full bg-white xl:w-12 xl:h-12">
               <img
                 src={Pandit}
-                className="w-full h-full"
+                className="w-fit h-full rounded-full bg-white"
               />
             </div>
             <p className="text-xs font-sans sm:text-base">Book a Pandit</p>
@@ -98,7 +98,7 @@ const Carousel = () => {
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src="https://www.svgrepo.com/show/263720/chat.svg"
-                className="w-full h-full"
+                className="w-full h-full rounded-full bg-white"
               />
             </div>
             <p className="text-xs font-sans sm:text-sm font-normal">
@@ -109,10 +109,10 @@ const Carousel = () => {
 
         <Link to="/call-to-astrologer">
           <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 p-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
-            <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
+            <div className="W-10 h-10 rounded-full object-contain xl:w-12 xl:h-12">
               <img
                 src={Phone}
-                className="w-full h-full"
+                className="w-full h-full rounded-full bg-white"
               />
             </div>
             <p className="text-sm font-sans">Call to Astrologer</p>
@@ -124,7 +124,7 @@ const Carousel = () => {
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src={Cart}
-                className="w-full h-full"
+                className="w-full h-full rounded-full object-contain bg-white"
               />
             </div>
             <p className="text-xs font-sans sm:text-base">Shop</p>

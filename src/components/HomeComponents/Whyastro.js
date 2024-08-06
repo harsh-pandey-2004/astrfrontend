@@ -2,16 +2,17 @@ import React from "react";
 
 export const Whyastro = () => {
   return (
-    <div className=" mb-8 px-2 py-4">
-      <h1 className="text-center text-4xl font-semibold py-3">
+    <div className="">
+       <div className="justify-center items-center text-center overflow-auto hover:overflow-scroll mb-8 px-2 py-5">
+      <h1 className="text-center text-4xl font-bold py-3">
         WHY ASTROLOGY ?
       </h1>
       <h2 className="text-center text-lg font-semibold ">
         Understanding the Divine: Astrology Reveals the Will of God{" "}
       </h2>
-      <div className=" w-[100%] flex justify-center">
+      <div className=" w-[100%] flex justify-start text-center">
         <div className="md:w-[98%]">
-        <p className=" px-4 sm:px-12 text-justify mt-6">
+        <p className=" px-4 sm:px-12 text-justify font-sans mt-5">
           Astrology, often referred to as the "will of the stars," is a profound
           and ancient predictive science. It has captivated the human spirit for
           centuries, providing insights into various aspects of life. Despite
@@ -20,7 +21,7 @@ export const Whyastro = () => {
           country has given the world a precious gift in the form of the study
           of the Sun, the Moon, and the planets in our galaxy.
         </p>
-        <p className=" px-4 sm:px-12 text-justify mt-3">
+        <p className=" px-4 sm:px-12 text-justify mt-3 indent-10 font-sans">
           Our country has given the world a precious gift in the form of the
           study of the Sun, the Moon, and the planets in our galaxy. This
           science of calculating the impact of planetary movements is called
@@ -33,10 +34,10 @@ export const Whyastro = () => {
           within your reach with its expert astrologers who can act as your
           guide, friend, and counselor in this maze that is life!
         </p>
-        <h1 className="text-xl text-start font-semibold  px-4 sm:px-12 mt-3">
-          Cosmic Influences: How Planets Shape Our Lives{" "}
+        <h1 className="underline text-xl text-start font-semibold  px-4 sm:px-12 mt-4">
+          COSMIC INFLUENCES:  How Planets Shape Our Lives{" "}
         </h1>
-        <p className=" px-4 text-justify sm:px-12 mt-3">
+        <p className=" px-4 text-justify sm:px-12 font-sans mt-1">
           Astrology delves into the influence of cosmic bodies, primarily stars
           and planets, on human lives. While we recognize eight planets in our
           solar system, astrology acknowledges nine celestial entities, known as
@@ -46,64 +47,65 @@ export const Whyastro = () => {
           with their true purpose and understand the divine orchestration at
           play.
         </p>
-        <h1 className="text-xl text-start font-semibold  px-4 sm:px-12 mt-3">
+        <h1 className="text-xl text-start font-semibold  px-4 sm:px-12 mt-2">
           The Mystical Power of the Navagrahas
         </h1>
-        <p className=" px-4 text-justify sm:px-12 mt-3">
-          The nine planets in astrology are:
-          <span className="text-yellow-600  ">Sun</span> (Surya),
-          <span className="text-yellow-600  ">Moon</span> (Chandra),
-          <span className="text-yellow-600">Mars</span> (Mangala),
-          <span className="text-yellow-600">Mercury</span>(Budha),
-          <span className="text-yellow-600">Jupiter</span> (Brihaspati),
-          <span className="text-yellow-600">Venus</span> (Shukra),
-          <span className="text-yellow-600">Venus</span> (Shani),
-          <span className="text-yellow-600">Rahu</span> (North Node of the
+        <p className=" px-4 font-sans text-justify text-start sm:px-12 mt-1">
+          The nine planets in astrology are :
+          <span className="text-yellow-600 font-sans">Sun</span>(Surya),
+          <span className="text-yellow-600 font-sans">Moon</span>(Chandra),
+          <span className="text-yellow-600 font-sans">Mars</span>(Mangala),
+          <span className="text-yellow-600 font-sans">Mercury</span>(Budha),
+          <span className="text-yellow-600 font-sans">Jupiter</span>(Brihaspati),
+          <span className="text-yellow-600 font-sans">Venus</span>(Shukra),
+          <span className="text-yellow-600 font-sans">Venus</span>(Shani),
+          <span className="text-yellow-600 font-sans">Rahu</span>(North Node of the
           Moon),
-          <span className="text-yellow-600">Ketu</span> (South Node of the
+          <span className="text-yellow-600 font-sans">Ketu</span>(South Node of the
           Moon).
         </p>
-        <p className=" px-4 text-justify sm:px-12 mt-3">
+        <p className=" px-4 text-justify sm:px-12 mt-1 indent-8">
           These planets exert varying influences on our lives. Some, like
           Jupiter and Venus, are often considered beneficial, while others, such
           as Rahu and Ketu, might bring challenges. However, the impact of each
           planet is nuanced, depending on their positions in the twelve houses
           of one’s Kundli (birth chart).
         </p>
-        <h1 className="text-xl text-start font-semibold text-justify px-4 sm:px-12 mt-3">
+        <h1 className="text-xl text-start font-bold text-justify px-4 sm:px-12 mt-5">
           Why Choose Us?
         </h1>
-        <p className=" px-4 sm:px-12 mt-3">
+        <p className="text-start px-4 sm:px-12 mt-3">
           {" "}
-          <span className="font-semibold text-lg">Convenience:</span> Save time
+          <span className="font-medium text-lg">▸Convenience: </span> Save time
           and effort by connecting with top astrologers from the comfort of your
           home. Our platform allows you to chat or call astrologers at your
           convenience.
         </p>
-        <p className=" px-4 sm:px-12 mt-3">
-          <span className="font-semibold text-lg">Credibility:</span> We ensure
+        <p className="text-start px-4 sm:px-12 mt-3">
+          <span className="font-medium text-lg">▸Credibility: </span> We ensure
           our astrologers are highly qualified and rated by users for their
           expertise and service quality. Your satisfaction is our priority.
         </p>
-        <p className=" px-4 sm:px-12 mt-3">
-          <span className="font-semibold text-lg">Comprehensive Services:</span>{" "}
+        <p className="text-start px-4 sm:px-12 mt-3">
+          <span className="font-medium text-lg">▸Comprehensive Services: </span>{" "}
           From free Kundli creation and matchmaking to daily horoscopes and gem
           recommendations, we offer a wide range of astrology-related services.
         </p>
-        <h1 className="text-xl text-start font-semibold text-justify  px-4 sm:px-12 mt-3">
-          Connecting with the Stars: Expert Guidance at Your Fingertips
+        <h1 className="text-xl text-start font-semibold text-justify  px-4 sm:px-12 mt-4">
+        Connecting with the Stars: Expert Guidance at Your Fingertips
         </h1>
-        <p className=" px-4 sm:px-12 mt-3 text-justify">
+        <p className=" px-4 sm:px-12 mt-1 text-justify">
           Join us in exploring the ancient science of astrology. Create your
           free Kundli, consult with our expert astrologers, and embark on a
           journey of self-discovery and enlightenment. Download our app or visit
           our website to get started. Experience the wisdom of the stars with
           us. Your personalized astrology consultation awaits!
         </p>
-        <h1 className="text-xl text-start font-semibold  px-4 sm:px-12 mt-3">
+        
+        <h1 className="text-xl text-start font-bold  px-4 sm:px-12 mt-5">
           Why Choose Our Astrology Experts?
         </h1>
-        <p className=" px-4 sm:px-12 mt-3 text-justify">
+        <p className=" px-4 sm:px-12 mt-3 font-sans text-justify">
           In a nutshell, AstroCaptain and our experts could be your partner and
           guide when it comes to astrology. Whether you have questions about
           your horoscope, numerology, tarot card readings, or even need to
@@ -136,6 +138,7 @@ export const Whyastro = () => {
         </p>
         </div>
       </div>
+       </div>
     </div>
   );
 };
