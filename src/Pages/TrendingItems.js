@@ -38,6 +38,8 @@ const TrendingItems = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2000, // Time interval in milliseconds
     responsive: [
       {
         breakpoint: 1024,
@@ -56,7 +58,7 @@ const TrendingItems = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-3xl font-bold text-center mb-8">Trending Items</h2>
+      <h2 className="text-3xl font-bold text-center mb-3">Trending Items</h2>
       <Slider {...settings}>
         {dummyData.map((item) => (
           <div key={item.id} className="p-4">

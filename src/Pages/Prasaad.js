@@ -120,8 +120,8 @@ const Slideshow = () => {
           </div>
         </div>
       </Slider>
-      <PrasadItems/>
       <TrendingItems/>
+      <PrasadItems/>
     </div>
   );
 };
