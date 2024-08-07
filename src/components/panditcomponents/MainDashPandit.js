@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./PanditDash/panditdashcomponents/Sidebar";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate, useParams } from "react-router-dom";
 import Profile from "./PanditDash/Profile";
 import Stats from "./PanditDash/Stats";
 import MailPage from "./PanditDash/MailPage";
 import axios from "axios";
 import PanditSchedule from "./PanditDash/PanditSchedule";
 
+
 function MainPanditDash() {
   const [response, setResponse] = useState([]);
   const location = useLocation();
-  const slug = location.pathname.split('/').pop();
+  // const slug = location.pathname.split('/').pop();
+  const {id}=useParams();
+  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${slug}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/panditdata/${id}`);
         console.log(a.data.panditData);
         setResponse(a.data.panditData);
       } catch (error) {
@@ -23,7 +26,7 @@ function MainPanditDash() {
       }
     };
     fetchData();
-  }, [slug]);
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

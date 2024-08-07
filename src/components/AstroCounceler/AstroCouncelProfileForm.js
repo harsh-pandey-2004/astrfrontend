@@ -70,81 +70,89 @@ function AstroCouncellorProfileForm() {
   ];
 
   const customStyles = {
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
-      borderColor: "gray",
-      color: "black",
+      backgroundColor: "transparent",
+      borderColor: state.isFocused ? "#FFD700" : "#555",
+      color: "#fff",
+      boxShadow: state.isFocused ? "0 0 0 1px #FFD700" : "none",
+      "&:hover": {
+        borderColor: "#FFD700",
+      },
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: "#333",
+      color: "#fff",
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: "lightgray",
+      backgroundColor: "#444",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: "black",
+      color: "#fff",
     }),
     input: (provided) => ({
       ...provided,
-      color: "black",
+      color: "#fff",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: "gray",
+      color: "#aaa",
     }),
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4 mb-8 relative top-[5rem]">
-      <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-semibold mb-1">
-              Profile Picture
-            </label>
+    <div className="w-full min-h-screen mb-16 p-4 relative top-[5rem]">
+      <div className="bg-black shadow-md rounded-lg p-6 lg:w-1/2 w-[90%] mx-auto">
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <h1 className="text-lg font-bold mb-4 p-4 bg-yellow-400 text-center w-full rounded">
+            Create Your Profile
+          </h1>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Profile Picture</h6>
             <input
               type="file"
-              className="w-full p-2 border rounded"
+              className="form-input outline-none rounded bg-gray-800 placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               onChange={handleChange}
               name="image"
             />
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-3">
+
+          <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                First Name
-              </label>
+              <h6 className="text-lg font-sans text-white">First Name</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="First Name"
                 onChange={handleChange}
                 name="firstName"
               />
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Last Name
-              </label>
+              <h6 className="text-lg font-sans text-white">Last Name</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
               />
             </div>
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-semibold mb-1">
-              Gender
-            </label>
-            <div className="flex items-center">
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Gender</h6>
+            <div className="flex items-center text-white">
               <label className="mr-4">
                 <input
                   type="radio"
                   name="gender"
                   value="Male"
-                  className="mr-2 text-black"
+                  className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={handleChange}
                 />
                 Male
@@ -154,59 +162,53 @@ function AstroCouncellorProfileForm() {
                   type="radio"
                   name="gender"
                   value="Female"
-                  className="mr-2 text-black"
+                  className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={handleChange}
                 />
                 Female
               </label>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-3">
+
+          <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Zodiac Sign
-              </label>
+              <h6 className="text-lg font-sans text-white">Zodiac Sign</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="Zodiac Sign"
                 onChange={handleChange}
                 name="zodiacSign"
               />
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                City
-              </label>
+              <h6 className="text-lg font-sans text-white">City</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="City"
                 onChange={handleChange}
                 name="city"
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-3">
+
+          <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Price for Chat
-              </label>
+              <h6 className="text-lg font-sans text-white">Price for Chat</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="Price for Chat"
                 onChange={handleChange}
                 name="chatPrice"
               />
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Price for Call per Min
-              </label>
+              <h6 className="text-lg font-sans text-white">Price for Call per Min</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="Price for Call per Min"
                 onChange={handleChange}
                 name="talkPrice"
@@ -214,75 +216,69 @@ function AstroCouncellorProfileForm() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Date of Birth
-              </label>
+              <h6 className="text-lg font-sans text-white">Date of Birth</h6>
               <input
                 type="date"
-                className="w-full p-2 border text-black rounded"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 onChange={handleChange}
                 name="dob"
               />
             </div>
             <div>
-              <label className="block text-gray-700 text-sm font-semibold mb-1">
-                Experience
-              </label>
+              <h6 className="text-lg font-sans text-white">Experience</h6>
               <input
                 type="text"
-                className="w-full p-2 border rounded text-black"
+                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
                 placeholder="Experience"
                 onChange={handleChange}
                 name="experience"
               />
             </div>
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-semibold mb-1">
-              Skills
-            </label>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Skills</h6>
             <Select
               isMulti
               name="Skills"
               options={skillsOptions}
-              className="basic-multi-select text-black"
+              className="basic-multi-select"
               classNamePrefix="select"
               styles={customStyles}
               onChange={handleSelectChange}
             />
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-semibold mb-1">
-              Languages
-            </label>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Languages</h6>
             <Select
               isMulti
               name="languages"
               options={languagesOptions}
-              className="basic-multi-select text-black"
+              className="basic-multi-select"
               classNamePrefix="select"
               styles={customStyles}
               onChange={handleSelectChange}
             />
           </div>
-          <div className="mb-3">
-            <label className="block text-gray-700 text-sm font-semibold mb-1">
-              Professional Qualifications
-            </label>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Professional Qualifications</h6>
             <input
               type="text"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="Professional Qualifications"
               onChange={handleChange}
               name="professionalQualifications"
             />
           </div>
-          <div className="flex items-center justify-center">
+
+          <div className="flex items-center justify-center p-4">
             <button
               type="submit"
-              className="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+              className="bg-yellow-500 text-black font-bold py-2 px-4 rounded hover:bg-yellow-600"
             >
               Register
             </button>

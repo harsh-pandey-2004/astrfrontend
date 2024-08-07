@@ -84,7 +84,7 @@ const Astro_Messages = ({ astrologerId }) => {
   //   }
   // }; 
   return (
-    <div className='w-full h-screen  '>
+    <div className='w-4/5 h-screen  '>
       <div className="sm:relative top-20  fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 ">
           <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
             

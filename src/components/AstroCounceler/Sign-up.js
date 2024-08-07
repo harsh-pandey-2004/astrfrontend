@@ -64,7 +64,7 @@ const AstroCouncellorRegistrationForm = () => {
           <input
             type="text"
             placeholder="Enter your Name"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3"
+            className="form-input  outline-none  rounded bg-transparent text-white placeholder:text-gray-400 border-2 w-full py-2 px-3"
             value={response.name}
             name="name"
             onChange={handleChange}
@@ -108,7 +108,7 @@ const AstroCouncellorRegistrationForm = () => {
           <input
             type="password"
             placeholder="Enter your Password"
-            className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3"
+            className="form-input  outline-none  rounded bg-transparent text-white placeholder:text-gray-400 border-2 w-full py-2 px-3"
             value={response.password}
             onChange={handleChange}
             name="password"

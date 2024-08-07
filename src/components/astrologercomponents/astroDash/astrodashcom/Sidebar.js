@@ -7,12 +7,13 @@ function Sidebar({ response }) {
   
   const [isShow, setIsShow] = useState(false);
   const [curPage,setCurPage]=useState("profile");
+  console.log(response);
   return (
     <div className="hidden mb-16  sidebar w-1/4 md:mt-[6rem] h-screen md:flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
       <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">
         <div className="relative rounded-full">
           <img
-            src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+            src={`https://astrobackend.onrender.com${response.image}`}
             height={100}
             width={100}
             className="rounded-full"
@@ -48,11 +49,11 @@ function Sidebar({ response }) {
 
         <Link
           // to={`/panditdashboard/${response._id}/shedule`}
-          to={`schedule`}
+          to={`messages`}
           onClick={()=>{setCurPage("schedule")}}
           className={`${curPage=="schedule" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
         >
-          Schedule
+          Messages
         </Link>
 
         <Link

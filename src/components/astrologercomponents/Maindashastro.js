@@ -6,7 +6,7 @@ import Profile from "./astroDash/Profile";
 import Stats from "./astroDash/Stats";
 import MailPage from "./astroDash/MailPage";
 import axios from "axios";
-import AstroSchedule from "./astroDash/AstroSchedule";
+import Astro_Messages from "./astroDash/Astro_Messages";
 
 function MainDashAstro() {
   const [response, setResponse] = useState([]);
@@ -36,7 +36,7 @@ function MainDashAstro() {
             <Route path="profile" element={<Profile response={response} />} />
             {/* <Route path="schedule" element={<Schedule />} /> */}
             {/* <Route path="stats" element={<Stats />} /> */}
-            <Route path="schedule" element={<AstroSchedule/>}/>
+           <Route path="messages" element={<Astro_Messages/>}/>
             <Route path="mail" element={<MailPage response={response} />} />
           </Routes>
         </div>
