@@ -12,7 +12,7 @@ function Sidebar({ response }) {
       <div className="flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2 w-full">
         <div className="relative rounded-full">
           <img
-            src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+            src={`https://astrobackend.onrender.com${response.image}`}
             alt="Profile"
             height={100}
             width={100}

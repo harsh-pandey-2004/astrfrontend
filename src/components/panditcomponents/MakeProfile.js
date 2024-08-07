@@ -39,7 +39,7 @@ function ProfileForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      console.log(slug)
+      console.log(slug);
       let a = await axios.patch(
         `https://astrobackend.onrender.com/api/update-pandit-profile/${slug}`,
         response
@@ -68,84 +68,97 @@ function ProfileForm() {
   ];
 
   const customStyles = {
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
-      borderColor: "gray",
-      color: "black",
+      backgroundColor: "transparent",
+      borderColor: state.isFocused ? "#FFD700" : "#555",
+      color: "#fff",
+      boxShadow: state.isFocused ? "0 0 0 1px #FFD700" : "none",
+      "&:hover": {
+        borderColor: "#FFD700",
+      },
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: "#333",
+      color: "#fff",
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: "lightgray",
+      backgroundColor: "#444",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: "black",
+      color: "#fff",
     }),
     input: (provided) => ({
       ...provided,
-      color: "black",
+      color: "#fff",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: "gray",
+      color: "#aaa",
     }),
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-yellow-400 p-4 mb-8 relative top-[5rem]">
-      <div className="shadow-bg1 rounded-lg shadow-xl p-4 w-[80%]">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          Create Your Profile
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Profile Picture
-            </label>
+    <div className="w-full  min-h-fit pb-28">
+      <div className="bg-black shadow-md rounded pb-8 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
+        <form
+          autoComplete="on"
+          className="flex flex-col"
+          onSubmit={handleSubmit}
+        >
+          <h1 className="text-lg font-bold mb-4 p-4 bg-yellow-400 text-center w-full rounded">
+            Create Your Profile
+          </h1>
+          <div className="">
+            <h6 className="text-lg text-center text-white">
+              Fill in your profile details
+            </h6>
+          </div>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Profile Picture</h6>
             <input
               type="file"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-gray-800 placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               onChange={(e) => handleChange(e)}
               name="image"
             />
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-3">
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                First Name
-              </label>
-              <input
-                type="text"
-                className="w-full p-2 border rounded text-black"
-                placeholder="First Name"
-                onChange={(e) => handleChange(e)}
-                name="firstName"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 text-sm font-bold mb-2">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="w-full p-2 border rounded text-black"
-                placeholder="Last Name"
-                onChange={(e) => handleChange(e)}
-                name="lastName"
-              />
-            </div>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">First Name</h6>
+            <input
+              type="text"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
+              placeholder="First Name"
+              onChange={(e) => handleChange(e)}
+              name="firstName"
+            />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Gender
-            </label>
-            <div className="flex items-center">
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Last Name</h6>
+            <input
+              type="text"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
+              placeholder="Last Name"
+              onChange={(e) => handleChange(e)}
+              name="lastName"
+            />
+          </div>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Gender</h6>
+            <div className="flex items-center text-white">
               <label className="mr-4">
                 <input
                   type="radio"
                   name="gender"
                   value="Male"
-                  className="mr-2 text-black"
+                  className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={(e) => handleChange(e)}
                 />
                 Male
@@ -155,76 +168,70 @@ function ProfileForm() {
                   type="radio"
                   name="gender"
                   value="Female"
-                  className="mr-2 text-black"
+                  className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={(e) => handleChange(e)}
                 />
                 Female
               </label>
             </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Gotra
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Gotra</h6>
             <input
               type="text"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="Gotra"
               onChange={(e) => handleChange(e)}
               name="gotra"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Belongs To
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Belongs To</h6>
             <input
               type="text"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="Belongs To"
               onChange={(e) => handleChange(e)}
               name="belongsTo"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              City
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">City</h6>
             <input
               type="text"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="City"
               onChange={(e) => handleChange(e)}
               name="city"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Date of Birth
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Date of Birth</h6>
             <input
               type="date"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               onChange={(e) => handleChange(e)}
               name="dob"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Experience
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Experience</h6>
             <input
               type="text"
-              className="w-full p-2 border rounded text-black"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="Experience"
               onChange={(e) => handleChange(e)}
               name="experience"
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Skills
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Skills</h6>
             <Select
               isMulti
               name="Skills"
@@ -235,10 +242,9 @@ function ProfileForm() {
               onChange={handleSelectChange}
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Languages
-            </label>
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Languages</h6>
             <Select
               isMulti
               name="languages"
@@ -249,25 +255,47 @@ function ProfileForm() {
               onChange={handleSelectChange}
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">
               Professional Qualifications
-            </label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded text-black"
+            </h6>
+            <textarea
+              className="form-textarea outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               placeholder="Professional Qualifications"
               onChange={(e) => handleChange(e)}
-              name="professionalQualifications"
+              name="ProfessionalQualifications"
             />
           </div>
-          <div className="flex items-center justify-center">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
-            >
-              Register
-            </button>
+
+          <button
+            type="submit"
+            className="bg-yellow-400 hover:box-shadow1 text-black font-sans py-2 px-4 rounded-lg w-[95%] mx-auto"
+          >
+            Submit <i className="fa fa-arrow-right"></i>
+          </button>
+
+          <div className="mt-1 text-sm">
+            <p className="terms-line text-center text-white">
+              By submitting, you agree to our{" "}
+              <a
+                href="https://astrotalk.com/terms-and-conditions"
+                rel="noopener"
+                target="_blank"
+                className="text-yellow-400 underline"
+              >
+                Terms of Use
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://astrotalk.com/privacy-policies"
+                rel="noopener"
+                target="_blank"
+                className="text-yellow-400 underline"
+              >
+                Privacy Policy
+              </a>
+            </p>
           </div>
         </form>
       </div>

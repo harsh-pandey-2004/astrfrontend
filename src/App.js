@@ -187,7 +187,7 @@ function App() {
             element={<AstroCouncellForm />}
           ></Route>
           <Route
-            path="astrocouncellordashboard/:id"
+            path="astrocouncellordashboard/:id/*"
             element={<MaindashCouncellor />}
           />
           <Route

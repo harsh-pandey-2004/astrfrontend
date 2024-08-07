@@ -1,59 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 function Sidebar({ response }) {
+  const [curPage, setCurPage] = useState("profile");
+
   return (
-    <div className="sidebar w-1/5 h-screen flex flex-col items-center overflow-y-auto bg-white shadow-lg z-10 fixed top-0 left-0">
-    
-      <div className="flex flex-col items-center gap-2 border-b-2 border-black pt-6 pb-2 w-full">
+    <div className="sidebar w-1/4 md:mt-[6rem] h-screen flex flex-col items-center bg-black text-yellow-400 overflow-y-auto">
+      {/* User Profile Section */}
+      <div className="flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2 w-full">
         <div className="relative rounded-full">
           <img
-            src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+            src={`https://astrobackend.onrender.com${response.image || "/assets/images/profile_pic.webp"}`}
+            alt="Profile"
             height={100}
             width={100}
             className="rounded-full"
           />
-          <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white">
+          <div className="absolute bottom-2 right-2 p-1 rounded-full bg-white text-black">
             <FaCamera />
           </div>
         </div>
-        <p className="font-semibold text-blue-400">
+        <p className="font-semibold text-white">
           {response && `${response.firstName} ${response.lastName}`}
         </p>
-        <p className="font-semibold">+91 {response && response.mobile}</p>
+        <p className="text-sm text-yellow-500">
+          +91 {response && response.mobile}
+        </p>
       </div>
 
+      {/* Navigation Links */}
       <div className="flex flex-col items-center gap-4 pt-4 text-center w-full">
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
-          <Link to="/">Edit Profile</Link>
-        </div>
+        <Link
+          to="profile"
+          onClick={() => setCurPage("profile")}
+          className={`${
+            curPage === "profile" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+        >
+          Edit Profile
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
-          <Link to="/mail" className="flex items-center justify-center gap-2">
-            <IoIosMail />
-            Mail us
-          </Link>
-        </div>
+        <Link
+          to="mail"
+          onClick={() => setCurPage("mail")}
+          className={`${
+            curPage === "mail" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
+        >
+          <IoIosMail />
+          Mail us
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
-          <Link to={`/panditdashboard/${response._id}/schedule`}>Schedule</Link>
-        </div>
+        <Link
+          to={`schedule`}
+          onClick={() => setCurPage("schedule")}
+          className={`${
+            curPage === "schedule" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+        >
+          Schedule
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
-          <Link to="/bookings">Bookings</Link>
-        </div>
+        <Link
+          to="/bookings"
+          onClick={() => setCurPage("bookings")}
+          className={`${
+            curPage === "bookings" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+        >
+          Bookings
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
-          <Link to="/stats">Stats</Link>
-        </div>
+        <Link
+          to="/stats"
+          onClick={() => setCurPage("stats")}
+          className={`${
+            curPage === "stats" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+        >
+          Stats
+        </Link>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
+        <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Support
         </div>
 
-        <div className="py-2 px-3 rounded-full border hover:bg-yellow-400 transition hover:cursor-pointer hover:text-white text-sm w-full bg-slate-100">
+        <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Logout From Other Devices
         </div>
       </div>
