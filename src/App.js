@@ -61,6 +61,8 @@ import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
 import VastuTypePage from "./Pages/VastuPage/VastuTypePage";
 import PricingPage from "./Pages/VastuPage/PricingPage";
+import VastuForm from "./Pages/VastuPage/VastuForm";
+import GarhPooja from "./Pages/VastuPage/GarhPooja";
 
 
 
@@ -223,6 +225,9 @@ function App() {
         <Route path="/vastuType/:id" element={<VastuIndiPage/>}></Route>
         <Route path="/vastuType" element={<VastuTypePage/>}></Route>
         <Route path="/vastupricing" element={<PricingPage/>}></Route>
+        <Route path="/grahpooja" element={<GarhPooja/>}></Route>
+        <Route path="/contact" element={<VastuForm />} />
+
         </Routes>
 
         <Footer showblur={showblur} />

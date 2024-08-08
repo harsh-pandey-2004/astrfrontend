@@ -8,6 +8,7 @@ import Reviews from "./Reviews";
 import Blogs from "./Blogs";
 import BlogCard from "./Blogs";
 import vastuMakingImage from "../../images/vastu-making.webp"; // Adjust path as needed
+import BlogSection from "./BlogSection";
 
 const VastuMainPage = ({ showblur }) => {
   useEffect(() => {
@@ -64,6 +65,7 @@ const VastuMainPage = ({ showblur }) => {
       <OurSpecialists />
       <Stats />
       <BlogCard />
+      <BlogSection/>
       <Reviews />
     </div>
   );
