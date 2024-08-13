@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Vedio1 from "../../vedios/vedio1.mp4";
-import Kalash from "../../images/kalash.webp"
-import Sweet from "../../images/ladoo.webp"
-import Pandit from "../../images/indian-pandit.webp"
-import Phone from "../../images/phone-icon.webp"
-import Cart from "../../images/cart.webp"
+import Kalash from "../../images/kalash.webp";
+import Sweet from "../../images/ladoo.webp";
+import Pandit from "../../images/indian-pandit.webp";
+import Phone from "../../images/phone-icon.webp";
+import Cart from "../../images/cart.webp";
 
 const Carousel = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true, // Animation only happens once on scroll
+    });
+  }, []);
+
   const settings = {
     dots: true,
     arrows: false,
@@ -32,23 +41,23 @@ const Carousel = () => {
 
   return (
     <div
-      className={`w-full h-[70vh] main-Slider relative  overflow-hidden top-20 lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh]`}
+      className={`w-full h-[70vh] main-Slider relative overflow-hidden top-20 lg:top-0 flex flex-col min-h-fit items-center lg:h-[85vh] sm:h-[89vh] xl:h-[80vh]`}
     >
       <div className="px-2 w-[100%] h-[65vh] mx-auto pt-3 rounded-md lg:w-[90%]">
         <Slider {...settings}>
-          <div>
+          <div data-aos="fade-up">
             <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-          <div>
+          <div data-aos="fade-up">
             <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-          <div>
+          <div data-aos="fade-up">
             <video width="1620" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
@@ -56,9 +65,13 @@ const Carousel = () => {
           </div>
         </Slider>
       </div>
-      <div className="grid grid-cols-3 relative  top-[-5rem] sm:top-0 sm:grid-cols-3 lg:grid-cols-6 w-[100%] sm:w-[90%] lg:w-[88%]  sm:gap-4 xl:w-[80%]">
+      <div className="grid grid-cols-3 relative top-[-5rem] sm:top-0 sm:grid-cols-3 lg:grid-cols-6 w-[100%] sm:w-[90%] lg:w-[88%] sm:gap-4 xl:w-[80%]">
         <Link to="/book-a-pooja">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src={Kalash}
@@ -70,7 +83,11 @@ const Carousel = () => {
         </Link>
 
         <Link to="/shop-on-astro">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src={Sweet}
@@ -82,7 +99,11 @@ const Carousel = () => {
         </Link>
 
         <Link to="/book-a-pandit">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 py-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             <div className="W-10 h-10 rounded-full bg-white xl:w-12 xl:h-12">
               <img
                 src={Pandit}
@@ -94,7 +115,11 @@ const Carousel = () => {
         </Link>
 
         <Link to="/chat-with-astrologer">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-1 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-1 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src="https://www.svgrepo.com/show/263720/chat.svg"
@@ -108,7 +133,11 @@ const Carousel = () => {
         </Link>
 
         <Link to="/call-to-astrologer">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 p-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 p-1 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
             <div className="W-10 h-10 rounded-full object-contain xl:w-12 xl:h-12">
               <img
                 src={Phone}
@@ -120,7 +149,11 @@ const Carousel = () => {
         </Link>
 
         <Link to="/shop-on-astro">
-          <div className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300">
+          <div
+            className="flex flex-col items-center justify-center sm:bg-white rounded-lg lg:px-5 lg:py-3 w-full min-w-36 hover:shadow-white hover:-translate-y-2 transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
             <div className="W-10 h-10 rounded-full xl:w-12 xl:h-12">
               <img
                 src={Cart}

@@ -9,14 +9,22 @@ import Header from "../components/BookAPoojaComponents/components/Header";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/vedio4.mp4";
 import Reviews from "./VastuPage/Reviews";
+import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHeader";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const BookPooja = (props) => {
   const showblur = props.showblur;
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 1000, // Duration of animations
+      easing: 'ease-in-out', // Easing function
+      once: true, // Animation only happens once
+    });
   }, []);
-  
+
   return (
     <div
       className={`${
@@ -27,7 +35,10 @@ const BookPooja = (props) => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2">
-          <div className="lg:w-1/2 sm:pt-32 pt-10 w-full">
+          <div
+            className="lg:w-1/2 sm:pt-32 pt-10 w-full"
+            data-aos="fade-right"
+          >
             <h1 className="text-white text-base font-semibold pl-2 sm:text-lg w-fit">
               Perform Poojas Remotely at Prestigious Temples
             </h1>
@@ -55,7 +66,10 @@ const BookPooja = (props) => {
               home.
             </p>
           </div>
-          <div className="lg:w-1/2 pt-5 lg:pt-40 relative lg:pl-10 w-full flex  justify-center">
+          <div
+            className="lg:w-1/2 pt-5 lg:pt-40 relative lg:pl-10 w-full flex justify-center"
+            data-aos="fade-left"
+          >
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
               // src={Mandir}
@@ -64,14 +78,20 @@ const BookPooja = (props) => {
             />
           </div>
         </div>
-        <Header />
+        <PoojaHeader/>
       </div>
       <div className="flex flex-col items-center justify-center w-screen">
         {/* <Preference /> */}
         <Destinations />
         <Workflow />
-        <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
-        <Reviews/>
+        <Stat
+          amount="22,758+"
+          live="711"
+          customers="45.5"
+          type="pooja"
+          data-aos="fade-up"
+        />
+        <Reviews />
       </div>
     </div>
   );

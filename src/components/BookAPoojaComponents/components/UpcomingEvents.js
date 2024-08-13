@@ -1,9 +1,17 @@
-// UpcomingEvents.js
 import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './UpcomingEvents.css'; // For custom styles
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+// Initialize AOS
+AOS.init({
+  duration: 1000,
+  easing: 'ease-in-out',
+  once: true,
+});
 
 const events = [
   {
@@ -62,11 +70,11 @@ const UpcomingEvents = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-3xl font-bold mb-6 text-center">Upcoming <span className='text-[#f6c300]'>Events</span></h2>
+      <h2 className="text-3xl font-bold mb-6 text-center" data-aos="fade-up">Upcoming <span className='text-[#f6c300]'>Events</span></h2>
       <Slider {...settings}>
         {events.map((event, index) => (
-          <div key={index} className="px-4">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
+          <div key={index} className="px-4" data-aos="fade-up" data-aos-delay={index * 200}>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 h-[32rem]" data-aos="fade-up">
               <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2">{event.title}</h3>
