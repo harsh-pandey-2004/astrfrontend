@@ -119,7 +119,7 @@ const VastuForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/createvastubook",
+        "https://astrobackend.onrender.com/api/createvastubook",
         data
       );
       console.log("Response:", response.data);
