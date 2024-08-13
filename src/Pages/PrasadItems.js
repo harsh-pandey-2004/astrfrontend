@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fengsui from "../../src/images/fengshui.jpg";
 import Gems from "../../src/images/gem.jpg";
 import Plant from "../../src/images/plant.jpg";
 import Yantra from "../../src/images/yantra.jpg";
+import AOS from 'aos'; // Import AOS
+import 'aos/dist/aos.css'; // Import AOS styles
 
 const Popup = ({ item, onClose }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
+      data-aos="fade-in"
+      data-aos-duration="500"
+    >
       <div className="bg-white p-8 rounded-lg max-w-3xl w-full relative h-[25rem] flex gap-6">
         <button
           className="absolute top-2 right-2 text-gray-700 hover:text-gray-900 h-5 w-5"
@@ -97,6 +103,10 @@ const PrasadItems = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(() => {
+    AOS.init(); // Initialize AOS on component mount
+  }, []);
+
   const handleCardClick = (item) => {
     setSelectedItem(item);
   };
@@ -114,17 +124,19 @@ const PrasadItems = () => {
   );
 
   return (
-    <div className="p-4  mb-16">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Products</h1>
+    <div className="p-4 mb-16">
+      <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Products</h1>
       <div className="mb-6 flex justify-center">
-  <input
-    type="text"
-    placeholder="Search products..."
-    value={searchTerm}
-    onChange={handleSearchChange}
-    className="border p-2 rounded w-full max-w-md py-3 px-3 border-black outline-none focus:ring-2 focus:ring-yellow-500 focus:border-none"
-  />
-</div>
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="border p-2 rounded w-full max-w-md py-3 px-3 border-black outline-none focus:ring-2 focus:ring-yellow-500 focus:border-none"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        />
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredItems.map((item) => (
@@ -132,11 +144,15 @@ const PrasadItems = () => {
             key={item.id}
             className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
             onClick={() => handleCardClick(item)}
+            data-aos="fade-up"
+            data-aos-duration="1000"
           >
             <img
               src={item.img}
               alt={item.name}
               className="w-full h-48 object-cover"
+              data-aos="fade-in"
+              data-aos-duration="1000"
             />
             <div className="p-4">
               <h2 className="text-lg font-bold">{item.name}</h2>

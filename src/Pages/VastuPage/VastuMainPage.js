@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import Vedio3 from "../../vedios/vedio4.mp4";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ServicesVastu from "./ServicesVastu";
 import ServicesWeProvide from "./ServicesWeProvide";
 import OurSpecialists from "./OurSpecialists";
@@ -12,8 +13,15 @@ import BlogSection from "./BlogSection";
 
 const VastuMainPage = ({ showblur }) => {
   useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-in-out", // Animation easing
+      once: true, // Whether animation should happen only once - while scrolling down
+      mirror: false, // Whether elements should animate out while scrolling past them
+    });
     window.scrollTo(0, 0);
-  });
+  }, []);
+
   return (
     <div
       className={`${
@@ -25,7 +33,10 @@ const VastuMainPage = ({ showblur }) => {
       <div className="w-full min-h-screen h-fit">
         <div className="w-full flex flex-col min-h-screen h-fit">
           <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2 lg:h-screen items-center">
-            <div className="lg:w-1/2 outline md:pt-32 pt-10 w-full">
+            <div
+              className="lg:w-1/2 outline md:pt-32 pt-10 w-full"
+              data-aos="fade-right"
+            >
               <h1 className=" text-white text-base font-semibold pl-2 sm:text-lg   w-fit ">
                 Vastu Shastra: Harmonizing Your Space
               </h1>
@@ -49,7 +60,10 @@ const VastuMainPage = ({ showblur }) => {
               </p>
             </div>
 
-            <div className="lg:w-1/2 md:pt-20  lg:pt-36 relative lg:pl-10 w-full animate-pulse ">
+            <div
+              className="lg:w-1/2 md:pt-20 lg:pt-36 relative lg:pl-10 w-full animate-pulse"
+              data-aos="fade-left"
+            >
               <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
               <img
                 src={vastuMakingImage}
@@ -60,13 +74,27 @@ const VastuMainPage = ({ showblur }) => {
           </div>
         </div>
       </div>
-      <ServicesVastu />
-      <ServicesWeProvide />
-      <OurSpecialists />
-      <Stats />
-      <BlogCard />
-      <BlogSection/>
-      <Reviews />
+      <div data-aos="fade-up">
+        <ServicesVastu />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <ServicesWeProvide />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <OurSpecialists />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="600">
+        <Stats />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="800">
+        <BlogCard />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="1000">
+        <BlogSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="1200">
+        <Reviews />
+      </div>
     </div>
   );
 };

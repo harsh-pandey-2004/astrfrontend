@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import CountUp from "react-countup";
 
 const Stat = (props) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animations
+      easing: 'ease-in-out', // Easing function
+      once: true, // Animation only happens once
+    });
+  }, []);
+
   return (
     <div className="flex flex-col lg:flex-row items-center justify-evenly gap-7 sm:gap-3 w-full py-8 bg-gradient-to-t from-yellow-700 to-[#f6c300] text-white stat-container">
-      <div className="flex flex-col items-center">
-        <p className=" text-3xl md:text-5xl font-bold stat-number">
+      <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+        <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp
             end={parseFloat(props.amount.replace(/,/g, ""))}
             duration={2}
@@ -16,14 +26,14 @@ const Stat = (props) => {
         <p className="stat-text text-2xl">Total {props.type}</p>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
         <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp end={props.live} duration={2} /> Million Minutes
         </p>
         <p className="stat-text text-2xl">Total Minutes of Live Pooja</p>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
         <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp end={props.customers} duration={2} /> Million
         </p>
@@ -34,6 +44,3 @@ const Stat = (props) => {
 };
 
 export default Stat;
-
-// Usage example
-// <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />

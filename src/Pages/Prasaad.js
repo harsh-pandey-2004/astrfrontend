@@ -9,6 +9,7 @@ import Plant from "../../src/images/plant.jpg";
 import Yantra from "../../src/images/yantra.jpg";
 import PrasadItems from "./PrasadItems";
 import TrendingItems from "./TrendingItems";
+import AOS from 'aos'; // Import AOS
 
 const Slideshow = () => {
   const settings = {
@@ -30,13 +31,19 @@ const Slideshow = () => {
     >
       <Slider {...settings}>
         <div>
-          <div className="relative h-[498px] ">
+          <div className="relative h-[498px]">
             <img
               src={Yantra}
               alt="Yantra"
               className="w-full h-full object-cover"
+              data-aos="fade-in" // Apply AOS animation
+              data-aos-duration="1000"
             />
-            <div className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center">
+            <div
+              className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center"
+              data-aos="fade-up" // Apply AOS animation
+              data-aos-duration="1000"
+            >
               <h1 className="text-white text-4xl font-bold">
                 Astrology Yantras
               </h1>
@@ -60,8 +67,14 @@ const Slideshow = () => {
               src={Plant}
               alt="Plant"
               className="w-full h-full object-cover"
+              data-aos="fade-in" // Apply AOS animation
+              data-aos-duration="1000"
             />
-            <div className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center">
+            <div
+              className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center"
+              data-aos="fade-up" // Apply AOS animation
+              data-aos-duration="1000"
+            >
               <h1 className="text-white text-4xl font-bold">Sacred Plants</h1>
               <p className="text-white text-lg mt-2">
                 Bring home plants that bring peace and prosperity.
@@ -83,8 +96,14 @@ const Slideshow = () => {
               src={Fengsui}
               alt="Feng Shui"
               className="w-full h-full object-cover"
+              data-aos="fade-in" // Apply AOS animation
+              data-aos-duration="1000"
             />
-            <div className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center">
+            <div
+              className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center"
+              data-aos="fade-up" // Apply AOS animation
+              data-aos-duration="1000"
+            >
               <h1 className="text-white text-4xl font-bold">Feng Shui Items</h1>
               <p className="text-white text-lg mt-2">
                 Enhance your home's energy with our feng shui items.
@@ -102,8 +121,18 @@ const Slideshow = () => {
         </div>
         <div>
           <div className="relative h-[498px]">
-            <img src={Gems} alt="Gems" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center">
+            <img
+              src={Gems}
+              alt="Gems"
+              className="w-full h-full object-cover"
+              data-aos="fade-in" // Apply AOS animation
+              data-aos-duration="1000"
+            />
+            <div
+              className="absolute inset-0 flex items-center flex-col justify-center bg-black bg-opacity-50 p-5 text-center"
+              data-aos="fade-up" // Apply AOS animation
+              data-aos-duration="1000"
+            >
               <h1 className="text-white text-4xl font-bold">Precious Gems</h1>
               <p className="text-white text-lg mt-2">
                 Explore our collection of precious and semi-precious gems.
@@ -120,8 +149,8 @@ const Slideshow = () => {
           </div>
         </div>
       </Slider>
-      <TrendingItems/>
-      <PrasadItems/>
+      <TrendingItems />
+      <PrasadItems />
     </div>
   );
 };
