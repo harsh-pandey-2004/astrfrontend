@@ -22,6 +22,8 @@ const VerifyPhone = () => {
       console.log(a);
       setResponse(a.data);
       if (a.data) {
+       
+       
         navigate(`/dashboard/${a.data.user._id}`);
       } else {
         alert("You entered wrong URL");

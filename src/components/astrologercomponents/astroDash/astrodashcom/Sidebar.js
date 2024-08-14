@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import { IoMdSettings } from "react-icons/io";
+import { BsBank2 } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
+import { BsChatSquareQuoteFill } from "react-icons/bs";
+import { ImStatsBars } from "react-icons/im";
+import { FaCalendarAlt } from "react-icons/fa";
 function Sidebar({ response }) {
   
   const [isShow, setIsShow] = useState(false);
   const [curPage,setCurPage]=useState("profile");
   console.log(response);
   return (
-    <div className="hidden mb-16  sidebar w-1/4 md:mt-[6rem] h-screen md:flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
+    <div className="hidden mb-16  sidebar w-1/4 md:mt-[5rem] h-screen md:flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
       <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">
         <div className="relative rounded-full">
           <img
@@ -33,9 +38,10 @@ function Sidebar({ response }) {
         <Link
           to={`profile`}
           onClick={()=>{setCurPage("profile")}}
-          className={`${curPage==="profile" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+          className={`${curPage=="profile" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
-          Edit Profile
+          <CgProfile />
+          Profile
         </Link>
 
         <Link
@@ -47,30 +53,59 @@ function Sidebar({ response }) {
           Mail us
         </Link>
 
+
+        <Link
+          to={`settings`}
+          onClick={()=>{setCurPage("settings")}}
+          className={`${curPage=="settings" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
+        >
+        <IoMdSettings />
+          Settings
+        </Link>
+
+     
+        <Link
+          to={`schedule`}
+          onClick={()=>{setCurPage("schedule")}}
+          className={`${curPage=="schedule" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
+        >
+        <FaCalendarAlt />
+          Schedule
+        </Link>
+        
+
+
         <Link
           // to={`/panditdashboard/${response._id}/shedule`}
-          to={`messages`}
-          onClick={()=>{setCurPage("schedule")}}
-          className={`${curPage=="schedule" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+          to={`chats`}
+          onClick={()=>{setCurPage("chats")}}
+          className={`${curPage=="chats" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
-          Messages
+          <BsChatSquareQuoteFill />
+          Chats
+        </Link>
+
+
+        <Link
+          // to={`/panditdashboard/${response._id}/shedule`}
+          to={`bank`}
+          onClick={()=>{setCurPage("bank")}}
+          className={`${curPage=="bank" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
+        >
+          <BsBank2 />
+          Bank Details
         </Link>
 
         <Link
-          to="/bookings"
-          onClick={()=>{setCurPage("bookings")}}
-          className={`${curPage== "bookings" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+          to={`performance`}
+          onClick={()=>{setCurPage("performance")}}
+          className={`${curPage=="performance" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
-          Bookings
+          <ImStatsBars />
+          Performance
         </Link>
 
-        <Link
-          to="/stats"
-          onClick={()=>{setCurPage("stats")}}
-          className={`${curPage=="stats" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
-        >
-          Stats
-        </Link>
+       
 
         <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Support

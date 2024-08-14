@@ -29,9 +29,19 @@ const LoginForm = () => {
     });
     if (a.data.success) {
       const userId = a.data.user._id;
+      console.log(a.data);
+
       console.log(userId);
       localStorage.setItem('userId', userId);
+      console.log(a.data.user);
+      const userSlug=a.data.user.slug;
+      localStorage.setItem('userSlug',userSlug);
+     
+      const responseJSON=JSON.stringify(a.data.user);
+      localStorage.setItem('userdetails',responseJSON);
+     
       alert('Login successful!');
+      navigate("/");  
       // Redirect or perform any other actions after successful login
     } else {
       alert('Login failed. Please check your credentials.');
