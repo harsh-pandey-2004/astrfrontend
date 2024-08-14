@@ -40,7 +40,7 @@ const PoojaHeader = () => {
   }, [selectedTemple, poojaOptions]);
 
   return (
-    <div className="bg-black py-6 w-full flex">
+    <div className="bg-black pb-6 w-full flex">
       <div className="w-full mx-auto px-6">
         <div className="flex items-center justify-center gap-5 flex-col md:flex-row mx-auto">
           {/* Select Temple */}

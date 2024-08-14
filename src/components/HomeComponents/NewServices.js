@@ -9,17 +9,15 @@ import New4 from "../../images/newservice4.webp"
 const NewServices = () => {
   const [service, setService] = useState("kundli");
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+
 
   return (
     <div className="md:pl-20 pb-12 bg-black NewServices sm:pt-10 px-4">
-      <h1 className="text-3xl font-semibold text-start pb-4 text-white" data-aos="fade-up">
+      <h1 className="text-3xl font-semibold text-start pb-4 text-white" >
         Astro Services That we Provide
       </h1>
       <div className="sm:flex sm:flex-row items-center gap-5 md:gap-36 flex flex-col-reverse">
-        <div className="md:w-2/5 w-full" data-aos="fade-right">
+        <div className="md:w-2/5 w-full" >
           <p className="text-gray-400">
             Our services include booking poojas, astrology consultations, Vastu
             making, and more. We aim to provide spiritual guidance, harmony in
@@ -36,7 +34,7 @@ const NewServices = () => {
               onClick={() => {
                 setService("kundli");
               }}
-              data-aos="fade-up"
+              
             >
               <p className="text-white">Free Kundli</p>
               <p className="text-gray-400">
@@ -54,7 +52,7 @@ const NewServices = () => {
               onClick={() => {
                 setService("vastu");
               }}
-              data-aos="fade-up"
+              
             >
               <p className="text-white">Vastu Making</p>
               <p className="text-gray-400">
@@ -72,7 +70,7 @@ const NewServices = () => {
               onClick={() => {
                 setService("compatibility");
               }}
-              data-aos="fade-up"
+              
             >
               <p className="text-white">Compatibility</p>
               <p className="text-gray-400">
@@ -90,7 +88,7 @@ const NewServices = () => {
               onClick={() => {
                 setService("prasaad");
               }}
-              data-aos="fade-up"
+              
             >
               <p className="text-white">Prasaad</p>
               <p className="text-gray-400">
