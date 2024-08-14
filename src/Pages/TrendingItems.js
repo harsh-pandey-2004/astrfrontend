@@ -1,41 +1,90 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import AOS from 'aos'; // Import AOS
-import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import axios from 'axios'; // Import axios to make API calls
 
-const dummyData = [
-  {
-    id: 1,
-    name: 'Mystic Stone',
-    img: 'https://via.placeholder.com/300',
-    description: 'A beautiful mystic stone to enhance your aura.',
-  },
-  {
-    id: 2,
-    name: 'Healing Crystal',
-    img: 'https://via.placeholder.com/300',
-    description: 'A crystal that promotes healing and well-being.',
-  },
-  {
-    id: 3,
-    name: 'Feng Shui Item',
-    img: 'https://via.placeholder.com/300',
-    description: 'An item to balance the energy in your home.',
-  },
-  {
-    id: 4,
-    name: 'Sacred Gem',
-    img: 'https://via.placeholder.com/300',
-    description: 'A gem that brings prosperity and luck.',
-  },
-];
+const Popup = ({ item, onClose }) => {
+  return (
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
+      data-aos="fade-in"
+      data-aos-duration="500"
+    >
+      <div className="bg-white p-8 rounded-lg max-w-3xl w-full relative h-[25rem] flex gap-6">
+        <button
+          className="absolute top-2 right-2 text-gray-700 hover:text-gray-900 h-5 w-5"
+          onClick={onClose}
+        >
+          &times;
+        </button>
+        <div className="w-1/2">
+          <img src={item.image} alt={item.name} className="w-[100%] h-64 object-cover mb-4" />
+          <button className="w-full py-2 bg-[#f6c300] text-white rounded hover:bg-yellow-500">Buy Now</button>
+        </div>
+        <div className="flex flex-col overflow-scroll w-1/2">
+          <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
+          <p className="text-lg text-gray-700 mb-2">${item.price}</p>
+          <p className="text-sm text-gray-600 mb-4">SKU: {item.sku}</p>
+          <p className="text-sm text-gray-600 mb-4"><strong>Benefits:</strong> {item.advantages.join(', ')}</p>
+          <p className="text-sm text-gray-600 mb-4"><strong>Total Orders:</strong> {item.totalOrders}</p>
+          <p className="text-sm text-gray-600 mb-4"><strong>Ratings:</strong> {item.ratings}</p>
+          <div className="flex flex-col space-y-2 mb-4">
+            <label className="text-sm text-gray-700">Size</label>
+            <select className="border p-2 rounded">
+              <option value="">Select</option>
+              {/* Add your options here */}
+            </select>
+          </div>
+          <div className="flex items-center space-x-2 mb-4">
+            <label className="text-sm text-gray-700">Color: {item.color}</label>
+            <div className="w-6 h-6 bg-black rounded-full border border-gray-300"></div>
+          </div>
+          <div className="flex flex-col space-y-2 mb-4">
+            <label className="text-sm text-gray-700">Quantity</label>
+            <input type="number" min="1" defaultValue="1" className="border p-2 rounded" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const TrendingItems = () => {
+  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
+
   useEffect(() => {
     AOS.init(); // Initialize AOS on component mount
+
+    // Fetch items from the API
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('https://astrobackend.onrender.com/api/getitems');
+        const sortedItems = response.data.sort((a, b) => b.totalOrders - a.totalOrders);
+        setItems(sortedItems);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems();
   }, []);
+
+  const handleCardClick = async (itemId) => {
+    try {
+      const response = await axios.get(`https://astrobackend.onrender.com/api/getitems/${itemId}`);
+      setSelectedItem(response.data);
+    } catch (error) {
+      console.error('Error fetching item details:', error);
+    }
+  };
+
+  const handleClosePopup = () => {
+    setSelectedItem(null);
+  };
 
   const settings = {
     dots: true,
@@ -66,16 +115,17 @@ const TrendingItems = () => {
     <div className="p-8">
       <h2 className="text-3xl font-bold text-center mb-3" data-aos="fade-up">Trending Items</h2>
       <Slider {...settings}>
-        {dummyData.map((item) => (
+        {items.map((item) => (
           <div
             key={item.id}
             className="p-4"
             data-aos="fade-up"
             data-aos-duration="1000"
+            onClick={() => handleCardClick(item._id)}
           >
             <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
               <img
-                src={item.img}
+                src={item.image}
                 alt={item.name}
                 className="w-full h-48 object-cover rounded-t-lg"
                 data-aos="fade-in"
@@ -89,6 +139,7 @@ const TrendingItems = () => {
           </div>
         ))}
       </Slider>
+      {selectedItem && <Popup item={selectedItem} onClose={handleClosePopup} />}
     </div>
   );
 };

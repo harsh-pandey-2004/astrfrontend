@@ -56,18 +56,14 @@ import RangeSlider from "./components/kundalimatching components/Report/RangeSli
 import SingleTalkAstro from "./components/Astrocomponents/SingleTalkAstro";
 import SingleCoun from "./components/AstroCounceler/SingleCoun";
 import SingleTalkCoun from "./components/AstroCounceler/SingleTalkCoun";
-import Prasaad from "./Pages/Prasaad"
+import Prasaad from "./Pages/Prasaad";
 import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
 import VastuTypePage from "./Pages/VastuPage/VastuTypePage";
 import PricingPage from "./Pages/VastuPage/PricingPage";
 import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
-
-
-
-
-
+import Pitrapaksh from "./Pages/Pitrapaksh";
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -87,13 +83,12 @@ function App() {
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
           <Route path="/chat-with-astrologer/:slug" element={<SingleAstro />} />
-          <Route path="/call-to-astrologer/:slug" element={<SingleTalkAstro/>}/>
           <Route
-            path="/shop-on-astro"
-            element={
-              <Prasaad/>
-            }
+            path="/call-to-astrologer/:slug"
+            element={<SingleTalkAstro />}
           />
+          <Route path="/pitrpaksh" element={<Pitrapaksh />} />
+          <Route path="/shop-on-astro" element={<Prasaad />} />
           <Route
             path="/book-a-pooja"
             element={
@@ -121,7 +116,7 @@ function App() {
           <Route path="/freekundali" element={<FreeKundali />}></Route>
           <Route
             path="/freekundali/basic-details"
-            element={<TabComponent/>}
+            element={<TabComponent />}
           ></Route>
 
           <Route path="/how-to-read" element={<HowToRead />} />
@@ -129,14 +124,13 @@ function App() {
           <Route path="/read-planets" element={<ReadPlanets />} />
 
           {/* //// */}
-          <Route path="/kundali-matching" element={<KundliMatching/>}></Route>
-          <Route path="/match-report" element={<MatchReport/>}/>
-        
+          <Route path="/kundali-matching" element={<KundliMatching />}></Route>
+          <Route path="/match-report" element={<MatchReport />} />
 
-          <Route path="/pooja-booking" element={<PujaCartForm/>}></Route>
+          <Route path="/pooja-booking" element={<PujaCartForm />}></Route>
           <Route path="/register-page" element={<RegisterForm />}></Route>
-          <Route path="/book-a-pooja/:id" element={<Bookpoojasub/>}></Route>
-          <Route path="/dashboard/:id" element={<Dashboard/>}>
+          <Route path="/book-a-pooja/:id" element={<Bookpoojasub />}></Route>
+          <Route path="/dashboard/:id" element={<Dashboard />}>
             <Route path="Transactions" element={<Transactions />} />
             <Route path="OrderHistory" element={<OrderHistory />} />
             <Route path="Support" element={<Support />} />
@@ -149,30 +143,33 @@ function App() {
           <Route path="/loginpandit" element={<PanditLoginForm />}></Route>
           <Route
             path="/panditregister/panditverify-phone/:id"
-            element={<PanditVerifyPhone/>}
+            element={<PanditVerifyPhone />}
           ></Route>
 
           {/* Not changed */}
           <Route
             path="/poojapandit/:poojaId/pandit/:panditId/date/:date/time/:time"
-            element={<BookPanditForm/>}
+            element={<BookPanditForm />}
           ></Route>
 
           <Route
             path="/register-page/verify-phone/:id"
-            element={<VerifyPhone/>}
+            element={<VerifyPhone />}
           ></Route>
           <Route path="/loginform" element={<LoginForm />}></Route>
 
           {/* //AstroRoutes */}
           <Route
             path="/astrologerlogin"
-            element={<AstrologerLoginForm/>}
+            element={<AstrologerLoginForm />}
           ></Route>
-          <Route path="/astrologerdashboard/:id/*" element={<MainDashAstro />} />
+          <Route
+            path="/astrologerdashboard/:id/*"
+            element={<MainDashAstro />}
+          />
           <Route
             path="/astrologerregister"
-            element={<AstrologerRegistrationForm/>}
+            element={<AstrologerRegistrationForm />}
           ></Route>
           <Route
             path="/astrologerregister/astrologerverify-phone/:id"
@@ -221,13 +218,12 @@ function App() {
             path="/talk-to-astrocouncellor/:slug"
             element={<SingleTalkCoun />}
           ></Route>
-        {/* //vastu routes */}
-        <Route path="/vastuType/:id" element={<VastuIndiPage/>}></Route>
-        <Route path="/vastuType" element={<VastuTypePage/>}></Route>
-        <Route path="/vastupricing" element={<PricingPage/>}></Route>
-        <Route path="/grahpooja" element={<GarhPooja/>}></Route>
-        <Route path="/contact" element={<VastuForm />} />
-
+          {/* //vastu routes */}
+          <Route path="/vastuType/:id" element={<VastuIndiPage />}></Route>
+          <Route path="/vastuType" element={<VastuTypePage />}></Route>
+          <Route path="/vastupricing" element={<PricingPage />}></Route>
+          <Route path="/grahpooja" element={<GarhPooja />}></Route>
+          <Route path="/contact" element={<VastuForm />} />
         </Routes>
 
         <Footer showblur={showblur} />
