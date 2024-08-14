@@ -68,6 +68,8 @@ import CustomerSupport from "./components/UserDashComponents/Support";
 import Recharge from "./components/UserDashComponents/Recharge";
 import PaymentDetails from "./components/UserDashComponents/PaymentDetails";
 import ProfileSettings from "./components/UserDashComponents/ProfileSettings";
+import VastuForm from "./Pages/VastuPage/VastuForm";
+import GarhPooja from "./Pages/VastuPage/GarhPooja";
 
 
 
@@ -248,6 +250,9 @@ function App() {
         <Route path="/vastuType/:id" element={<VastuIndiPage/>}></Route>
         <Route path="/vastuType" element={<VastuTypePage/>}></Route>
         <Route path="/vastupricing" element={<PricingPage/>}></Route>
+        <Route path="/grahpooja" element={<GarhPooja/>}></Route>
+        <Route path="/contact" element={<VastuForm />} />
+
         </Routes>
 
         <Footer showblur={showblur} />

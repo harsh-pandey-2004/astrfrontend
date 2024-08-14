@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importing React Icons
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Review.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Sample images for reviews
 const reviews = [
@@ -41,6 +43,14 @@ const Arrow = ({ className, style, onClick, direction }) => (
 );
 
 const Reviews = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animations
+      easing: 'ease-in-out', // Easing function
+      once: true, // Animation only happens once
+    });
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -56,10 +66,12 @@ const Reviews = () => {
 
   return (
     <div className="reviews-carousel w-full py-12 bg-gray-100">
-      <h2 className="carousel-title my-5 text-center text-5xl font-serif text-black">Client <span className='text-[#f6c300]'>Reviews</span> </h2>
+      <h2 className="carousel-title my-5 text-center text-5xl font-serif text-black" data-aos="fade-up">
+        Client <span className='text-[#f6c300]'>Reviews</span>
+      </h2>
       <Slider {...settings}>
         {reviews.map((review) => (
-          <div key={review.id} className="review-slide relative bg-white shadow-lg p-6 rounded-lg text-center">
+          <div key={review.id} className="review-slide relative bg-white shadow-lg p-6 rounded-lg text-center" data-aos="fade-up">
             <div className="review-image mb-4">
               <img src={review.image} alt={review.name} className="w-24 h-24 object-cover rounded-full mx-auto" />
             </div>

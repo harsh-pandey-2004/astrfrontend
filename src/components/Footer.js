@@ -19,7 +19,7 @@ import AstroLogo from "../images/AstrocaptainLogo.jpeg"
 const Footer = ({ showblur }) => {
   return (
     <><div
-      className={`bg-black text-white flex flex-col pt-3 relative top-10  ${showblur
+      className={`bg-black text-white flex flex-col pt-3 relative   ${showblur
           ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none overflow-hidden"
           : ""}`}
     >

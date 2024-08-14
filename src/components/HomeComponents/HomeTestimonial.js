@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HomeTest from './HomeTest';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import reviews from './ReviewData';
 import './HomeTestimonial.css'; // Import your custom CSS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HomeTestimonial = () => {
     const responsive = {
@@ -25,7 +27,7 @@ const HomeTestimonial = () => {
     };
 
     const CustomLeftArrow = ({ onClick }) => (
-        <div className="carousel-arrow left-arrow" onClick={onClick}>
+        <div className="carousel-arrow left-arrow" onClick={onClick} data-aos="fade-right">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                 <path fill="yellow" d="M15 19l-7-7 7-7" />
             </svg>
@@ -33,17 +35,23 @@ const HomeTestimonial = () => {
     );
 
     const CustomRightArrow = ({ onClick }) => (
-        <div className="carousel-arrow right-arrow" onClick={onClick}>
+        <div className="carousel-arrow right-arrow" onClick={onClick} data-aos="fade-left">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                 <path fill="yellow" d="M9 5l7 7-7 7" />
             </svg>
         </div>
     );
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
         <div className='flex justify-center flex-col gap-12 py-6 mt-6'>
-            <h1 className="text-center text-4xl sm:text-4xl font-semibold sm:px-12 px-5">Customer Reviews</h1>
-            <div className=" flex justify-center carousel-container">
+            <h1 className="text-center text-4xl sm:text-4xl font-semibold sm:px-12 px-5" data-aos="fade-up">
+                Customer Reviews
+            </h1>
+            <div className="flex justify-center carousel-container">
                 <Carousel
                     responsive={responsive}
                     infinite={true}
@@ -52,7 +60,7 @@ const HomeTestimonial = () => {
                     className="w-[94%]"
                 >
                     {reviews.map((obj) => (
-                        <HomeTest key={obj.id} obj={obj} />
+                        <HomeTest key={obj.id} obj={obj} data-aos="fade-up" />
                     ))}
                 </Carousel>
             </div>
