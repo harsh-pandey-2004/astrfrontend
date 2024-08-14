@@ -11,7 +11,7 @@ import Header from "../components/BookAPoojaComponents/components/Header";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/panditpagebg.mp4";
 import axios from "axios";
-import Workflow1 from "../components/BookAPoojaComponents/Workflow1";
+import Workflow1 from "../components/BookAPoojaComponents/components/Workflow1";
 import UpcomingEvents from "../components/BookAPoojaComponents/components/UpcomingEvents";
 import Stats from "./VastuPage/Stats";
 import Reviews from "./VastuPage/Reviews";
@@ -152,7 +152,7 @@ const BookPandit = (props) => {
           <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" data-aos="fade-up" data-aos-delay="600">
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
-              // src={Pandit}
+              src={"https://panditforpujainpune.com/wp-content/uploads/2021/04/priest-s.png"}
               alt="Temple"
               className="filter brightness-75 contrast-125 "
             />

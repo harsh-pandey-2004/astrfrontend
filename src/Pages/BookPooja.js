@@ -67,14 +67,14 @@ const BookPooja = (props) => {
             </p>
           </div>
           <div
-            className="lg:w-1/2 pt-5 lg:pt-40 relative lg:pl-10 w-full flex justify-center"
+            className="lg:w-1/2 pt-5  relative lg:pl-10 w-full flex justify-center"
             data-aos="fade-left"
           >
-            <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
+        
             <img
-              // src={Mandir}
+              src={"https://miro.medium.com/v2/resize:fit:640/1*PrTF8PfLZ9_eSQE0w5xoEA.png"}
               alt="Temple"
-              className="filter brightness-50 contrast-125 md:h-4/5"
+              className="filter brightness-50 contrast-125 md:h-full  absolute top-14"
             />
           </div>
         </div>
