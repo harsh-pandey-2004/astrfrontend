@@ -27,7 +27,7 @@ const MailPage = () => {
     // }
   };
 
-  return (<div className=' md:mt-12 w-full h-screen py-4  bg-gray-800 overflow-y-auto'>
+  return (<div className=' md:mt-20 w-full h-screen pt-4  bg-gray-800 overflow-y-auto'>
     <div className="w-full max-w-md mx-auto mt-16 p-6 bg-yellow-400 shadow-md rounded-lg">
       <h2 className="text-2xl font-semibold mb-4  text-gray-800 w-full">Send Email</h2>
       <form onSubmit={handleSubmit}>

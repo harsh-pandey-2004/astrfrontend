@@ -61,6 +61,13 @@ import VastuMainPage from "./Pages/VastuPage/VastuMainPage";
 import VastuIndiPage from "./Pages/VastuPage/VastuIndiPage";
 import VastuTypePage from "./Pages/VastuPage/VastuTypePage";
 import PricingPage from "./Pages/VastuPage/PricingPage";
+import Notifications from "./components/UserDashComponents/Notifications";
+import Wallet from "./components/UserDashComponents/Wallet";
+import History from "./components/UserDashComponents/OrderHistory";
+import CustomerSupport from "./components/UserDashComponents/Support";
+import Recharge from "./components/UserDashComponents/Recharge";
+import PaymentDetails from "./components/UserDashComponents/PaymentDetails";
+import ProfileSettings from "./components/UserDashComponents/ProfileSettings";
 import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
@@ -74,12 +81,30 @@ function App() {
   function ModalHandler() {
     setIsMenuClicked(!IsmenuClicked);
   }
+
+  
+
   return (
     <div className="w-full h-fit relative ">
       <BrowserRouter>
-        <Navbar showbluefn={showbluefn} />
+        <Navbar showbluefn={showbluefn}/>
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
+
+                {/* user dashpages */}
+          <Route path="/notifications" element={<Notifications/>}/>
+          <Route path="/my-wallet" element={<Wallet/>}/>
+          <Route path="/order-history" element={<History/>}/>
+          <Route path="/customer-support" element={<CustomerSupport/>}/>
+          <Route path="/recharge" element={<Recharge/>}/>
+          <Route path="/recharge/paymentdetails" element={<PaymentDetails/>}/>
+          <Route path="/profile-settings" element={<ProfileSettings/>}/>
+
+
+
+
+
+
           <Route path="/chat-with-astrologer" element={<ChatWithAstro />} />
           <Route path="/call-to-astrologer" element={<TalktoAstro />} />
           <Route path="/chat-with-astrologer/:slug" element={<SingleAstro />} />
@@ -154,9 +179,9 @@ function App() {
 
           <Route
             path="/register-page/verify-phone/:id"
-            element={<VerifyPhone />}
+            element={<VerifyPhone  />}
           ></Route>
-          <Route path="/loginform" element={<LoginForm />}></Route>
+          <Route path="/loginform" element={<LoginForm  />}></Route>
 
           {/* //AstroRoutes */}
           <Route
