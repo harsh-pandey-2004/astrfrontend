@@ -34,7 +34,7 @@ function MainDashAstro() {
     <div className="flex flex-col min-h-fit outline ">
       <div className="flex flex-grow  relative overflow-hidden top-24 lg:top-0">
         <Sidebar response={response} />
-        <div className="h-full md:w-3/4 w-full overflow-y-auto">
+        <div className="h-full md:w-4/5 w-full overflow-y-auto">
           <Routes>
             {/* Redirect to profile as the default route */}
             <Route path="/" element={<Navigate to="profile"/>} />
