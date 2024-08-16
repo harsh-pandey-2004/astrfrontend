@@ -21,7 +21,7 @@ const Charts = () => {
     const auth = "Basic " + btoa(`631185:${apiKey}`);
 
     try {
-      const response = await fetch(`https://json.astrologyapi.com/v1/${api}`, {
+      const response = await fetch(`https://json.astrologyapi.com/v1/${apiKey}`, {
         method: "POST",
         headers: {
           Authorization: auth,

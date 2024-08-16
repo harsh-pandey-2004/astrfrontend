@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Fengsui from "../../src/images/fengshui.jpg";
-import Gems from "../../src/images/gem.jpg";
-import Plant from "../../src/images/plant.jpg";
-import Yantra from "../../src/images/yantra.jpg";
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS styles
+import axios from "axios"; // Import axios for making API calls
 
 const Popup = ({ item, onClose }) => {
   return (
@@ -21,14 +18,14 @@ const Popup = ({ item, onClose }) => {
           &times;
         </button>
         <div className="w-1/2">
-          <img src={item.img} alt={item.name} className="w-[100%] h-64 object-cover mb-4" />
+          <img src={item.image} alt={item.name} className="w-[100%] h-64 object-cover mb-4" />
           <button className="w-full py-2 bg-[#f6c300] text-white rounded hover:bg-yellow-500">Buy Now</button>
         </div>
         <div className="flex flex-col overflow-scroll w-1/2">
           <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
-          <p className="text-lg text-gray-700 mb-2">{item.price}</p>
+          <p className="text-lg text-gray-700 mb-2">${item.price}</p>
           <p className="text-sm text-gray-600 mb-4">SKU: {item.sku}</p>
-          <p className="text-sm text-gray-600 mb-4"><strong>Benefits:</strong> {item.benefits}</p>
+          <p className="text-sm text-gray-600 mb-4"><strong>Benefits:</strong> {item.advantages.join(', ')}</p>
           <p className="text-sm text-gray-600 mb-4"><strong>Total Orders:</strong> {item.totalOrders}</p>
           <p className="text-sm text-gray-600 mb-4"><strong>Ratings:</strong> {item.ratings}</p>
           <div className="flex flex-col space-y-2 mb-4">
@@ -39,7 +36,7 @@ const Popup = ({ item, onClose }) => {
             </select>
           </div>
           <div className="flex items-center space-x-2 mb-4">
-            <label className="text-sm text-gray-700">Color: Black</label>
+            <label className="text-sm text-gray-700">Color: {item.color}</label>
             <div className="w-6 h-6 bg-black rounded-full border border-gray-300"></div>
           </div>
           <div className="flex flex-col space-y-2 mb-4">
@@ -52,63 +49,33 @@ const Popup = ({ item, onClose }) => {
   );
 };
 
-const items = [
-  {
-    id: "yantra",
-    name: "Astrology Yantras",
-    img: Yantra,
-    price: "$19.99",
-    sku: "0003",
-    description: "Discover powerful yantras to enhance your spiritual journey.",
-    benefits: "Enhances spiritual growth, brings good luck.",
-    totalOrders: 150,
-    ratings: "4.5/5",
-  },
-  {
-    id: "plant",
-    name: "Sacred Plants",
-    img: Plant,
-    price: "$9.99",
-    sku: "0004",
-    description: "Bring home plants that bring peace and prosperity.",
-    benefits: "Purifies air, brings positive energy.",
-    totalOrders: 200,
-    ratings: "4.7/5",
-  },
-  {
-    id: "fengshui",
-    name: "Feng Shui Items",
-    img: Fengsui,
-    price: "$29.99",
-    sku: "0005",
-    description: "Enhance your home's energy with our feng shui items.",
-    benefits: "Balances home energy, brings harmony.",
-    totalOrders: 120,
-    ratings: "4.6/5",
-  },
-  {
-    id: "gems",
-    name: "Precious Gems",
-    img: Gems,
-    price: "$49.99",
-    sku: "0006",
-    description: "Explore our collection of precious and semi-precious gems.",
-    benefits: "Improves health, brings prosperity.",
-    totalOrders: 80,
-    ratings: "4.8/5",
-  },
-];
-
 const PrasadItems = () => {
+  const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [visibleItemsCount, setVisibleItemsCount] = useState(4); // Initial number of items shown
 
   useEffect(() => {
     AOS.init(); // Initialize AOS on component mount
+    fetchItems(); // Fetch all items on component mount
   }, []);
 
-  const handleCardClick = (item) => {
-    setSelectedItem(item);
+  const fetchItems = async () => {
+    try {
+      const response = await axios.get("https://astrobackend.onrender.com/api/getitems");
+      setItems(response.data);
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+  const handleCardClick = async (itemId) => {
+    try {
+      const response = await axios.get(`https://astrobackend.onrender.com/api/getitems/${itemId}`);
+      setSelectedItem(response.data);
+    } catch (error) {
+      console.error("Error fetching item details:", error);
+    }
   };
 
   const handleClosePopup = () => {
@@ -119,12 +86,16 @@ const PrasadItems = () => {
     setSearchTerm(event.target.value);
   };
 
+  const loadMoreItems = () => {
+    setVisibleItemsCount((prevCount) => prevCount + 4); // Show 4 more items
+  };
+
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="p-4 mb-16">
+    <div className="p-4 mb-24">
       <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Products</h1>
       <div className="mb-6 flex justify-center">
         <input
@@ -139,16 +110,16 @@ const PrasadItems = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredItems.map((item) => (
+        {filteredItems.slice(0, visibleItemsCount).map((item) => (
           <div
-            key={item.id}
+            key={item._id}
             className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
-            onClick={() => handleCardClick(item)}
+            onClick={() => handleCardClick(item._id)}
             data-aos="fade-up"
             data-aos-duration="1000"
           >
             <img
-              src={item.img}
+              src={item.image}
               alt={item.name}
               className="w-full h-48 object-cover"
               data-aos="fade-in"
@@ -156,7 +127,7 @@ const PrasadItems = () => {
             />
             <div className="p-4">
               <h2 className="text-lg font-bold">{item.name}</h2>
-              <p className="text-gray-500 mt-2">{item.price}</p>
+              <p className="text-gray-500 mt-2">${item.price}</p>
               <button className="mt-4 w-full py-2 bg-[#f6c300] text-white rounded hover:bg-yellow-500">
                 Buy Now
               </button>
@@ -164,6 +135,20 @@ const PrasadItems = () => {
           </div>
         ))}
       </div>
+
+      {filteredItems.length > visibleItemsCount && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={loadMoreItems}
+            className="px-6 py-2 bg-[#f6c300] text-white rounded hover:bg-yellow-500"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            Load More
+          </button>
+        </div>
+      )}
+
       {selectedItem && <Popup item={selectedItem} onClose={handleClosePopup} />}
     </div>
   );
