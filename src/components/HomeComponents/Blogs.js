@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import God from "../../images/ashtalakshmi-Rahu-laf-Hp.webp";
 import Circle from "../../images/blog1.webp";
 import Circle2 from "../../images/blog2.webp";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 const Blogs = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({ duration: 1000 });
+  // }, []);
 
   return (
     <div className="justify-center">
@@ -17,7 +17,7 @@ const Blogs = () => {
         {/* News */}
         <div
           className="rounded-md border-r-4 md:w-1/3 xs:w-full px-4 bg-white"
-          data-aos="fade-up"
+          
         >
           <h1 className="text-start text-2xl font-semibold py-3">
             What's the News?
@@ -51,12 +51,12 @@ const Blogs = () => {
         {/* Blogs */}
         <div
           className="rounded-md md:w-2/3 xs:w-full px-4 bg-white"
-          data-aos="fade-up"
+          
         >
           <h1 className="sm:text-start text-2xl font-semibold py-3 text-center">
             Blogs & Articles
           </h1>
-          <div className="mt-2 sm:hidden block" data-aos="fade-up">
+          <div className="mt-2 sm:hidden block" >
             <p className="text-start text-lg font-semibold">
               Some Trending Topics
             </p>
@@ -73,7 +73,7 @@ const Blogs = () => {
             </div>
           </div>
           <div className="md:flex items-center xs:flex-col md:flex-row gap-2 mt-2 flex flex-col-reverse">
-            <div className="md:w-1/3 xs:w-full" data-aos="fade-up">
+            <div className="md:w-1/3 xs:w-full">
               <img
                 src={Circle}
                 className="rounded-md"
@@ -88,7 +88,7 @@ const Blogs = () => {
               <p className="text-start text-lg font-semibold">Singing Talent</p>
             </div>
 
-            <div className="md:w-1/3 xs:w-full" data-aos="fade-up">
+            <div className="md:w-1/3 xs:w-full" >
               <img
                 src={Circle2}
                 className="rounded-md"
@@ -103,7 +103,7 @@ const Blogs = () => {
               <p className="text-start text-lg font-semibold">Soft Voice</p>
             </div>
 
-            <div className="md:w-1/3 xs:w-full" data-aos="fade-up">
+            <div className="md:w-1/3 xs:w-full">
               <img
                 src={Circle}
                 className="rounded-md"
@@ -118,7 +118,7 @@ const Blogs = () => {
               <p className="text-start text-lg font-semibold">Singing Talent</p>
             </div>
           </div>
-          <div className="mt-8 hidden sm:block" data-aos="fade-up">
+          <div className="mt-8 hidden sm:block">
             <p className="text-start text-lg font-semibold">
               Some Trending Topics
             </p>

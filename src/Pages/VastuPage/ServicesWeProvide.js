@@ -4,26 +4,26 @@ import lampimg from "../../images/lamp.png";
 import officeimg from "../../images/office.png";
 import valueimg from "../../images/value.png";
 import { useNavigate } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const ServicesWeProvide = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out", // Animation easing
-      once: true, // Whether animation should happen only once - while scrolling down
-      mirror: false, // Whether elements should animate out while scrolling past them
-    });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000, // Animation duration
+  //     easing: "ease-in-out", // Animation easing
+  //     once: true, // Whether animation should happen only once - while scrolling down
+  //     mirror: false, // Whether elements should animate out while scrolling past them
+  //   });
+  // }, []);
 
   return (
     <div className="h-fit py-10">
       <h1
         className="my-5 text-center text-5xl font-serif text-black"
-        data-aos="fade-down"
+        
       >
         Services We <span className="text-[#f6c300]">Provide</span>
       </h1>
@@ -44,8 +44,7 @@ const ServicesWeProvide = () => {
         <div
           className="service-card bg-white cursor-pointer text-black p-6 rounded-lg shadow-custom transition-transform duration-300 hover:transform hover:-translate-y-2 border-t-4 border-[#f6c300]"
           onClick={() => navigate("/vastuType/Office")}
-          data-aos="fade-up"
-          data-aos-delay="100"
+          
         >
           <img src={officeimg} alt="Office Vastu" className="h-14 w-14 mx-auto" />
           <h3 className="text-xl font-bold mb-3 text-center">Office Vastu</h3>
@@ -57,8 +56,7 @@ const ServicesWeProvide = () => {
         <div
           className="service-card bg-white cursor-pointer text-black p-6 rounded-lg shadow-custom transition-transform duration-300 hover:transform hover:-translate-y-2 border-t-4 border-[#f6c300]"
           onClick={() => navigate("/vastuType/Commercial")}
-          data-aos="fade-up"
-          data-aos-delay="200"
+          
         >
           <img src={valueimg} alt="Commercial Vastu" className="h-14 w-14 mx-auto" />
           <h3 className="text-xl font-bold mb-3 text-center">
@@ -73,8 +71,7 @@ const ServicesWeProvide = () => {
         <div
           className="service-card bg-white cursor-pointer text-black p-6 rounded-lg shadow-custom transition-transform duration-300 hover:transform hover:-translate-y-2 border-t-4 border-[#f6c300]"
           onClick={() => navigate("/vastuType/Tips")}
-          data-aos="fade-up"
-          data-aos-delay="300"
+          
         >
           <img src={lampimg} alt="Vastu Tips" className="h-14 w-14 mx-auto" />
           <h3 className="text-xl font-bold mb-3 text-center">Vastu Tips</h3>
