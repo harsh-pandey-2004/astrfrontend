@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
 import Stat from "../components/BookAPoojaComponents/components/Stat";
@@ -104,11 +104,11 @@ const BookPandit = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-    });
+    // AOS.init({
+    //   duration: 1000,
+    //   easing: 'ease-in-out',
+    //   once: true,
+    // });
   }, []);
 
   return (
@@ -121,18 +121,18 @@ const BookPandit = (props) => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-col-reverse lg:flex-row lg:p-16 px-5 bg-black pb-2">
-          <div className="lg:w-1/2 outline sm:pt-16 pt-8 w-full" data-aos="fade-up">
+          <div className="lg:w-1/2 outline sm:pt-16 pt-8 w-full">
             <h1 className="text-white text-base font-semibold pl-2 sm:text-lg w-fit ">
               Book a Pandit for Your Sacred Rituals
             </h1>
-            <div className="flex flex-col gap-2 text-white pl-2 mt-6" data-aos="fade-up" data-aos-delay="200">
+            <div className="flex flex-col gap-2 text-white pl-2 mt-6" >
               <p className="text-3xl lg:text-4xl">
                 Experience Traditional Poojas
               </p>
               <p className="text-3xl lg:text-4xl">from </p>
               <p className="text-3xl lg:text-4xl">the Comfort of Your Home</p>
             </div>
-            <p className="mt-6 text-gray-400 pb-6 pl-2" data-aos="fade-up" data-aos-delay="400">
+            <p className="mt-6 text-gray-400 pb-6 pl-2" >
               In today's fast-paced world, finding time to visit temples for
               traditional rituals can be challenging. Our "Book a Pandit"
               service brings the spiritual experience to you, allowing you to
@@ -149,7 +149,7 @@ const BookPandit = (props) => {
             </p>
           </div>
 
-          <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" data-aos="fade-up" data-aos-delay="600">
+          <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" >
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
               src={"https://panditforpujainpune.com/wp-content/uploads/2021/04/priest-s.png"}

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CountUp from "react-countup";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const Stats = ({
   amount = "22,758+",
@@ -10,24 +10,23 @@ const Stats = ({
   type = "Lives Transformed",
 }) => {
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out", // Animation easing
-      once: true, // Whether animation should happen only once - while scrolling down
-      mirror: false, // Whether elements should animate out while scrolling past them
-    });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000, // Animation duration
+  //     easing: "ease-in-out", // Animation easing
+  //     once: true, // Whether animation should happen only once - while scrolling down
+  //     mirror: false, // Whether elements should animate out while scrolling past them
+  //   });
+  // }, []);
 
   return (
     <div
       className="flex flex-col mt-10 lg:flex-row items-center justify-evenly gap-7 sm:gap-3 w-full py-8 bg-gradient-to-t from-yellow-700 to-[#f6c300] text-white stat-container"
-      data-aos="fade-up"
+      
     >
       <div
         className="flex flex-col items-center"
-        data-aos="fade-up"
-        data-aos-delay="100"
+        
       >
         <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp
@@ -42,8 +41,7 @@ const Stats = ({
 
       <div
         className="flex flex-col items-center"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        
       >
         <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp end={live} duration={2} /> Million Minutes
@@ -53,8 +51,7 @@ const Stats = ({
 
       <div
         className="flex flex-col items-center"
-        data-aos="fade-up"
-        data-aos-delay="300"
+        
       >
         <p className="text-3xl md:text-5xl font-bold stat-number">
           <CountUp end={customers} duration={2} /> Million

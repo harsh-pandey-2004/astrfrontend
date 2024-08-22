@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import axios from 'axios'; // Import axios to make API calls
 
 const Popup = ({ item, onClose }) => {
   return (
     <div
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50"
-      data-aos="fade-in"
-      data-aos-duration="500"
+     
     >
       <div className="bg-white p-8 rounded-lg max-w-3xl w-full relative h-[25rem] flex gap-6">
         <button
@@ -57,7 +56,7 @@ const TrendingItems = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    AOS.init(); // Initialize AOS on component mount
+    // AOS.init(); // Initialize AOS on component mount
 
     // Fetch items from the API
     const fetchItems = async () => {
@@ -113,14 +112,13 @@ const TrendingItems = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-3xl font-bold text-center mb-3" data-aos="fade-up">Trending Items</h2>
+      <h2 className="text-3xl font-bold text-center mb-3">Trending Items</h2>
       <Slider {...settings}>
         {items.map((item) => (
           <div
             key={item.id}
             className="p-4"
-            data-aos="fade-up"
-            data-aos-duration="1000"
+            
             onClick={() => handleCardClick(item._id)}
           >
             <div className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
@@ -128,8 +126,7 @@ const TrendingItems = () => {
                 src={item.image}
                 alt={item.name}
                 className="w-full h-48 object-cover rounded-t-lg"
-                data-aos="fade-in"
-                data-aos-duration="1000"
+                
               />
               <div className="p-4">
                 <h3 className="text-lg font-bold">{item.name}</h3>
