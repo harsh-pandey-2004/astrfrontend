@@ -54,45 +54,44 @@ const TransactionDetailsTable = () => {
   }, []);
 
   return (
-    <div style={styles.container}>
-      <table style={styles.table}>
-        <thead>
-          <tr>
-            <th style={styles.headerCell}>Datetime</th>
-            <th style={styles.headerCell}>Amount</th>
-            <th style={styles.headerCell}>Transaction ID</th>
-            <th style={styles.headerCell}>Status</th>
-            <th style={styles.headerCell}>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {details.map((detail) => (
-            <tr key={detail.id} style={styles.row}>
-              <td style={styles.cell}>{detail.datetime}</td>
-              <td style={styles.cell}>{detail.amount}</td>
-              <td style={styles.cell}>{detail.transactionId}</td>
-              <td
-                style={{
-                  ...styles.cell,
-                  color: detail.status === 'COMPLETED' ? 'green' : 'red',
-                }}
-              >
-                {detail.status}
-              </td>
-              <td style={styles.cell}>
-                <MdDeleteForever
-                  className="cursor-pointer text-red-700"
-                  onClick={() => deleteHandler(detail.id)}
-                />
-              </td>
+    <div className="p-4 sm:p-8">
+      <div className="overflow-x-auto">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 border-b border-b-black text-left text-sm sm:text-base">Datetime</th>
+              <th className="px-4 py-2 border-b  border-b-black text-left text-sm sm:text-base">Amount</th>
+              <th className="px-4 py-2 border-b  border-b-black text-left text-sm sm:text-base">Transaction ID</th>
+              <th className="px-4 py-2 border-b  border-b-black text-left text-sm sm:text-base">Status</th>
+              <th className="px-4 py-2 border-b  border-b-black text-left text-sm sm:text-base">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {details.map((detail) => (
+              <tr key={detail.id} className="bg-white">
+                <td className="px-4 py-2 border-b border-b-yellow-400 text-sm sm:text-base">{detail.datetime}</td>
+                <td className="px-4 py-2 border-b  border-b-yellow-400 text-sm sm:text-base">{detail.amount}</td>
+                <td className="px-4 py-2 border-b  border-b-yellow-400 text-sm sm:text-base">{detail.transactionId}</td>
+                <td
+                  className={`px-4 py-2 border-b  border-b-yellow-400 text-sm sm:text-base ${detail.status === 'COMPLETED' ? 'text-green-500' : 'text-red-500'}`}
+                >
+                  {detail.status}
+                </td>
+                <td className="px-4 py-2 border-b text-sm sm:text-base">
+                  <MdDeleteForever
+                    className="cursor-pointer text-red-700"
+                    onClick={() => deleteHandler(detail.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {details.length > 0 && (
-        <div className="w-full flex items-center justify-center">
+        <div className="w-full flex items-center justify-center mt-4">
           <button
-            className="text-red-700 border border-red-700 text-base px-3 py-1 rounded-md hover:bg-red-700 hover:text-white transition mt-3"
+            className="text-red-700 border border-red-700 text-sm sm:text-base px-3 py-1 rounded-md hover:bg-red-700 hover:text-white transition"
             onClick={() => setDetails([])}
           >
             Delete All
@@ -101,33 +100,6 @@ const TransactionDetailsTable = () => {
       )}
     </div>
   );
-};
-
-const styles = {
-  container: {
-    paddingLeft: '64px',
-    paddingRight: '64px',
-  },
-  table: {
-    width: '100%',
-    borderCollapse: 'collapse',
-  },
-  headerCell: {
-    color: 'black',
-    padding: '8px',
-    borderBottom: '1px solid black',
-    textAlign: 'left',
-    fontSize: '16px',
-  },
-  row: {
-    backgroundColor: 'white',
-  },
-  cell: {
-    color: 'black',
-    padding: '8px',
-    borderBottom: '2px solid yellow',
-    fontSize: '14px',
-  },
 };
 
 export default TransactionDetailsTable;

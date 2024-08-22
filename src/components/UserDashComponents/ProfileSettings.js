@@ -3,16 +3,20 @@ import { FaBell, FaComments, FaCalendarAlt, FaLanguage, FaEdit, FaSignOutAlt, Fa
 import { useState } from 'react';
 import ProfileEditComponent from './ProfileEditComponent';
 import { RxCross2 } from "react-icons/rx";
+import EditLanguage from './EditLanguage';
 const ProfileSettings = () => {
 
    const[editMode,setEditMode]=useState(false);
+   const[editlang,setEditLang]=useState(false);
+  
 
+   const [arr,setArr]=useState(["Hindi","English","Tamil","Sanskrit"]);
 
    function CloseModal(){
     setEditMode(false);
    }
   return (<>
-    <div className="max-w-md mx-auto bg-white text-black p-6 rounded-lg shadow-md border border-gray-200 relative top-28 mb-24">
+    <div className={`${editlang ?"blur":"bg-white"} max-w-md mx-auto  text-black p-6 rounded-lg shadow-md border border-gray-200 relative top-28 mb-24`}>
       <h2 className="text-xl font-bold mb-4 text-center">Profile Settings</h2>
 
       <ul className="space-y-4">
@@ -40,13 +44,13 @@ const ProfileSettings = () => {
           <button className="text-yellow-400 hover:underline">Manage</button>
         </li>
 
-        <li className="flex items-center justify-between border-b pb-2">
+        {/* <li className="flex items-center justify-between border-b pb-2">
           <div className="flex items-center">
             <FaLanguage className="text-yellow-400 mr-3" />
             <span>My Language</span>
           </div>
-          <button className="text-yellow-400 hover:underline">Edit</button>
-        </li>
+          <button onClick={()=>{setEditLang(true)}} className="text-yellow-400 hover:underline hover:cursor-pointer">Edit</button>
+        </li> */}
 
         <li className="flex items-center justify-between border-b pb-2">
           <div className="flex items-center">
@@ -72,6 +76,25 @@ const ProfileSettings = () => {
           <button className="text-red-600 hover:underline">Delete</button>
         </li>
       </ul>
+
+     
+    </div>
+
+
+    <div className=" max-w-md px-6 mx-auto relative top-12 flex flex-col items-center justify-center border-b pb-2 border rounded-lg py-2 shadow-md">
+      <div className='flex items-center justify-between w-full'>
+          <div className="flex items-center">
+            <FaLanguage className="text-yellow-400 mr-3" />
+            <span>My Language</span>
+
+          </div>
+       
+          <button onClick={()=>{setEditLang(true)}} className="text-yellow-400 hover:underline hover:cursor-pointer">Edit</button>
+      </div>
+
+      <div className='flex gap-3 pt-3 '>
+           {arr.map((obj)=>{return <p className='rounded-full py-1 px-3 border bg-yellow-400 text-white'>{obj}</p>})}
+      </div>
     </div>
 
 
@@ -81,6 +104,13 @@ const ProfileSettings = () => {
     <div onClick={()=>{setEditMode(false)}} className="absolute top-1 right-72 cursor-pointer rounded-full h-8 w-8  pl-2 pt-2 bg-white"><RxCross2/></div>
   <ProfileEditComponent CloseModal={CloseModal}/>
   </div>}
+
+    {/* editLanguage Modal */}
+   {editlang && <div className='absolute top-72 w-full  h-screen'>
+    <div onClick={()=>{setEditLang(false)}} className="absolute top-1 right-80 cursor-pointer rounded-full h-8 w-8  pl-2 pt-2 bg-white"><RxCross2/></div>
+      <EditLanguage arr={arr} setArr={setArr}/>
+    </div>}
+
 
   <div className='h-32 mb-72'>
 
