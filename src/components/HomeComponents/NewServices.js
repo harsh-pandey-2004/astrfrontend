@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import New from "../../images/newservice1.webp"
 import New2 from "../../images/newservice2.webp"
 import New3 from "../../images/newservice3.webp"
@@ -99,7 +99,7 @@ const NewServices = () => {
           </div>
         </div>
 
-        <div className="ServiceImg md:w-2/5 w-full p-2 rounded-md border border-yellow-400 shadow-md shadow-yellow-400" data-aos="fade-left">
+        <div className="ServiceImg md:w-2/5 w-full p-2 rounded-md border border-yellow-400 shadow-md shadow-yellow-400" >
           {service === "kundli" && (
             <div className="overflow-hidden">
               <img

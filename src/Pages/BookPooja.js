@@ -10,8 +10,8 @@ import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/vedio4.mp4";
 import Reviews from "./VastuPage/Reviews";
 import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHeader";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 const BookPooja = (props) => {
   const showblur = props.showblur;
@@ -30,7 +30,7 @@ const BookPooja = (props) => {
         <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2">
           <div
             className="lg:w-1/2 sm:pt-32 pt-10 w-full"
-            data-aos="fade-right"
+            
           >
             <h1 className="text-white text-base font-semibold pl-2 sm:text-lg w-fit">
               Perform Poojas Remotely at Prestigious Temples
@@ -61,7 +61,7 @@ const BookPooja = (props) => {
           </div>
           <div
             className="lg:w-1/2 pt-5  relative lg:pl-10 w-full flex justify-center"
-            data-aos="fade-left"
+            
           >
         
             <img

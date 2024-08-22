@@ -6,18 +6,18 @@ import checkList from "../../../images/check-list.png";
 import stopWatch from "../../../images/stopwatch.png";
 import Surveyor from "../../../images/surveyor.png";
 import Call from "../../../images/call.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 const HowItWorks = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out", // Animation easing
-      once: true, // Whether animation should happen only once - while scrolling down
-      mirror: false, // Whether elements should animate out while scrolling past them
-    });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000, // Animation duration
+  //     easing: "ease-in-out", // Animation easing
+  //     once: true, // Whether animation should happen only once - while scrolling down
+  //     mirror: false, // Whether elements should animate out while scrolling past them
+  //   });
+  // }, []);
 
   const steps = [
     {
@@ -73,8 +73,7 @@ const HowItWorks = () => {
             <div
               key={index}
               className="step-card bg-white shadow-lg p-6 rounded-lg text-center transition-transform transform hover:scale-105 relative"
-              data-aos="fade-up"
-              data-aos-delay={`${index * 100}`}
+              
             >
               <div className="step-number text-white bg-yellow-500 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2">
                 {index + 1}

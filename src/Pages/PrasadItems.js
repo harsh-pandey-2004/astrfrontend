@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import AOS from 'aos'; // Import AOS
-import 'aos/dist/aos.css'; // Import AOS styles
+// import AOS from 'aos'; // Import AOS
+// import 'aos/dist/aos.css'; // Import AOS styles
 import axios from "axios"; // Import axios for making API calls
 
 const Popup = ({ item, onClose }) => {
@@ -55,7 +55,7 @@ const PrasadItems = () => {
   const [visibleItemsCount, setVisibleItemsCount] = useState(4); // Initial number of items shown
 
   useEffect(() => {
-    AOS.init(); // Initialize AOS on component mount
+    // AOS.init(); // Initialize AOS on component mount
     fetchItems(); // Fetch all items on component mount
   }, []);
 
@@ -95,7 +95,7 @@ const PrasadItems = () => {
 
   return (
     <div className="p-4 mb-24">
-      <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Products</h1>
+      <h1 className="text-3xl font-bold text-center mb-8" >Our Products</h1>
       <div className="mb-6 flex justify-center">
         <input
           type="text"
@@ -103,8 +103,7 @@ const PrasadItems = () => {
           value={searchTerm}
           onChange={handleSearchChange}
           className="border p-2 rounded w-full max-w-md py-3 px-3 border-black outline-none focus:ring-2 focus:ring-yellow-500 focus:border-none"
-          data-aos="fade-up"
-          data-aos-delay="200"
+          
         />
       </div>
 
@@ -114,15 +113,13 @@ const PrasadItems = () => {
             key={item._id}
             className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
             onClick={() => handleCardClick(item._id)}
-            data-aos="fade-up"
-            data-aos-duration="1000"
+            
           >
             <img
               src={item.image}
               alt={item.name}
               className="w-full h-48 object-cover"
-              data-aos="fade-in"
-              data-aos-duration="1000"
+              
             />
             <div className="p-4">
               <h2 className="text-lg font-bold">{item.name}</h2>
@@ -140,8 +137,7 @@ const PrasadItems = () => {
           <button
             onClick={loadMoreItems}
             className="px-6 py-2 bg-[#f6c300] text-white rounded hover:bg-yellow-500"
-            data-aos="fade-up"
-            data-aos-delay="300"
+            
           >
             Load More
           </button>

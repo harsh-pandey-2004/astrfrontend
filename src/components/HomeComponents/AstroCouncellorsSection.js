@@ -3,8 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AstroCard from './AstroCard';
 import AstroCarsdata from './AstroCarsdata';
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 
 function AstroCouncellorSection({ showblur }) {
   const responsive = {
@@ -62,25 +62,25 @@ function AstroCouncellorSection({ showblur }) {
     </button>
   );
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({ duration: 1000 });
+  // }, []);
 
   return (
     <div className="w-full lg:w-[95%] mx-auto h-fit lg:top-0 relative lg:px-12 lg:py-6 py-3 px-4">
       <h1
         className="text-4xl font-semibold lg:absolute top-4 lg:left-1/3 lg:pl-10 text-center mb-3 lg:mb-0"
-        data-aos="fade-up"
+        
       >
         Our AstroCouncellors
       </h1>
       <h2
         className="text-lg lg:absolute top-16 left-[29%] lg:text-xl text-center"
-        data-aos="fade-up"
+        
       >
         13000+ Best Councellors from India for Online Consultation
       </h2>
-      <div data-aos="fade-up">
+      <div >
         <Carousel
           swipeable={true}
           draggable={true}
@@ -101,7 +101,7 @@ function AstroCouncellorSection({ showblur }) {
           className="pb-12 pt-12"
         >
           {AstroCarsdata.map((obj, index) => (
-            <div key={index} data-aos="fade-up">
+            <div key={index} >
               <AstroCard obj={obj} />
             </div>
           ))}
