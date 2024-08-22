@@ -102,6 +102,7 @@ const BookPandit = (props) => {
     }
   };
 
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     // AOS.init({

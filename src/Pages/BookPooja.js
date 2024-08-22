@@ -16,14 +16,7 @@ import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHead
 const BookPooja = (props) => {
   const showblur = props.showblur;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // AOS.init({
-    //   duration: 1000, // Duration of animations
-    //   easing: 'ease-in-out', // Easing function
-    //   once: true, // Animation only happens once
-    // });
-  }, []);
+ 
 
   return (
     <div
