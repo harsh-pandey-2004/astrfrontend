@@ -16,7 +16,7 @@ const FreeKundali = (props) => {
        flex flex-col  top-20 relative lg:top-16 `}>
       <Head />
       <Kundlis />
-      <Visit />
+      <Visit/>
       <FutureKund />
       <Faq />
     </div>

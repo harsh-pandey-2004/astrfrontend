@@ -49,15 +49,15 @@ useEffect(() => {
       switch (activeTab) {
         case "Manglik":
           url =
-            `https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&lang=en`;
+            `https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en`;
           break;
         case "Kalsarpa":
           url =
-            `https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&lang=en`;
+            `https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en`;
           break;
         case "Sadesati":
           url =
-            `https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&lang=en`;
+            `https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en`;
           break;
         default:
           break;
