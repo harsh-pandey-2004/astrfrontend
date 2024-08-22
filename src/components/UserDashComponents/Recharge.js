@@ -22,7 +22,7 @@ const Recharge = () => {
         <p className='mt-3 text-start w-full px-16 font-semibold'>Popular Recharge</p>
 
 
-        <div className='grid grid-cols-6 gap-12 w-full px-16 pt-6'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6  gap-12 w-full px-16 pt-6'>
          {data.map((obj)=>{return  <Link to="paymentdetails"><PlanCard obj={obj}/></Link>})}
 
         </div>
