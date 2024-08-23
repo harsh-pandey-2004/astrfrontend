@@ -98,7 +98,7 @@ const LogOutHandler = ()=>{
 }
 
 
-useEffect(()=>{
+  useEffect(()=>{
 
     const fetchUserDetails=async()=>{
        
@@ -121,7 +121,7 @@ useEffect(()=>{
 
     if(localStorage.length!=0 && localStorage.getItem('userId')!=null){fetchUserDetails();}
 
-  });
+  },[]);
 
 
 
