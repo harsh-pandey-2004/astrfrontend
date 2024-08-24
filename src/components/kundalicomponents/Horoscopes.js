@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { horoscope, responsive } from "../kundalicomponents/Data";
@@ -7,13 +7,22 @@ import { useMediaQuery } from "@mui/material";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 import "./Horoscopes.css"; // Import your custom CSS
+// import TodayHoroscope from "../../Pages/TodayHoroscope";
+import { useNavigate } from "react-router-dom";
 
 function Horoscopes() {
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");
-
+  const [selectedHoroscope,setSelectedHoroscope]=useState(null);
+  const navigate=useNavigate();
   let myVariable = false;
   if (isScreenWidthReached) {
     myVariable = true;
+  }
+
+  const handleHoroScopeClick=(horoscope)=>{
+    console.log('horoscope clicked')
+    setSelectedHoroscope(horoscope);
+    navigate("/todayhoroscope", { state: { horoscope } });
   }
 
   // useEffect(() => {
@@ -41,6 +50,7 @@ function Horoscopes() {
       <h1 className="text-center text-2xl sm:text-4xl font-semibold">
         TODAY'S HOROSCOPE
       </h1>
+      {/* {selectedHoroscope && <TodayHoroscope horoscope={selectedHoroscope}/>} */}
       <Carousel
         showDots={myVariable}
         removeArrowOnDeviceType={["mobile"]}
@@ -50,7 +60,7 @@ function Horoscopes() {
         className="mt-8 pr-20"
       >
         {horoscope.map((obj) => (
-          <Horoscope key={obj.id} obj={obj}  />
+          <Horoscope onClick={()=>handleHoroScopeClick(obj)} key={obj.id} obj={obj}  />
         ))}
       </Carousel>
     </div>

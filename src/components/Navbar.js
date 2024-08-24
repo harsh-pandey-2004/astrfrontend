@@ -98,7 +98,7 @@ const LogOutHandler = ()=>{
 }
 
 
-useEffect(()=>{
+  useEffect(()=>{
 
     const fetchUserDetails=async()=>{
        
@@ -121,7 +121,7 @@ useEffect(()=>{
 
     if(localStorage.length!=0 && localStorage.getItem('userId')!=null){fetchUserDetails();}
 
-  });
+  },[]);
 
 
 
@@ -237,11 +237,13 @@ useEffect(()=>{
                 </span>
               </Link>
             </div>
-            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center font-bold rounded mx-1 my-3">
+            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center font-bold rounded mx-1 my-3" onClick={LogOutHandler}>
               Logout
             </span>
           </div>
         </div>
+
+
         <div className="flex justify-center ">
           <img
             onClick={handleClick}
@@ -249,13 +251,58 @@ useEffect(()=>{
             className="w-[90%] h-[100%]"
           ></img>
         </div>
-        <div
+
+
+        {/* <div
           className="flex items-center gap-1 border-[#f6c300] border-2 font-sans text-sm p-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
           Login
-        </div>
+        </div> */}
+          {localStorage.getItem("userId") ? <div className="rounded-full outline outline-yellow-400 bg-yellow-400 flex flex-col relative group"> <AccountLogo className="h-6 w-6 "/> 
+
+{/* user modal  */}
+<div className="absolute h-fit w-64 top-7 right-0 z-10   bg-black hidden group-hover:flex flex-col cursor-pointer text-yellow-500">
+<Link to="/profile-settings"> 
+<div className="flex flex-col items-center gap-1  py-4 border-b-2 border-b-yellow-400 h-fit w-full bg-gray-800">
+   <img src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+   className="rounded-full h-20 w-20 "/>
+ <p >{userDetails && userDetails.name}</p> 
+   <p className="text-sm"><span>+91</span>{ userDetails && userDetails.mobile}</p>
+</div>
+</Link>
+   
+   {/* dashboard Links */}
+
+<div className="flex flex-col gap-2  text-start  text-white">
+   <Link to="/notifications" className="hover:bg-yellow-400 hover:text-black transition pl-6 pb-1 pt-1">Notifications</Link>
+   <Link to="/my-wallet"  className="hover:bg-yellow-400 hover:text-black transition flex items-center pl-6 py-1">Wallet Transactions  <span className="text-sm  flex items-center pl-8"><HiCurrencyRupee />20</span></Link>
+   <Link to="/order-history"  className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Order History</Link>
+   <Link to="customer-support" className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Customer Support Chat</Link>
+   <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1" onClick={LogOutHandler}>Logout</Link>
+   <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Logout From Other Devices</Link>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+:
+<div
+className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
+onClick={() => navigate("/register-page")}
+>
+<AccountLogo />
+Login
+</div> }
       </div>
 
       {/* Web nav */}
