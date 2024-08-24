@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importing React Icons
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Review.css';
+import '../BookPanditReview/BookPanditReview.css';
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
@@ -34,76 +34,75 @@ import './Review.css';
   const reviews = [
     {
       id: 1,
-      name: 'Vastu with Pandit Rajesh Sharma',
+      name: 'Pandit Rajesh Sharma',
       location: 'Noida',
-      image: 'https://example.com/images/vastu_rajesh.jpg',
-      review: 'Specializing in comprehensive Vastu consultations for residential and commercial properties. Over 15 years of experience in creating harmonious living spaces.'
+      image: 'https://example.com/images/pandit_rajesh.jpg',
+      review: 'Expert in Vastu Shastra with 15 years of experience. Known for insightful consultations.'
     },
     {
       id: 2,
-      name: 'Vastu Insights by Pandit Ankit Sharma',
+      name: 'Pandit Ankit Sharma',
       location: 'Delhi',
-      image: 'https://example.com/images/vastu_ankit.jpg',
-      review: 'Expert in Vastu corrections and remedies. Offers personalized solutions for optimizing space and enhancing well-being.'
+      image: 'https://example.com/images/pandit_ankit.jpg',
+      review: 'Experienced astrologer specializing in personalized predictions and guidance.'
     },
     {
       id: 3,
-      name: 'Professional Vastu Services with Pandit Sunita Gupta',
+      name: 'Pandit Sunita Gupta',
       location: 'Mumbai',
-      image: 'https://example.com/images/vastu_sunita.jpg',
-      review: 'Provides effective Vastu solutions for residential and commercial properties. Known for precise and actionable insights.'
+      image: 'https://example.com/images/pandit_sunita.jpg',
+      review: 'Highly skilled in Vastu and astrology. Provides accurate and effective solutions.'
     },
     {
       id: 4,
-      name: 'Holistic Vastu by Pandit Arjun Kumar',
+      name: 'Pandit Arjun Kumar',
       location: 'Kolkata',
-      image: 'https://example.com/images/vastu_arjun.jpg',
-      review: 'Renowned for his deep understanding of Vastu Shastra. Offers detailed consultations and practical solutions for space optimization.'
+      image: 'https://example.com/images/pandit_arjun.jpg',
+      review: 'Renowned for his expertise in Vastu and holistic remedies. Trusted by many clients.'
     },
     {
       id: 5,
-      name: 'Astrological Vastu Corrections with Pandit Neelam Verma',
+      name: 'Pandit Neelam Verma',
       location: 'Chennai',
-      image: 'https://example.com/images/vastu_neelam.jpg',
-      review: 'Specializes in combining astrology with Vastu principles to provide effective remedies and improvements for your space.'
+      image: 'https://example.com/images/pandit_neelam.jpg',
+      review: 'Specializes in astrological counseling and Vastu corrections. Known for her precise readings.'
     },
     {
       id: 6,
-      name: 'Expert Vastu Consultations by Pandit Vikram Singh',
+      name: 'Pandit Vikram Singh',
       location: 'Bangalore',
-      image: 'https://example.com/images/vastu_vikram.jpg',
-      review: 'Offers detailed Vastu consultations with a focus on personal and professional spaces. Provides holistic and practical advice.'
+      image: 'https://example.com/images/pandit_vikram.jpg',
+      review: 'Offers detailed consultations in Vastu and astrology. Highly recommended for personal and professional advice.'
     },
     {
       id: 7,
-      name: 'Practical Vastu Solutions with Pandit Aarti Joshi',
+      name: 'Pandit Aarti Joshi',
       location: 'Hyderabad',
-      image: 'https://example.com/images/vastu_aarti.jpg',
-      review: 'Provides clear and actionable Vastu solutions for improving living and working environments. Expert in effective space planning.'
+      image: 'https://example.com/images/pandit_aarti.jpg',
+      review: 'Expert in astrology with a focus on practical solutions. Provides clear and actionable guidance.'
     },
     {
       id: 8,
-      name: 'In-Depth Vastu Analysis with Pandit Rajiv Mehta',
+      name: 'Pandit Rajiv Mehta',
       location: 'Pune',
-      image: 'https://example.com/images/vastu_rajiv.jpg',
-      review: 'Known for his extensive knowledge in Vastu Shastra. Offers thorough analysis and practical remedies for various issues.'
+      image: 'https://example.com/images/pandit_rajiv.jpg',
+      review: 'Known for his deep knowledge of Vastu and astrology. Offers effective remedies for various issues.'
     },
     {
       id: 9,
-      name: 'Vastu Expertise by Pandit Sanya Kapoor',
+      name: 'Pandit Sanya Kapoor',
       location: 'Ahmedabad',
-      image: 'https://example.com/images/vastu_sanya.jpg',
-      review: 'Specializes in Vastu Shastra with a focus on creating balanced and harmonious spaces. Provides detailed consultations and effective solutions.'
+      image: 'https://example.com/images/pandit_sanya.jpg',
+      review: 'Specializes in Vastu Shastra and astrological predictions. Provides insightful and reliable consultations.'
     },
     {
       id: 10,
-      name: 'Comprehensive Vastu Guidance with Pandit Rahul Choudhury',
+      name: 'Pandit Rahul Choudhury',
       location: 'Jaipur',
-      image: 'https://example.com/images/vastu_rahul.jpg',
-      review: 'Offers expert guidance in Vastu Shastra for enhancing personal and professional spaces. Known for a holistic approach and effective solutions.'
+      image: 'https://example.com/images/pandit_rahul.jpg',
+      review: 'Expert in astrology with a holistic approach. Offers detailed and effective guidance for personal growth.'
     }
   ];
-
 
 
 const Arrow = ({ className, style, onClick, direction }) => (
@@ -116,7 +115,7 @@ const Arrow = ({ className, style, onClick, direction }) => (
   </div>
 );
 
-const Reviews = () => {
+const BookPanditReviews = () => {
   // useEffect(() => {
   //   AOS.init({
   //     duration: 1000, // Duration of animations
@@ -159,4 +158,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default BookPanditReviews;
