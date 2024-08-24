@@ -1,0 +1,61 @@
+.reviews-carousel {
+    position: relative;
+    max-width: 1200px; /* Max width for the carousel */
+    margin: 0 auto; /* Center the carousel */
+    background-color: #f7fafc; /* Light gray background */
+  }
+  
+  
+  
+  .review-slide {
+    padding: 1.5rem; /* Padding of 6 units */
+    border-radius: 0.5rem; /* Rounded corners */
+    text-align: center;
+  }
+  
+  .review-image img {
+    border-radius: 50%; /* Rounded image */
+  }
+  
+  .review-text {
+    font-size: 1.125rem; /* Large font size */
+    color: #2d3748; /* Dark gray text color */
+  }
+  
+  .review-author {
+    font-size: 1.125rem; /* Large font size */
+    color: #2d3748; /* Dark gray text color */
+  }
+  
+  .review-location {
+    font-size: 0.875rem; /* Small font size */
+    color: #f6c300; /* Yellow text color */
+  }
+  
+  .slick-dots li button:before {
+    color: #f6c300; /* Yellow color for dots */
+  }
+  
+  .custom-arrow {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    font-size: 2rem; /* Arrow size */
+    color: #2d3748; /* Arrow color */
+    cursor: pointer;
+    z-index: 10;
+    background-color: white; /* Optional: Background for better visibility */
+    border-radius: 50%; /* Optional: Rounded background */
+    padding: 0.5rem; /* Optional: Padding around the icon */
+  }
+  
+  .custom-arrow.left {
+    left: 10px; /* Position left arrow */
+    color: #f6c300;
+  }
+  
+  .custom-arrow.right {
+    right: 10px; /* Position right arrow */
+    color: #f6c300;
+  }
+  

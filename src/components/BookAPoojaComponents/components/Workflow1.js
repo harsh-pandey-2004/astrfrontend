@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 import "./HowitWorks.css";
-import Eye from "../../../images/view.png";
-import Mission from "../../../images/mission.png";
-import checkList from "../../../images/check-list.png";
-import stopWatch from "../../../images/stopwatch.png";
-import Surveyor from "../../../images/surveyor.png";
+// import Eye from "../../../images/view.png";
+// import Mission from "../../../images/mission.png";
+// import checkList from "../../../images/check-list.png";
+// import stopWatch from "../../../images/stopwatch.png";
+// import Surveyor from "../../../images/surveyor.png";
 import Call from "../../../images/call.png";
+import appointment from '../../../images/appointment (1).png'
+import contactform from '../../../images/contact-form.png'
+import paymenticon from '../../../images/cashless-payment.png'
+import confirmicon from '../../../images/confirmation.png'
+import poojaicon from '../../../images/pooja.png'
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
@@ -21,41 +26,40 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      icon: "fa-pencil",
-      title: "Interact",
-      description: "User interacts with our form.",
-      gif: Eye,
+      icon: "fa-calendar-check-o", // Font Awesome icon for scheduling
+      title: "Book Appointment",
+      description: "Schedule an appointment with a pandit by choosing a suitable date and time.",
+      gif: appointment,
     },
     {
-      icon: "fa-edit",
+      icon: "fa-pencil-alt", // Font Awesome icon for form filling
       title: "Fill Details",
-      description: "User fills in the required details.",
-      gif: checkList,
+      description: "Complete the form with the required details for the pooja.",
+      gif: contactform,
     },
     {
-      icon: "fa-phone",
+      icon: "fa-phone", // Font Awesome icon for phone
       title: "Receive Call",
-      description: "A call from our Vastu maker to discuss your needs.",
+      description: "A call from our team to confirm the details and discuss any special requirements.",
       gif: Call,
     },
     {
-      icon: "fa-clock-o",
-      title: "Design Creation",
-      description: "Our Vastu maker creates the design in 2-3 days.",
-      gif: stopWatch,
+      icon: "fa-credit-card", // Font Awesome icon for payment
+      title: "Make Payment",
+      description: "Proceed with the payment for the booked service.",
+      gif: paymenticon,
     },
     {
-      icon: "fa-handshake-o",
-      title: "Handover",
-      description: "The final design is handed over to the user.",
-      gif: Surveyor,
+      icon: "fa-check-circle", // Font Awesome icon for confirmation
+      title: "Confirm Booking",
+      description: "Confirm the booking and receive a confirmation message with details.",
+      gif: confirmicon,
     },
     {
-      icon: "fa-check-square-o",
-      title: "Confirm",
-      description:
-        "After handover, if users have any doubts they can also call our Vastu counselor to clarify their doubts.",
-      gif: Mission,
+      icon: "fa-calendar-day", // Font Awesome icon for the appointment day
+      title: "Pooja Day",
+      description: "On the appointed day, the pandit arrives at the scheduled time to perform the pooja.",
+      gif: poojaicon,
     },
   ];
 

@@ -5,7 +5,13 @@ import Mission from "../../../images/mission.png";
 import checkList from "../../../images/check-list.png";
 import stopWatch from "../../../images/stopwatch.png";
 import Surveyor from "../../../images/surveyor.png";
+// import Call from "../../../images/call.png";
 import Call from "../../../images/call.png";
+import appointment from '../../../images/appointment (1).png'
+import contactform from '../../../images/contact-form.png'
+import paymenticon from '../../../images/cashless-payment.png'
+import confirmicon from '../../../images/confirmation.png'
+import poojaicon from '../../../images/pooja.png'
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
@@ -21,41 +27,40 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      icon: "fa-pencil",
-      title: "Interact",
-      description: "User interacts with our form.",
-      gif: Eye,
+      icon: "fa-calendar-check",  // Font Awesome icon for scheduling
+      title: "Schedule Pooja",
+      description: "Select a convenient date and time for your pooja.",
+      gif: appointment,
     },
     {
-      icon: "fa-edit",
-      title: "Fill Details",
-      description: "User fills in the required details.",
-      gif: checkList,
+      icon: "fa-pencil-alt", // Font Awesome icon for form filling
+      title: "Fill Out Form",
+      description: "Complete the form with your details and pooja requirements.",
+      gif: contactform,
     },
     {
-      icon: "fa-phone",
-      title: "Receive Call",
-      description: "A call from our Vastu maker to discuss your needs.",
+      icon: "fa-phone", // Font Awesome icon for phone
+      title: "Receive Confirmation Call",
+      description: "Our team will call you to confirm the details and finalize the arrangements.",
       gif: Call,
     },
     {
-      icon: "fa-clock-o",
-      title: "Design Creation",
-      description: "Our Vastu maker creates the design in 2-3 days.",
-      gif: stopWatch,
+      icon: "fa-credit-card", // Font Awesome icon for payment
+      title: "Make Payment",
+      description: "Proceed with the payment to complete your booking.",
+      gif: paymenticon,
     },
     {
-      icon: "fa-handshake-o",
-      title: "Handover",
-      description: "The final design is handed over to the user.",
-      gif: Surveyor,
+      icon: "fa-check-circle", // Font Awesome icon for confirmation
+      title: "Confirm Booking",
+      description: "Receive a confirmation message and details about the pooja.",
+      gif: confirmicon,
     },
     {
-      icon: "fa-check-square-o",
-      title: "Confirm",
-      description:
-        "After handover, if users have any doubts they can also call our Vastu counselor to clarify their doubts.",
-      gif: Mission,
+      icon: "fa-calendar-day", // Font Awesome icon for the pooja day
+      title: "Pooja Day",
+      description: "On the scheduled day, the pooja will be performed as per the arrangements.",
+      gif: poojaicon,
     },
   ];
 

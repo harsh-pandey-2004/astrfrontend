@@ -13,8 +13,10 @@ import Vedio3 from "../vedios/panditpagebg.mp4";
 import axios from "axios";
 import Workflow1 from "../components/BookAPoojaComponents/components/Workflow1";
 import UpcomingEvents from "../components/BookAPoojaComponents/components/UpcomingEvents";
-import Stats from "./VastuPage/Stats";
-import Reviews from "./VastuPage/Reviews";
+// import Stats from "./VastuPage/Stats";
+import BookPanditStat from "../components/BookaPanditComponents/BookPanditStat/BookPanditStat";
+// import Reviews from "./VastuPage/Reviews";
+import BookPanditReview from "../components/BookaPanditComponents/BookPanditReview/BookPanditReview";
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -165,8 +167,16 @@ const BookPandit = (props) => {
         {/* <Preference /> */}
         <UpcomingEvents />
         <Workflow1 />
-        <Stat amount="22,758+" live="711" customers="45.5" type="pooja" />
-        <Reviews />
+        {/* <Stat amount="22,758+" live="711" customers="45.5" type="pooja" /> */}
+        <BookPanditStat
+          amount="15,324+"   // Total number of bookings made
+          live="120"         // Number of Pandits currently available
+          customers="92.3"   // Customer satisfaction rate as a percentage
+          type="pandit"      // Type of service
+        />
+
+        {/* <Reviews /> */}
+        <BookPanditReview/>
       </div>
     </div>
   );
