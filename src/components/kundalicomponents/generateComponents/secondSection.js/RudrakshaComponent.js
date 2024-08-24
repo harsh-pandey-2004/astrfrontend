@@ -40,7 +40,7 @@ useEffect(() => {
   useEffect(()=>{
     const fetchReport=async()=>{
       try{
-        const res=await fetch(`https://api.vedicastroapi.com/v3-json/extended-horoscope/rudraksh-suggestion?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=290bddbe-4d06-5662-8aac-bfa5b725a565&lang=en`);
+        const res=await fetch(`https://api.vedicastroapi.com/v3-json/extended-horoscope/rudraksh-suggestion?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=5.5&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en`);
         const data=await res.json();
         console.log(data);
         setReport(data.response);
