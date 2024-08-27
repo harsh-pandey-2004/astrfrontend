@@ -29,9 +29,19 @@ const LoginForm = () => {
     });
     if (a.data.success) {
       const userId = a.data.user._id;
+      console.log(a.data);
+
       console.log(userId);
       localStorage.setItem('userId', userId);
+      console.log(a.data.user);
+      const userSlug=a.data.user.slug;
+      localStorage.setItem('userSlug',userSlug);
+     
+      const responseJSON=JSON.stringify(a.data.user);
+      localStorage.setItem('userdetails',responseJSON);
+     
       alert('Login successful!');
+      navigate("/");  
       // Redirect or perform any other actions after successful login
     } else {
       alert('Login failed. Please check your credentials.');
@@ -40,7 +50,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="bg-black shadow-md rounded  pb-8 mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
+    <div className="bg-black shadow-md rounded  pb-8 mb-40 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
       <form
         autoComplete="on"
         className="flex flex-col "

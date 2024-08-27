@@ -7,6 +7,11 @@ import Stats from "./astroDash/Stats";
 import MailPage from "./astroDash/MailPage";
 import axios from "axios";
 import Astro_Messages from "./astroDash/Astro_Messages";
+import Settings from "./astroDash/Settings";
+import BankDetailsForm from "./astroDash/BankDetailsForm";
+import Performance from "./astroDash/Performance";
+import AstroSchedule from "./astroDash/AstroSchedule";
+
 
 //Socket
 import io from 'socket.io-client';
@@ -100,10 +105,10 @@ function MainDashAstro() {
 
 
   return (
-    <div className="flex flex-col min-h-screen  ">
+    <div className="flex flex-col min-h-fit outline ">
       <div className="flex flex-grow  relative overflow-hidden top-24 lg:top-0">
         <Sidebar response={response} />
-        <div className="h-full md:w-3/4 w-full overflow-y-auto">
+        <div className="h-full md:w-4/5 w-full overflow-y-auto">
 
         {/* //AcceptModal */}
         <div className="requests-list mb-4">
@@ -132,16 +137,21 @@ function MainDashAstro() {
 
           <Routes>
             {/* Redirect to profile as the default route */}
-            <Route path="/" element={<Navigate to="profile" />} />
-            <Route path="profile" element={<Profile response={response} />} />
+            <Route path="/" element={<Navigate to="profile"/>} />
+            <Route path="profile" element={<Profile response={response}/>}/>
             {/* <Route path="schedule" element={<Schedule />} /> */}
             {/* <Route path="stats" element={<Stats />} /> */}
-           <Route path="messages" element={<Astro_Messages response={response._id} handleSetMessages={handleSetMessages} activeChat={activeChat} requests={requests} userID={userID} socket={socket} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} messages={messages}/>}/>
-            <Route path="mail" element={<MailPage response={response} />} />
+           <Route path="chats" element={<Astro_Messages response={response._id} handleSetMessages={handleSetMessages} activeChat={activeChat} requests={requests} userID={userID} socket={socket} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} messages={messages}/>}/>
+            <Route path="mail" element={<MailPage response={response}/>}/>
+            <Route path="schedule" element={<AstroSchedule/>}/>
+            <Route path="settings" element={<Settings/>}/>
+            <Route path="bank" element={<BankDetailsForm/>}/>
+            <Route path="performance" element={<Performance/>}/>
+            
           </Routes>
         </div>
       </div>
-      <footer className="md:hidden bg-white text-white py-4 mt-8 text-center"></footer>
+      {/* <footer className="md:hidden bg-white text-white py-4 mt-8 text-center "></footer> */}
     </div>
   );
 }

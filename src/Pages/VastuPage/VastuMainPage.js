@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import ServicesVastu from "./ServicesVastu";
 import ServicesWeProvide from "./ServicesWeProvide";
 import OurSpecialists from "./OurSpecialists";
@@ -13,12 +13,12 @@ import BlogSection from "./BlogSection";
 
 const VastuMainPage = ({ showblur }) => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out", // Animation easing
-      once: true, // Whether animation should happen only once - while scrolling down
-      mirror: false, // Whether elements should animate out while scrolling past them
-    });
+    // AOS.init({
+    //   duration: 1000, // Animation duration
+    //   easing: "ease-in-out", // Animation easing
+    //   once: true, // Whether animation should happen only once - while scrolling down
+    //   mirror: false, // Whether elements should animate out while scrolling past them
+    // });
     window.scrollTo(0, 0);
   }, []);
 
@@ -35,7 +35,7 @@ const VastuMainPage = ({ showblur }) => {
           <div className="flex flex-col-reverse lg:flex-row lg:px-16 px-5 bg-black pb-2 lg:h-screen items-center">
             <div
               className="lg:w-1/2 outline md:pt-32 pt-10 w-full"
-              data-aos="fade-right"
+              
             >
               <h1 className=" text-white text-base font-semibold pl-2 sm:text-lg   w-fit ">
                 Vastu Shastra: Harmonizing Your Space
@@ -62,7 +62,7 @@ const VastuMainPage = ({ showblur }) => {
 
             <div
               className="lg:w-1/2 md:pt-20 lg:pt-36 relative lg:pl-10 w-full animate-pulse"
-              data-aos="fade-left"
+              
             >
               <div className="absolute inset-0 bg-black opacity-20 rounded-md z-10"></div>
               <img
@@ -74,25 +74,25 @@ const VastuMainPage = ({ showblur }) => {
           </div>
         </div>
       </div>
-      <div data-aos="fade-up">
+      <div >
         <ServicesVastu />
       </div>
-      <div data-aos="fade-up" data-aos-delay="200">
+      <div >
         <ServicesWeProvide />
       </div>
-      <div data-aos="fade-up" data-aos-delay="400">
+      <div >
         <OurSpecialists />
       </div>
-      <div data-aos="fade-up" data-aos-delay="600">
+      <div >
         <Stats />
       </div>
-      <div data-aos="fade-up" data-aos-delay="800">
+      <div >
         <BlogCard />
       </div>
-      <div data-aos="fade-up" data-aos-delay="1000">
+      <div >
         <BlogSection />
       </div>
-      <div data-aos="fade-up" data-aos-delay="1200">
+      <div >
         <Reviews />
       </div>
     </div>

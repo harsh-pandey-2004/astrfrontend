@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import AstroCaptionLogo from "../images/Astrocaptain.jpeg";
+import { HiCurrencyRupee } from "react-icons/hi2";
 import {
   AccountLogo,
   CaretDown,
@@ -8,7 +9,7 @@ import {
   HambugerIcon,
 } from "../icons/icons";
 
-const Navbar = ({ showbluefn }) => {
+const Navbar = ({ showbluefn}) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,6 +18,8 @@ const Navbar = ({ showbluefn }) => {
   const [showhorodropDown, setshowhorodropDown] = useState(false);
   const [showAstrodropDown, setshowAstrodropDown] = useState(false);
   const [showCounclrdropDown, setshowCounclrdropDown] = useState(false);
+
+  const[userDetails,setUserDetails]=useState({});
 
   const toggleNav = () => {
     setShowNav(!showNav);
@@ -79,6 +82,54 @@ const Navbar = ({ showbluefn }) => {
   const handleClick = () => {
     window.location.href = "/";
   };
+
+ 
+  // const storeduserDetails=  localStorage.getItem('userdetails');
+ 
+  //   const userDetails=storeduserDetails!=null && JSON.parse(storeduserDetails);
+  //   console.log(userDetails);
+ 
+const LogOutHandler = ()=>{
+ 
+  localStorage.clear();
+  
+  window.location.href="/";
+ 
+}
+
+
+  useEffect(()=>{
+
+    const fetchUserDetails=async()=>{
+       
+      if( localStorage.length!=0 && localStorage.getItem('userSlug')!=null){
+              const userSlug=localStorage.getItem('userSlug');
+              console.log(userSlug);
+
+              try{
+              const res=await fetch(`https://astrobackend.onrender.com/api/userDetails/${userSlug}`);
+              const userDetails=await res.json();
+              console.log(userDetails);
+              console.log(userDetails.existingUser);
+              setUserDetails(userDetails.existingUser);
+            }catch(err){console.log(err);}
+
+      }
+
+
+    }
+
+    if(localStorage.length!=0 && localStorage.getItem('userId')!=null){fetchUserDetails();}
+
+  },[]);
+
+
+
+
+
+
+ 
+
   return (
     <>
       <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static">
@@ -186,11 +237,13 @@ const Navbar = ({ showbluefn }) => {
                 </span>
               </Link>
             </div>
-            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center font-bold rounded mx-1 my-3">
+            <span className="transEffect hover:hover-effect lg:hidden bg-[#f6c000] text-white p-2 text-center font-bold rounded mx-1 my-3" onClick={LogOutHandler}>
               Logout
             </span>
           </div>
         </div>
+
+
         <div className="flex justify-center ">
           <img
             onClick={handleClick}
@@ -198,18 +251,63 @@ const Navbar = ({ showbluefn }) => {
             className="w-[90%] h-[100%]"
           ></img>
         </div>
-        <div
+
+
+        {/* <div
           className="flex items-center gap-1 border-[#f6c300] border-2 font-sans text-sm p-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
           onClick={() => navigate("/register-page")}
         >
           <AccountLogo />
           Login
-        </div>
+        </div> */}
+          {localStorage.getItem("userId") ? <div className="rounded-full outline outline-yellow-400 bg-yellow-400 flex flex-col relative group"> <AccountLogo className="h-6 w-6 "/> 
+
+{/* user modal  */}
+<div className="absolute h-fit w-64 top-7 right-0 z-10   bg-black hidden group-hover:flex flex-col cursor-pointer text-yellow-500">
+<Link to="/profile-settings"> 
+<div className="flex flex-col items-center gap-1  py-4 border-b-2 border-b-yellow-400 h-fit w-full bg-gray-800">
+   <img src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+   className="rounded-full h-20 w-20 "/>
+ <p >{userDetails && userDetails.name}</p> 
+   <p className="text-sm"><span>+91</span>{ userDetails && userDetails.mobile}</p>
+</div>
+</Link>
+   
+   {/* dashboard Links */}
+
+<div className="flex flex-col gap-2  text-start  text-white">
+   <Link to="/notifications" className="hover:bg-yellow-400 hover:text-black transition pl-6 pb-1 pt-1">Notifications</Link>
+   <Link to="/my-wallet"  className="hover:bg-yellow-400 hover:text-black transition flex items-center pl-6 py-1">Wallet Transactions  <span className="text-sm  flex items-center pl-8"><HiCurrencyRupee />20</span></Link>
+   <Link to="/order-history"  className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Order History</Link>
+   <Link to="customer-support" className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Customer Support Chat</Link>
+   <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1" onClick={LogOutHandler}>Logout</Link>
+   <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Logout From Other Devices</Link>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+:
+<div
+className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
+onClick={() => navigate("/register-page")}
+>
+<AccountLogo />
+Login
+</div> }
       </div>
 
       {/* Web nav */}
       <div>
-        <div className="hidden lg:fixed lg:flex w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl bg-black z-50 text-white">
+        <div className="hidden lg:fixed lg:flex w-full h-auto min-h-20 p-4  items-center justify-between shadow-2xl bg-black z-50 text-white">
           <div className="flex items-center lg:w-52 xl:w-[18rem] ">
             <Link to="/">
               <img src={AstroCaptionLogo} className=""></img>
@@ -329,13 +427,52 @@ const Navbar = ({ showbluefn }) => {
               </Link>
             </div>
           </div>
-          <div
-            className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
-            onClick={() => navigate("/register-page")}
-          >
-            <AccountLogo />
-            Login
+
+
+          {localStorage.getItem("userId") ? <div className="rounded-full outline outline-yellow-400 bg-yellow-400 flex flex-col relative group"> <AccountLogo className="h-6 w-6 "/> 
+
+           {/* user modal  */}
+          <div className="absolute h-fit w-64 top-7 right-0 z-10   bg-black hidden group-hover:flex flex-col cursor-pointer text-yellow-500">
+        <Link to="/profile-settings"> 
+          <div className="flex flex-col items-center gap-1  py-4 border-b-2 border-b-yellow-400 h-fit w-full bg-gray-800">
+              <img src="https://aws.astrotalk.com/assets/images/profile_pic.webp"
+              className="rounded-full h-20 w-20 "/>
+            <p >{userDetails && userDetails.name}</p> 
+              <p className="text-sm"><span>+91</span>{ userDetails && userDetails.mobile}</p>
+           </div>
+          </Link>
+              
+              {/* dashboard Links */}
+
+          <div className="flex flex-col gap-2  text-start  text-white">
+              <Link to="/notifications" className="hover:bg-yellow-400 hover:text-black transition pl-6 pb-1 pt-1">Notifications</Link>
+              <Link to="/my-wallet"  className="hover:bg-yellow-400 hover:text-black transition flex items-center pl-6 py-1">Wallet Transactions  <span className="text-sm  flex items-center pl-8"><HiCurrencyRupee />20</span></Link>
+              <Link to="/order-history"  className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Order History</Link>
+              <Link to="customer-support" className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Customer Support Chat</Link>
+              <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1" onClick={LogOutHandler}>Logout</Link>
+              <Link className="hover:bg-yellow-400 hover:text-black transition pl-6 py-1">Logout From Other Devices</Link>
           </div>
+
+          
+         
+
+
+
+          
+          
+          </div>
+
+
+          </div>
+           :
+          <div
+          className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
+          onClick={() => navigate("/register-page")}
+        >
+          <AccountLogo />
+          Login
+        </div> }
+         
         </div>
       </div>
       <Outlet />
