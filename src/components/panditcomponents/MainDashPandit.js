@@ -6,9 +6,10 @@ import Stats from "./PanditDash/Stats";
 import MailPage from "./PanditDash/MailPage";
 import axios from "axios";
 import PanditSchedule from "./PanditDash/PanditSchedule";
+import BankDetailsForm from "./PanditDash/BankDetailsForm";
 
 
-function MainPanditDash() {
+function MainPanditDash(){
   const [response, setResponse] = useState([]);
   const location = useLocation();
   // const slug = location.pathname.split('/').pop();
@@ -30,18 +31,19 @@ function MainPanditDash() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  },[]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-fit outline ">
       <div className="flex flex-grow relative overflow-hidden top-24 lg:top-0">
         <Sidebar response={response} />
-        <div className="h-full md:w-3/4 w-full overflow-y-auto">
+        <div className="h-full md:w-4/5 w-full overflow-y-auto">
           <Routes>
             {/* Redirect to profile as the default route */}
             <Route path="/" element={<Navigate to="profile" />} />
             <Route path="profile" element={<Profile response={response} />} />
             <Route path="schedule" element={<PanditSchedule />} />
+            <Route path="panditbank" element={<BankDetailsForm/>}/>
             <Route path="stats" element={<Stats />} />
             <Route path="mail" element={<MailPage response={response} />} />
           </Routes>

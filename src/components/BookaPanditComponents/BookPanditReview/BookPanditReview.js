@@ -36,70 +36,70 @@ import '../BookPanditReview/BookPanditReview.css';
       id: 1,
       name: 'Pandit Rajesh Sharma',
       location: 'Noida',
-      image: 'https://example.com/images/pandit_rajesh.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKMjeeornJdOe6FD8JTzqih-CByVmSWpSD0g&s',
       review: 'Expert in Vastu Shastra with 15 years of experience. Known for insightful consultations.'
     },
     {
       id: 2,
       name: 'Pandit Ankit Sharma',
       location: 'Delhi',
-      image: 'https://example.com/images/pandit_ankit.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdsyAuTua0DEVbJaaFWNI9QM1Y9_3oEmtHA&s',
       review: 'Experienced astrologer specializing in personalized predictions and guidance.'
     },
     {
       id: 3,
       name: 'Pandit Sunita Gupta',
       location: 'Mumbai',
-      image: 'https://example.com/images/pandit_sunita.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnS1o3mO3S_Nkfw1WAGaRJ6KaOGgODpfoOsA&s',
       review: 'Highly skilled in Vastu and astrology. Provides accurate and effective solutions.'
     },
     {
       id: 4,
       name: 'Pandit Arjun Kumar',
       location: 'Kolkata',
-      image: 'https://example.com/images/pandit_arjun.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8JFrYAGEJ7d8ldSknkvpsi4OJGMkQB5vUg&s',
       review: 'Renowned for his expertise in Vastu and holistic remedies. Trusted by many clients.'
     },
     {
       id: 5,
       name: 'Pandit Neelam Verma',
       location: 'Chennai',
-      image: 'https://example.com/images/pandit_neelam.jpg',
+      image: 'https://images.unsplash.com/photo-1593839686924-4b344fac3f8f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHw5NDUyNDk0fHxlbnwwfHx8fHw%3D',
       review: 'Specializes in astrological counseling and Vastu corrections. Known for her precise readings.'
     },
     {
       id: 6,
       name: 'Pandit Vikram Singh',
       location: 'Bangalore',
-      image: 'https://example.com/images/pandit_vikram.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJo1MiPQp3IIdp54vvRDXlhbqlhXW9v1v6kw&s',
       review: 'Offers detailed consultations in Vastu and astrology. Highly recommended for personal and professional advice.'
     },
     {
       id: 7,
       name: 'Pandit Aarti Joshi',
       location: 'Hyderabad',
-      image: 'https://example.com/images/pandit_aarti.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNc8ME2NIu5tpu0-S9N8W1VhkFGp1V4-zApg&s',
       review: 'Expert in astrology with a focus on practical solutions. Provides clear and actionable guidance.'
     },
     {
       id: 8,
       name: 'Pandit Rajiv Mehta',
       location: 'Pune',
-      image: 'https://example.com/images/pandit_rajiv.jpg',
+      image: 'https://techcrunch.com/wp-content/uploads/2016/03/matt-jospeh.jpeg',
       review: 'Known for his deep knowledge of Vastu and astrology. Offers effective remedies for various issues.'
     },
     {
       id: 9,
       name: 'Pandit Sanya Kapoor',
       location: 'Ahmedabad',
-      image: 'https://example.com/images/pandit_sanya.jpg',
+      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?cs=srgb&dl=pexels-pixabay-415829.jpg&fm=jpg',
       review: 'Specializes in Vastu Shastra and astrological predictions. Provides insightful and reliable consultations.'
     },
     {
       id: 10,
       name: 'Pandit Rahul Choudhury',
       location: 'Jaipur',
-      image: 'https://example.com/images/pandit_rahul.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDpWYsLSeY1sLvwgFNwBeJGjszUfEofDpwJw&s',
       review: 'Expert in astrology with a holistic approach. Offers detailed and effective guidance for personal growth.'
     }
   ];
