@@ -10,70 +10,70 @@ import '../BookPoojaReview/BookPoojaReview.css';
         id: 1,
         name: 'Rajesh Kumar',
         location: 'Delhi',
-        image: 'https://example.com/images/reviewer_rajesh.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKMjeeornJdOe6FD8JTzqih-CByVmSWpSD0g&s',
         review: 'The Pooja service was conducted with utmost devotion and care. Highly recommended for a peaceful experience.'
       },
       {
         id: 2,
         name: 'Sonia Patel',
         location: 'Mumbai',
-        image: 'https://example.com/images/reviewer_sonia.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnS1o3mO3S_Nkfw1WAGaRJ6KaOGgODpfoOsA&s',
         review: 'The rituals were performed professionally, and the overall experience was very satisfying. Excellent service!'
       },
       {
         id: 3,
         name: 'Anil Sharma',
         location: 'Bangalore',
-        image: 'https://example.com/images/reviewer_anil.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdsyAuTua0DEVbJaaFWNI9QM1Y9_3oEmtHA&s',
         review: 'Very impressed with the Pooja arrangements. The team was punctual and thorough. Worth every penny!'
       },
       {
         id: 4,
         name: 'Meera Desai',
         location: 'Chennai',
-        image: 'https://example.com/images/reviewer_meera.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnS1o3mO3S_Nkfw1WAGaRJ6KaOGgODpfoOsA&s',
         review: 'The Pooja was conducted with great attention to detail. It brought a sense of tranquility to our home.'
       },
       {
         id: 5,
         name: 'Ravi Kumar',
         location: 'Hyderabad',
-        image: 'https://example.com/images/reviewer_ravi.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8JFrYAGEJ7d8ldSknkvpsi4OJGMkQB5vUg&s',
         review: 'Professional and respectful service. The Pooja was conducted smoothly and met all our expectations.'
       },
       {
         id: 6,
         name: 'Aarti Singh',
         location: 'Pune',
-        image: 'https://example.com/images/reviewer_aarti.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJo1MiPQp3IIdp54vvRDXlhbqlhXW9v1v6kw&s',
         review: 'A wonderful experience. The Pooja was well-organized and performed with dedication. Highly recommend.'
       },
       {
         id: 7,
         name: 'Vikram Raj',
         location: 'Ahmedabad',
-        image: 'https://example.com/images/reviewer_vikram.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNc8ME2NIu5tpu0-S9N8W1VhkFGp1V4-zApg&s',
         review: 'Very happy with the service. The Pooja was performed with precision and respect for traditions.'
       },
       {
         id: 8,
         name: 'Priya Rani',
         location: 'Jaipur',
-        image: 'https://example.com/images/reviewer_priya.jpg',
+        image: 'https://techcrunch.com/wp-content/uploads/2016/03/matt-jospeh.jpeg',
         review: 'The service was exceptional. The Pooja was conducted with great care and attention to detail.'
       },
       {
         id: 9,
         name: 'Suresh Iyer',
         location: 'Kolkata',
-        image: 'https://example.com/images/reviewer_suresh.jpg',
+        image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?cs=srgb&dl=pexels-pixabay-415829.jpg&fm=jpg',
         review: 'Excellent service and execution of rituals. The entire process was smooth and fulfilling.'
       },
       {
         id: 10,
         name: 'Sunita Agarwal',
         location: 'Noida',
-        image: 'https://example.com/images/reviewer_sunita.jpg',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDpWYsLSeY1sLvwgFNwBeJGjszUfEofDpwJw&s',
         review: 'The Pooja was done with utmost sincerity and respect. A calming and uplifting experience.'
       }
   ];
