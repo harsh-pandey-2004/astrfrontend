@@ -6,58 +6,26 @@ import { RiMessage2Fill } from "react-icons/ri";
 import RatingsCard from "./RatingsCard";
 import "./SingleAstro.css";
 import { io } from 'socket.io-client';
+import { CloseLogo } from "../../icons/icons";
+
+
 
 const SingleAstro = () => {
-  const { slug} = useParams();
-  console.log(slug);
+  const [message, setMessage] = useState('');
+  const [chatAccepted, setChatAccepted] = useState(false);
+  const { slug } = useParams();
   const [astrologer, setAstrologer] = useState({});
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [currentChat, setCurrentChat] = useState(null);
-  const [userId, setUserId] = useState(null);
-
-  const socket = io('/user-namespace', {
-    auth: {
-      token: astrologer._id,
-    },
-  });
-
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      setUserId(storedUserId);
-    }
-  }, []);
-
-  useEffect(() => {
-    socket.on('connect', () => {
-      console.log('Connected to server');
-    });
-
-    socket.on('loadChats', (data) => {
-      setMessages(data.chats);
-    });
-
-    socket.on('loadNewChat', (data) => {
-      if (astrologer._id === data.receiver_id && currentChat === data.sender_id) {
-        setMessages((prevMessages) => [...prevMessages, data]);
-      }
-    });
-
-    return () => {
-      socket.off('connect');
-      socket.off('loadChats');
-      socket.off('loadNewChat');
-    };
-  }, [currentChat, astrologer._id]);
+  const [socket, setSocket] = useState(null);
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astrologer/${slug}`
       );
-      console.log(response.data.Data);
       setAstrologer(response.data.Data);
     };
     fetchData();
@@ -73,16 +41,67 @@ const SingleAstro = () => {
 
   const handleChatNowClick = () => {
     setIsPopupOpen(true);
-    setCurrentChat(astrologer._id);
-    socket.emit('joinRoom', { userId, astrologerId: astrologer._id });
-    socket.emit('existChat', { sender_id: userId, receiver_id: astrologer._id });
-    console.log(`User connected to astrologer with ID: ${astrologer._id} and user ID: ${userId}`);
-    console.log(`isPopupOpen: ${isPopupOpen}`);  // Debug log
+
+    const newSocket = io('http://localhost:3000/user-namespace');
+    setSocket(newSocket);
+
+    newSocket.emit('join', { type: 'user', userId }, () => {
+      console.log('User connected to socket room');
+    });
+
+    newSocket.on('chatAccepted', () => {
+      setChatAccepted(true);
+      console.log('Chat accepted');
+    });
+
+    newSocket.on('chatDeclined', () => {
+      alert('Astrologer declined the chat request.');
+    });
+
+    newSocket.on('message', (data) => {
+      console.log(data);
+      setMessages((prev) => [...prev, data]);
+    });
+
+    return () => {
+      newSocket.disconnect();
+    };
+  };
+
+  const handleSendMessage = () => {
+    const roomId=`${userId}-${astrologer._id}`;
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      {
+        from: userId, // Identifies the sender as the user
+        message: newMessage, // The message content
+      },
+    ]);
+    if (chatAccepted) {
+      socket.emit('sendMessage', {
+        from: userId,
+        to: astrologer._id,
+        message: newMessage,
+        roomId:roomId
+      });
+    } else {
+      socket.emit('userMessage', {
+        userId:userId,
+        astrologerId: astrologer._id,
+        message: newMessage,
+        userName: 'User Name',
+      });
+    }
+    setNewMessage("");
   };
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
+    if (socket) {
+      socket.disconnect(); // Disconnect the socket when the popup is closed
+    }
   };
+
 
   const qualifications = [
     "CA Inter (Group I)",
@@ -195,6 +214,11 @@ const SingleAstro = () => {
       {isPopupOpen && (
         <div className="sm:absolute fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
           <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
+            {chatAccepted ? (
+                <div>Chat accepted. You can start messaging.</div>
+              ) : (
+                <div>Waiting for astrologer to accept the chat...</div>
+            )}
             <button
               className="absolute top-5 right-5 text-white hover:text-gray-100"
               onClick={handleClosePopup}
@@ -220,11 +244,21 @@ const SingleAstro = () => {
                 </div>
               </div>
               <div className="flex flex-col space-y-4 overflow-y-scroll h-[38vh] scrollbar">
-                {messages.map((msg, index) => (
+                {/* {messages.map((msg, index) => (
                   <div
                     key={index}
                     className={`self-${msg.sender_id === userId ? 'end' : 'start'} ${msg.sender_id === userId ? 'bg-white text-black' : 'bg-[#f6c300]'} rounded-full px-4 py-2 max-w-xs`}
                   >
+                    {msg.message}
+                  </div>
+                ))} */}
+                {messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`self-${msg.from === userId ? 'end' : 'start'} ${
+                    msg.from === userId ? 'bg-white text-black' : 'bg-[#f6c300] text-white'
+                    } rounded-full px-4 py-2 max-w-xs`}
+                    >
                     {msg.message}
                   </div>
                 ))}
@@ -239,7 +273,7 @@ const SingleAstro = () => {
                 className="flex-1 border-[#f6c300] border-2 bg-transparent rounded-full px-4 py-2 placeholder:text-[#f6c300] outline-none"
               />
               <button
-                // onClick={handleSubmit}
+                onClick={handleSendMessage}
                 className="bg-[#f6c300] rounded-full px-4 py-2"
               >
                 Send
@@ -253,3 +287,5 @@ const SingleAstro = () => {
 };
 
 export default SingleAstro;
+
+

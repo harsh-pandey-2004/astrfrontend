@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
-import Stat from "../components/BookAPoojaComponents/components/Stat";
+// import Stat from "../components/BookAPoojaComponents/components/Stat";
+import BookPoojaStat from "../components/BookAPoojaComponents/BookPoojaStat/BookPoojaStat";
 import Workflow from "../components/BookAPoojaComponents/components/Workflow";
 import Destinations from "../components/BookAPoojaComponents/components/Destinations";
 import Preference from "../components/BookAPoojaComponents/components/Preference";
 import Header from "../components/BookAPoojaComponents/components/Header";
 import ResponseCard from "../components/BookaPanditComponents/ResponseCard";
 import Vedio3 from "../vedios/vedio4.mp4";
-import Reviews from "./VastuPage/Reviews";
+// import Reviews from "./VastuPage/Reviews";
+import BookPoojaReviews from "../components/BookAPoojaComponents/BookPoojaReview/BookPoojaReview";
 import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHeader";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
@@ -16,14 +18,7 @@ import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHead
 const BookPooja = (props) => {
   const showblur = props.showblur;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // AOS.init({
-    //   duration: 1000, // Duration of animations
-    //   easing: 'ease-in-out', // Easing function
-    //   once: true, // Animation only happens once
-    // });
-  }, []);
+ 
 
   return (
     <div
@@ -84,14 +79,21 @@ const BookPooja = (props) => {
         {/* <Preference /> */}
         <Destinations />
         <Workflow />
-        <Stat
+        {/* <Stat
           amount="22,758+"
           live="711"
           customers="45.5"
           type="pooja"
           data-aos="fade-up"
+        /> */}
+        <BookPoojaStat
+          amount="25,000+"     // Total number of pooja bookings made
+          live="50"            // Number of poojas currently available
+          customers="89.7"     // Customer satisfaction rate as a percentage
+          type="pooja"
         />
-        <Reviews />
+        {/* <Reviews /> */}
+        <BookPoojaReviews/>
       </div>
     </div>
   );

@@ -71,6 +71,7 @@ import ProfileSettings from "./components/UserDashComponents/ProfileSettings";
 import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
+import TodayHoroscope from "./Pages/TodayHoroscope";
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -249,6 +250,7 @@ function App() {
           <Route path="/vastupricing" element={<PricingPage />}></Route>
           <Route path="/grahpooja" element={<GarhPooja />}></Route>
           <Route path="/contact" element={<VastuForm />} />
+          <Route path="/todayhoroscope" element={<TodayHoroscope/>}/>
         </Routes>
 
         <Footer showblur={showblur} />
