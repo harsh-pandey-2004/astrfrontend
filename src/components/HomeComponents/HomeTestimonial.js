@@ -48,7 +48,7 @@ const HomeTestimonial = () => {
 
     return (
         <div className='flex justify-center flex-col gap-12 py-6 mt-6'>
-            <h1 className="text-center text-4xl sm:text-4xl font-semibold sm:px-12 px-5" >
+            <h1 className="text-center text-2xl md:text-4xl sm:text-4xl font-semibold sm:px-12 px-5" >
                 Customer Reviews
             </h1>
             <div className="flex justify-center carousel-container">
