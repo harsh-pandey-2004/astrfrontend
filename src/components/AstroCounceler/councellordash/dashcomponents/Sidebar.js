@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+import { FaCalendarAlt } from "react-icons/fa";
 
 function Sidebar({ response }) {
   const [curPage, setCurPage] = useState("profile");
@@ -37,8 +39,9 @@ function Sidebar({ response }) {
           onClick={() => setCurPage("profile")}
           className={`${
             curPage === "profile" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
-          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
+          <CgProfile />
           Edit Profile
         </Link>
 
@@ -58,8 +61,9 @@ function Sidebar({ response }) {
           onClick={() => setCurPage("schedule")}
           className={`${
             curPage === "schedule" ? "bg-yellow-400 text-black" : "bg-black text-yellow-400"
-          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
+          } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
+          <FaCalendarAlt />
           Schedule
         </Link>
 

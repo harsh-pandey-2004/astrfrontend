@@ -11,9 +11,24 @@ const NewServices = () => {
 
 
 
+
+   const ClickHandler=(service,id)=>{
+
+      
+    setService(service);
+    if(window.innerWidth<=375){
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+   }
+
+ 
+
   return (
     <div className="md:pl-20 pb-12 bg-black NewServices sm:pt-10 px-4">
-      <h1 className="text-3xl font-semibold text-start pb-4 text-white" >
+      <h1 id="Section" className="text-3xl font-semibold text-start pb-4 text-white" >
         Astro Services That we Provide
       </h1>
       <div className="sm:flex sm:flex-row items-center gap-5 md:gap-36 flex flex-col-reverse">
@@ -32,8 +47,10 @@ const NewServices = () => {
                   : "border-slate-700"
               } h-34 rounded-md p-2 hover:cursor-pointer transition`}
               onClick={() => {
-                setService("kundli");
+                ClickHandler("kundli","Section");
               }}
+
+             
               
             >
               <p className="text-white">Free Kundli</p>
@@ -50,7 +67,7 @@ const NewServices = () => {
                   : "border-slate-700"
               } h-34 rounded-md p-2 hover:cursor-pointer transition`}
               onClick={() => {
-                setService("vastu");
+                ClickHandler("vastu","Section");
               }}
               
             >
@@ -68,7 +85,7 @@ const NewServices = () => {
                   : "border-slate-700"
               } h-34 rounded-md p-2 hover:cursor-pointer transition`}
               onClick={() => {
-                setService("compatibility");
+                ClickHandler("compatibility","Section");
               }}
               
             >
@@ -86,7 +103,7 @@ const NewServices = () => {
                   : "border-slate-700"
               } h-34 rounded-md p-2 hover:cursor-pointer transition`}
               onClick={() => {
-                setService("prasaad");
+                ClickHandler("prasaad","Section");
               }}
               
             >
@@ -99,7 +116,7 @@ const NewServices = () => {
           </div>
         </div>
 
-        <div className="ServiceImg md:w-2/5 w-full p-2 rounded-md border border-yellow-400 shadow-md shadow-yellow-400" >
+        <div  className="ServiceImg md:w-2/5 w-full p-2 rounded-md border border-yellow-400 shadow-md shadow-yellow-400" >
           {service === "kundli" && (
             <div className="overflow-hidden">
               <img

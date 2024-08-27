@@ -60,7 +60,7 @@ const PanditSchedule = () => {
 
   const currentDate = new Date();
 
-  return (<div className=' md:mt-12 w-full h-screen   bg-gray-800 overflow-y-auto'>
+  return (<div className=' md:mt-20 w-full h-screen   bg-gray-800 overflow-y-auto'>
     <div className="container mx-auto w-3/4 pb-20 relative top-32 ">
       <h2 className="text-3xl  text-center font-semibold bg-yellow-400 pt-2 text-black">
         Schedule
