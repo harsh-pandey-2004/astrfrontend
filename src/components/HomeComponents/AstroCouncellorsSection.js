@@ -69,7 +69,7 @@ function AstroCouncellorSection({ showblur }) {
   return (
     <div className="w-full lg:w-[95%] mx-auto h-fit lg:top-0 relative lg:px-12 lg:py-6 py-3 px-4">
       <h1
-        className="text-4xl font-semibold lg:absolute top-4 lg:left-1/3 lg:pl-10 text-center mb-3 lg:mb-0"
+        className=" text-2xl md:text-4xl font-semibold lg:absolute top-4 lg:left-1/3 lg:pl-10 text-center mb-3 lg:mb-0"
         
       >
         Our AstroCouncellors
