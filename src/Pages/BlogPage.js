@@ -154,6 +154,47 @@ const BlogPage = (props) => {
       name: "Harsh",
       date:"Aug 27,2024",
       img:"https://cdn.pixabay.com/photo/2014/09/07/16/53/couple-437968_1280.jpg",
+      headcontent:"Astrology has long been a guide to understanding love and relationships. Whether you're looking for your soulmate, navigating the ups and downs of romance, or simply curious about how the stars influence your connections, astrology offers insights into compatibility based on zodiac signs. In this blog, we’ll explore the role of astrology in love compatibility, how different zodiac signs interact, and what makes certain pairings truly magical.",
+      subhead:"What is Love Compatibility in Astrology?",
+      subheadcontent:"Astrological love compatibility, also known as synastry, examines the dynamics between two individuals by comparing their zodiac signs, planetary positions, and aspects in their birth charts. This comparison reveals the strengths and challenges within the relationship, highlighting areas of harmony and conflict. While astrology isn't a definitive roadmap to love, it provides valuable insights that can help you better understand yourself and your partner.",
+      midhead:"Key Elements of Astrological Compatibility",
+      foothead:"How to Use Astrology for Better Relationships",
+      footdesc:"Knowing your partner’s astrological placements helps you understand their needs, triggers, and communication style. This understanding fosters empathy and patience.Astrology can guide the timing of significant relationship milestones, such as first dates, proposals, or moving in together.Awareness of astrological influences helps identify potential areas of conflict and offers strategies for resolving issues constructively.Use your astrological insights to nurture love, whether through shared activities that align with both partners' signs or celebrating each other's unique qualities.",
+      finalthoughts:"Astrology offers a unique lens through which to view love and relationships. While it’s not a guarantee of success or failure, it provides valuable insights that can help navigate the complexities of human connections. Whether you’re exploring new love or deepening an existing bond, the stars can be your guide.",
+      data:[
+        {
+          title:"1.Sun Sign Compatibility",
+          image:"https://th.bing.com/th/id/OIP.yZwpHpmXVoYn3w817tI9HQAAAA?rs=1&pid=ImgDetMain",
+          description:"The Sun sign, representing one’s core personality, is the most common aspect considered in love compatibility. It reflects basic traits, desires, and the essence of how one expresses love.",
+          pairing:"Fire signs (Aries, Leo, Sagittarius) are often energetic and passionate, making them highly compatible with fellow fire signs or air signs (Gemini, Libra, Aquarius) who fuel their excitement.",
+
+        },
+        {
+          title:"2.Moon Sign Compatibility",
+          image:"https://th.bing.com/th/id/OIP.j11MaxO2uaXKSx6hAZi6yQHaE8?rs=1&pid=ImgDetMain",
+          description:"The Moon sign governs emotions, needs, and inner desires. Compatibility between Moon signs reflects emotional connection, comfort, and how partners nurture each other.",
+          pairing:" A Cancer Moon pairs well with a Pisces Moon, both being water signs that understand deep emotional bonds and offer nurturing energy.",
+
+        },
+        {
+          title:"3.Rising Sign (Ascendant) Compatibility",
+          image:"https://watermark.lovepik.com/photo/50084/5115.jpg_wh1200.jpg",
+          description:"The Rising sign influences first impressions, communication style, and outward personality. Compatibility here affects how partners approach the world together and project themselves as a couple.",
+          pairing:" A Virgo rising and Capricorn rising may work well together, both being earth signs that value stability, practicality, and a well-organized approach to life.",
+        },
+        {
+          title:"4.Venus Sign Compatibility",
+          image:"https://th.bing.com/th/id/OIP.6YB3m1izMmuP06tquUM17wAAAA?w=308&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+          description:"Venus, the planet of love and beauty, plays a crucial role in romantic attraction, affection, and how one expresses love. Compatibility of Venus signs reveals the romantic chemistry between partners.",
+          pairing:"A Taurus Venus is compatible with a Libra Venus, as both are ruled by Venus and appreciate beauty, sensuality, and harmonious relationships.",
+        },
+        {
+          title:"5.Mars Sign Compatibility",
+          image:"https://signsmystery.com/wp-content/uploads/2023/10/314-1.webp",
+          description:"Mars governs desire, passion, and how individuals assert themselves. Compatibility here influences the physical side of relationships, from attraction to conflict resolution.",
+          pairing:"An Aries Mars and a Scorpio Mars create intense chemistry, driven by passion and a fearless approach to intimacy and challenges.",
+        }
+      ]
     },
     {
       title: "Festivals Aligned with Astrology",

@@ -131,7 +131,7 @@ function App() {
             }
           />
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit />}/>
 
           <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id/*" element={<MainPanditDash />} />

@@ -55,6 +55,20 @@ export const BlogDetails = () => {
         </div>
       </div>})
      }
+
+
+     {
+      id==2 && blog.data.map((obj)=>{return <div className='px-36'>
+         <p className=' text-justify mt-10 font-sans text-xl font-semibold'>{obj.title}</p>
+        <div className='flex gap-6 items-center mt-10'>
+          <img src={obj.image} className='w-1/3 h-56'/>
+        <div className='flex flex-col'>
+        <p ><span className='text-yellow-400 font-sans text-lg text-justify '>Description</span>: {obj.description}</p>
+        <p ><span className='text-yellow-400 font-sans text-lg text-justify '>Advice</span>: {obj.pairing}</p>
+        </div>
+        </div>
+      </div>})
+     }
      
 
 
