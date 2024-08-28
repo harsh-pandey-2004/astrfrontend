@@ -17,6 +17,9 @@ import UpcomingEvents from "../components/BookAPoojaComponents/components/Upcomi
 import BookPanditStat from "../components/BookaPanditComponents/BookPanditStat/BookPanditStat";
 // import Reviews from "./VastuPage/Reviews";
 import BookPanditReview from "../components/BookaPanditComponents/BookPanditReview/BookPanditReview";
+import AvailablePandit from "../components/BookAPoojaComponents/AvailablePandit/AvailablePandit";
+import { PanditDataProvider } from "../components/BookAPoojaComponents/AvailablePandit/PanditDataContext";
+
 
 const indianStatesAndUTs = [
   "Andaman and Nicobar Islands",
@@ -161,7 +164,10 @@ const BookPandit = (props) => {
             />
           </div>
         </div>
-        <Header />
+        <PanditDataProvider>
+          <Header />
+          <AvailablePandit/>
+        </PanditDataProvider>
       </div>
 
       <div className="flex flex-col items-center justify-center w-full">
