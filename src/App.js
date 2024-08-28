@@ -74,6 +74,7 @@ import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
 import { BlogDetails } from "./Pages/BlogDetails";
 
+
 function App() {
   const [showblur, setshowBlur] = useState(false);
   function showbluefn(status) {

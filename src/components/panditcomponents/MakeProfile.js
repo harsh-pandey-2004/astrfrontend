@@ -16,13 +16,15 @@ function ProfileForm() {
     languages: [],
     experience: "",
     city: "",
+    pincode:"",
     dob: "",
     belongsTo: "",
     image: "",
   };
   const [response, setResponse] = useState(initialState);
-
+  // console.log(response);
   function handleChange(e) {
+    console.log(response);
     setResponse({ ...response, [e.target.name]: e.target.value });
   }
 
@@ -38,6 +40,8 @@ function ProfileForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(response);
+    
     try {
       console.log(slug);
       let a = await axios.patch(
@@ -206,6 +210,16 @@ function ProfileForm() {
               placeholder="City"
               onChange={(e) => handleChange(e)}
               name="city"
+            />
+          </div>
+          <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
+            <h6 className="text-lg font-sans text-white">Pincode</h6>
+            <input
+              type="text"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
+              placeholder="Pincode"
+              onChange={(e) => handleChange(e)}
+              name="pincode"
             />
           </div>
 
