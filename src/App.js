@@ -72,6 +72,7 @@ import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
+import { BlogDetails } from "./Pages/BlogDetails";
 
 function App() {
   const [showblur, setshowBlur] = useState(false);
@@ -91,6 +92,8 @@ function App() {
         <Navbar showbluefn={showbluefn}/>
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
+          <Route path="/allblogs" element={<BlogPage/>}/>
+          <Route path="blogdetails/:id" element={<BlogDetails/>}/>
 
                 {/* user dashpages */}
           <Route path="/notifications" element={<Notifications/>}/>
