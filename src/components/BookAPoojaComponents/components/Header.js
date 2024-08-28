@@ -5,6 +5,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import "./Header.css"; // Add this line to import your custom CSS
+import { usePanditData } from "../AvailablePandit/PanditDataContext";
+
+
 
 const poojaOptions = [
   { value: "Satyanarayan Puja", label: "Satyanarayan Puja" },
@@ -30,7 +33,7 @@ const poojaOptions = [
 ];
 
 const pincodeOptions = [
-  { value: "110001", label: "110001" },
+  { value: "111111", label: "111111" },
   { value: "110002", label: "110002" },
   { value: "110003", label: "110003" },
   { value: "110004", label: "110004" },
@@ -43,9 +46,13 @@ const Header = () => {
   const [filterData, setFilterData] = useState([]);
   const [isPoojaDropdownOpen, setIsPoojaDropdownOpen] = useState(false);
   const [isPincodeDropdownOpen, setIsPincodeDropdownOpen] = useState(false);
+  const { setFilteredData }=usePanditData();
 
   const handleChange = (selectedOption, actionMeta) => {
     setResponse({ ...response, [actionMeta.name]: selectedOption });
+    if(actionMeta.name==='nameOfPooja'){
+      localStorage.setItem('selectedPooja',selectedOption.value);
+    }
   };
 
   const handleDateChange = (date) => {
@@ -55,14 +62,24 @@ const Header = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
+    // const formattedDate = selectedDate
+    //   ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
+    //       .toString()
+    //       .padStart(2, "0")}/${selectedDate
+    //       .getDate()
+    //       .toString()
+    //       .padStart(2, "0")}`
+    //   : null;
     const formattedDate = selectedDate
-      ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
-          .toString()
-          .padStart(2, "0")}/${selectedDate
-          .getDate()
-          .toString()
-          .padStart(2, "0")}`
-      : null;
+    ? `${selectedDate.getDate().toString().padStart(2, "0")}/${
+        (selectedDate.getMonth() + 1).toString().padStart(2, "0")
+      }/${selectedDate.getFullYear()}`
+    : null;
+    // console.log(response)
+    //   console.log(formattedDate);
+    //   console.log(response.pincode.value)
+      const pincode=response.pincode.value;
+      // console.log(pincode);
 
     if (!formattedDate || !response.nameOfPooja || !response.pincode) {
       console.error("Please fill in all fields");
@@ -70,18 +87,19 @@ const Header = () => {
     }
 
     try {
-      const res = await axios.get(
-        "https://astrobackend.onrender.com/api/panditpooja"
+      const res = await axios.post(
+        "http://localhost:3000/api/panditprofile",{pincode:pincode,availability:formattedDate}
       );
-      console.log(res);
-      const filteredData = res.data.data.filter(
-        (pandit) =>
-          pandit.availability.date.filter((e) => e == formattedDate) &&
-          pandit.pincode === response.pincode.value &&
-          pandit.Skills.includes(response.nameOfPooja.value)
-      );
-      console.log(filteredData);
-      setFilterData(filteredData);
+      // console.log(res);
+      // const filteredData = res.data.data.filter(
+      //   (pandit) =>
+      //     pandit.availability.date.filter((e) => e == formattedDate) &&
+      //     pandit.pincode === response.pincode.value &&
+      //     pandit.Skills.includes(response.nameOfPooja.value)
+      // );
+      // console.log(filteredData);
+      // setFilterData(res.data);
+      setFilteredData(res.data);
     } catch (error) {
       console.log("Error :", error);
     }
@@ -151,6 +169,7 @@ const Header = () => {
             Search
           </button>
         </div>
+        {/* <AvailablePandit data={filterData} /> */}
       </div>
     </div>
   );
