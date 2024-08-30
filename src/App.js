@@ -72,6 +72,7 @@ import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
+import BookPanditSub from "./components/BookaPanditComponents/BookPanditSub/BookPanditSub";
 
 
 function App() {
@@ -128,6 +129,7 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
+          <Route path="/book-a-pandit/:id" element={<BookPanditSub/>} />
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />} />
 
