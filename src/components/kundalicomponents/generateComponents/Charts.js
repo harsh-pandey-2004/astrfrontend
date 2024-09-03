@@ -6,7 +6,7 @@ const Charts = () => {
   const [chalitChartData, setChalitChartData] = useState(null);
 
   const fetchChartData = async (api, setChartData) => {
-    const apiKey = "39284b51d5d7ca12b77994ac10fc9e5205474669";
+    const apiKey = "1df67d1b37a1f5e7f022c59722e22f180239fe33";
     const data = {
       day: 6,
       month: 1,
@@ -18,7 +18,7 @@ const Charts = () => {
       tzone: 5.5,
     };
 
-    const auth = "Basic " + btoa(`631185:${apiKey}`);
+    const auth = "Basic " + btoa(`633088:${apiKey}`);
 
     try {
       const response = await fetch(`https://json.astrologyapi.com/v1/${apiKey}`, {
