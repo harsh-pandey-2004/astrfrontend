@@ -414,17 +414,17 @@ Login
                   </div>
                 )}
               </div>
-              <Link to={"/blogs"}>
-                <span className="transEffect hover:hover-effect relative">
-                  Vastu Making
-                  <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full  right-[-1rem] text-white ">
-                    <img
-                      src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
-                      className="h-5 w-10"
-                    ></img>
-                  </span>
-                </span>
-              </Link>
+              // <Link to={"/blogs"}>
+              //   <span className="transEffect hover:hover-effect relative">
+              //     Vastu Making
+              //     <span className="absolute top-[-1.2rem] text-xs bg-orange-300 rounded-full  right-[-1rem] text-white ">
+              //       <img
+              //         src="https://media.tenor.com/H1eQhynQsuAAAAAi/new-post.gif"
+              //         className="h-5 w-10"
+              //       ></img>
+              //     </span>
+              //   </span>
+              // </Link>
             </div>
           </div>
 

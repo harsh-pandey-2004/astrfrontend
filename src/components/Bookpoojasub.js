@@ -4,16 +4,21 @@ import "react-multi-carousel/lib/styles.css";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { responsive } from "../components/kundalicomponents/Data";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useLocation } from "react-router-dom";
 const Bookpoojasub = () => {
   const [hideoffer, sethideOffer] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation();
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");
   const [counters, setCounters] = useState({
     pujas: 0,
     pandits: 0,
     cities: 0
   });
+  const temple = location.state?.temple;
+  const pandit = temple.pandit || []; 
+  // console.log(pandit);
+  console.log(temple);
   let myVariable = false;
   if (isScreenWidthReached) {
     myVariable = true;
@@ -88,13 +93,13 @@ const Bookpoojasub = () => {
           !hideoffer ? "blur-sm" : "blur-none"
         }`}
       >
-        <div className="flex flex-col md:flex-row md:space-x-8 items-center ">
+        <div className="flex flex-col md:flex-row md:space-x-8 items-center mt-24 ">
           <div className="md:w-1/2">
             <h1 className="text-4xl font-bold mb-4 text-center md:text-left">
-              Pasupatinath Temple
+              {temple&&temple.name}
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed">
-              The Pashupatinath Temple (Nepali: पशुपतिनाथ मन्दिर) is a Hindu
+              {/* The Pashupatinath Temple (Nepali: पशुपतिनाथ मन्दिर) is a Hindu
               temple dedicated to Pashupati, a form of Shiva. It is located in
               Kathmandu, Nepal near the Bagmati River. The temple was classified
               as a World Heritage Site in 1979. This "extensive Hindu temple
@@ -103,15 +108,18 @@ const Bookpoojasub = () => {
               sacred Bagmati river", and is one of seven monument groups in
               UNESCO's designation of Kathmandu Valley. It is built on an area
               of 246 hectares (2,460,000 m2) and includes 518 mini-temples and a
-              main pagoda house.
+              main pagoda house. */}
+              {temple.description}
             </p>
           </div>
           <div className="md:w-1/2">
             <div className="aspect-w-16 aspect-h-9">
               <img
-                src="https://imgcld.yatra.com/ytimages/image/upload/v1438930398/Kathmandu_4.jpg"
+                src={temple.img}
                 alt="temple"
                 className="object-cover rounded-lg shadow-lg"
+                width={400}
+                height={400}
               />
             </div>
           </div>
@@ -132,7 +140,7 @@ const Bookpoojasub = () => {
             <p className="font-2xl font-medium uppercase">
               📣 Discount will be applied on basis of ealier Booking
             </p>
-            <div className="text-5xl text-[#f6c003]">₹ 1500/-</div>
+            <div className="text-5xl text-[#f6c003]">₹ {temple.price}/-</div>
           </div>
         </div>
           <div className="mt-3">
@@ -208,26 +216,26 @@ const Bookpoojasub = () => {
             responsive={responsive}
             className="mt-8   relative"
           >
-            {pandits.map((obj) => (
+            {
               <motion.div
-                key={obj.id} // Add a unique key for each element in the array
+                key={pandit.id} // Add a unique key for each element in the array
                 whileHover={{ scale: 0.9 }}
                 transition={{ duration: 0.2 }}
                 className="Carousel flex flex-col items-center rounded-full overflow-hidden border relative  md:h-56 md:w-56 sm:h-36 sm:w-36 border-b-4  shadow-md hover:shadow-lg  gap-3 justify-center"
               >
                 <img
-                  src={obj.imageUrl}
+                  src="https://images.pexels.com/photos/18555644/pexels-photo-18555644.jpeg?cs=srgb&dl=pexels-santosh-bhagat-164427997-18555644.jpg&fm=jpg"
                   height={100}
                   width={100}
                   className="self-center rounded-full h-full w-full"
                 />
                 <div className="absolute bottom-0 shadow-bg w-full items-center justify-center py-4">
                   <p className="text-center text-sm font-semibold">
-                    {obj.name}
+                    {pandit.name}
                   </p>
                 </div>
               </motion.div>
-            ))}
+            }
           </Carousel>
         </div>
       </div>

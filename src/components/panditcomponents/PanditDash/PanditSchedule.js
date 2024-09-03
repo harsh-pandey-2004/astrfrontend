@@ -38,14 +38,15 @@ const PanditSchedule = () => {
 
     // Flatten datesArray from all selected ranges and format them
     const allDates = selectedDates.flatMap((range) =>
-      range.datesArray.map((date) => moment(date).format("YYYY/MM/DD"))
+      range.datesArray.map((date) => moment(date).format("DD/MM/YYYY"))
     );
 
     try {
       const response = await axios.patch(
-        `https://astrobackend.onrender.com/api/update-pandit-profile/${id}`,
-        { date: allDates }
+        `http://localhost:3000/api/update-pandit-profile/${id}`,
+        { availability: allDates }
       );
+
       console.log(allDates);
       console.log(response.data);
 
