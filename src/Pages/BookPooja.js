@@ -61,15 +61,14 @@ const BookPooja = (props) => {
               home.
             </p>
           </div>
-          <div
-            className="lg:w-1/2 pt-5  relative lg:pl-10 w-full flex justify-center"
-            
-          >
-        
+         
+
+      <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" >
+            <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
               src={"https://miro.medium.com/v2/resize:fit:640/1*PrTF8PfLZ9_eSQE0w5xoEA.png"}
               alt="Temple"
-              className="filter brightness-50 contrast-125 md:h-full  absolute top-14"
+              className="filter brightness-75 contrast-125 "
             />
           </div>
         </div>

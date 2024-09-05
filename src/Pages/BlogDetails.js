@@ -13,7 +13,7 @@ export const BlogDetails = () => {
     console.log(blog.foothead);
    
   return (
-    <div className='relative top-24  mb-96 '>
+    <div className='relative top-24  mb-96'>
     <h1 className='text-3xl text-center font-bold pt-8'><span className='text-yellow-400'>{blog.title}</span>: A Beginner's Guide</h1>
     <h2 className='text-center mt-3 font-bold text-xs uppercase'>{blog.name} <span className='mx-2'>/</span> {blog.date}<span className='mx-2'>/</span> <span className='text-yellow-400'>{blog.category}</span></h2>
 
@@ -23,7 +23,7 @@ export const BlogDetails = () => {
 
    <h3 className='px-36 font-bold text-3xl mt-10'>{blog.subhead}</h3>
 
-   <p className='px-36 text-justify mt-10 font-sans text-lg '>
+   <p className='px-36 text-justify mt-10 font-sans text-lg'>
    {blog.subheadcontent}
     </p> 
 
@@ -69,6 +69,44 @@ export const BlogDetails = () => {
         </div>
       </div>})
      }
+
+
+
+{
+      id==3 && blog.data.map((obj)=>{return <div className='px-36'>
+         <p className=' text-justify mt-10 font-sans text-xl font-semibold'>{obj.title}</p>
+        <div className='flex gap-6 items-center mt-10'>
+          <img src={obj.image} className='w-1/3 h-56'/>
+        <div className='flex flex-col'>
+        <p ><span className='text-yellow-400 font-sans text-lg text-justify '>Description</span>: {obj.description}</p>
+        <p ><span className='text-yellow-400 font-sans text-lg text-justify '>AstroSignificance</span>: {obj.AstroSignificance}</p>
+        </div>
+        </div>
+      </div>})
+     }
+
+
+
+{
+  id==4 && blog.data.map((obj)=>{return <div className='px-36'>
+    <p className=' text-justify mt-10 font-sans text-xl font-semibold'>{obj.title}</p>
+   <div className='flex gap-6 items-center mt-10'>
+     <img src={obj.image} className='w-1/3 h-56'/>
+   <div className='flex flex-col'>
+   <p ><span className='text-yellow-400 font-sans text-lg text-justify '>Description</span>: {obj.description}</p>
+   <p ><span className='text-yellow-400 font-sans text-lg text-justify '>Example</span>: {obj.example}</p>
+   </div>
+   </div>
+ </div>})
+}
+
+
+
+
+
+
+
+     
      
 
 
