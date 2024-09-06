@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { SearchLogo } from "../icons/icons";
 import Testimonials from "../components/BookAPoojaComponents/components/Testimonials";
 // import Stat from "../components/BookAPoojaComponents/components/Stat";
@@ -12,12 +12,18 @@ import Vedio3 from "../vedios/vedio4.mp4";
 // import Reviews from "./VastuPage/Reviews";
 import BookPoojaReviews from "../components/BookAPoojaComponents/BookPoojaReview/BookPoojaReview";
 import PoojaHeader from "../components/BookAPoojaComponents/components/PoojaHeader";
+import TemplePoojaBooking from "../components/BookAPoojaComponents/TemplePoojaBooking/TemplePoojaBooking";
+import { PoojaProvider } from "../components/BookAPoojaComponents/TemplePoojaBooking/TempleDataBookingContext";
 // import AOS from 'aos';
 // import 'aos/dist/aos.css';
 
 const BookPooja = (props) => {
   const showblur = props.showblur;
+  const [showTemplePoojaBooking, setShowTemplePoojaBooking] = useState(false);
 
+  const handleSearch = () => {
+    setShowTemplePoojaBooking(true);
+  };
  
 
   return (
@@ -72,7 +78,10 @@ const BookPooja = (props) => {
             />
           </div>
         </div>
-        <PoojaHeader/>
+        <PoojaProvider>
+          <PoojaHeader onSearch={handleSearch}/>
+          {showTemplePoojaBooking && <TemplePoojaBooking />}
+        </PoojaProvider>
       </div>
       <div className="flex flex-col items-center justify-center w-screen">
         {/* <Preference /> */}
