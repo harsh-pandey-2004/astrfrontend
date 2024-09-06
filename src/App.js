@@ -72,6 +72,7 @@ import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
+import { BlogDetails } from "./Pages/BlogDetails";
 import BookPanditSub from "./components/BookaPanditComponents/BookPanditSub/BookPanditSub";
 
 
@@ -93,6 +94,8 @@ function App() {
         <Navbar showbluefn={showbluefn}/>
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
+          <Route path="/allblogs" element={<BlogPage/>}/>
+          <Route path="blogdetails/:id" element={<BlogDetails/>}/>
 
                 {/* user dashpages */}
           <Route path="/notifications" element={<Notifications/>}/>
@@ -131,7 +134,7 @@ function App() {
           />
           <Route path="/book-a-pandit/:id" element={<BookPanditSub/>} />
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit />}/>
 
           <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id/*" element={<MainPanditDash />} />
