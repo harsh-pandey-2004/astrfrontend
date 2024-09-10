@@ -5,7 +5,7 @@ import Select from "react-select";
 
 function AstrologerProfileForm() {
   const location = useLocation();
-  const slug = location.pathname.split('/').pop();
+  const slug = location.pathname.split("/").pop();
 
   const navigate = useNavigate();
   const initialState = {
@@ -21,9 +21,76 @@ function AstrologerProfileForm() {
     zodiacSign: "",
     image: "",
     chatPrice: "",
-    talkPrice: ""
+    talkPrice: "",
   };
   const [formData, setFormData] = useState(initialState);
+  const [errors, setErrors] = useState({});
+
+  // Validation functions
+  function validateTextInput(value) {
+    const regex = /^[A-Za-z\s]*$/; // Allows only letters and spaces
+    return regex.test(value);
+  }
+
+  function validateNumericInput(value) {
+    const regex = /^[0-9]*$/; // Allows only numbers
+    return regex.test(value);
+  }
+
+  function validateForm() {
+    const newErrors = {};
+
+    if (!validateTextInput(formData.firstName)) {
+      newErrors.firstName = "First name must contain only letters and spaces.";
+    }
+
+    if (!validateTextInput(formData.lastName)) {
+      newErrors.lastName = "Last name must contain only letters and spaces.";
+    }
+
+    if (!validateTextInput(formData.city)) {
+      newErrors.city = "City must contain only letters and spaces.";
+    }
+
+    if (!validateTextInput(formData.zodiacSign)) {
+      newErrors.zodiacSign = "Zodiac sign must contain only letters and spaces.";
+    }
+
+    if (!validateNumericInput(formData.chatPrice)) {
+      newErrors.chatPrice = "Chat price must contain only numbers.";
+    }
+
+    if (!validateNumericInput(formData.talkPrice)) {
+      newErrors.talkPrice = "Talk price must contain only numbers.";
+    }
+
+    if (!validateNumericInput(formData.experience)) {
+      newErrors.experience = "Experience must contain only numbers.";
+    }
+
+    if (!formData.gender) {
+      newErrors.gender = "Gender is required.";
+    }
+
+    if (formData.Skills.length === 0) {
+      newErrors.Skills = "At least one skill is required.";
+    }
+
+    if (formData.languages.length === 0) {
+      newErrors.languages = "At least one language is required.";
+    }
+
+    if (!formData.dob) {
+      newErrors.dob = "Date of birth is required.";
+    }
+
+    if (!formData.professionalQualifications.trim()) {
+      newErrors.professionalQualifications = "Professional qualifications are required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -42,19 +109,20 @@ function AstrologerProfileForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
-    console.log(slug);
-    try {
-      const response = await axios.patch(
-        `https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
-        formData
-      );
+    if (validateForm()) {
+      try {
+        const response = await axios.patch(
+          `https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
+          formData
+        );
 
-      console.log(response.data);
-      console.log(response.data.Astrologerr.slug);
-      navigate(`/astrologerdashboard/${response.data.Astrologerr && response.data.Astrologerr.slug}`);
-    } catch (error) {
-      console.error("Error:", error);
+        console.log(response.data);
+        navigate(`/astrologerdashboard/${response.data.Astrologerr.slug}`);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    } else {
+      console.log("Validation failed. Please fill all the details correctly.");
     }
   }
 
@@ -121,7 +189,7 @@ function AstrologerProfileForm() {
             <input
               type="file"
               className="form-input outline-none rounded bg-gray-800 placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-              onChange={handleChange}
+              onChange={(e) => handleChange({ target: { name: 'image', value: e.target.files[0] } })}
               name="image"
             />
           </div>
@@ -135,7 +203,12 @@ function AstrologerProfileForm() {
                 placeholder="First Name"
                 onChange={handleChange}
                 name="firstName"
+                value={formData.firstName}
+                required
               />
+              {errors.firstName && (
+                <span className="text-red-500">{errors.firstName}</span>
+              )}
             </div>
             <div>
               <h6 className="text-lg font-sans text-white">Last Name</h6>
@@ -145,7 +218,12 @@ function AstrologerProfileForm() {
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
+                value={formData.lastName}
+                required
               />
+              {errors.lastName && (
+                <span className="text-red-500">{errors.lastName}</span>
+              )}
             </div>
           </div>
 
@@ -159,6 +237,7 @@ function AstrologerProfileForm() {
                   value="Male"
                   className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={handleChange}
+                  required
                 />
                 Male
               </label>
@@ -169,22 +248,61 @@ function AstrologerProfileForm() {
                   value="Female"
                   className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={handleChange}
+                  required
                 />
                 Female
               </label>
             </div>
+            {errors.gender && (
+              <span className="text-red-500">{errors.gender}</span>
+            )}
+          </div>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Skills</h6>
+            <Select
+              isMulti
+              options={skillsOptions}
+              name="Skills"
+              value={skillsOptions.filter(option => formData.Skills.includes(option.value))}
+              onChange={handleSelectChange}
+              styles={customStyles}
+            />
+            {errors.Skills && (
+              <span className="text-red-500">{errors.Skills}</span>
+            )}
+          </div>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Languages</h6>
+            <Select
+              isMulti
+              options={languagesOptions}
+              name="languages"
+              value={languagesOptions.filter(option => formData.languages.includes(option.value))}
+              onChange={handleSelectChange}
+              styles={customStyles}
+            />
+            {errors.languages && (
+              <span className="text-red-500">{errors.languages}</span>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <h6 className="text-lg font-sans text-white">Zodiac Sign</h6>
+              <h6 className="text-lg font-sans text-white">Experience (Years)</h6>
               <input
-                type="text"
+                type="number"
                 className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-                placeholder="Zodiac Sign"
+                placeholder="Experience"
                 onChange={handleChange}
-                name="zodiacSign"
+                name="experience"
+                value={formData.experience}
+                required
               />
+              {errors.experience && (
+                <span className="text-red-500">{errors.experience}</span>
+              )}
             </div>
             <div>
               <h6 className="text-lg font-sans text-white">City</h6>
@@ -194,79 +312,77 @@ function AstrologerProfileForm() {
                 placeholder="City"
                 onChange={handleChange}
                 name="city"
+                value={formData.city}
+                required
               />
+              {errors.city && (
+                <span className="text-red-500">{errors.city}</span>
+              )}
             </div>
+          </div>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Date of Birth</h6>
+            <input
+              type="date"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
+              onChange={handleChange}
+              name="dob"
+              value={formData.dob}
+              required
+            />
+            {errors.dob && (
+              <span className="text-red-500">{errors.dob}</span>
+            )}
+          </div>
+
+          <div className="p-3 rounded-lg">
+            <h6 className="text-lg font-sans text-white">Zodiac Sign</h6>
+            <input
+              type="text"
+              className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
+              placeholder="Zodiac Sign"
+              onChange={handleChange}
+              name="zodiacSign"
+              value={formData.zodiacSign}
+              required
+            />
+            {errors.zodiacSign && (
+              <span className="text-red-500">{errors.zodiacSign}</span>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
             <div>
-              <h6 className="text-lg font-sans text-white">Price for Chat</h6>
+              <h6 className="text-lg font-sans text-white">Chat Price</h6>
               <input
                 type="text"
                 className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-                placeholder="Price for Chat"
+                placeholder="Chat Price"
                 onChange={handleChange}
                 name="chatPrice"
+                value={formData.chatPrice}
+                required
               />
+              {errors.chatPrice && (
+                <span className="text-red-500">{errors.chatPrice}</span>
+              )}
             </div>
             <div>
-              <h6 className="text-lg font-sans text-white">Price for Call per Min</h6>
+              <h6 className="text-lg font-sans text-white">Talk Price</h6>
               <input
                 type="text"
                 className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-                placeholder="Price for Call per Min"
+                placeholder="Talk Price"
                 onChange={handleChange}
                 name="talkPrice"
+                value={formData.talkPrice}
+                required
               />
+              {errors.talkPrice && (
+                <span className="text-red-500">{errors.talkPrice}</span>
+              )}
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">
-            <div>
-              <h6 className="text-lg font-sans text-white">Date of Birth</h6>
-              <input
-                type="date"
-                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-                onChange={handleChange}
-                name="dob"
-              />
-            </div>
-            <div>
-              <h6 className="text-lg font-sans text-white">Experience</h6>
-              <input
-                type="text"
-                className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
-                placeholder="Experience"
-                onChange={handleChange}
-                name="experience"
-              />
-            </div>
-          </div>
-
-          <div className="p-3 rounded-lg">
-            <h6 className="text-lg font-sans text-white">Skills</h6>
-            <Select
-              isMulti
-              name="Skills"
-              options={skillsOptions}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              styles={customStyles}
-              onChange={handleSelectChange}
-            />
-          </div>
-
-          <div className="p-3 rounded-lg">
-            <h6 className="text-lg font-sans text-white">Languages</h6>
-            <Select
-              isMulti
-              name="languages"
-              options={languagesOptions}
-              className="basic-multi-select"
-              classNamePrefix="select"
-              styles={customStyles}
-              onChange={handleSelectChange}
-            />
           </div>
 
           <div className="p-3 rounded-lg">
@@ -276,13 +392,18 @@ function AstrologerProfileForm() {
               placeholder="Professional Qualifications"
               onChange={handleChange}
               name="professionalQualifications"
-              rows="3"
+              value={formData.professionalQualifications}
+              rows="4"
+              required
             />
+            {errors.professionalQualifications && (
+              <span className="text-red-500">{errors.professionalQualifications}</span>
+            )}
           </div>
 
           <button
             type="submit"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded mx-auto w-full"
+            className="bg-yellow-400 text-black font-bold py-2 px-4 rounded hover:bg-yellow-500 transition duration-300"
           >
             Submit
           </button>
