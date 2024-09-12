@@ -186,9 +186,9 @@ function App() {
 
           <Route
             path="/register-page/verify-phone/:id"
-            element={<VerifyPhone  />}
+            element={<VerifyPhone/>}
           ></Route>
-          <Route path="/loginform" element={<LoginForm  />}></Route>
+          <Route path="/loginform" element={<LoginForm/>}></Route>
 
           {/* //AstroRoutes */}
           <Route

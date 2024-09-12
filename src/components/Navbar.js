@@ -120,7 +120,7 @@ const Navbar = ({ showbluefn }) => {
     if (localStorage.length != 0 && localStorage.getItem("userId") != null) {
       fetchUserDetails();
     }
-  }, []);
+  });
 
   return (
     <>

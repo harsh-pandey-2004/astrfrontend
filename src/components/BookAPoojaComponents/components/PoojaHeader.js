@@ -76,8 +76,9 @@ const PoojaHeader = ({ onSearch }) => {
     // Fetch temples data
     const fetchTemples = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/getAllTemples'); // Replace with your API endpoint
+        const response = await axios.get('http://localhost:4000/api/getAllTemples'); // Replace with your API endpoint
         const temples = response.data;
+        console.log(temples);
         const templeOptions = temples.map(temple => ({
           value: temple.name,
           label: temple.name

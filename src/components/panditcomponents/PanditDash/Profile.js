@@ -18,6 +18,7 @@ const Profile = ({ response }) => {
 
   useEffect(() => {
     if (response) {
+      console.log(response);
       setFormData({
         firstName: response.firstName || "",
         lastName: response.lastName || "",
