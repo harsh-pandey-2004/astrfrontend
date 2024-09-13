@@ -6,6 +6,8 @@ const AvailablePandit = () => {
     const { filteredData } = usePanditData();
     const [storedPooja, setStoredPooja] = useState('');
     const navigate=useNavigate();
+    const slug=filteredData[0]?.slug;
+    console.log(slug);
     console.log(filteredData);
 
     useEffect(()=>{
@@ -14,7 +16,7 @@ const AvailablePandit = () => {
     },[storedPooja])
 
     return (
-        <div className='p-6 bg-gray-100 rounded-lg cursor-pointer' onClick={()=>navigate('/book-a-pandit/bps')}>
+        <div className='p-6 bg-gray-100 rounded-lg cursor-pointer' onClick={()=>navigate(`/book-a-pandit/${slug}`,{state:filteredData})}>
             {/* <h2 className='text-2xl font-semibold mb-4'>Available Pandits</h2> */}
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {filteredData && filteredData.map((pandit) => (
