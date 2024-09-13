@@ -42,7 +42,7 @@ const SingleAstro = () => {
   const handleChatNowClick = () => {
     setIsPopupOpen(true);
 
-    const newSocket = io('http://localhost:3000/user-namespace');
+    const newSocket = io('https://astrobackend.onrender.com/user-namespace');
     setSocket(newSocket);
 
     newSocket.emit('join', { type: 'user', userId }, () => {

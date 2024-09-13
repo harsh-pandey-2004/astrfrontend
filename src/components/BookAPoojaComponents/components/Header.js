@@ -92,7 +92,7 @@ const Header = () => {
     try {
       console.log(formattedDate);
       const res = await axios.post(
-        "http://localhost:3000/api/panditprofile",{pincode:pincode,availability:formattedDate}
+        "https://astrobackend.onrender.com/api/panditprofile",{pincode:pincode,availability:formattedDate}
       );
       // console.log(res);
       // const filteredData = res.data.data.filter(
