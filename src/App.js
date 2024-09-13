@@ -74,6 +74,7 @@ import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
 import { BlogDetails } from "./Pages/BlogDetails";
 import BookPanditSub from "./components/BookaPanditComponents/BookPanditSub/BookPanditSub";
+import PanditBookingForm from "./components/BookaPanditComponents/BookPanditSub/PanditBookingForm";
 
 
 function App() {
@@ -132,7 +133,8 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
-          <Route path="/book-a-pandit/:id" element={<BookPanditSub/>} />
+          <Route path="/book-a-pandit/:slug" element={<BookPanditSub/>} />
+          <Route path="/pandit-booking" element={<PanditBookingForm/>}/>
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />}/>
 

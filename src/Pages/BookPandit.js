@@ -67,45 +67,45 @@ const BookPandit = (props) => {
   const [filterData, setFilterData] = useState([]);
   const [pandit, setPandit] = useState();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setResponse({ ...response, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setResponse({ ...response, [name]: value });
+  // };
 
-  const handleClick = async (e) => {
-    e.preventDefault();
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
 
-    const formattedDate = selectedDate
-      ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
-          .toString()
-          .padStart(2, "0")}/${selectedDate
-          .getDate()
-          .toString()
-          .padStart(2, "0")}`
-      : null;
+  //   const formattedDate = selectedDate
+  //     ? `${selectedDate.getFullYear()}/${(selectedDate.getMonth() + 1)
+  //         .toString()
+  //         .padStart(2, "0")}/${selectedDate
+  //         .getDate()
+  //         .toString()
+  //         .padStart(2, "0")}`
+  //     : null;
 
-    if (!formattedDate || !response.nameOfPooja || !response.location) {
-      console.error("Please fill in all fields");
-      return;
-    }
+  //   if (!formattedDate || !response.nameOfPooja || !response.location) {
+  //     console.error("Please fill in all fields");
+  //     return;
+  //   }
 
-    try {
-      const res = await axios.get(
-        "https://astrobackend.onrender.com/api/panditpooja"
-      );
-      console.log(res);
-      const filteredData = res.data.data.filter(
-        (pandit) =>
-          pandit.availability.date.includes(formattedDate) &&
-          pandit.city === response.location &&
-          pandit.Skills.includes(response.nameOfPooja)
-      );
-      console.log(filteredData);
-      setFilterData(filteredData);
-    } catch (error) {
-      console.log("Error :", error);
-    }
-  };
+  //   try {
+  //     const res = await axios.get(
+  //       "https://astrobackend.onrender.com/api/panditpooja"
+  //     );
+  //     console.log(res);
+  //     const filteredData = res.data.data.filter(
+  //       (pandit) =>
+  //         pandit.availability.date.includes(formattedDate) &&
+  //         pandit.city === response.location &&
+  //         pandit.Skills.includes(response.nameOfPooja)
+  //     );
+  //     console.log(filteredData);
+  //     setFilterData(filteredData);
+  //   } catch (error) {
+  //     console.log("Error :", error);
+  //   }
+  // };
 
   
   useEffect(() => {
