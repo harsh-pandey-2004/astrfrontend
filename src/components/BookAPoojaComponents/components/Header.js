@@ -84,6 +84,8 @@ const Header = () => {
       const pincode=response.pincode.value;
       // console.log(pincode);
 
+     localStorage.setItem('Pincode',pincode);
+
     if (!formattedDate || !response.nameOfPooja || !response.pincode) {
       console.error("Please fill in all fields");
       return;

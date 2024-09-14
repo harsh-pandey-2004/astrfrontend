@@ -32,7 +32,7 @@ const ProfileEditComponent = ({CloseModal}) => {
       `https://astrobackend.onrender.com/api/updateUserdata/${userId}`,
       formData
     );
-
+    
     console.log(response);
     
   } catch (error) {
