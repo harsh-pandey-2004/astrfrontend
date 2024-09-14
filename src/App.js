@@ -87,12 +87,12 @@ function App() {
     setIsMenuClicked(!IsmenuClicked);
   }
 
-  
+ 
 
   return (
     <div className="w-full h-fit relative ">
       <BrowserRouter>
-        <Navbar showbluefn={showbluefn}/>
+        <Navbar showbluefn={showbluefn} />
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/allblogs" element={<BlogPage/>}/>
@@ -105,7 +105,7 @@ function App() {
           <Route path="/customer-support" element={<CustomerSupport/>}/>
           <Route path="/recharge" element={<Recharge/>}/>
           <Route path="/recharge/paymentdetails" element={<PaymentDetails/>}/>
-          <Route path="/profile-settings" element={<ProfileSettings/>}/>
+          <Route path="/profile-settings" element={<ProfileSettings  />}/>
 
 
 

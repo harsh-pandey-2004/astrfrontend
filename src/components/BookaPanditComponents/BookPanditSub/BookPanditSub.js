@@ -11,11 +11,11 @@ const BookPanditSub = () => {
   return (
     <div className='  lg:flex-row relative top-20 mb-28'>
 
-        <div className='flex justify-between items-center bg-gradient-to-b from-orange-200 to-[#f6c300] py-6 px-12'>
+        <div className=' flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:items-center  bg-gradient-to-b from-orange-200 to-[#f6c300] py-6 px-12'>
           <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVKZKE-sHagMcufyqtq803lJ-1fYDmnJglfQ&s"  className='h-56 w-56 rounded-full'/>
            
            <div>
-            <p className='font-bold text-2xl'>{Panditdata[0].firstName}</p>
+            <p className=' font-bold text-2xl text-center lg:text-start'>{Panditdata[0].firstName}</p>
             <div className='flex flex-col '>
               <p className="text-gray-700 text-lg"><span className="text-lg font-semibold pr-3">Skills:</span>{Panditdata[0].Skills}</p>
               <p className="text-gray-700 text-lg"><span className="text-lg font-semibold pr-3">Languages:</span>{Panditdata[0].languages}</p>
@@ -54,7 +54,7 @@ const BookPanditSub = () => {
         {/* About Section */}
 
         <div className='px-12 pt-6'>
-          <h1 className='text-center font-bold text-2xl'>About Me</h1>
+          <h1 className='text-center font-bold text-2xl'>About <span className='text-yellow-400'>{Panditdata[0].firstName}</span></h1>
 
           <p className='text-justify mt-4 font-serif'>Pandit Atul Kumar is a highly respected Vedic scholar and priest with over 15 years of experience in performing a wide range of poojas and rituals. He has conducted numerous ceremonies, including Griha Pravesh, Navagraha Pooja, Maha Mrityunjaya Jaap, and Satyanarayan Katha, bringing spiritual peace and prosperity to countless families. Known for his deep knowledge of Vedic traditions and meticulous attention to detail, Pandit Atul has also officiated many traditional Hindu weddings, ensuring that each ritual is performed with the utmost reverence and authenticity. Now, you can invite Pandit Atul to your home to lead these sacred ceremonies, making your spiritual journey more meaningful.</p>
 

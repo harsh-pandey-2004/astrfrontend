@@ -109,7 +109,7 @@ const ProfileSettings = () => {
     { editMode &&
   <div className='absolute top-28  w-full  '>
     <div onClick={()=>{setEditMode(false)}} className="absolute top-1 right-72 cursor-pointer rounded-full h-8 w-8  pl-2 pt-2 bg-white"><RxCross2/></div>
-  <ProfileEditComponent CloseModal={CloseModal}/>
+  <ProfileEditComponent CloseModal={CloseModal} />
   </div>}
 
     {/* editLanguage Modal */}

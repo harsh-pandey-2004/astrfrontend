@@ -9,7 +9,7 @@ import {
   HambugerIcon,
 } from "../icons/icons";
 
-const Navbar = ({ showbluefn }) => {
+const Navbar = ({ showbluefn}) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -93,6 +93,8 @@ const Navbar = ({ showbluefn }) => {
 
     window.location.href = "/";
   };
+
+
 
   useEffect(() => {
     const fetchUserDetails = async () => {

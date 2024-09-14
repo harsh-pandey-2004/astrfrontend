@@ -3,10 +3,21 @@ import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from "react-router-dom";
+import Select from "react-select";
 const PanditBookingForm = () => {
 
     const Poojadate=localStorage.getItem("Poojadate");
+    const Pincode=localStorage.getItem("Pincode");
    console.log(Poojadate);
+
+
+   const materialOptions = [
+    { value: 'Ghee', label: 'Ghee' },
+    { value: 'CowMilk', label: 'Cow Milk' },
+    { value: 'Fruits', label: 'Fruits' },
+  ];
+
+  
 
   const [formData, setFormData] = useState({
     date: "",
@@ -18,7 +29,11 @@ const PanditBookingForm = () => {
     dob: "",
     Nakshtra: "",
     Rashi: "",
-    Gotra: ""
+    address:"",
+    Gotra: "",
+    poojaMode:"",
+   materials:[],
+   pincode:Pincode,
   });
 
    const location=useLocation();
@@ -37,6 +52,14 @@ const PanditBookingForm = () => {
     console.log(formData);
     
   };
+
+  const handleMaterialChange = (selectedOptions) => {
+    setFormData({ ...formData, materials: selectedOptions });
+  };
+
+  const handlePinChange=(selectedOptions)=>{
+    setFormData({...formData,pincode:selectedOptions});
+  }
 
   return (
     <div
@@ -159,6 +182,69 @@ const PanditBookingForm = () => {
               className=" mb-4 p-2 border-2 outline-none rounded-lg text-gray-500"
               placeholder="Rashi / Zodiac Sign"
             />
+            
+             
+             
+              {/* Radio buttons for selecting the mode of Pooja  */}
+             <div className="mb-4  w-fit">
+              <label htmlFor="poojaMode" className="text-white">
+                Select Your Mode of Pooja
+              </label>
+              <div className="flex items-center mt-2">
+                <input
+                  type="radio"
+                  id="online"
+                  name="poojaMode"
+                  value="online"
+                  checked={formData.poojaMode === "online"}
+                  onChange={handleChange}
+                  className="mr-2"
+                />
+                <label htmlFor="online" className="mr-4 text-white">
+                  Online
+                </label>
+                <input
+                  type="radio"
+                  id="offline"
+                  name="poojaMode"
+                  value="offline"
+                  checked={formData.poojaMode === "offline"}
+                  onChange={handleChange}
+                  className="mr-2"
+                />
+                <label htmlFor="offline" className="text-white">
+                  Offline
+                </label>
+              </div>
+            </div>
+              
+          
+          
+           
+            
+            {formData.poojaMode==="offline" && <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={(e) => handleChange(e)}
+              className=" mb-4 p-2 border-2 outline-none rounded-lg text-gray-500"
+              placeholder="Enter your Address"
+            />}
+
+
+              
+           <Select 
+           isMulti
+           name={formData.materials}
+           options={materialOptions}
+           onChange={handleMaterialChange}
+           placeholder="Select Materials required..."
+           className="mb-4 p-2  rounded-lg text-gray-500  "/>
+
+
+          
+
+
             <input
               type="text"
               name="Gotra"

@@ -177,7 +177,7 @@ function AstrologerProfileForm() {
   };
 
   return (
-    <div className="w-full min-h-screen mb-16 p-4 relative top-[5rem]">
+    <div className="w-full min-h-screen mb-20 p-4 relative top-[5rem]">
       <div className="bg-black shadow-md rounded-lg p-6 lg:w-1/2 w-[90%] mx-auto">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <h1 className="text-lg font-bold mb-4 p-4 bg-yellow-400 text-center w-full rounded">

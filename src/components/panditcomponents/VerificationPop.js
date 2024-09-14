@@ -61,7 +61,7 @@ const PanditVerifyPhone = () => {
   return (
     <div
       id="verify_mbl_nmbr"
-      className="w-full max-w-md rounded-lg mx-auto mb-16 pb-6 relative top-[6rem] bg-black shadow-lg"
+      className="w-full max-w-md rounded-lg mx-auto mb-28 pb-6 relative top-[6rem] bg-black shadow-lg"
     >
       <h1 className="text-2xl font-bold mb-6 bg-yellow-400 w-full p-4 text-center rounded-t-lg text-black">
         Verify
