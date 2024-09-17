@@ -56,7 +56,6 @@ const Astro_Messages = ({ setNewMessage1, response, handleSetMessages, requests,
   };
 
   const handleUserClick = (roomId) => {
-    socket.emit('acceptChat',userID);
     console.log(roomId)
     socket.emit('existChat', { roomId })
     setCurrentChatUser(roomId);
