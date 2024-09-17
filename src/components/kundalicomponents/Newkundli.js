@@ -14,6 +14,8 @@ const NewKundli = () => {
     second: 10,
     birthPlace: "",
   });
+
+  const [errors,setErrors]=useState({});
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
 
@@ -55,8 +57,42 @@ const NewKundli = () => {
     setSuggestions([]);
   };
 
+  
+
+
+
+  const ValidateForm=()=>{
+    const newErrors={};
+
+    if(!formData.name) newErrors.name="Name is required";
+    if(!formData.day) newErrors.day="Day is required";
+    if(!formData.month) newErrors.month="Month is required";
+    if(!formData.year) newErrors.year="Year is required";
+    if(!formData.hour) newErrors.hour="Hour is required";
+    if(!formData.minute) newErrors.minute="Minute is required";
+    if(!formData.second) newErrors.second="Second is required";
+    if(!formData.birthPlace) newErrors.birthPlace="BirthPlace is required";
+
+     return newErrors;
+
+  }
+
+
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const validationErrors=ValidateForm();
+    if(Object.keys(validationErrors).length>0){
+      setErrors(validationErrors);
+      return;
+    }
+ 
+    setErrors({});
+
+
     console.log(formData)
     navigate("/freekundali/basic-details", { state: {formData} });
   };
@@ -86,6 +122,7 @@ const NewKundli = () => {
             value={formData.name}
             onChange={handleInputChange}
           />
+          {errors.name && <p className="text-red-600">{errors.name}</p>}
             </div>
 
         <div className="flex flex-col gap-1 w-full mt-2">
@@ -113,7 +150,7 @@ const NewKundli = () => {
         <div className="flex flex-col gap-3 mt-1">
           <p >Birth Details</p>
           <div className="md:flex xs:flex-col w-full gap-2 ">
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full ">
               <label>Day</label>
               <select
                 name="day"
@@ -128,9 +165,10 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.day && <p className="text-red-600">{errors.day}</p>}
             </div>
 
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full ">
               <label>Month</label>
               <select
                 name="month"
@@ -145,9 +183,10 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.month && <p className="text-red-600">{errors.month}</p>}
             </div>
 
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full ">
               <label>Year</label>
               <select
                 name="year"
@@ -162,11 +201,12 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.year && <p className="text-red-600">{errors.year}</p>}
             </div>
           </div>
 
           <div className="md:flex xs:flex-col w-full gap-2 ">
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full ">
               <label>Hour</label>
               <select
                 name="hour"
@@ -181,9 +221,10 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.hour && <p className="text-red-600">{errors.hour}</p>}
             </div>
 
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full">
               <label>Minute</label>
               <select
                 name="minute"
@@ -198,9 +239,10 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.minute && <p className="text-red-600">{errors.minute}</p>}
             </div>
 
-            <div className="flex flex-col w-full md:w-1/4">
+            <div className="flex flex-col w-full ">
               <label>Second</label>
               <select
                 name="second"
@@ -215,6 +257,7 @@ const NewKundli = () => {
                   </option>
                 ))}
               </select>
+              {errors.second && <p className="text-red-600">{errors.second}</p>}
             </div>
           </div>
         </div>
@@ -230,6 +273,7 @@ const NewKundli = () => {
             value={formData.birthPlace}
             onChange={handleInputChange}
           />
+          {errors.birthPlace && <p className="text-red-600">{errors.birthPlace}</p>}
           {suggestions && suggestions.length > 0 && (
             <ul className="border rounded-md bg-white mt-2 max-h-40 overflow-y-auto">
               {suggestions.map((suggestion) => (

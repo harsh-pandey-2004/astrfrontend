@@ -119,8 +119,8 @@ const Blogs = () => {
             </div>
           </div>
           <div className="mt-8 hidden sm:block">
-            <p className="text-start text-lg font-semibold">
-              Some Trending Topics
+            <p className=" flex items-center justify-between text-start text-lg font-semibold">
+              Some Trending Topics  <span className="text-yellow-500 font-normal border-b border-b-yellow-400 ">view all <span className="text-black"> <Link to="allblogs">blogs</Link></span> and <span className="text-black"><Link to="allblogs">articles</Link></span></span>
             </p>
             <div className="md:flex xs:flex-col items-center gap-4 mt-2 grid grid-cols-2">
               <button className="px-2 py-1 rounded-full border-2 border-yellow-500 hover:bg-[#f6c300] hover:text-white">
@@ -132,6 +132,8 @@ const Blogs = () => {
               <button className="px-2 py-1 rounded-full border-2 border-[#f6c300] hover:bg-[#f6c300] hover:text-white">
                 Relationships
               </button>
+               
+              
             </div>
           </div>
         </div>

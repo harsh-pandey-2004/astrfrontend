@@ -102,6 +102,7 @@ function MainDashAstro() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(id);
         let a = await axios.get(`http://localhost:3000/api/astrologer/${id}`);
         console.log(a.data.Data);
         setResponse(a.data.Data);

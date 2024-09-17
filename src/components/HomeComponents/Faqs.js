@@ -12,11 +12,11 @@ function Faqs() {
   // }, []);
 
   return (
-    <div className="shadow-inner pt-4">
-      <h1 className="text-center text-4xl font-semibold text-black" >
+    <div className="shadow-inner pt-6">
+      <h1 className="text-center text-2xl md:text-4xl font-semibold text-black" >
         Frequently Asked Questions
       </h1>
-      <div className="mt-6 border-b border-black md:w-[92%] w-[95%] mx-auto transition-all duration-500 ease-in-out px-3" >
+      <div className="mt-3 border-b border-black md:w-[92%] w-[95%] mx-auto transition-all duration-500 ease-in-out px-3" >
         <div className="py-2 flex justify-between items-center">
           <p className="font-semibold py-2">
             ▪️ Why Should You Choose Astrocaptain For An Astrology Horoscope?

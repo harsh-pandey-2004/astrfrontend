@@ -9,7 +9,7 @@ import {
   HambugerIcon,
 } from "../icons/icons";
 
-const Navbar = ({ showbluefn }) => {
+const Navbar = ({ showbluefn}) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -94,6 +94,8 @@ const Navbar = ({ showbluefn }) => {
     window.location.href = "/";
   };
 
+
+
   useEffect(() => {
     const fetchUserDetails = async () => {
       if (
@@ -120,7 +122,7 @@ const Navbar = ({ showbluefn }) => {
     if (localStorage.length != 0 && localStorage.getItem("userId") != null) {
       fetchUserDetails();
     }
-  }, []);
+  });
 
   return (
     <>

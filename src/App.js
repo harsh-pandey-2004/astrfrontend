@@ -72,7 +72,9 @@ import VastuForm from "./Pages/VastuPage/VastuForm";
 import GarhPooja from "./Pages/VastuPage/GarhPooja";
 import Pitrapaksh from "./Pages/Pitrapaksh";
 import TodayHoroscope from "./Pages/TodayHoroscope";
+import { BlogDetails } from "./Pages/BlogDetails";
 import BookPanditSub from "./components/BookaPanditComponents/BookPanditSub/BookPanditSub";
+import PanditBookingForm from "./components/BookaPanditComponents/BookPanditSub/PanditBookingForm";
 
 
 function App() {
@@ -85,14 +87,16 @@ function App() {
     setIsMenuClicked(!IsmenuClicked);
   }
 
-  
+ 
 
   return (
     <div className="w-full h-fit relative ">
       <BrowserRouter>
-        <Navbar showbluefn={showbluefn}/>
+        <Navbar showbluefn={showbluefn} />
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
+          <Route path="/allblogs" element={<BlogPage/>}/>
+          <Route path="blogdetails/:id" element={<BlogDetails/>}/>
 
                 {/* user dashpages */}
           <Route path="/notifications" element={<Notifications/>}/>
@@ -101,7 +105,7 @@ function App() {
           <Route path="/customer-support" element={<CustomerSupport/>}/>
           <Route path="/recharge" element={<Recharge/>}/>
           <Route path="/recharge/paymentdetails" element={<PaymentDetails/>}/>
-          <Route path="/profile-settings" element={<ProfileSettings/>}/>
+          <Route path="/profile-settings" element={<ProfileSettings  />}/>
 
 
 
@@ -129,9 +133,10 @@ function App() {
               <BookPandit IsmenuClicked={IsmenuClicked} showblur={showblur} />
             }
           />
-          <Route path="/book-a-pandit/:id" element={<BookPanditSub/>} />
+          <Route path="/book-a-pandit/:slug" element={<BookPanditSub/>} />
+          <Route path="/pandit-booking" element={<PanditBookingForm/>}/>
 
-          <Route path="/poojapandit/:id" element={<PoojaPandit />} />
+          <Route path="/poojapandit/:id" element={<PoojaPandit />}/>
 
           <Route path="/blogs" element={<VastuMainPage />} />
           <Route path="/panditdashboard/:id/*" element={<MainPanditDash />} />
@@ -183,9 +188,9 @@ function App() {
 
           <Route
             path="/register-page/verify-phone/:id"
-            element={<VerifyPhone  />}
+            element={<VerifyPhone/>}
           ></Route>
-          <Route path="/loginform" element={<LoginForm  />}></Route>
+          <Route path="/loginform" element={<LoginForm/>}></Route>
 
           {/* //AstroRoutes */}
           <Route
