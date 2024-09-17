@@ -20,8 +20,13 @@ const SingleAstro = () => {
   const [newMessage, setNewMessage] = useState("");
   const [socket, setSocket] = useState(null);
   const userId = localStorage.getItem("userId");
+  const userDetails=JSON.parse(localStorage.getItem("userdetails"));
+  const userName=userDetails.name;
+  const roomId=`${userId}-${astrologer._id}`
+  
 
   useEffect(() => {
+    console.log(userName);
     const fetchData = async () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astrologer/${slug}`
@@ -62,14 +67,19 @@ const SingleAstro = () => {
       console.log(data);
       setMessages((prev) => [...prev, data]);
     });
-
+    newSocket.emit('existChat',{roomId});
+    newSocket.on('loadChats', (data) => {
+      setMessages(data.chats);
+    });
     return () => {
       newSocket.disconnect();
+      newSocket.off('loadChats');
     };
   };
+  
+  
 
   const handleSendMessage = () => {
-    const roomId=`${userId}-${astrologer._id}`;
     setMessages((prevMessages) => [
       ...prevMessages,
       {
@@ -89,11 +99,14 @@ const SingleAstro = () => {
         userId:userId,
         astrologerId: astrologer._id,
         message: newMessage,
-        userName: 'User Name',
+        userName: userName,
       });
     }
     setNewMessage("");
   };
+
+  
+  
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
