@@ -20,17 +20,59 @@ const SingleAstro = () => {
   const [newMessage, setNewMessage] = useState("");
   const [socket, setSocket] = useState(null);
   const userId = localStorage.getItem("userId");
-
+  const [chats,setChats]=useState([]);
+  const userDetails=JSON.parse(localStorage.getItem("userdetails"));
+  const userName=userDetails.name;
+  console.log(messages);
+  
   useEffect(() => {
     const fetchData = async () => {
-      let response = await axios.get(
-        `https://astrobackend.onrender.com/api/astrologer/${slug}`
-      );
-      setAstrologer(response.data.Data);
+      try {
+        const response = await axios.get(
+          `https://astrobackend.onrender.com/api/astrologer/${slug}`
+        );
+        setAstrologer(response.data.Data);
+      } catch (error) {
+        console.error("Error fetching astrologer data:", error);
+      }
     };
     fetchData();
   }, [slug]);
 
+  useEffect(() => {
+    console.log(messages.length)
+    if(messages.length===1){
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(
+            `http://localhost:3000/api/message-request`,messages[0]
+          );
+          // setAstrologer(response.data.Data);
+        } catch (error) {
+          console.error("Error fetching astrologer data:", error);
+        }
+      };
+      fetchData();
+    }
+  });
+
+  
+
+  useEffect(()=>{
+    const fetchChats = async () => {
+      const astrologerId=astrologer._id;
+      try {
+        const response = await axios.post("http://localhost:3000/api/getastrochats", {astrologerId});
+        console.log(response);
+        setMessages(response.data[0].messages);
+  
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchChats();
+  })  
+  
   useEffect(() => {
     if (isPopupOpen) {
       document.body.classList.add("disable-scroll");
@@ -39,68 +81,104 @@ const SingleAstro = () => {
     }
   }, [isPopupOpen]);
 
-  const handleChatNowClick = () => {
+  // const fetchMessages = async () => {
+  //   const roomId = `${userId}-${astrologer._id}`;
+  //   try {
+  //     const response = await axios.post("http://localhost:3000/api/getastrochatbasisofroomId", { roomId });
+  //     setMessages(response.data); 
+  //   } catch (error) {
+  //     console.error("Error fetching messages:", error);
+  //   }
+  // };
+  
+  // useEffect(() => {
+  //   if (isPopupOpen) {
+  //     const newSocket = io('http://localhost:3000/user-namespace');
+  //     setSocket(newSocket);
+
+  //     newSocket.emit('join', { type: 'user', userId }, () => {
+  //       console.log('User connected to socket room');
+  //     });
+
+  //     newSocket.on('chatAccepted', () => {
+  //       setChatAccepted(true);
+  //       console.log('Chat accepted');
+  //     });
+
+  //     newSocket.on('chatDeclined', () => {
+  //       alert('Astrologer declined the chat request.');
+  //     });
+
+  //     newSocket.on('message', (data) => {
+  //       console.log("Received message:", data);
+        
+  //       setMessages((prevMessages) => {
+          
+  //         const isMessageExisting = prevMessages.some(msg => msg.message === data.message && msg.from === data.from);
+  //         if (isMessageExisting) return prevMessages;
+  //         return [...prevMessages, data];
+  //       });
+  //     });
+
+      
+  //     return () => {
+  //       newSocket.disconnect();
+  //     };
+  //   }
+  // }, [isPopupOpen, userId]);
+
+  
+  const handleChatNowClick = async () => {
     setIsPopupOpen(true);
-
-    const newSocket = io('http://localhost:3000/user-namespace');
-    setSocket(newSocket);
-
-    newSocket.emit('join', { type: 'user', userId }, () => {
-      console.log('User connected to socket room');
-    });
-
-    newSocket.on('chatAccepted', () => {
-      setChatAccepted(true);
-      console.log('Chat accepted');
-    });
-
-    newSocket.on('chatDeclined', () => {
-      alert('Astrologer declined the chat request.');
-    });
-
-    newSocket.on('message', (data) => {
-      console.log(data);
-      setMessages((prev) => [...prev, data]);
-    });
-
-    return () => {
-      newSocket.disconnect();
-    };
+    // await fetchChats();
   };
 
-  const handleSendMessage = () => {
-    const roomId=`${userId}-${astrologer._id}`;
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        from: userId, // Identifies the sender as the user
-        message: newMessage, // The message content
-      },
-    ]);
-    if (chatAccepted) {
-      socket.emit('sendMessage', {
-        from: userId,
-        to: astrologer._id,
-        message: newMessage,
-        roomId:roomId
-      });
-    } else {
-      socket.emit('userMessage', {
-        userId:userId,
+  
+  const handleSendMessage = async () => {
+    const roomId = `${userId}-${astrologer._id}`;
+    let messagePayload;
+    if (messages.length === 0) {
+      messagePayload = {
+        from:userId,
+        to:astrologer._id,
+        userId: userId,
         astrologerId: astrologer._id,
         message: newMessage,
-        userName: 'User Name',
-      });
+        userName: userName,
+      };
+    } else {
+      messagePayload = {
+        from: userId, 
+        to: astrologer._id, 
+        message: newMessage,
+        roomId: roomId,
+      };
+    const chatData = {
+        userName: userName,
+        roomId: roomId,
+        userId: userId,
+        astrologerId: astrologer._id,
+        message: messagePayload,
+      };
+    try {
+        const response = await axios.post('http://localhost:3000/api/createchat', chatData);
+        console.log('Chat created successfully:', response.data);
+      } catch (error) {
+        console.error('Error creating chat:', error);
+      }
     }
-    setNewMessage("");
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      messagePayload,
+    ]);
+    setNewMessage(""); 
   };
-
   const handleClosePopup = () => {
     setIsPopupOpen(false);
-    if (socket) {
-      socket.disconnect(); // Disconnect the socket when the popup is closed
-    }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   const qualifications = [
