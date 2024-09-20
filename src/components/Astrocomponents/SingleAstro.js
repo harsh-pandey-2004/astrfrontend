@@ -48,7 +48,7 @@ const SingleAstro = () => {
       const fetchData = async () => {
         try {
           const response = await axios.post(
-            `http://localhost:3000/api/message-request`,messages[0]
+            `https://astrobackend.onrender.com/api/message-request`,messages[0]
           );
           // setAstrologer(response.data.Data);
         } catch (error) {
@@ -81,7 +81,7 @@ const SingleAstro = () => {
     const roomId = `${userId}-${astrologer._id}`;
     const intervalId = setInterval(async () => {
       try {
-        const response = await axios.post("http://localhost:3000/api/getastrochatbasisofroomId", { roomId });
+        const response = await axios.post("https://astrobackend.onrender.com/api/getastrochatbasisofroomId", { roomId });
         setMessages(response.data[0].messages);
       } catch (error) {
         console.log(error);
@@ -181,7 +181,7 @@ const SingleAstro = () => {
         message: messagePayload,
       };
     try {
-        const response = await axios.post('http://localhost:3000/api/createchat', chatData);
+        const response = await axios.post('https://astrobackend.onrender.com/api/createchat', chatData);
         console.log('Chat created successfully:', response.data);
       } catch (error) {
         console.error('Error creating chat:', error);

@@ -200,7 +200,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
   useEffect(() => {
     const intervalId = setInterval(async () => {
       try {
-        const response = await axios.post("http://localhost:3000/api/getastrochats", { astrologerId });
+        const response = await axios.post("https://astrobackend.onrender.com/api/getastrochats", { astrologerId });
         setChats(response.data);
       } catch (error) {
         console.log(error);
@@ -255,7 +255,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
         message:message
       }
       try {
-        const response = await axios.post('http://localhost:3000/api/createchat', chatData);
+        const response = await axios.post('https://astrobackend.onrender.com/api/createchat', chatData);
         console.log('Message sent successfully:', response.data);
         setNewMessage('');
       } catch (error) {
