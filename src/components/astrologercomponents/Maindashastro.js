@@ -86,7 +86,7 @@ function MainDashAstro() {
     const fetchData = async () => {
       try {
         console.log(id);
-        let a = await axios.get(`http://localhost:3000/api/astrologer/${id}`);
+        let a = await axios.get(`https://astrobackend.onrender.com/api/astrologer/${id}`);
         console.log(a.data.Data);
         setResponse(a.data.Data);
         setastrologerId(a.data.Data._id);

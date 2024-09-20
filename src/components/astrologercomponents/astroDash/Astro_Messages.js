@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 
 
-// const socket = io('http://localhost:3000/user-namespace');
+// const socket = io('https://astrobackend.onrender.com/user-namespace');
 
 // const Astro_Messages = ({ response, handleSetMessages, activeChat, requests, userID, socket, handleAcceptRequest, handleRejectRequest, messages }) => {
 

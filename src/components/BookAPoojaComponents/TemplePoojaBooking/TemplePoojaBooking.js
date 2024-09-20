@@ -13,7 +13,7 @@ const TemplePoojaBooking = () => {
   useEffect(() => {
     const fetchTempleData = async () => {
       try {
-          const response = await axios.post('http://localhost:3000/api/templedetails', {
+          const response = await axios.post('https://astrobackend.onrender.com/api/templedetails', {
             name: formData.temple.value,
             poojaname: formData.pooja.value
           });
