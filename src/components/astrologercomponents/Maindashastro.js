@@ -96,18 +96,36 @@ function MainDashAstro() {
     fetchData();
   }, [id]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+  //       // console.log(response.data);
+  //       setRequests(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // },[])
+
   useEffect(() => {
-    const fetchData = async () => {
+    // const astrologerId = astrologer._id;
+    const intervalId = setInterval(async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
-        // console.log(response.data);
         setRequests(response.data);
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchData();
-  },[])
+    }, 1000); 
+  
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [
+    
+  ]);
 
 
   // useEffect(() => {

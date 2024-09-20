@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import { RiMessage2Fill } from "react-icons/ri";
@@ -23,7 +23,10 @@ const SingleAstro = () => {
   const [chats,setChats]=useState([]);
   const userDetails=JSON.parse(localStorage.getItem("userdetails"));
   const userName=userDetails.name;
+  
   console.log(messages);
+
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -58,20 +61,37 @@ const SingleAstro = () => {
 
   
 
-  useEffect(()=>{
-    const fetchChats = async () => {
-      const astrologerId=astrologer._id;
-      try {
-        const response = await axios.post("http://localhost:3000/api/getastrochats", {astrologerId});
-        console.log(response);
-        setMessages(response.data[0].messages);
+  // useEffect(()=>{
+  //   const fetchChats = async () => {
+  //     const astrologerId=astrologer._id;
+  //     try {
+  //       const response = await axios.post("http://localhost:3000/api/getastrochats", {astrologerId});
+  //       console.log(response);
+  //       setMessages(response.data[0].messages);
   
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchChats();
+  // })  
+
+  useEffect(() => {
+    // const astrologerId = astrologer._id;
+    const roomId = `${userId}-${astrologer._id}`;
+    const intervalId = setInterval(async () => {
+      try {
+        const response = await axios.post("http://localhost:3000/api/getastrochatbasisofroomId", { roomId });
+        setMessages(response.data[0].messages);
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchChats();
-  })  
+    }, 1000); 
+  
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [astrologer._id]);
   
   useEffect(() => {
     if (isPopupOpen) {
@@ -292,11 +312,11 @@ const SingleAstro = () => {
       {isPopupOpen && (
         <div className="sm:absolute fixed inset-0 flex items-center justify-center bg-black bg-opacity-20 sm:-top-[60rem] -top-0">
           <div className="bg-black p-4 rounded-lg shadow-lg relative h-[31rem] sm:h-[30rem] border-4 border-[#f6c300] sm:w-1/2 text-white w-full">
-            {chatAccepted ? (
+            {/* {chatAccepted ? (
                 <div>Chat accepted. You can start messaging.</div>
               ) : (
                 <div>Waiting for astrologer to accept the chat...</div>
-            )}
+            )} */}
             <button
               className="absolute top-5 right-5 text-white hover:text-gray-100"
               onClick={handleClosePopup}

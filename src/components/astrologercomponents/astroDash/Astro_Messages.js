@@ -184,19 +184,33 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
   const [currentChatUser, setCurrentChatUser] = useState(null);
   
   const astrologerId = response;
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.post("http://localhost:3000/api/getastrochats", { astrologerId });
+  //       console.log(response);
+  //       setChats(response.data);
+
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // })
   useEffect(() => {
-    const fetchData = async () => {
+    const intervalId = setInterval(async () => {
       try {
         const response = await axios.post("http://localhost:3000/api/getastrochats", { astrologerId });
-        console.log(response);
         setChats(response.data);
-
       } catch (error) {
         console.log(error);
       }
-    }
-    fetchData();
-  })
+    }, 1000); 
+  
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [astrologerId]);
 
   // const handleSendMessage = () => {
   //       if (newMessage.trim() && currentChatUser) {
