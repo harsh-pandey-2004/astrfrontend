@@ -61,7 +61,7 @@ const Dashas = () => {
                 lat: userLat,
                 lon: userLong,
                 tz: 5.5,
-                api_key: "9e300788-82de-534a-ba13-47e11a18669f",
+                api_key: "98d42535-b080-5dad-a6dc-5084c3f6d243",
                 lang: "en",
               },
               headers: {
@@ -80,7 +80,7 @@ const Dashas = () => {
                 lat: userLat,
                 lon: userLong,
                 tz: 5.5,
-                api_key: "9e300788-82de-534a-ba13-47e11a18669f",
+                api_key: "98d42535-b080-5dad-a6dc-5084c3f6d243",
                 lang: "en",
               },
               headers: {
@@ -99,7 +99,7 @@ const Dashas = () => {
                 lat: userLat,
                 lon: userLong,
                 tz: 5.5,
-                api_key: "9e300788-82de-534a-ba13-47e11a18669f",
+                api_key: "98d42535-b080-5dad-a6dc-5084c3f6d243",
                 lang: "en",
               },
               headers: {

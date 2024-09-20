@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router-dom';
 const BookPanditSub = () => {
   const location=useLocation();
   const Panditdata=location.state || {};
+  const PanditId=Panditdata[0]._id;
+  localStorage.setItem('PanditId',PanditId);
   console.log(Panditdata);
   const navigate=useNavigate();
+
   return (
     <div className='  lg:flex-row relative top-20 mb-28'>
 
@@ -41,7 +44,7 @@ const BookPanditSub = () => {
           <div className="flex gap-4 justify-center items-center">
             <button
               className="border rounded-md bg-black text-white px-12 py-2 hover:text-[#f6c300] hover:-translate-y-1 transition-all"
-              onClick={()=>{navigate('/pandit-booking',{state:Panditdata})}}
+              onClick={()=>{navigate('/pandit-packages',{state:Panditdata})}}
             >
               Book Now
             </button>

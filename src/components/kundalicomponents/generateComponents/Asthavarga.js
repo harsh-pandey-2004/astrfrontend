@@ -35,7 +35,7 @@ const Asthavarga = () => {
   const fetchDetails = async () => {
    
     const tz = 5.5; // Time zone, adjust as necessary
-    const apiKey = '9e300788-82de-534a-ba13-47e11a18669f';
+    const apiKey = '98d42535-b080-5dad-a6dc-5084c3f6d243';
 
     const url = `https://api.vedicastroapi.com/v3-json/horoscope/ashtakvarga?dob=${formData.day}/${formData.month}/${formData.year}&tob=${formData.hour}:${formData.minute}&lat=${userLat}&lon=${userLong}&tz=${tz}&api_key=${apiKey}&lang=en`;
 
