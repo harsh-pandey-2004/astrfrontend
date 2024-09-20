@@ -4,7 +4,7 @@ export const Whyastro = () => {
   return (
     <div className="w-full">
       <div className="flex flex-col flex-wrap justify-center items-center text-center mb-8 px-2 py-5">
-        <h1 className="text-center text-4xl font-bold py-3">WHY ASTROLOGY ?</h1>
+        <h1 className="text-center text-2xl md:text-4xl font-bold py-3">WHY ASTROLOGY ?</h1>
         <h2 className="text-center text-lg font-semibold">
           Understanding the Divine: Astrology Reveals the Will of God
         </h2>

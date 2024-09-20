@@ -22,7 +22,74 @@ function ProfileForm() {
     image: "",
   };
   const [response, setResponse] = useState(initialState);
-  // console.log(response);
+  const[errors,setErrors]=useState({});
+ 
+ // Validation functions
+ function validateTextInput(value) {
+  const regex = /^[A-Za-z\s]*$/; // Allows only letters and spaces
+  return regex.test(value);
+}
+
+function validateNumericInput(value) {
+  const regex = /^[0-9]*$/; // Allows only numbers
+  return regex.test(value);
+}
+
+
+
+function validateForm(){
+  const newErrors={};
+
+  if(!validateTextInput(response.firstName)){
+    newErrors.firstName="First name must contain only letters and spaces.";
+  }
+
+  if(!validateTextInput(response.lastName)){
+    newErrors.lastName="Last name must contain only letters and spaces";
+  }
+
+  if(!validateTextInput(response.city)){
+    newErrors.city="City must contain only letters and spaces.";
+  }
+
+  if(!validateTextInput(response.belongsTo)){
+    newErrors.belongsTo="Town must contain only letters and spaces";
+  }
+
+  if(!validateNumericInput(response.pincode)){
+    newErrors.pincode="Pincode must contain only numbers";
+  }
+
+  if (!validateNumericInput(response.experience)) {
+    newErrors.experience = "Experience must contain only numbers.";
+  }
+
+  if (!response.dob) {
+    newErrors.dob = "Date of birth is required.";
+  }
+
+  
+  if (response.Skills.length === 0) {
+    newErrors.Skills = "At least one skill is required.";
+  }
+
+  if (response.languages.length === 0) {
+    newErrors.languages = "At least one language is required.";
+  }
+
+
+  if (!response.gender) {
+    newErrors.gender = "Gender is required.";
+  }
+
+  if (!response.ProfessionalQualifications.trim()) {
+    newErrors.ProfessionalQualifications = "Professional qualifications are required.";
+  }
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+}
+
   function handleChange(e) {
     console.log(response);
     setResponse({ ...response, [e.target.name]: e.target.value });
@@ -42,7 +109,7 @@ function ProfileForm() {
     e.preventDefault();
     console.log(response);
     
-    try {
+    if(validateForm()){try {
       console.log(slug);
       let a = await axios.patch(
         `https://astrobackend.onrender.com/api/update-pandit-profile/${slug}`,
@@ -52,6 +119,8 @@ function ProfileForm() {
       navigate(`/panditdashboard/${slug}`);
     } catch (error) {
       console.log("ERRR:", error);
+    }}else {
+      console.log("Validation failed. Please fill all the details correctly.");
     }
   }
 
@@ -140,7 +209,11 @@ function ProfileForm() {
               placeholder="First Name"
               onChange={(e) => handleChange(e)}
               name="firstName"
+              required
             />
+             {errors.firstName && (
+                <span className="text-red-500">{errors.firstName}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -151,7 +224,11 @@ function ProfileForm() {
               placeholder="Last Name"
               onChange={(e) => handleChange(e)}
               name="lastName"
+              required
             />
+             {errors.lastName && (
+                <span className="text-red-500">{errors.lastName}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -164,6 +241,7 @@ function ProfileForm() {
                   value="Male"
                   className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={(e) => handleChange(e)}
+                  required
                 />
                 Male
               </label>
@@ -174,10 +252,14 @@ function ProfileForm() {
                   value="Female"
                   className="mr-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   onChange={(e) => handleChange(e)}
+                  required
                 />
                 Female
               </label>
             </div>
+            {errors.gender && (
+                <span className="text-red-500">{errors.gender}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -188,6 +270,7 @@ function ProfileForm() {
               placeholder="Gotra"
               onChange={(e) => handleChange(e)}
               name="gotra"
+              required
             />
           </div>
 
@@ -199,7 +282,12 @@ function ProfileForm() {
               placeholder="Belongs To"
               onChange={(e) => handleChange(e)}
               name="belongsTo"
+              value={response.belongsTo}
+              required
             />
+             {errors.belongsTo && (
+                <span className="text-red-500">{errors.belongsTo}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -210,7 +298,11 @@ function ProfileForm() {
               placeholder="City"
               onChange={(e) => handleChange(e)}
               name="city"
+              required
             />
+             {errors.city && (
+                <span className="text-red-500">{errors.city}</span>
+              )}
           </div>
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
             <h6 className="text-lg font-sans text-white">Pincode</h6>
@@ -220,7 +312,11 @@ function ProfileForm() {
               placeholder="Pincode"
               onChange={(e) => handleChange(e)}
               name="pincode"
+              required
             />
+             {errors.pincode && (
+                <span className="text-red-500">{errors.pincode}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -230,7 +326,11 @@ function ProfileForm() {
               className="form-input outline-none rounded bg-transparent placeholder:text-gray-400 border-2 w-full py-2 px-3 text-white focus:border-yellow-400"
               onChange={(e) => handleChange(e)}
               name="dob"
+              required
             />
+             {errors.dob && (
+                <span className="text-red-500">{errors.dob}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -241,7 +341,11 @@ function ProfileForm() {
               placeholder="Experience"
               onChange={(e) => handleChange(e)}
               name="experience"
+              required
             />
+             {errors.experience && (
+                <span className="text-red-500">{errors.experience}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -254,7 +358,11 @@ function ProfileForm() {
               classNamePrefix="select"
               styles={customStyles}
               onChange={handleSelectChange}
+              required
             />
+             {errors.Skills && (
+              <span className="text-red-500">{errors.Skills}</span>
+              )}
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -267,7 +375,12 @@ function ProfileForm() {
               classNamePrefix="select"
               styles={customStyles}
               onChange={handleSelectChange}
+              required
             />
+            {errors.languages && (
+              <span className="text-red-500">{errors.languages}</span>
+              )}
+
           </div>
 
           <div className="flex p-3 gap-2 rounded-lg flex-col items-start">
@@ -279,7 +392,11 @@ function ProfileForm() {
               placeholder="Professional Qualifications"
               onChange={(e) => handleChange(e)}
               name="ProfessionalQualifications"
+              required
             />
+            {errors.ProfessionalQualifications && (
+              <span className="text-red-500">{errors.ProfessionalQualifications}</span>
+              )}
           </div>
 
           <button

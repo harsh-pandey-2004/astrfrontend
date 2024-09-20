@@ -21,6 +21,7 @@ const PoojaHeader = ({ onSearch }) => {
       try {
         const response = await axios.get('http://localhost:3000/api/getAllTemples'); 
         const temples = response.data;
+        console.log(temples);
         const templeOptions = temples.map(temple => ({
           value: temple.name,
           label: temple.name

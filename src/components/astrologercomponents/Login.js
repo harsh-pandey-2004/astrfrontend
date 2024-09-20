@@ -36,7 +36,7 @@ const AstrologerLoginForm = () => {
   };
 
   return (
-    <div className="bg-black shadow-md rounded  pb-8 mb-16 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
+    <div className="bg-black shadow-md rounded  pb-8 mb-28 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
       <form
         autoComplete="on"
         className="flex flex-col "
@@ -97,7 +97,7 @@ const AstrologerLoginForm = () => {
         </button>
         <div className="w-full flex justify-center my-2"></div>
         <div className="mt-1 text-sm">
-          <p className="terms-line text-center">
+          <p className="terms-line text-center text-white">
             By Signing up, you agree to our{" "}
             <a
               href="https://astrotalk.com/terms-and-conditions"

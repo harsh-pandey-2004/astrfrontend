@@ -37,8 +37,8 @@ const LoginForm = () => {
       const userSlug=a.data.user.slug;
       localStorage.setItem('userSlug',userSlug);
      
-      const responseJSON=JSON.stringify(a.data.user);
-      localStorage.setItem('userdetails',responseJSON);
+      // const responseJSON=JSON.stringify(a.data.user);
+      // localStorage.setItem('userdetails',responseJSON);
      
       alert('Login successful!');
       navigate("/");  

@@ -56,7 +56,7 @@ const AstroCouncellorVerify = () => {
   };
 
   return (
-    <div id="verify_mbl_nmbr" className=" w-1/3 rounded mx-auto mb-16 pb-4 relative top-[6rem] bg-black">
+    <div id="verify_mbl_nmbr" className=" w-1/3 rounded mx-auto mb-28 pb-4 relative top-[6rem] bg-black">
       <h1 className="text-2xl font-bold mb-6 bg-yellow-400 w-full p-3 text-center rounded text-black">Verify</h1>
       <div className="mb-6">
         <h6 className="text-sm otp_sent_number text-center text-yellow-300">
