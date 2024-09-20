@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-const ProfileEditComponent = ({CloseModal}) => {
+const ProfileEditComponent = ({CloseModal,handleProfile}) => {
   const [formData, setFormData] = useState({
     profileImg: "",
     mobile: "9569676072",
@@ -34,6 +34,8 @@ const ProfileEditComponent = ({CloseModal}) => {
     );
     
     console.log(response);
+    handleProfile();
+    
     
   } catch (error) {
     console.error("Error:", error);

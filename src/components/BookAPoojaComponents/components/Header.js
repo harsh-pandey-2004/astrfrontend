@@ -49,6 +49,8 @@ const Header = () => {
   const { setFilteredData }=usePanditData();
 
   const handleChange = (selectedOption, actionMeta) => {
+   
+   
     setResponse({ ...response, [actionMeta.name]: selectedOption });
     if(actionMeta.name==='nameOfPooja'){
       localStorage.setItem('selectedPooja',selectedOption.value);
@@ -77,6 +79,7 @@ const Header = () => {
     : null;
 
     localStorage.setItem('Poojadate',formattedDate);
+   
    
     // console.log(response)
     //   console.log(formattedDate);
