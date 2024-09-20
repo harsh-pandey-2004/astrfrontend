@@ -15,68 +15,11 @@ const PoojaHeader = ({ onSearch }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const { setFormData } = usePoojaContext();
 
-  // useEffect(() => {
-  //   // Mock data - Replace with actual API calls or data fetching
-  //   // const temples = [
-  //   //   { value: 'temple1', label: 'Temple 1' },
-  //   //   { value: 'temple2', label: 'Temple 2' }
-      
-  //   // ];
-  //   console.log('templeData:', templeData);
-  //   const templeOptions = templeData.map(temple => ({
-  //     value: temple.name,
-  //     label: temple.name
-  //   }));
-  //   console.log('Mapped templeOptions:', templeOptions);
-  //   setTempleOptions(templeOptions);
-
-  //   // const poojaData = {
-  //   //   temple1: [
-  //   //     { value: 'pooja1', label: 'Pooja 1' },
-  //   //     { value: 'pooja2', label: 'Pooja 2' }
-  //   //   ],
-  //   //   temple2: [
-  //   //     { value: 'pooja3', label: 'Pooja 3' },
-  //   //     { value: 'pooja4', label: 'Pooja 4' }
-  //   //   ]
-  //   // };
-  //   const poojaOptions = [
-  //     { value: "Satyanarayan Puja", label: "Satyanarayan Puja" },
-  //     { value: "Durga Puja", label: "Durga Puja" },
-  //     { value: "Ganesh Puja", label: "Ganesh Puja" },
-  //     { value: "Lakshmi Puja", label: "Lakshmi Puja" },
-  //     { value: "Saraswati Puja", label: "Saraswati Puja" },
-  //     { value: "Shivratri Puja", label: "Shivratri Puja" },
-  //     { value: "Navratri Puja", label: "Navratri Puja" },
-  //     { value: "Hanuman Puja", label: "Hanuman Puja" },
-  //     { value: "Kali Puja", label: "Kali Puja" },
-  //     { value: "Janmashtami Puja", label: "Janmashtami Puja" },
-  //     { value: "Vastu Shanti Puja", label: "Vastu Shanti Puja" },
-  //     { value: "Griha Pravesh Puja", label: "Griha Pravesh Puja" },
-  //     { value: "Wedding Puja", label: "Wedding Puja" },
-  //     { value: "Namkaran Puja", label: "Namkaran Puja" },
-  //     { value: "Annaprashan Puja", label: "Annaprashan Puja" },
-  //     { value: "Mundan Puja", label: "Mundan Puja" },
-  //     { value: "Akshaya Tritiya Puja", label: "Akshaya Tritiya Puja" },
-  //     { value: "Karva Chauth Puja", label: "Karva Chauth Puja" },
-  //     { value: "Sankranti Puja", label: "Sankranti Puja" },
-  //     { value: "Bhoomi Puja", label: "Bhoomi Puja" },
-  //   ];
-
-  //   const poojaData = templeData.reduce((acc, temple) => {
-  //     acc[temple.name] = poojaOptions;
-  //     return acc;
-  //   }, {});
-  //   // setSelectedTemple(templeOptions);
-  //   setPoojaOptions(poojaData);
-
-  // }, []);
-
   useEffect(() => {
-    // Fetch temples data
+    
     const fetchTemples = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/getAllTemples'); // Replace with your API endpoint
+        const response = await axios.get('http://localhost:3000/api/getAllTemples'); 
         const temples = response.data;
         console.log(temples);
         const templeOptions = temples.map(temple => ({
@@ -85,7 +28,7 @@ const PoojaHeader = ({ onSearch }) => {
         }));
         setTempleOptions(templeOptions);
 
-        // Build poojaOptions based on temple data
+        
         const poojaData = temples.reduce((acc, temple) => {
           acc[temple.name] = temple.relatedPooja.map(pooja => ({
             value: pooja,
