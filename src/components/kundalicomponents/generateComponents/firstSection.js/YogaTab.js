@@ -39,7 +39,7 @@ useEffect(() => {
 useEffect(()=>{
   const fetchYogas=async()=>{
     try{
-       const res=await fetch("https://api.vedicastroapi.com/v3-json/extended-horoscope/yoga-list?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en");
+       const res=await fetch("https://api.vedicastroapi.com/v3-json/extended-horoscope/yoga-list?dob=21/04/2021&tob=11:40&lat=11&lon=77&tz=5.5&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en");
        const data=await res.json();
        setYogas(data.response.yogas_list);
        console.log(data);

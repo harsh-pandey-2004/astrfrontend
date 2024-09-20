@@ -22,7 +22,7 @@ const TodayHoroscope = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch(`https://api.vedicastroapi.com/v3-json/prediction/daily-sun?zodiac=${id}&date=${todayDate}&show_same=true&api_key=9e300788-82de-534a-ba13-47e11a18669f&lang=en&split=true&type=big`, {
+            const response = await fetch(`https://api.vedicastroapi.com/v3-json/prediction/daily-sun?zodiac=${id}&date=${todayDate}&show_same=true&api_key=98d42535-b080-5dad-a6dc-5084c3f6d243&lang=en&split=true&type=big`, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',

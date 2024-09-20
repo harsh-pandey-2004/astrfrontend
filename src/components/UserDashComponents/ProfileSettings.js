@@ -5,7 +5,7 @@ import ProfileEditComponent from './ProfileEditComponent';
 import { RxCross2 } from "react-icons/rx";
 import EditLanguage from './EditLanguage';
 import DeleteModal from './DeleteModal';
-const ProfileSettings = () => {
+const ProfileSettings = ({handleProfile}) => {
 
    const[editMode,setEditMode]=useState(false);
    const[editlang,setEditLang]=useState(false);
@@ -109,7 +109,7 @@ const ProfileSettings = () => {
     { editMode &&
   <div className='absolute top-28  w-full  '>
     <div onClick={()=>{setEditMode(false)}} className="absolute top-1 right-72 cursor-pointer rounded-full h-8 w-8  pl-2 pt-2 bg-white"><RxCross2/></div>
-  <ProfileEditComponent CloseModal={CloseModal}/>
+  <ProfileEditComponent CloseModal={CloseModal} handleProfile={handleProfile} />
   </div>}
 
     {/* editLanguage Modal */}

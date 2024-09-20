@@ -75,6 +75,7 @@ import TodayHoroscope from "./Pages/TodayHoroscope";
 import { BlogDetails } from "./Pages/BlogDetails";
 import BookPanditSub from "./components/BookaPanditComponents/BookPanditSub/BookPanditSub";
 import PanditBookingForm from "./components/BookaPanditComponents/BookPanditSub/PanditBookingForm";
+import PanditPackages from "./components/BookaPanditComponents/BookPanditSub/PanditPackages";
 
 
 function App() {
@@ -87,12 +88,16 @@ function App() {
     setIsMenuClicked(!IsmenuClicked);
   }
 
-  
+ const [editProfile,setEditProfile]=useState(false);
+
+ const handleProfile=()=>{
+  setEditProfile(!editProfile);
+ }
 
   return (
     <div className="w-full h-fit relative ">
       <BrowserRouter>
-        <Navbar showbluefn={showbluefn}/>
+        <Navbar showbluefn={showbluefn} editProfile={editProfile}/>
         <Routes>
           <Route path="/" element={<HomePage showblur={showblur} />} />
           <Route path="/allblogs" element={<BlogPage/>}/>
@@ -105,7 +110,7 @@ function App() {
           <Route path="/customer-support" element={<CustomerSupport/>}/>
           <Route path="/recharge" element={<Recharge/>}/>
           <Route path="/recharge/paymentdetails" element={<PaymentDetails/>}/>
-          <Route path="/profile-settings" element={<ProfileSettings/>}/>
+          <Route path="/profile-settings" element={<ProfileSettings handleProfile={handleProfile} />}/>
 
 
 
@@ -134,6 +139,7 @@ function App() {
             }
           />
           <Route path="/book-a-pandit/:slug" element={<BookPanditSub/>} />
+          <Route path="/pandit-packages" element={<PanditPackages/>}/>
           <Route path="/pandit-booking" element={<PanditBookingForm/>}/>
 
           <Route path="/poojapandit/:id" element={<PoojaPandit />}/>

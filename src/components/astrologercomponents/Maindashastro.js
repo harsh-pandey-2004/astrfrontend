@@ -14,8 +14,8 @@ import AstroSchedule from "./astroDash/AstroSchedule";
 
 
 //Socket
-import io from 'socket.io-client';
-const socket = io('https://astrobackend.onrender.com/user-namespace');
+// import io from 'socket.io-client';
+// const socket = io('http://localhost:3000/user-namespace');
 
 
 
@@ -26,16 +26,16 @@ function MainDashAstro() {
   const [astrologerId,setastrologerId]=useState('');
 
   const [requests, setRequests] = useState([]);
+  
   const [messages, setMessages] = useState([]);
   const [userID,setUserId]=useState('');
-  const [activeChat, setActiveChat] = useState(null);
+  const [activeChat, setActiveChat] = useState({});
 
+  console.log(requests);
 
-
-  const handleAcceptRequest = (request) => {
+  const handleAcceptRequest = async (request) => {
+    const messageId=request._id;
     console.log(request);
-    setActiveChat(request);
-    console.log(requests)
     setRequests((prevRequests) => prevRequests.filter((req) => req.userId !== request.userId));
     setUserId(request.userId);
     const initialMessage = {
@@ -45,23 +45,41 @@ function MainDashAstro() {
     };
 
     // Emit event to notify the user that the chat request was accepted
-    socket.emit('acceptChat', { userId: request.userId, astrologerId });
+    // socket.emit('acceptChat', { userId: request.userId, astrologerId,userName:request.userName });
     console.log(request.message)
     setMessages((prevMessages) => [...prevMessages, initialMessage]);
+    try {
+           const response = await axios.put("http://localhost:3000/api/statusupdate",{messageId:messageId});
+           console.log(response.data); 
+           
+         } catch (error) {
+           console.log(error);
+         }
   };
+
+//   const handleAcceptRequest = async (requests) => {
+//     const messageId=requests[0]._id;
+//     try {
+//      const response = await axios.put("http://localhost:3000/api/statusupdate",messageId);
+//      console.log(response.data); 
+     
+//    } catch (error) {
+//      console.log(error);
+//    }
+//  };
 
   const handleRejectRequest = (request) => {
     setRequests((prevRequests) => prevRequests.filter((req) => req.userId !== request.userId));
 
     // Emit event to notify the user that the chat request was rejected
-    socket.emit('rejectChat', { userId: request.userId });
+    // socket.emit('rejectChat', { userId: request.userId });
   };
 
 
 
-  const handleSetMessages=(message)=>{
-    setMessages((prevMessages) => [...prevMessages, message]);
-  }
+  // const handleSetMessages=(message)=>{
+  //   setMessages((prevMessages) => [...prevMessages, message]);
+  // }
 
 
   useEffect(() => {
@@ -79,30 +97,61 @@ function MainDashAstro() {
     fetchData();
   }, [id]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+  //       // console.log(response.data);
+  //       setRequests(response.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // },[])
 
   useEffect(() => {
-    //Join the astrologer to a specific room
-    socket.emit('join', { type: 'astrologer', astrologerId },()=>{
-      console.log('emit');
-    });
-
-    // Listen for incoming chat requests
-    socket.on('chatRequest', (data) => {
-      setRequests((prevRequests) => [...prevRequests, data]);
-      console.log(data);
-    });
-
-    // Listen for incoming messages in the active chat
-    socket.on('message', (message) => {
-      console.log(message);
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
-
+    // const astrologerId = astrologer._id;
+    const intervalId = setInterval(async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+        setRequests(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }, 1000); 
+  
     return () => {
-      socket.off('chatRequest');
-      socket.off('messageReceived');
+      clearInterval(intervalId);
     };
-  },  [astrologerId, socket]);
+  }, [
+    
+  ]);
+
+
+  // useEffect(() => {
+  //   //Join the astrologer to a specific room
+  //   socket.emit('join', { type: 'astrologer', astrologerId },()=>{
+  //     console.log('emit');
+  //   });
+
+  //   // Listen for incoming chat requests
+  //   socket.on('chatRequest', (data) => {
+  //     setRequests((prevRequests) => [...prevRequests, data]);
+  //     console.log(data);
+  //   });
+
+  //   // Listen for incoming messages in the active chat
+  //   socket.on('message', (message) => {
+  //     console.log(message);
+  //     setMessages((prevMessages) => [...prevMessages, message]);
+  //   });
+
+  //   return () => {
+  //     socket.off('chatRequest');
+  //     socket.off('messageReceived');
+  //   };
+  // },  [astrologerId, socket]);
 
 
   return (
@@ -142,7 +191,8 @@ function MainDashAstro() {
             <Route path="profile" element={<Profile response={response}/>}/>
             {/* <Route path="schedule" element={<Schedule />} /> */}
             {/* <Route path="stats" element={<Stats />} /> */}
-           <Route path="chats" element={<Astro_Messages response={response._id} handleSetMessages={handleSetMessages} activeChat={activeChat} requests={requests} userID={userID} socket={socket} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} messages={messages}/>}/>
+           {/*<Route path="chats" element={<Astro_Messages response={response._id} handleSetMessages={handleSetMessages} activeChat={activeChat} requests={requests} userID={userID} socket={socket} handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} messages={messages}/>}/>*/}
+            <Route path="chats" element={<Astro_Messages response={response._id} requests={requests}  handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} ></Astro_Messages>}/>
             <Route path="mail" element={<MailPage response={response}/>}/>
             <Route path="schedule" element={<AstroSchedule/>}/>
             <Route path="settings" element={<Settings/>}/>
