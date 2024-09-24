@@ -4,6 +4,17 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const Modal = ({ message, onClose }) => (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded shadow-lg">
+      <h2 className="text-lg font-bold mb-4">{message}</h2>
+      <button onClick={onClose} className="bg-[#f6c000] text-white px-4 py-2 rounded">
+        Close
+      </button>
+    </div>
+  </div>
+);
+
 const PanditBookingForm = () => {
   const Poojadate = localStorage.getItem("Poojadate");
   const location = useLocation();
@@ -28,31 +39,54 @@ const PanditBookingForm = () => {
     PanditId:panditId,
     Package:"Premium",
     Price:"10000",
-
-    
-   
-    
-   
   });
+  const [errors, setErrors] = useState({});
+  const [modalMessage, setModalMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.userName) newErrors.userName = "Name is required.";
+    if (!formData.Gotra) newErrors.Gotra = "Gotra is required.";
+    if (!formData.Nakshatra) newErrors.Nakshatra = "Nakshatra is required.";
+    if (!formData.Rashi) newErrors.Rashi = "Rashi is required.";
+    if (!formData.address) newErrors.address = "Address is required.";
+    return newErrors;
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData); // To send this data to the backend via API
     // Implement API request here using axios
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     try{
       const res=await axios.post("http://localhost:3000/api/bookpandit",formData);
-      console.log(res);
-      toast.success('Pandit booked successfully!');
+      // console.log(res);
+      // toast.success('Pandit booked successfully!');
+      setModalMessage('Pandit booked successfully!');
+      setIsModalOpen(true);
 
     }catch(err){
-      console.log(err);
-      toast.error('Failed to book Pandit. Please try again.');
+      // console.log(err);
+      // toast.error('Failed to book Pandit. Please try again.');
+      setModalMessage('Failed to book Pandit. Please try again.');
+      setIsModalOpen(true);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalMessage("");
   };
 
   return (
@@ -60,14 +94,15 @@ const PanditBookingForm = () => {
       className="w-full h-fit bg-contain relative top-20 bg-center pb-20"
       style={{
         backgroundImage:
-          "url(https://backgroundimages.withfloats.com/actual/5f1d8896cc10b700014e236b.jpg)",
+          "url(https://i.pinimg.com/736x/48/4a/97/484a9743a27dc0745da35b65f7b0fc9f.jpg)",
       }}
     >
+      {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
       <div className="text-center pt-12">
         <h1 className="text-5xl font-bold mb-4">
           <span className="text-[#dde549] stroke-black">Book Your Pandit</span>
         </h1>
-        <p className="text-lg text-[#ed6c22]">
+        <p className="text-lg text-[#dde549]">
           Invite Divine Blessings into Your Home!
         </p>
       </div>
@@ -120,9 +155,10 @@ const PanditBookingForm = () => {
             name="userName"
             value={formData.userName}
             onChange={handleChange}
-            className="p-2 border-2 outline-none rounded-lg w-full text-gray-500"
+            className={`p-2 border-2 outline-none rounded-lg w-full text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
             placeholder="Your Name"
           />
+          {errors.userName && <p className="text-red-500">{errors.userName}</p>}
         </div>
         <div className="mb-4">
           <label htmlFor="pooja">Your Selected Pooja</label>
@@ -168,26 +204,28 @@ const PanditBookingForm = () => {
               name="Gotra"
               value={formData.Gotra}
               onChange={(e) => handleChange(e)}
-              className=" mb-4 p-2 border-2 outline-none rounded-lg text-gray-500"
+              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Gotra"
             />
-
+            {errors.Gotra && <p className="text-red-500">{errors.Gotra}</p>}
           <input
               type="text"
               name="Nakshatra"
               value={formData.Nakshatra}
               onChange={(e) => handleChange(e)}
-              className=" mb-4 p-2 border-2 outline-none rounded-lg text-gray-500"
+              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Birth Star / Janma Nakshatram"
             />
+            {errors.Nakshatra && <p className="text-red-500">{errors.Nakshatra}</p>}
             <input
               type="text"
               name="Rashi"
               value={formData.Rashi}
               onChange={(e) => handleChange(e)}
-              className=" mb-4 p-2 border-2 outline-none rounded-lg text-gray-500"
+              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Rashi / Zodiac Sign"
             />
+            {errors.Rashi && <p className="text-red-500">{errors.Rashi}</p>}
         </div>
 
 
@@ -207,13 +245,13 @@ const PanditBookingForm = () => {
 
         <input
             type="text"
-            className="p-2 border-2 outline-none rounded-lg w-full text-gray-500"
+            className={`p-2 border-2 outline-none rounded-lg w-full text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
             placeholder="Your Address within slected Pincode"
             name="address"
             value={formData.address}
             onChange={(e)=>{handleChange(e)}}
           />
-       
+          {errors.address && <p className="text-red-500">{errors.address}</p>}
  
 
         <button

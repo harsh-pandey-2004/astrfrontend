@@ -86,7 +86,7 @@ const SingleAstro = () => {
       } catch (error) {
         console.log(error);
       }
-    }, 1000); 
+    }, 500); 
   
     return () => {
       clearInterval(intervalId);
