@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function AstroCard({ obj }) {
+  console.log(obj);
   return (
     <div className="flex justify-center mt-6 hover:cursor-pointer ">
       <div className="relative w-full mx-4 border border-gray-100 py-2 bg-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl ">
@@ -9,7 +10,7 @@ function AstroCard({ obj }) {
           {/* <button className='w-1/4 absolute top-0 bg-green-300 text-xs rounded-r-md '>Book Now</button> */}
           <img
             className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md bg-gradient-to-r from-yellow-500 to-yellow-300"
-            src={obj.img}
+            src={obj.image}
             alt={obj.name}
           />
         </div>
@@ -37,7 +38,7 @@ function AstroCard({ obj }) {
               </button>
             </Link>
             <p>
-              <span className="text-gray-600">Exp:</span> {obj.exp}+ years
+              <span className="text-gray-600">Exp:</span> {obj.experience}+ years
             </p>
             <Link to="/call-to-astrologer">
               {" "}
