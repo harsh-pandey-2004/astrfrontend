@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AstroCard from "./AstroCard";
 import AstroCarsdata from "./AstroCarsdata";
+import axios from 'axios';
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
 function AstrologerSection({ showblur }) {
+  const [astrologer,setAstrologer]=useState([]);
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -62,6 +65,22 @@ function AstrologerSection({ showblur }) {
   //   AOS.init({ duration: 1000 });
   // }, []);
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:3000/api/astrologer-data'
+        );
+        setAstrologer(response.data.Astrodata);
+      } catch (error) {
+        console.error("Error fetching astrologer data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(astrologer);
   return (
     <div className="w-full lg:w-[95%] mx-auto h-fit lg:top-0 relative lg:px-12 lg:py-6 py-3 px-4">
       <h1 className="text-2xl md:text-4xl font-semibold lg:absolute top-4 lg:left-1/3 lg:pl-24 text-center mb-3 lg:mb-0">
@@ -90,7 +109,7 @@ function AstrologerSection({ showblur }) {
           customRightArrow={<CustomRightArrow />}
           className="pb-12 pt-20"
         >
-          {AstroCarsdata.map((obj, index) => (
+          {astrologer.map((obj, index) => (
             <div key={index}>
               <AstroCard obj={obj} />
             </div>

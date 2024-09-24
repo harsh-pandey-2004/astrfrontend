@@ -97,6 +97,12 @@ function AstrologerProfileForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   }
 
+  
+ 
+
+
+ 
+
   function handleSelectChange(selectedOptions, action) {
     const { name } = action;
     setFormData((prevData) => ({
@@ -107,15 +113,29 @@ function AstrologerProfileForm() {
     }));
   }
 
+ 
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (validateForm()) {
+      const formDataToSend = new FormData();
+      
+      // Append form fields to FormData
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
+  
       try {
         const response = await axios.patch(
           `https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
-          formData
+          formDataToSend,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data', // Set content type for FormData
+            },
+          }
         );
-
+  
         console.log(response.data);
         navigate(`/astrologerdashboard/${response.data.Astrologerr.slug}`);
       } catch (error) {
@@ -125,6 +145,7 @@ function AstrologerProfileForm() {
       console.log("Validation failed. Please fill all the details correctly.");
     }
   }
+  
 
   const skillsOptions = [
     { value: "Vedic Astrology", label: "Vedic Astrology" },
@@ -192,6 +213,10 @@ function AstrologerProfileForm() {
               onChange={(e) => handleChange({ target: { name: 'image', value: e.target.files[0] } })}
               name="image"
             />
+
+         
+
+           
           </div>
 
           <div className="grid grid-cols-2 gap-2 p-3 rounded-lg">

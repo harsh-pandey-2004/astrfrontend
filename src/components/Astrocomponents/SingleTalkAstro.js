@@ -8,6 +8,8 @@ import RatingsCard from "./RatingsCard";
 import "./SingleAstro.css";
 
 const SingleTalkAstro = () => {
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { slug} = useParams();
   console.log(slug);
   const [astrologer, setAstrologer] = useState({});
@@ -47,6 +49,14 @@ const SingleTalkAstro = () => {
       { stars: 2, count: 10 },
       { stars: 1, count: 5 },
     ],
+  };
+
+  const handleCallNowClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
   };
 
   return (
@@ -105,7 +115,7 @@ const SingleTalkAstro = () => {
           <div className="flex gap-4 justify-center items-center">
             <button
               className="border rounded-md bg-black text-white px-12 py-2 hover:text-[#f6c300] hover:-translate-y-1 transition-all"
-             
+              onClick={handleCallNowClick}
             >
               Call Now
             </button>
@@ -127,7 +137,17 @@ const SingleTalkAstro = () => {
       <div className="w-full mx-auto mt-6 rounded-md p-6">
         <RatingsCard ratingData={ratingData} />
       </div>
-
+      {isPopupOpen && ( // Popup conditional rendering
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-xl font-semibold mb-4">Install Our App</h2>
+            <p className="mb-4">To make a call, please install our app.</p>
+            <button onClick={handleClosePopup} className="bg-black text-white px-4 py-2 rounded">
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     
     </div>
   );

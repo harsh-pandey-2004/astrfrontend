@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const LoginForm = () => {
+const LoginForm = ({handleProfile}) => {
   const initialState = {
     password: "",
   };
@@ -37,11 +37,12 @@ const LoginForm = () => {
       const userSlug=a.data.user.slug;
       localStorage.setItem('userSlug',userSlug);
      
-      // const responseJSON=JSON.stringify(a.data.user);
-      // localStorage.setItem('userdetails',responseJSON);
+      const responseJSON=JSON.stringify(a.data.user);
+      localStorage.setItem('userdetails',responseJSON);
      
       alert('Login successful!');
       navigate("/");  
+      handleProfile();
       // Redirect or perform any other actions after successful login
     } else {
       alert('Login failed. Please check your credentials.');
