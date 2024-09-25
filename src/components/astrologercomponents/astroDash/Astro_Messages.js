@@ -280,14 +280,14 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
 
 
   return (
-    <div className=''>
-      <div className='border-b-2 w-full'>
+    <div className='bg-black text-yellow-500 h-screen flex flex-col'>
+      <div className='border-b-2 w-full border-yellow-500 p-4'>
 
         <div className="astrologer-chat-container ml-10 ">
-          <h2>Chat Requests</h2>
+          <h2 className='text-2xl font-bold'>Chat Requests</h2>
           <div className="requests-list mb-4">
             {requests.map((request, index) => (
-              <div key={index} className="request-item border p-4 rounded-md mb-2 w-96">
+              <div key={index} className="request-item border border-yellow-500 p-4 rounded-md mb-2 w-80">
                 <p><strong>{request.userName}</strong> sent a message request</p>
                 <div className="flex">
                   <button
@@ -310,14 +310,14 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
           </div>
         </div>
       </div>
-      <div className='flex mt-10'>
-        <div className='w-2/5 h-screen bg-slate-500'>
-          <h2>Users</h2>
-          <ul>
+      <div className='flex flex-1 mt-4'>
+        <div className='w-1/3 h-full bg-gray-800 p-4 overflow-y-auto'>
+          <h2 className='text-lg font-semibold text-center mb-4'>Users</h2>
+          <ul className='space-y-2'>
             {chats.map((chat, index) => (
               <li
                 key={index}
-                className='p-2 cursor-pointer hover:bg-gray-300'
+                className='p-2 cursor-pointer hover:bg-gray-700 transition-colors'
                 onClick={() => handleUserClick(chat)}
               >
                 {chat.userName} {/* Display the username */}
@@ -326,39 +326,41 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
           </ul>
 
         </div>
-        <div className='w-3/5 h-screen bg-purple-500'>
+        <div className='w-2/3 h-full bg-gray-900 flex flex-col'>
           {currentChatUser ? (
             <>
-              <h2>Chat with {currentChatUser.userName}</h2>
-              <div className="chat-messages bg-white p-4 border rounded-md h-[80%] overflow-auto">
-                <div className="flex flex-col space-y-4 h-full">
+              <h2 className='text-xl font-semibold p-4 border-b border-yellow-500'>Chat with {currentChatUser.userName}</h2>
+              <div className="chat-messages bg-gray-800 p-4 border border-yellow-500 rounded-md flex-1 overflow-auto">
+                <div className="flex flex-col space-y-4">
                   {filteredMessages.map((msg, index) => (
                     <div key={index} className={`flex ${msg.from === astrologerId ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`p-2 rounded-md ${msg.from === astrologerId ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>
+                      <div className={`p-2 rounded-md ${msg.from === astrologerId ? 'bg-yellow-500 text-black' : 'bg-gray-700 text-yellow-500'}`}>
                         {msg.message}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="flex items-center p-4 border-t">
+              <div className="flex items-center p-4 border-t border-yellow-500">
                 <input
                   type="text"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Type your message here..."
-                  className="border rounded-md px-4 py-2 w-full"
+                  className="border border-yellow-500 rounded-md px-4 py-2 w-full bg-gray-800 text-yellow-500"
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="bg-[#f6c300] text-black px-4 py-2 rounded-md ml-2"
+                  className="bg-yellow-500 text-black px-4 py-2 rounded-md ml-2"
                 >
                   Send
                 </button>
               </div>
             </>
           ) : (
-            <p>Select a user to start a chat</p>
+            <div className='flex items-center justify-center h-full'>
+              <p>Select a user to start a chat</p>
+            </div>
           )}
         </div>
       </div>
