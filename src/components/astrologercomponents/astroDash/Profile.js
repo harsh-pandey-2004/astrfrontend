@@ -116,9 +116,8 @@ const Profile = ({ response }) => {
                 type="text"
                 name="firstName"
                 value={formData.firstName}
-                onChange={handleInputChange}
                 className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
-                readOnly={!editMode}
+                readOnly={true}
               />
             </div>
 
@@ -130,9 +129,8 @@ const Profile = ({ response }) => {
                 type="text"
                 name="lastName"
                 value={formData.lastName}
-                onChange={handleInputChange}
                 className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
-                readOnly={!editMode}
+                readOnly={true}
               />
             </div>
           </div>
@@ -152,7 +150,7 @@ const Profile = ({ response }) => {
 
             <div>
               <label className="text-gray-300 font-medium">Gender</label>
-              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
+              <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white ">
                 {response.gender}
               </p>
             </div>

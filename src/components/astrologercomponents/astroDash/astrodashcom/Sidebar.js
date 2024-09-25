@@ -12,7 +12,7 @@ function Sidebar({ response }) {
   
   const [isShow, setIsShow] = useState(false);
   const [curPage,setCurPage]=useState("profile");
-  console.log(response);
+  // console.log(response);
   return (
     <div className="hidden mb-16  sidebar w-1/5 md:mt-[5rem] h-screen md:flex flex-col items-center bg-black text-yellow-400 overflow-y-auto ">
       <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">
@@ -96,14 +96,14 @@ function Sidebar({ response }) {
           Bank Details
         </Link>
 
-        <Link
+        {/* <Link
           to={`performance`}
           onClick={()=>{setCurPage("performance")}}
           className={`${curPage=="performance" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400"} py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
         >
           <ImStatsBars />
           Performance
-        </Link>
+        </Link> */}
 
        
 

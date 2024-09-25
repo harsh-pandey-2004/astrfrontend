@@ -31,7 +31,7 @@ function MainDashAstro() {
   const [userID,setUserId]=useState('');
   const [activeChat, setActiveChat] = useState({});
 
-  console.log(requests);
+  // console.log(requests);
 
   const handleAcceptRequest = async (request) => {
     const messageId=request._id;
@@ -124,9 +124,7 @@ function MainDashAstro() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [
-    
-  ]);
+  }, []);
 
 
   // useEffect(() => {
@@ -196,8 +194,8 @@ function MainDashAstro() {
             <Route path="mail" element={<MailPage response={response}/>}/>
             <Route path="schedule" element={<AstroSchedule/>}/>
             <Route path="settings" element={<Settings/>}/>
-            <Route path="bank" element={<BankDetailsForm/>}/>
-            <Route path="performance" element={<Performance/>}/>
+            <Route path="bank" element={<BankDetailsForm/>}/>y
+            {/* <Route path="performance" element={<Performance/>}/> */}
             
           </Routes>
         </div>
