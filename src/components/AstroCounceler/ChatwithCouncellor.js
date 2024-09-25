@@ -84,7 +84,7 @@ const ChattoAstroCouncellor = () => {
 
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
-      const matchesName = astro.firstName
+      const matchesName =astro.firstName && astro.firstName
         .toLowerCase()
         .includes(astroname.toLowerCase());
       const matchesSkills =
