@@ -9,14 +9,14 @@ function PanditCard({ obj }) {
             {/* <button className='w-1/4 absolute top-0 bg-green-300 text-xs rounded-r-md '>Book Now</button> */}
           <img
             className="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-md bg-gradient-to-r from-yellow-500 to-yellow-300"
-            src={obj.img}
+            src={obj.image}
             alt={obj.name}
           />
         </div>
         <div className="px-6 py-2 text-center">
           <div className="font-semibold text-xl  text-gray-900">{obj.name}</div>
           <p className="text-gray-600 text-base">{obj.desc}</p>
-          <p><span className='text-gray-600'>Exp:</span> {obj.exp}+ years</p>
+          <p><span className='text-gray-600'>Exp:</span> {obj.experience}+ years</p>
           {/* <button className="flex items-center justify-center py-1 gap-4 border border-green-600 text-green-600 hover:text-white hover:bg-green-600 transition duration-500 rounded-md  mx-auto w-1/2 ">
         <p>Book Now</p> 
       </button> */}

@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AstroCard from './AstroCard';
 import AstroCarsdata from './AstroCarsdata';
+import axios from 'axios';
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
 function AstroCouncellorSection({ showblur }) {
+  const [astroCouncellor,setAstroCouncellor]=useState([]);
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -62,6 +64,21 @@ function AstroCouncellorSection({ showblur }) {
     </button>
   );
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'https://astrobackend.onrender.com/api/astroCouncelor-data'
+        );
+        setAstroCouncellor(response.data.Astrodata);
+      } catch (error) {
+        console.error("Error fetching astrologer data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   // useEffect(() => {
   //   AOS.init({ duration: 1000 });
   // }, []);
@@ -100,7 +117,7 @@ function AstroCouncellorSection({ showblur }) {
           customRightArrow={<CustomRightArrow />}
           className="pb-12 pt-12"
         >
-          {AstroCarsdata.map((obj, index) => (
+          {astroCouncellor.map((obj, index) => (
             <div key={index} >
               <AstroCard obj={obj} />
             </div>

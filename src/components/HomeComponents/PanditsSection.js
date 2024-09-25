@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import PanditCard from "./PanditCard";
 import PanditCarsdata from "./PanditCarsdata";
+import axios from "axios";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 
 function PanditsSection({ showblur }) {
+
+  const [pandits,setPandits]=useState([]);
+
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -66,6 +71,21 @@ function PanditsSection({ showblur }) {
   //   AOS.init({ duration: 1000 });
   // }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'https://astrobackend.onrender.com/api/getAllPandits'
+        );
+        setPandits(response.data.PanditData);
+      } catch (error) {
+        console.error("Error fetching astrologer data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
   return (
     <div className="w-full lg:w-[95%] mx-auto h-fit lg:top-0 relative lg:px-12 lg:py-6 py-3 px-4">
       <h1 className="text-2xl md:text-4xl font-semibold lg:absolute top-0 lg:left-1/3 lg:pl-24 text-center mb-3 lg:mb-0">
@@ -94,7 +114,7 @@ function PanditsSection({ showblur }) {
           customRightArrow={<CustomRightArrow />}
           className="pb-12 pt-12"
         >
-          {PanditCarsdata.map((obj, index) => (
+          {pandits.map((obj, index) => (
             <div key={index} data-aos="fade-up">
               <PanditCard obj={obj} />
             </div>
