@@ -70,7 +70,7 @@ const PanditBookingForm = () => {
     }
 
     try{
-      const res=await axios.post("http://localhost:3000/api/bookpandit",formData);
+      const res=await axios.post("https://astrobackend.onrender.com/api/bookpandit",formData);
       // console.log(res);
       // toast.success('Pandit booked successfully!');
       setModalMessage('Pandit booked successfully!');
