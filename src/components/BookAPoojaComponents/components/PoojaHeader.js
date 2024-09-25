@@ -19,7 +19,7 @@ const PoojaHeader = ({ onSearch }) => {
     const fetchTemples = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/getAllTemples"
+          "https://astrobackend.onrender.com/api/getAllTemples"
         );
         const temples = response.data;
         console.log(temples);

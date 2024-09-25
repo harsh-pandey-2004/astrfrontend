@@ -15,7 +15,7 @@ import AstroSchedule from "./astroDash/AstroSchedule";
 
 //Socket
 // import io from 'socket.io-client';
-// const socket = io('http://localhost:3000/user-namespace');
+// const socket = io('https://astrobackend.onrender.com/user-namespace');
 
 
 
@@ -49,7 +49,7 @@ function MainDashAstro() {
     console.log(request.message)
     setMessages((prevMessages) => [...prevMessages, initialMessage]);
     try {
-           const response = await axios.put("http://localhost:3000/api/statusupdate",{messageId:messageId});
+           const response = await axios.put("https://astrobackend.onrender.com/api/statusupdate",{messageId:messageId});
            console.log(response.data); 
            
          } catch (error) {
@@ -60,7 +60,7 @@ function MainDashAstro() {
 //   const handleAcceptRequest = async (requests) => {
 //     const messageId=requests[0]._id;
 //     try {
-//      const response = await axios.put("http://localhost:3000/api/statusupdate",messageId);
+//      const response = await axios.put("https://astrobackend.onrender.com/api/statusupdate",messageId);
 //      console.log(response.data); 
      
 //    } catch (error) {
@@ -100,7 +100,7 @@ function MainDashAstro() {
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
-  //       const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+  //       const response = await axios.get("https://astrobackend.onrender.com/api/getmessagerequestonthebasisofstatus");
   //       // console.log(response.data);
   //       setRequests(response.data);
   //     } catch (error) {
@@ -114,7 +114,7 @@ function MainDashAstro() {
     // const astrologerId = astrologer._id;
     const intervalId = setInterval(async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+        const response = await axios.get("https://astrobackend.onrender.com/api/getmessagerequestonthebasisofstatus");
         setRequests(response.data);
       } catch (error) {
         console.log(error);

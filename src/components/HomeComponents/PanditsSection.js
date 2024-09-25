@@ -75,7 +75,7 @@ function PanditsSection({ showblur }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/getAllPandits'
+          'https://astrobackend.onrender.com/api/getAllPandits'
         );
         setPandits(response.data.PanditData);
       } catch (error) {

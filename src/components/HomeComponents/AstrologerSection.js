@@ -70,7 +70,7 @@ function AstrologerSection({ showblur }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/astrologer-data'
+          'https://astrobackend.onrender.com/api/astrologer-data'
         );
         setAstrologer(response.data.Astrodata);
       } catch (error) {
