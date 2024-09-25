@@ -21,7 +21,7 @@ import React, { useEffect, useState } from 'react';
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.post("http://localhost:3000/api/getastrochats", { astrologerId });
+//         const response = await axios.post("https://astrobackend.onrender.com/api/getastrochats", { astrologerId });
 //         // console.log(response.data);
 //         setChats(response.data);
 
@@ -34,7 +34,7 @@ import React, { useEffect, useState } from 'react';
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get("http://localhost:3000/api/getmessagerequestonthebasisofstatus");
+//         const response = await axios.get("https://astrobackend.onrender.com/api/getmessagerequestonthebasisofstatus");
 //         // console.log(response.data);
 //         setPendingRequests(response.data);
 
@@ -187,7 +187,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
-  //       const response = await axios.post("http://localhost:3000/api/getastrochats", { astrologerId });
+  //       const response = await axios.post("https://astrobackend.onrender.com/api/getastrochats", { astrologerId });
   //       console.log(response);
   //       setChats(response.data);
 

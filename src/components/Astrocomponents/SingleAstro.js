@@ -65,7 +65,7 @@ const SingleAstro = () => {
   //   const fetchChats = async () => {
   //     const astrologerId=astrologer._id;
   //     try {
-  //       const response = await axios.post("http://localhost:3000/api/getastrochats", {astrologerId});
+  //       const response = await axios.post("https://astrobackend.onrender.com/api/getastrochats", {astrologerId});
   //       console.log(response);
   //       setMessages(response.data[0].messages);
   
@@ -104,7 +104,7 @@ const SingleAstro = () => {
   // const fetchMessages = async () => {
   //   const roomId = `${userId}-${astrologer._id}`;
   //   try {
-  //     const response = await axios.post("http://localhost:3000/api/getastrochatbasisofroomId", { roomId });
+  //     const response = await axios.post("https://astrobackend.onrender.com/api/getastrochatbasisofroomId", { roomId });
   //     setMessages(response.data); 
   //   } catch (error) {
   //     console.error("Error fetching messages:", error);
@@ -113,7 +113,7 @@ const SingleAstro = () => {
   
   // useEffect(() => {
   //   if (isPopupOpen) {
-  //     const newSocket = io('http://localhost:3000/user-namespace');
+  //     const newSocket = io('https://astrobackend.onrender.com/user-namespace');
   //     setSocket(newSocket);
 
   //     newSocket.emit('join', { type: 'user', userId }, () => {

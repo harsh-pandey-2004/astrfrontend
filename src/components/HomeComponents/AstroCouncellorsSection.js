@@ -69,7 +69,7 @@ function AstroCouncellorSection({ showblur }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/api/astroCouncelor-data'
+          'https://astrobackend.onrender.com/api/astroCouncelor-data'
         );
         setAstroCouncellor(response.data.Astrodata);
       } catch (error) {
