@@ -44,6 +44,7 @@ const PujaCartForm = () => {
       return;
     }
     try {
+      console.log(formData);
       let a = await axios.post(
         "https://astrobackend.onrender.com/api/book-pooja/user-deatils/6641c9829e2a39f948f0a8ad",
         formData
