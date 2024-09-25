@@ -29,7 +29,7 @@ const Settings = () => {
   };
 
   return (
-    <div className=' md:mt-20 w-4/5 pt-8 pb-4 absolute right-0 h-screen flex flex-col gap-6 items-center justify-center bg-gray-800 text-yellow-400'>
+    <div className=' md:mt-16 w-4/5 pt-8 pb-4 absolute right-0 h-screen flex flex-col gap-6 items-center justify-center bg-gray-800 text-yellow-400'>
       <div className='flex flex-col gap-2 max-w-2xl mx-auto mt-12'>
 
         {/* Choose option selection */}
@@ -145,3 +145,8 @@ const Settings = () => {
 }
 
 export default Settings;
+
+
+
+
+

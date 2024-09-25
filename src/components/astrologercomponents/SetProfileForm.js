@@ -6,6 +6,7 @@ import Select from "react-select";
 function AstrologerProfileForm() {
   const location = useLocation();
   const slug = location.pathname.split("/").pop();
+  
 
   const navigate = useNavigate();
   const initialState = {
