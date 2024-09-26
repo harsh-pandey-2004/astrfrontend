@@ -22,7 +22,7 @@ const SingleTalkAstro = () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astrologer/${slug}`
       );
-
+  console.log(response.data.Data);
       setAstrologer(response.data.Data);
     };
     fetchData();
