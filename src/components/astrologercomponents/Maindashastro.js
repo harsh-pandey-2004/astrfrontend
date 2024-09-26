@@ -154,14 +154,14 @@ function MainDashAstro() {
 
   return (
     <div className="flex flex-col min-h-fit outline ">
-      <div className="flex flex-grow  relative overflow-hidden top-24 lg:top-0">
+      <div className="flex flex-grow  relative overflow-hidden top-[5.6rem] lg:top-0">
         <Sidebar response={response} />
         <div className="h-full md:w-4/5 w-full overflow-y-auto">
 
         {/* //AcceptModal */}
-        <div className="requests-list mb-4">
+        <div className="requests-list ">
         {requests.map((request, index) => (
-          <div key={index} className="request-item border p-4 rounded-md mb-2">
+          <div key={index} className="request-item border px-4 rounded-md mb-2">
             <p><strong>{request.userName}</strong> sent a message request</p>
             <div className="flex">
               <button
