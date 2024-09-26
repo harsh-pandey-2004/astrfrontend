@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { IoMdInformationCircle } from "react-icons/io";
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Settings = () => {
   const [isChatOn, setIsChatOn] = useState(false);
@@ -8,9 +11,49 @@ const Settings = () => {
   const [isEmergencyChat, setEmergencyChat] = useState(false);
   const [isEmergencyCall, setEmergencyCall] = useState(false);
 
-  const handleChatClick = () => {
-    setIsChatOn((prevState) => !prevState); // Toggle the state for Chat
+  const location=useLocation();
+  const patharray=location.pathname.split('/');
+  const slug=patharray[2];
+  // console.log(slug);
+
+  
+  const handleChatClick = async() => {
+    const newStatus=!isChatOn;
+    setIsChatOn((prevState) => !prevState);  
+    localStorage.setItem("chatStatus",JSON.stringify(newStatus));
   };
+
+
+  useEffect(()=>{
+const storedChatStatus=localStorage.getItem("chatStatus");
+
+    if (storedChatStatus !== null) {
+      setIsChatOn(JSON.parse(storedChatStatus)); // Parsing the JSON back into boolean
+    }
+
+  },[]);
+
+
+  useEffect(()=>{
+    const updateStatus=async()=>{
+      try{
+        const response=await axios.patch(`http://localhost:3000/api/update-astrologer-profile/${slug}`,
+        {status:isChatOn});
+
+
+        console.log(response);
+        
+
+      }catch(err){
+        console.log(err);
+      }
+
+    }
+
+    updateStatus();
+
+  },[isChatOn])
+ 
 
   const handleCallClick = () => {
     setIsCallOn((prevState) => !prevState); // Toggle the state for Call

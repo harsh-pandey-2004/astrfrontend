@@ -138,13 +138,27 @@ const ChatAstro = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      try{
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astrologer-data`
       );
+      console.log(response.data.Astrodata);
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
+    }catch(err){
+      console.log(err);
+    }
     };
+
     fetchData();
+
+
+  const intervalId=setInterval(()=>{
+    fetchData();
+  },5000);
+  return ()=>clearInterval(intervalId);
+    
+ 
   }, []);
 
   useEffect(() => {
