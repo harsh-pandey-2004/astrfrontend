@@ -518,7 +518,7 @@ const Navbar = ({ showbluefn,editProfile}) => {
           ) : (
             <div
               className="flex items-center gap-1  border-[#f6c003] border-2 px-5 py-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-yellow-500 hover:hover-btn font-semibold"
-              onClick={() => navigate("/register-page")}
+              onClick={() => navigate("/loginform")}
             >
               <AccountLogo />
               Login
