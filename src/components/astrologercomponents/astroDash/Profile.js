@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const Profile = ({ response }) => {
   const [newSkill, setNewSkill] = useState("");
   const [editMode, setEditMode] = useState(false); // State to toggle edit mode
-  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -25,7 +24,7 @@ const Profile = ({ response }) => {
         lastName: response.lastName || "",
         mobile: response.mobile || "",
         mail: "RamaKrishna@gmail.com",
-         skills: response.Skills || ["Vedic Chanting", "Astrology"],
+        skills: response.Skills || ["Vedic Chanting", "Astrology"],
         experience: response.experience || "",
         languages: response.languages || "",
         chatPrice: response.chatPrice || "",
@@ -88,19 +87,39 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="sm:mt-12   h-screen md:mt-20 flex flex-col items-center p-4  bg-black text-white ">
+    <div className="sm:mt-12   h-fit sm:h-screen md:mt-20 flex flex-col items-center p-4  bg-black text-white  pb-20">
       <div className="md:hidden lg:hidden h-[3rem] w-full flex justify-evenly items-center">
-        <img src="/round.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
+        <img
+          src="/round.png"
+          alt="calendar"
+          className="h-6 w-6 text-yellow-400"
+        />
         <img
           src="/mail.png"
           alt="calendar"
           className="h-6 w-6 text-yellow-400"
           onClick={() => navigate("/mail")}
         />
-        <img src="/edit.png" alt="calendar" className="h-5 w-5 text-yellow-400" />
-        <img src="/graph.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
-        <img src="/support.png" alt="calendar" className="h-6 w-6 text-yellow-400" />
-        <img src="/logout.png" alt="calendar" className="h-7 w-7 text-yellow-400" />
+        <img
+          src="/edit.png"
+          alt="calendar"
+          className="h-5 w-5 text-yellow-400"
+        />
+        <img
+          src="/graph.png"
+          alt="calendar"
+          className="h-6 w-6 text-yellow-400"
+        />
+        <img
+          src="/support.png"
+          alt="calendar"
+          className="h-6 w-6 text-yellow-400"
+        />
+        <img
+          src="/logout.png"
+          alt="calendar"
+          className="h-7 w-7 text-yellow-400"
+        />
       </div>
       <div className="w-full md:h-auto h-full bg-black text-yellow-400  rounded-lg shadow-lg p-4 flex flex-col">
         <h1 className="text-3xl font-bold  mb-4  text-start">
@@ -170,7 +189,9 @@ const Profile = ({ response }) => {
             </div>
 
             <div>
-              <label className="text-gray-300 font-medium">Live in (City)</label>
+              <label className="text-gray-300 font-medium">
+                Live in (City)
+              </label>
               <p className="bg-gray-800 border border-gray-600 rounded-lg p-2 w-full text-sm text-white">
                 {response.city}
               </p>
