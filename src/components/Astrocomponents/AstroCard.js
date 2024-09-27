@@ -4,7 +4,7 @@ import { LuPhone } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 
 function AstroCard(props) {
-  console.log(props)
+  // console.log(props)
   const navigate = useNavigate();
   return (
     <div

@@ -24,7 +24,7 @@ const SingleAstro = () => {
   const userDetails=JSON.parse(localStorage.getItem("userdetails"));
   const userName=userDetails.name;
   
-  console.log(messages);
+  // console.log(messages);
 
   
   
@@ -43,7 +43,7 @@ const SingleAstro = () => {
   }, [slug]);
 
   useEffect(() => {
-    console.log(messages.length)
+    // console.log(messages.length)
     if(messages.length===1){
       const fetchData = async () => {
         try {

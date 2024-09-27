@@ -7,7 +7,7 @@ const AstrologerRegistrationForm = () => {
     name: "",
     mobile: "",
     password: "",
-    countryCode: "",
+    // countryCode: "",
   };
   const [phoneNumber, setPhoneNumber] = useState("");
   const [response, setResponse] = useState(initialState);
@@ -34,12 +34,12 @@ const AstrologerRegistrationForm = () => {
       console.log({
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        // countrycode: countryCode,
       });
       let a = await axios.post("https://astrobackend.onrender.com/api/astrologer-register", {
         ...response,
         mobile: phoneNumber,
-        countrycode: countryCode,
+        // countrycode: countryCode,
       });
       navigate(`astrologerverify-phone/${phoneNumber}`)
     } catch (error) {

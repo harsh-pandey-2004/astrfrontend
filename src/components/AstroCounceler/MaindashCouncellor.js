@@ -5,6 +5,8 @@ import Profile from "./councellordash/Profile";
 import Stats from "./councellordash/Stats";
 import MailPage from "./councellordash/MailPage";
 import axios from "axios";
+import Settings from "./councellordash/Settings";
+import BankDetailsForm from "./councellordash/BankDetailsForm";
 // import CounsellorSchedule from "./councellordash/CounsellorSchedule";
 
 function MaindashCouncellor() {
@@ -39,6 +41,8 @@ function MaindashCouncellor() {
             <Route path="profile" element={<Profile response={response} />} />
             {/* <Route path="schedule" element={<CounsellorSchedule />} /> */}
             <Route path="stats" element={<Stats />} />
+            <Route path="settings" element={<Settings/>}/>
+            <Route path="bank" element={<BankDetailsForm/>}/>
             <Route path="mail" element={<MailPage response={response} />} />
           </Routes>
         </div>
