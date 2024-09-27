@@ -85,7 +85,7 @@ const Profile = ({ response }) => {
   };
 
   return (
-    <div className="sm:mt-12 h-screen md:mt-24 flex flex-col items-center p-4 bg-black text-white">
+    <div className="sm:mt-12 h-screen md:mt-20 flex flex-col items-center p-4 bg-black text-white">
       <div className="w-full md:h-auto h-full bg-black text-yellow-400 rounded-lg shadow-lg p-4 flex flex-col">
         <h1 className="text-3xl font-bold mb-4 text-start">
           Welcome, Councellor {formData.firstName}!

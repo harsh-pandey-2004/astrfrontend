@@ -37,7 +37,7 @@ const storedChatStatus=localStorage.getItem("chatStatus");
   useEffect(()=>{
     const updateStatus=async()=>{
       try{
-        const response=await axios.patch(`https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
+        const response=await axios.patch(`https://astrobackend.onrender.com/api/update-astroCouncelor-profile/${slug}`,
         {status:isChatOn});
 
 
