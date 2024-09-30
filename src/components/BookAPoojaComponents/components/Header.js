@@ -93,11 +93,11 @@ const Header = () => {
       console.error("Please fill in all fields");
       return;
     }
-
+    
     try {
       console.log(formattedDate);
       const res = await axios.post(
-        "https://astrobackend.onrender.com/api/panditprofile",{pincode:pincode,availability:formattedDate}
+        " https://astrobackend.onrender.com/api/panditprofile",{pincode:pincode,availability:formattedDate}
       );
       // console.log(res);
       // const filteredData = res.data.data.filter(

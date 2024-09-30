@@ -13,6 +13,10 @@ function MaindashCouncellor() {
   const [response, setResponse] = useState([]);
   const { id } = useParams(); // Destructuring id from useParams
 
+  const[isChatOn,setIsChatOn]=useState(false);
+
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,8 +31,15 @@ function MaindashCouncellor() {
   }, [id]);
 
   useEffect(() => {
+
+// state lift for Settings
+const storedChatStatus=localStorage.getItem("chatStatus");
+// if(storedChatStatus!)
+
     window.scrollTo(0, 0);
   }, []);
+
+  
 
   return (
     <div className="flex flex-col min-h-screen">

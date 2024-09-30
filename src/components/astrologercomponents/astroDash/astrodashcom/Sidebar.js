@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import { BsChatSquareQuoteFill } from "react-icons/bs";
 import { ImStatsBars } from "react-icons/im";
 import { FaCalendarAlt } from "react-icons/fa";
-function Sidebar({ response }) {
+function Sidebar({ response,onLogout }) {
   const [isShow, setIsShow] = useState(false);
   const [curPage, setCurPage] = useState("profile");
   // console.log(response);
@@ -141,8 +141,9 @@ function Sidebar({ response }) {
           <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
             Support
           </div>
-          <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
-            Logout From Other Devices
+          <div onClick={onLogout}
+           className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:cursor-pointer transition text-sm w-[75%] bg-black text-yellow-400">
+            Logout 
           </div>
         </div>
       </div>
