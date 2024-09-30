@@ -7,6 +7,7 @@ import MailPage from "./PanditDash/MailPage";
 import axios from "axios";
 import PanditSchedule from "./PanditDash/PanditSchedule";
 import BankDetailsForm from "./PanditDash/BankDetailsForm";
+import Bookings from "./PanditDash/Bookings";
 
 
 function MainPanditDash(){
@@ -46,6 +47,7 @@ function MainPanditDash(){
             <Route path="panditbank" element={<BankDetailsForm/>}/>
             <Route path="stats" element={<Stats />} />
             <Route path="mail" element={<MailPage response={response} />} />
+            <Route path="bookings" element={<Bookings response={response}/>}/>
           </Routes>
         </div>
       </div>

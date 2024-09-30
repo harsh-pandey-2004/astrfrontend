@@ -4,8 +4,8 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const Settings = () => {
-  const [isChatOn, setIsChatOn] = useState(false);
+const Settings = ({ isChatOn, onChatToggle }) => {
+  
   const [isCallOn, setIsCallOn] = useState(false);
   const [isVideoCallOn, setIsVideoCallOn] = useState(false);
   const [isEmergencyChat, setEmergencyChat] = useState(false);
@@ -17,21 +17,21 @@ const Settings = () => {
   // console.log(slug);
 
   
-  const handleChatClick = async() => {
-    const newStatus=!isChatOn;
-    setIsChatOn((prevState) => !prevState);  
-    localStorage.setItem("chatStatus",JSON.stringify(newStatus));
-  };
+//   const handleChatClick = async() => {
+//     const newStatus=!isChatOn;
+//     setIsChatOn((prevState) => !prevState);  
+//     localStorage.setItem("chatStatus",JSON.stringify(newStatus));
+//   };
 
 
-  useEffect(()=>{
-const storedChatStatus=localStorage.getItem("chatStatus");
+//   useEffect(()=>{
+// const storedChatStatus=localStorage.getItem("chatStatus");
 
-    if (storedChatStatus !== null) {
-      setIsChatOn(JSON.parse(storedChatStatus)); // Parsing the JSON back into boolean
-    }
+//     if (storedChatStatus !== null) {
+//       setIsChatOn(JSON.parse(storedChatStatus)); // Parsing the JSON back into boolean
+//     }
 
-  },[]);
+//   },[]);
 
 
   useEffect(()=>{
@@ -90,7 +90,7 @@ const storedChatStatus=localStorage.getItem("chatStatus");
               <span className='pl-10'>Chat</span>
               <span className="pl-5 text-gray-400">India: $9.0</span>
             </div>
-            <button onClick={handleChatClick} className={`relative rounded-full w-24 h-8 flex items-center p-1 ${isChatOn ? 'bg-yellow-400' : 'bg-gray-300'}`}>
+            <button onClick={onChatToggle} className={`relative rounded-full w-24 h-8 flex items-center p-1 ${isChatOn ? 'bg-yellow-400' : 'bg-gray-300'}`}>
               <div className={`absolute left-1 top-1 rounded-full w-9 h-6 bg-white shadow-md transform transition-transform ${isChatOn ? 'translate-x-12' : ''}`} />
               <span className={`absolute left-2 text-xs font-medium ${isChatOn ? 'text-gray-700' : 'text-gray-700'}`}>OFF</span>
               <span className={`absolute right-4 text-xs font-medium ${isChatOn ? 'text-gray-700' : 'text-gray-300'}`}>ON</span>
