@@ -82,7 +82,7 @@ function Sidebar({ response,onLogout }) {
             Settings
           </Link>
 
-          <Link
+          {/* <Link
             to={`schedule`}
             onClick={() => {
               setCurPage("schedule");
@@ -95,7 +95,7 @@ function Sidebar({ response,onLogout }) {
           >
             <FaCalendarAlt />
             Schedule
-          </Link>
+          </Link> */}
 
           <Link
             // to={`/panditdashboard/${response._id}/shedule`}
