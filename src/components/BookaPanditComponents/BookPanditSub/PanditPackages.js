@@ -49,7 +49,7 @@ function PanditPackages() {
      
       const fetchPujaDetails=async()=>{
         try{
-          const response=await axios.get("http://localhost:3000/api/PoojaDetailsByName",{params:{PujaName}});
+          const response=await axios.get("https://astrobackend.onrender.com/api/PoojaDetailsByName",{params:{PujaName}});
           console.log(response.data.data);
            setPoojaDetails(response.data.data);
 
@@ -128,28 +128,38 @@ function PanditPackages() {
         <div className='px-12'>
           <div className="w-full mx-auto bg-white text-black p-6 rounded-lg shadow-lg mt-10">
             {/* Image and Description Side by Side */}
-            <div className="flex mb-6">
-              <img src={PoojaDetails.images[0]} alt="Puja" className="w-1/2 h-auto rounded-lg mr-4" />
+            <div className="flex  items-center gap-12 mb-6 ">
+              <img src={PoojaDetails.images[0]} alt="Puja" className="w-1/3 h-auto rounded-lg mr-4" />
               <div className="w-1/2">
-                <h1 className="text-4xl font-extrabold text-yellow-600 mb-4">{PoojaDetails.poojaName}</h1>
-                <p className="mb-4 text-lg">{PoojaDetails.description}</p>
+                <h1 className="text-4xl text-center font-extrabold text-yellow-400 mb-4">{PoojaDetails.poojaName}</h1>
+                <p className="mb-4 text-gray-500 font-semibold text-lg text-center">{PoojaDetails.description}</p>
+                <p className="mb-4 text-gray-500 font-semibold italic text-center">{PoojaDetails.sloks}</p>
               </div>
             </div>
 
             {/* Significance Section */}
-            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Significance</h2>
-            <p className="mb-4">{PoojaDetails.significance}</p>
+            <h2 className="text-2xl font-semibold text-yellow-400 mb-2">Significance</h2>
+            <p className="mb-4 text-gray-500">{PoojaDetails.significance}</p>
 
-            {/* Ingredients Section */}
-            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Ingredients</h2>
-            <ul className="list-disc list-inside mb-4">
+           
+            <div className='flex items-center gap-32 '>
+               {/* Ingredients Section */}
+              <div className='w-1/2 '>
+              <h2 className="text-2xl font-semibold text-yellow-400 mb-2">Ingredients</h2>
+            <ul className="list-disc list-inside mb-4 ">
               {PoojaDetails.Ingredients.map((ingredient, index) => (
-                <li key={index} className="text-black">{ingredient}</li>
+                <li key={index} className="text-gray-500">{ingredient}</li>
               ))}
             </ul>
+              </div>
+
+              <div className='w-1/2  '><img src={PoojaDetails.images[1]} className='rounded-md '/></div>
+            
+            </div>
+           
 
             {/* Procedure Section */}
-            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Procedure</h2>
+            <h2 className="text-2xl font-semibold text-yellow-400 mb-2">Procedure</h2>
             {PoojaDetails.Procedure.map((step, index) => (
               <div key={index} className="mb-4">
                 <h3 className="font-bold text-black">{step.step}</h3>
@@ -157,12 +167,10 @@ function PanditPackages() {
               </div>
             ))}
 
-            {/* Slokas Section */}
-            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Slokas</h2>
-            <p className="mb-4">{PoojaDetails.sloks}</p>
+           
+         
 
-            {/* Image Section */}
-            <img src={PoojaDetails.images[2]} alt="Shiv Lingam" className="w-1/2 h-auto rounded-lg mb-4" />
+           
           </div>
         </div>
       )}
