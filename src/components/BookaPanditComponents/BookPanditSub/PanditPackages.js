@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { LuDot } from "react-icons/lu";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState} from 'react';
 import { RxCross2 } from "react-icons/rx";
+import axios from 'axios';
 
 function PanditPackages() {
   const navigate = useNavigate();
   const location = useLocation();
   const PanditData = location.state;
   console.log(PanditData);
-  const Pooja = localStorage.getItem('selectedPooja');
+  const PujaName = localStorage.getItem('selectedPooja');
+
 
   const [material, setMaterial] = useState(false);
+  const [PoojaDetails,setPoojaDetails]=useState(null);
 
   const materials = [
     'Durga Idol or Picture',
@@ -40,10 +43,34 @@ function PanditPackages() {
     'Aarti Thali',
   ];
 
+
+
+    useEffect(()=>{
+     
+      const fetchPujaDetails=async()=>{
+        try{
+          const response=await axios.get("http://localhost:3000/api/PoojaDetailsByName",{params:{PujaName}});
+          console.log(response.data.data);
+           setPoojaDetails(response.data.data);
+
+        }catch(err){
+          console.log(err);
+        }
+      }
+
+      if(PujaName){
+        fetchPujaDetails();
+      }
+
+
+    },[]);
+
+
+
   return (
     <div className="mb-20 pb-16 relative top-20 bg-gray-100">
       <h1 className='text-center text-4xl font-bold pt-12'>
-        Select Your <span className='text-yellow-400'>{Pooja} Arrangement</span>
+        Select Your <span className='text-yellow-400'>{PujaName} Arrangement</span>
       </h1>
       <div className={`${material && "blur"} flex flex-col justify-center items-center md:flex-row md:items-center gap-6 px-12 mt-12`}>
         {/* Package Cards */}
@@ -94,39 +121,52 @@ function PanditPackages() {
         )
       }
 
-      {/* Importance of Durga Puja Section */}
-      <div className='mt-16 bg-white text-yellow-400 py-6 mx-12 px-6 rounded-lg'>
-        <h2 className='text-3xl font-bold text-center mb-6 '>Importance and Procedure of Durga Puja</h2>
+      
 
-        <div className='text-black'>
-          <p className='mb-4 text-gray-500  text-lg font-sans'>
-            Durga Puja is a celebration of the victory of good over evil. It symbolizes the triumph of Goddess Durga over the demon Mahishasura. The Puja is marked by devotion, rituals, and joy. It brings communities together and instills spiritual positivity in individuals' lives.
-          </p>
-          
-          <div className='flex items-center'>
-          <ol className='list-decimal list-inside mb-4 '>
-          <h3 className='text-2xl font-semibold mb-2 '>Procedure of Durga Puja</h3>
-            <li className='font-sans text-gray-700'>Setting up the sacred space with a Durga idol or picture.</li>
-            <li className='font-sans text-gray-700'>Placing Kalash, filled with water, at the center of the Pooja area.</li>
-            <li className='font-sans text-gray-700'>Invocation of Goddess Durga through mantras and Aarti.</li>
-            <li className='font-sans text-gray-700'>Offering flowers, fruits, and sweets (Prasad) to the Goddess.</li>
-            <li className='font-sans text-gray-700'>Recitation of Durga Saptashati or other scriptures.</li>
-            <li className='font-sans text-gray-700'>Performing the Aarti with lamps and camphor.</li>
-            <li className='font-sans text-gray-700'>Concluding with prayers and blessings from the Goddess.</li>
-          </ol>
-           {/* Durga Puja Image */}
-        <div className='flex justify-center mt-6 w-1/2'>
-          <img src="https://media.istockphoto.com/id/461790589/photo/durga-puja-festival.jpg?s=1024x1024&w=is&k=20&c=XpUoCzIBIBGTzElOYqhwNexZVw9UqU0ST8_kHrqkuZw=" alt="Durga Puja Ceremony" className='rounded-lg shadow-lg h-72' />
-        </div>
+
+{PoojaDetails != null && (
+        <div className='px-12'>
+          <div className="w-full mx-auto bg-white text-black p-6 rounded-lg shadow-lg mt-10">
+            {/* Image and Description Side by Side */}
+            <div className="flex mb-6">
+              <img src={PoojaDetails.images[0]} alt="Puja" className="w-1/2 h-auto rounded-lg mr-4" />
+              <div className="w-1/2">
+                <h1 className="text-4xl font-extrabold text-yellow-600 mb-4">{PoojaDetails.poojaName}</h1>
+                <p className="mb-4 text-lg">{PoojaDetails.description}</p>
+              </div>
+            </div>
+
+            {/* Significance Section */}
+            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Significance</h2>
+            <p className="mb-4">{PoojaDetails.significance}</p>
+
+            {/* Ingredients Section */}
+            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Ingredients</h2>
+            <ul className="list-disc list-inside mb-4">
+              {PoojaDetails.Ingredients.map((ingredient, index) => (
+                <li key={index} className="text-black">{ingredient}</li>
+              ))}
+            </ul>
+
+            {/* Procedure Section */}
+            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Procedure</h2>
+            {PoojaDetails.Procedure.map((step, index) => (
+              <div key={index} className="mb-4">
+                <h3 className="font-bold text-black">{step.step}</h3>
+                <p className="text-gray-700">{step.description}</p>
+              </div>
+            ))}
+
+            {/* Slokas Section */}
+            <h2 className="text-2xl font-semibold text-yellow-600 mb-2">Slokas</h2>
+            <p className="mb-4">{PoojaDetails.sloks}</p>
+
+            {/* Image Section */}
+            <img src={PoojaDetails.images[2]} alt="Shiv Lingam" className="w-1/2 h-auto rounded-lg mb-4" />
           </div>
-          
-          <p className='mt-4 text-yellow-400'>
-            Performing Durga Puja at home or in the community fosters harmony, peace, and prosperity. It is an act of spiritual devotion and marks the beginning of new positive energies in one’s life.
-          </p>
         </div>
+      )}
 
-       
-      </div>
     </div>
   );
 }
