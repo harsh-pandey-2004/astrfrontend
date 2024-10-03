@@ -205,7 +205,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
       } catch (error) {
         console.log(error);
       }
-    }, 1000); 
+    }, 100); 
   
     return () => {
       clearInterval(intervalId);
@@ -310,8 +310,8 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
           </div>
         </div>
       </div>
-      <div className='flex flex-1 mt-4'>
-        <div className='w-1/3 h-full bg-gray-800 p-4 overflow-y-auto'>
+      <div className='flex flex-1 mt-4 flex-col md:flex-row'>
+        <div className='w-full w-1/3 h-full bg-gray-800 p-4 overflow-y-auto'>
           <h2 className='text-lg font-semibold text-center mb-4'>Users</h2>
           <ul className='space-y-2'>
             {chats.map((chat, index) => (
@@ -326,11 +326,11 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
           </ul>
 
         </div>
-        <div className='w-2/3 h-full bg-gray-900 flex flex-col'>
+        <div className='w-full md:w-2/3 h-full bg-gray-900 flex flex-col mb-24'>
           {currentChatUser ? (
             <>
               <h2 className='text-xl font-semibold p-4 border-b border-yellow-500'>Chat with {currentChatUser.userName}</h2>
-              <div className="chat-messages bg-gray-800 p-4 border border-yellow-500 rounded-md flex-1 overflow-auto">
+              <div className="chat-messages bg-gray-800 p-4 border border-yellow-500 rounded-md flex-1 overflow-auto" style={{ maxHeight: 'calc(100vh - 200px)' }}>
                 <div className="flex flex-col space-y-4">
                   {filteredMessages.map((msg, index) => (
                     <div key={index} className={`flex ${msg.from === astrologerId ? 'justify-end' : 'justify-start'}`}>
