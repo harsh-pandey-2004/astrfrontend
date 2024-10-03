@@ -82,11 +82,12 @@ const SingleAstro = () => {
     const intervalId = setInterval(async () => {
       try {
         const response = await axios.post("https://astrobackend.onrender.com/api/getastrochatbasisofroomId", { roomId });
+        console.log(response)
         setMessages(response.data[0].messages);
       } catch (error) {
         console.log(error);
       }
-    }, 500); 
+    }, 100); 
   
     return () => {
       clearInterval(intervalId);
