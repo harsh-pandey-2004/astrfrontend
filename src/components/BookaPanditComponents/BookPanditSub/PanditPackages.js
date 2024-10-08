@@ -128,9 +128,9 @@ function PanditPackages() {
         <div className='px-12'>
           <div className="w-full mx-auto bg-white text-black p-6 rounded-lg shadow-lg mt-10">
             {/* Image and Description Side by Side */}
-            <div className="flex  items-center gap-12 mb-6 ">
-              <img src={PoojaDetails.images[0]} alt="Puja" className="w-1/3 h-auto rounded-lg mr-4" />
-              <div className="w-1/2">
+            <div className="flex flex-col  md:flex-row  md:items-center gap-12 mb-6 ">
+              <img src={PoojaDetails.images[0]} alt="Puja" className="w-full md:w-1/3 h-auto rounded-lg mr-4" />
+              <div className="w-full md:w-1/2">
                 <h1 className="text-4xl text-center font-extrabold text-yellow-400 mb-4">{PoojaDetails.poojaName}</h1>
                 <p className="mb-4 text-gray-500 font-semibold text-lg text-center">{PoojaDetails.description}</p>
                 <p className="mb-4 text-gray-500 font-semibold italic text-center">{PoojaDetails.sloks}</p>
@@ -142,9 +142,9 @@ function PanditPackages() {
             <p className="mb-4 text-gray-500">{PoojaDetails.significance}</p>
 
            
-            <div className='flex items-center gap-32 '>
+            <div className='flex flex-col-reverse  md:flex-row md:items-center md:gap-32 '>
                {/* Ingredients Section */}
-              <div className='w-1/2 '>
+              <div className='w-full  md:w-1/2 '>
               <h2 className="text-2xl font-semibold text-yellow-400 mb-2">Ingredients</h2>
             <ul className="list-disc list-inside mb-4 ">
               {PoojaDetails.Ingredients.map((ingredient, index) => (
@@ -153,7 +153,7 @@ function PanditPackages() {
             </ul>
               </div>
 
-              <div className='w-1/2  '><img src={PoojaDetails.images[1]} className='rounded-md '/></div>
+              <div className='w-full  md:w-1/2  '><img src={PoojaDetails.images[1]} className='rounded-md '/></div>
             
             </div>
            
