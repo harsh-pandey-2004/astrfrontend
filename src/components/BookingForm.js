@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+
 const PujaCartForm = () => {
+
+  const userId=localStorage.getItem("userId");
+  console.log(userId);
+
+  const Data=JSON.parse(localStorage.getItem("formData")); 
+  console.log(Data);
+
   const [formData, setFormData] = useState({
-    date: "",
+    date: Data?.date || "",
     bookingDate: `${new Date().getDate()}-${
       new Date().getMonth() + 1
     }-${new Date().getFullYear()}`,
@@ -13,12 +21,19 @@ const PujaCartForm = () => {
     dob: "",
     Nakshtra: "",
     Rashi: "",
-    Gotra: ""
+    Gotra: "",
+    Temple:Data?.temple.value || "",
+    Pooja:Data?.pooja.value || "",
   });
   const [errors, setErrors] = useState({});
   const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(true);
+
+ 
+
+
+ 
 
   const handleChange = (e) => {
    
@@ -33,31 +48,54 @@ const PujaCartForm = () => {
     if (!formData.Nakshtra) newErrors.Nakshtra = "Nakshatra is required.";
     if (!formData.Rashi) newErrors.Rashi = "Rashi is required.";
     if (!formData.Gotra) newErrors.Gotra = "Gotra is required.";
+    if(!formData.Temple) newErrors.Temple="Temple is required";
+    if(!formData.Pooja) newErrors.Pooja="Pooja is required";
     return newErrors;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    try {
-      console.log(formData);
-      let a = await axios.post(
-        "http://localhost:3000/api/book-pooja/user-deatils/66b4a5ad3de3438014454957",
-        formData
-      );
-      setPopupMessage("Form submitted successfully!");
-      setIsSuccess(true);
-    } catch (error) {
-      console.log(error);
-      setPopupMessage("Failed to submit the form. Please try again.");
+
+     const bookPuja= async ()=>{
+          
+      try {
+        console.log(formData);
+  
+        let a = await axios.post(
+          `https://astrobackend.onrender.com/api/book-pooja/user-deatils/${userId}`,
+          formData
+        );
+        setPopupMessage("Form submitted successfully!");
+        localStorage.removeItem("formData");
+        setIsSuccess(true);
+      } catch (error) {
+        console.log(error);
+        setPopupMessage("Failed to submit the form. Please try again.");
+        setIsSuccess(false);
+      }
+      setShowPopup(true);
+    };
+
+
+    if(userId!=null){
+      bookPuja();
+      
+    }else{
+       setPopupMessage("Failed to Submit the Form Please Login .");
       setIsSuccess(false);
+      setShowPopup(true);
+
     }
-    setShowPopup(true);
-  };
+
+     }
+
+
+   
   const closePopup = () => {
     setShowPopup(false);
   };
@@ -120,11 +158,11 @@ const PujaCartForm = () => {
         className="form w-full lg:w-[60%] mx-auto  p-4 rounded-lg form-box shadow-bg1"
         onSubmit={handleSubmit}
       >
-        <div className="input-append date controls date-picker-2 w-full">
-          <span className=" mx-auto flex w-1/3 mb-3">
+        <div className="input-append date controls date-picker-2 w-full   flex items-center gap-2">
+          <span className=" mx-auto flex w-1/3 ">
             <DatePicker
               selected={formData.date}
-              onChange={(date) => setFormData({ ...formData, date })}
+              readOnly
               className="date-picker border rounded w-full px-7 py-2 text-gray-500"
               placeholderText="Select your Prefered Date"
             />
@@ -134,6 +172,21 @@ const PujaCartForm = () => {
               onClick={() => document.getElementById("quick_puja_date").click()}
             />
           </span>
+          <input
+            type="text"
+            name="Temple"
+            value={formData.Temple}
+            readOnly
+            className="outline text-gray-500 w-1/3 py-2 rounded-sm"
+            />
+             {errors.Temple && <p className="text-red-500">{errors.Temple}</p>}
+            <input
+            type="text"
+            name="Pooja"
+            value={formData.Pooja}
+            readOnly
+            className="outline text-gray-500  w-1/3 py-2 rounded-sm"/>
+             {errors.Pooja && <p className="text-red-500">{errors.Pooja}</p>}
         </div>
         <div className="clearfix flex flex-col">
           <div className="flex flex-col border-b-2 pt-3 border-b-gray-200 ">

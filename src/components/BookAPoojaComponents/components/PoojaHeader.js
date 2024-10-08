@@ -58,11 +58,15 @@ const PoojaHeader = ({ onSearch }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    
+
     const formData = {
       temple: selectedTemple,
       pooja: selectedPooja,
       date: selectedDate,
     };
+
+    localStorage.setItem("formData",JSON.stringify(formData));
 
     console.log("Form Data:", formData);
     setFormData(formData);

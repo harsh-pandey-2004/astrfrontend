@@ -91,7 +91,7 @@ const PanditBookingForm = () => {
 
   return (
     <div
-      className="w-full h-fit bg-contain relative top-20 bg-center pb-20"
+      className="w-full h-fit bg-contain relative top-20 bg-center pb-20 "
       style={{
         backgroundImage:
           "url(https://i.pinimg.com/736x/48/4a/97/484a9743a27dc0745da35b65f7b0fc9f.jpg)",
@@ -99,7 +99,7 @@ const PanditBookingForm = () => {
     >
       {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
       <div className="text-center pt-12">
-        <h1 className="text-5xl font-bold mb-4">
+        <h1 className="text-2xl md:text-5xl font-bold mb-4">
           <span className="text-[#dde549] stroke-black">Book Your Pandit</span>
         </h1>
         <p className="text-lg text-[#dde549]">
@@ -146,7 +146,7 @@ const PanditBookingForm = () => {
         </svg>
       </div>
       <form
-        className="form w-full lg:w-[60%] mx-auto p-4 rounded-lg form-box shadow-bg1"
+        className="form w-full lg:w-[60%] mx-auto  p-4 rounded-lg form-box shadow-bg1 outline outline-"
         onSubmit={handleSubmit}
       >
         <div className="mb-4">
@@ -196,7 +196,7 @@ const PanditBookingForm = () => {
             placeholder="Pooja Date"
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row  md:items-center justify-between">
 
         
               <input
