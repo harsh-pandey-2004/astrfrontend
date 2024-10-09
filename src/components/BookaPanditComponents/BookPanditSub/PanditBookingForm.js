@@ -204,7 +204,7 @@ const PanditBookingForm = () => {
               name="Gotra"
               value={formData.Gotra}
               onChange={(e) => handleChange(e)}
-              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
+              className={`mb-4 w-64 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Gotra"
             />
             {errors.Gotra && <p className="text-red-500">{errors.Gotra}</p>}
@@ -213,7 +213,7 @@ const PanditBookingForm = () => {
               name="Nakshatra"
               value={formData.Nakshatra}
               onChange={(e) => handleChange(e)}
-              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
+              className={`mb-4 w-64 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Birth Star / Janma Nakshatram"
             />
             {errors.Nakshatra && <p className="text-red-500">{errors.Nakshatra}</p>}
@@ -222,7 +222,7 @@ const PanditBookingForm = () => {
               name="Rashi"
               value={formData.Rashi}
               onChange={(e) => handleChange(e)}
-              className={`mb-4 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
+              className={`mb-4 w-64 p-2 border-2 outline-none rounded-lg text-gray-500 ${errors.userName ? 'border-red-500' : ''}`}
               placeholder="Rashi / Zodiac Sign"
             />
             {errors.Rashi && <p className="text-red-500">{errors.Rashi}</p>}

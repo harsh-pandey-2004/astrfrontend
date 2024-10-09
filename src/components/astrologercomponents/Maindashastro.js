@@ -178,10 +178,10 @@ function MainDashAstro() {
 
 
   return (
-    <div className="flex flex-col min-h-fit outline ">
-      <div className="flex flex-grow  relative overflow-hidden top-[5.6rem] lg:top-0">
+    <div className=" min-h-fit outline ">
+      <div className="flex flex-grow  relative overflow-hidden top-[5.6rem] lg:top-0 ">
         <Sidebar response={response} onLogout={handleLogout}/>
-        <div className="h-full md:w-4/5 w-full overflow-y-auto">
+        <div className="h-full md:w-4/5  overflow-y-auto  ">
 
         {/* //AcceptModal */}
         <div className="requests-list ">

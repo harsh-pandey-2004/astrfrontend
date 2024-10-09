@@ -283,7 +283,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
     <div className='bg-black text-yellow-500 h-screen flex flex-col'>
       <div className='border-b-2 w-full border-yellow-500 p-4'>
 
-        <div className="astrologer-chat-container ml-10 ">
+        <div className="astrologer-chat-container ml-10">
           <h2 className='text-2xl font-bold'>Chat Requests</h2>
           <div className="requests-list mb-4">
             {requests.map((request, index) => (
@@ -311,7 +311,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
         </div>
       </div>
       <div className='flex flex-1 mt-4 flex-col md:flex-row'>
-        <div className='w-full w-1/3 h-full bg-gray-800 p-4 overflow-y-auto'>
+        <div className='w-full md:w-1/3 h-full bg-gray-800 p-4 overflow-y-auto'>
           <h2 className='text-lg font-semibold text-center mb-4'>Users</h2>
           <ul className='space-y-2'>
             {chats.map((chat, index) => (
@@ -326,7 +326,7 @@ const Astro_Messages = ({ response, requests, handleAcceptRequest, handleRejectR
           </ul>
 
         </div>
-        <div className='w-full md:w-2/3 h-full bg-gray-900 flex flex-col mb-24'>
+        <div className='w-full md:w-2/3 h-full bg-gray-900 flex flex-col mb-24 pr-5 pl-5'>
           {currentChatUser ? (
             <>
               <h2 className='text-xl font-semibold p-4 border-b border-yellow-500'>Chat with {currentChatUser.userName}</h2>
