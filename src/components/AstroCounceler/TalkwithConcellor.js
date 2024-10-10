@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SearchLogo } from "../../icons/icons";
 import ChatCard from "./ChatCard";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const skillsOptions = [
   "Face Reading",
@@ -181,9 +182,10 @@ const TalktoAstroCouncellor = () => {
         <div className="flex items-center justify-between px-6 mb-6">
           <div className="flex gap-6 items-center">
             <div className="text-lg font-medium">Available bal: ₹ 0</div>
-            <button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
+            <Link to="/recharge"><button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
               Recharge
             </button>
+            </Link>
           </div>
 
           <div className="relative">
