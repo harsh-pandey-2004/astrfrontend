@@ -144,6 +144,12 @@ const ChattoAstroCouncellor = () => {
       setFilteredData(response.data.Astrodata);
     };
     fetchData();
+    
+    const intervalId=setInterval(()=>{
+      fetchData();
+    },5000);
+    return ()=>clearInterval(intervalId);
+
   }, []);
 
   useEffect(() => {
