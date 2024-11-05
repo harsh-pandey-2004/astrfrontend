@@ -19,6 +19,7 @@ import CartM from "../../images/CartM.jpg";
 import PrasaadM from "../../images/PrasaadM.jpg";
 import Temple from "../../images/Temple 2.png";
 import BannerPandit from "../../images/BannerPandit.png";
+import BanPandit from "../../images/BanPandit.png";
 
 const Carousel = () => {
   // useEffect(() => {
@@ -72,7 +73,7 @@ const Carousel = () => {
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video> */}
-             <img src={BannerPandit}  className="  w-full h-96 bg-cover "/>
+             <img src={BanPandit}  className="  w-full h-96 bg-cover "/>
           </div>
         </Slider>
       </div>
