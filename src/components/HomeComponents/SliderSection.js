@@ -19,6 +19,10 @@ import CartM from "../../images/CartM.jpg";
 import PrasaadM from "../../images/PrasaadM.jpg";
 import Temple from "../../images/Temple 2.png";
 import BannerPandit from "../../images/BannerPandit.png";
+import BanPandit from "../../images/BanPandit.png";
+import Panditicon from "../../images/Panditicon.jpg";
+import yantras from "../../images/yantras.png";
+import yantras2 from "../../images/Yantras2.png";
 
 const Carousel = () => {
   // useEffect(() => {
@@ -60,6 +64,14 @@ const Carousel = () => {
             </video> */}
             <img src={Temple}  className=" w-full h-96 bg-cover"/>
           </div>
+
+          <div>
+            <img src={yantras} className="w-full h-96 bg-cover"/>
+          </div>
+
+          <div>
+            <img src={yantras2}  className="w-full h-96 bg-cover"/>
+          </div>
           <div >
             {/* <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
@@ -72,7 +84,7 @@ const Carousel = () => {
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video> */}
-             <img src={BannerPandit}  className="  w-full h-96 bg-cover "/>
+             <img src={BanPandit}  className="  w-full h-96 bg-cover "/>
           </div>
         </Slider>
       </div>
@@ -114,7 +126,7 @@ const Carousel = () => {
           >
             <div className="W-20 h-20 rounded-full bg-white xl:w-12 xl:h-12">
               <img
-                src={Pandit}
+                src={Panditicon}
                 className="w-fit h-full rounded-full bg-white"
               />
             </div>
