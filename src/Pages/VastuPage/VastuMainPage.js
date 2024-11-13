@@ -78,7 +78,7 @@ const VastuMainPage = ({ showblur }) => {
         <ServicesVastu />
       </div>
       <div >
-        <ServicesWeProvide />
+        <ServicesWeProvide/>
       </div>
       <div >
         <OurSpecialists />
