@@ -62,7 +62,7 @@ const VastuIndiPage = () => {
                 </div>
               </div>
             </div>
-            <h1 className="py-3 text-center text-4xl font-semibold">Related<span className="text-[#f6c300]"> Articles</span> </h1>
+            <h1 className="py-3 text-center text-4xl font-semibold">Related <span className="text-[#f6c300]"> Articles</span> </h1>
             <div className="max-w-6xl grid grid-cols-3 items-center mx-auto pb-9 gap-4">
                 
               {e.types &&

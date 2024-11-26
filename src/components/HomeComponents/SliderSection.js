@@ -21,8 +21,16 @@ import Temple from "../../images/Temple 2.png";
 import BannerPandit from "../../images/BannerPandit.png";
 import BanPandit from "../../images/BanPandit.png";
 import Panditicon from "../../images/Panditicon.jpg";
-import yantras from "../../images/yantras.png";
+
 import yantras2 from "../../images/Yantras2.png";
+
+
+import Kundali from "../../images/Kundali (1).png";
+import yantras from "../../images/yantras (1).png";
+import pandit from "../../images/pandit (1) (1).png";
+import vastu from "../../images/vastu.png";
+import Astrologers from "../../images/Astrologers (1).png"
+
 
 const Carousel = () => {
   // useEffect(() => {
@@ -70,21 +78,31 @@ const Carousel = () => {
           </div>
 
           <div>
-            <img src={yantras2}  className="w-full h-96 bg-cover"/>
+            <img src={Kundali}  className="w-full h-96 bg-cover"/>
           </div>
+          
+          <div >
+            {/* <video width="1620" height="120" autoPlay loop muted>
+              <source src={Vedio1} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video> */}
+             <img src={pandit}  className="  w-full h-96 bg-cover "/>
+          </div>
+
+          <div>
+            <img src={vastu}/>
+          </div>
+
+          <div>
+            <img src={Astrologers} className="  w-full h-96 bg-cover "/>
+          </div>
+
           <div >
             {/* <video width="1520" height="120" autoPlay loop muted>
               <source src={Vedio1} type="video/mp4" />
               Your browser does not support the video tag.
             </video> */}
              <img src={BannerN}  className=" w-full h-96 bg-cover "/>
-          </div>
-          <div >
-            {/* <video width="1620" height="120" autoPlay loop muted>
-              <source src={Vedio1} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video> */}
-             <img src={BanPandit}  className="  w-full h-96 bg-cover "/>
           </div>
         </Slider>
       </div>
