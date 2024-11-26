@@ -75,25 +75,25 @@ const VastuMainPage = ({ showblur }) => {
         </div>
       </div>
       <div >
-        <ServicesVastu />
+        <ServicesVastu/>
       </div>
       <div >
         <ServicesWeProvide/>
       </div>
-      <div >
-        <OurSpecialists />
+      <div>
+        <OurSpecialists/>
       </div>
       <div >
-        <Stats />
+        <Stats/>
       </div>
       <div >
-        <BlogCard />
+        <BlogCard/>
       </div>
       <div >
-        <BlogSection />
+        <BlogSection/>
       </div>
       <div >
-        <Reviews />
+        <Reviews/>
       </div>
     </div>
   );

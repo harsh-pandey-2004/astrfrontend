@@ -398,7 +398,7 @@ const Navbar = ({ showbluefn,editProfile}) => {
                     </Link>
                     <Link to={"/freekundali"}>
                       <div className="px-4 py-2  transEffect hover:hover-effect">
-                        Free Kundali
+                        Free  Kundali
                       </div>
                     </Link>
                   </div>
