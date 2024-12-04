@@ -1,6 +1,16 @@
-import HoroScope1 from "../../images/HoroIcon.JPG"
-import HoroScope2 from "../../images/cancer.png"
-
+import HoroScope1 from "../../images/HoroIcon.JPG";
+import HoroScope2 from "../../images/cancer.png";
+import Aries from "../../images/Aries.png";
+import Tauras from "../../images/tauras.png";
+import Gemeni from "../../images/gemini.png";
+import CANCER from "../../images/cancer.png";
+import LEO from "../../images/leo.png";
+import VIRGO from "../../images/virgo.png";
+import LIBRA from "../../images/libra.png";
+import Scropio from "../../images/scorpio.png";
+import SAGITTARIUS from "../../images/Sagittauris.png";
+import CPARICORN from "../../images/capricorn.png";
+import AQUARIUS from "../../images/capricorn.png";
 export const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -150,84 +160,84 @@ export const Array = [
 export const horoscope = [
   {
     id: "1",
-    img: HoroScope1,
+    img: Aries,
     title: "ARIES",
     range: "MAR 21 - APR 19",
   },
 
   {
     id: "2",
-    img: HoroScope2,
+    img: Tauras,
     title: "TAURUS",
     range: "APR 20 - MAY 20",
   },
 
   {
     id: "3",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-03.webp",
-    title: "GEMINI",
+    img: Gemeni,
+    title: "Gemeni",
     range: "MAY 21 - JUN 21",
   },
 
   {
     id: "4",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-04.webp",
+    img: CANCER,
     title: "CANCER",
     range: "JUN 22 - JUL 22",
   },
 
   {
     id: "5",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-05.webp",
+    img: LEO,
     title: "LEO",
     range: "JUL 23 - AUG 22",
   },
 
   {
     id: "6",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-06.webp",
+    img: VIRGO,
     title: "VIRGO",
     range: "AUG 23 - SEP 22",
   },
 
   {
     id: "7",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-07.webp",
+    img: LIBRA,
     title: "LIBRA",
     range: "SEP 23 - OCT 23",
   },
 
   {
     id: "8",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-08.webp",
+    img: Scropio,
     title: "SCORPIO",
     range: "OCT 24 - NOV 21",
   },
 
   {
     id: "9",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-09.webp",
+    img: SAGITTARIUS,
     title: "SAGITTARIUS",
     range: "NOV 22 - DEC 21",
   },
 
   {
     id: "10",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-10.webp",
+    img: CPARICORN,
     title: "CPARICORN",
     range: " DEC 22 - JAN 19",
   },
 
   {
     id: "11",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-11.webp",
+    img: AQUARIUS,
     title: "AQUARIUS",
     range: "JAN 20 - FEB 18",
   },
 
   {
     id: "12",
-    img: "https://d1gcna0o0ldu5v.cloudfront.net/fit-in/177x177/assets/images/horoscope_page/horoscope-12.webp",
+    img:SAGITTARIUS,
     title: "PISCES",
     range: "FEB 19 - MAR 20",
   },
