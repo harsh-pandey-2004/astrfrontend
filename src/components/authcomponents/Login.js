@@ -1,69 +1,54 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const LoginForm = ({handleProfile}) => {
-  const initialState = {
-    password: "",
-  };
+
+const LoginForm = ({ handleProfile }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [response, setResponse] = useState(initialState);
   const [countryCode, setCountryCode] = useState("+91");
   const navigate = useNavigate();
-  function handleCountryCOde(e) {
+
+  function handleCountryCode(e) {
     setCountryCode(e.target.value);
   }
+
   const handlePhoneNumberChange = (e) => {
     const value = e.target.value.replace(/[^\d]/, "");
     setPhoneNumber(value);
   };
 
-  const handleChange = (e) => {
-    setResponse({ ...response, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let a = await axios.post("https://astrobackend.onrender.com/api/login", {
-      ...response,
+    let response = await axios.post("https://astrobackend.onrender.com/api/login", {
       mobile: phoneNumber,
     });
-    if (a.data.success) {
-      const userId = a.data.user._id;
-      console.log(a.data);
 
-      console.log(userId);
-      localStorage.setItem('userId', userId);
-      console.log(a.data.user);
-      const userSlug=a.data.user.slug;
-      localStorage.setItem('userSlug',userSlug);
-     
-      const responseJSON=JSON.stringify(a.data.user);
-      localStorage.setItem('userdetails',responseJSON);
-     
-      alert('Login successful!');
-      navigate("/");  
+    if (response.data.success) {
+      const userId = response.data.user._id;
+      const userSlug = response.data.user.slug;
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("userSlug", userSlug);
+      localStorage.setItem("userdetails", JSON.stringify(response.data.user));
+      navigate(`verify-phone/${phoneNumber}`);
       handleProfile();
-      // Redirect or perform any other actions after successful login
     } else {
-      alert('Login failed. Please check your credentials.');
+      alert("Login failed. Please check your credentials.");
     }
-    console.log(a.data);
   };
 
   return (
-    <div className="bg-black shadow-md rounded  pb-8 mb-40 lg:w-1/2 w-[90%] mx-auto relative top-[6.8rem] lg:top-[6rem] md:w-3/4 sm:top-32 sm:w-4/5">
+    <div className="bg-black shadow-md rounded mb-36 lg:w-1/3 w-[90%] mx-auto relative top-24 lg:top-[7rem] md:w-3/4 sm:w-4/5">
       <form
         autoComplete="on"
-        className="flex flex-col "
+        className="flex flex-col px-6 py-8"
         onSubmit={handleSubmit}
       >
-        <h1 className="text-lg font-bold mb-4 p-4 bg-yellow-400 text-center w-full rounded">
+        <h1 className="text-lg font-bold mb-6 p-4 bg-yellow-400 text-center w-full rounded-lg">
           Login with Phone
         </h1>
 
-        <div className="mx-3">
+        <div className="mb-6">
           <h6 className="text-lg mb-2 font-sans text-white">Enter your phone number</h6>
-          <div className="flex items-center justify-center bg-gray-700 p-3 gap-2 rounded">
+          <div className="flex items-center bg-gray-700 p-4 gap-2 rounded-lg">
             <div className="mr-2">
               <img
                 src="https://aws.astrotalk.com/assets/images/in.webp"
@@ -72,9 +57,9 @@ const LoginForm = ({handleProfile}) => {
               />
             </div>
             <select
-              className="form-select bg-transparent text-white"
+              className="form-select bg-transparent text-white border-none outline-none"
               value={countryCode}
-              onChange={handleCountryCOde}
+              onChange={handleCountryCode}
               name="countryCode"
             >
               <option value="+91">+91 India</option>
@@ -83,38 +68,27 @@ const LoginForm = ({handleProfile}) => {
               id="mobileNo"
               inputMode="numeric"
               name="mobNo"
-              value={response.phoneNumber}
+              value={phoneNumber}
               onChange={handlePhoneNumberChange}
               required
               type="text"
-              className="form-input  outline-none  rounded bg-transparent placeholder:text-gray-400 text-white "
+              className="form-input flex-1 bg-transparent placeholder:text-gray-400 text-white border-none outline-none"
               placeholder="Enter mobile no."
               pattern="[1-9]{1}[0-9]{9}"
             />
           </div>
         </div>
-        <div className="flex p-3 gap-2 rounded-lg flex-col items-start ">
-          <h6 className="text-lg  font-sans text-white">Enter your Password</h6>
-          <input
-            type="password"
-            placeholder="Enter your Password"
-            className="form-input  outline-none  rounded bg-transparent text-white placeholder:text-gray-400  border-2 w-full py-2 px-3"
-            value={response.password}
-            onChange={handleChange}
-            name="password"
-          ></input>
-        </div>
+
         <button
           type="submit"
-          className="bg-yellow-400 hover:box-shadow1 text-black font-sans py-2 px-4 rounded-lg w-[95%] mx-auto"
+          className="bg-yellow-400 hover:shadow-lg text-black font-sans py-3 px-6 rounded-lg w-full"
         >
-          Log in <i className="fa fa-arrow-right"></i>
+          Log in <i className="fa fa-arrow-right ml-2"></i>
         </button>
-        <div className="w-full flex justify-center my-2">
-        </div>
-        <div className="mt-1 text-sm">
-          <p className="terms-line text-center text-white">
-            By Signing up, you agree to our <br/>{" "}
+
+        <div className="mt-4 text-sm text-center text-white">
+          <p>
+            By Signing up, you agree to our <br />
             <a
               href="https://astrotalk.com/terms-and-conditions"
               rel="noopener"
