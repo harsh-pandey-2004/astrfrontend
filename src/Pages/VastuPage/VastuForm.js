@@ -16,7 +16,7 @@ const VastuForm = () => {
     additionalInfo: "",
     mainDoor: "",
     userId: "64bdef2f59b1c25dbb3c6b7a",
-    images: []
+    images: [],
   });
 
   const [errors, setErrors] = useState({});
@@ -25,8 +25,10 @@ const VastuForm = () => {
   const validateStep1 = () => {
     const errors = {};
     if (!formData.ownerName) errors.ownerName = "Owner's Name is required";
-    if (!formData.ownerDob) errors.ownerDob = "Owner's Date of Birth is required";
-    if (!formData.phoneNumber.match(/^\d{10}$/)) errors.phoneNumber = "Phone Number must be 10 digits";
+    if (!formData.ownerDob)
+      errors.ownerDob = "Owner's Date of Birth is required";
+    if (!formData.phoneNumber.match(/^\d{10}$/))
+      errors.phoneNumber = "Phone Number must be 10 digits";
     if (!formData.email.includes("@")) errors.email = "Email must contain '@'";
     return errors;
   };
@@ -34,15 +36,18 @@ const VastuForm = () => {
   const validateStep2 = () => {
     const errors = {};
     if (!formData.plotAddress) errors.plotAddress = "Plot Address is required";
-    if (!formData.plotSize || isNaN(formData.plotSize)) errors.plotSize = "Plot Size must be a number";
-    if (!formData.facingDirection) errors.facingDirection = "Facing Direction is required";
+    if (!formData.plotSize || isNaN(formData.plotSize))
+      errors.plotSize = "Plot Size must be a number";
+    if (!formData.facingDirection)
+      errors.facingDirection = "Facing Direction is required";
     return errors;
   };
 
   const validateStep3 = () => {
     const errors = {};
     if (!formData.mainDoor) errors.mainDoor = "Main Door is required";
-    if (formData.images.length === 0) errors.images = "At least one image is required";
+    if (formData.images.length === 0)
+      errors.images = "At least one image is required";
     return errors;
   };
 
@@ -61,7 +66,7 @@ const VastuForm = () => {
 
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
-    if (type === 'file') {
+    if (type === "file") {
       setFormData({
         ...formData,
         [name]: Array.from(files),
@@ -132,23 +137,27 @@ const VastuForm = () => {
 
   return (
     <div
-      className="h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed px-4 sm:px-6 lg:px-8"
+      className="h-screen flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
       style={{
         backgroundImage:
           "url('https://i.pinimg.com/736x/48/4a/97/484a9743a27dc0745da35b65f7b0fc9f.jpg')",
+          height:"100% "
       }}
     >
-      <div className="w-full space-y-8">
-        <div className="p-8 rounded-lg">
-          <h1 className="text-4xl font-bold text-center text-white">
+      <div className="w-full space-y-8 mt-32 sm:mt-32 md:mt-32">
+        <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 rounded-lg ">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white">
             Vastu <span className="text-[#f6c300]">Consultation</span>
           </h1>
-          <p className="mt-4 text-center text-white">
+          <div className="">
+          <p className="mt-4 text-base sm:text-lg md:text-xl text-center text-white  ">
             Get expert advice on your property according to Vastu Shastra
             principles. Fill out the form below to get started.
           </p>
+          </div>
         </div>
-        <div className="p-8 shadow-lg rounded-lg max-w-6xl mx-auto bg-black bg-opacity-60">
+
+        <div className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 shadow-lg rounded-lg max-w-full sm:max-w-md md:max-w-lg lg:max-w-6xl mx-auto bg-black bg-opacity-60">
           <h2 className="text-3xl font-bold text-center text-[#f6c300] mb-6">
             Vastu Consultation Form
           </h2>
@@ -164,10 +173,14 @@ const VastuForm = () => {
                     name="ownerName"
                     value={formData.ownerName}
                     onChange={handleChange}
-                    className={`mt-1 block w-full p-3 py-2 outline-none border-2 rounded-md shadow-sm ${errors.ownerName ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full p-3 py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.ownerName ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.ownerName && <p className="text-red-500 text-xs">{errors.ownerName}</p>}
+                  {errors.ownerName && (
+                    <p className="text-red-500 text-xs">{errors.ownerName}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -178,10 +191,14 @@ const VastuForm = () => {
                     name="ownerDob"
                     value={formData.ownerDob}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.ownerDob ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.ownerDob ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.ownerDob && <p className="text-red-500 text-xs">{errors.ownerDob}</p>}
+                  {errors.ownerDob && (
+                    <p className="text-red-500 text-xs">{errors.ownerDob}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -192,7 +209,11 @@ const VastuForm = () => {
                       name="countryCode"
                       value={formData.countryCode}
                       onChange={handleCountryCodeChange}
-                      className={`w-1/4 py-2 outline-none border-2 rounded-md shadow-sm ${errors.phoneNumber ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                      className={`w-1/4 py-2 outline-none border-2 rounded-md shadow-sm ${
+                        errors.phoneNumber
+                          ? "border-red-500"
+                          : "border-[#f6c300]"
+                      } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     >
                       <option value="+91">+91</option>
                       <option value="+1">+1</option>
@@ -204,11 +225,17 @@ const VastuForm = () => {
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handleChange}
-                      className={`w-3/4 ml-2 py-2 outline-none border-2 rounded-md shadow-sm ${errors.phoneNumber ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                      className={`w-3/4 ml-2 py-2 outline-none border-2 rounded-md shadow-sm ${
+                        errors.phoneNumber
+                          ? "border-red-500"
+                          : "border-[#f6c300]"
+                      } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                       required
                     />
                   </div>
-                  {errors.phoneNumber && <p className="text-red-500 text-xs">{errors.phoneNumber}</p>}
+                  {errors.phoneNumber && (
+                    <p className="text-red-500 text-xs">{errors.phoneNumber}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -219,10 +246,14 @@ const VastuForm = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.email ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.email ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+                  {errors.email && (
+                    <p className="text-red-500 text-xs">{errors.email}</p>
+                  )}
                 </div>
               </div>
             )}
@@ -238,10 +269,14 @@ const VastuForm = () => {
                     name="plotAddress"
                     value={formData.plotAddress}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.plotAddress ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.plotAddress ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.plotAddress && <p className="text-red-500 text-xs">{errors.plotAddress}</p>}
+                  {errors.plotAddress && (
+                    <p className="text-red-500 text-xs">{errors.plotAddress}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -252,10 +287,14 @@ const VastuForm = () => {
                     name="plotSize"
                     value={formData.plotSize}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.plotSize ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.plotSize ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.plotSize && <p className="text-red-500 text-xs">{errors.plotSize}</p>}
+                  {errors.plotSize && (
+                    <p className="text-red-500 text-xs">{errors.plotSize}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -265,7 +304,11 @@ const VastuForm = () => {
                     name="facingDirection"
                     value={formData.facingDirection}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.facingDirection ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.facingDirection
+                        ? "border-red-500"
+                        : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   >
                     <option value="">Select</option>
@@ -278,7 +321,11 @@ const VastuForm = () => {
                     <option value="Southeast">Southeast</option>
                     <option value="Southwest">Southwest</option>
                   </select>
-                  {errors.facingDirection && <p className="text-red-500 text-xs">{errors.facingDirection}</p>}
+                  {errors.facingDirection && (
+                    <p className="text-red-500 text-xs">
+                      {errors.facingDirection}
+                    </p>
+                  )}
                 </div>
               </div>
             )}
@@ -293,14 +340,18 @@ const VastuForm = () => {
                     name="mainDoor"
                     value={formData.mainDoor}
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.mainDoor ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.mainDoor ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   >
                     <option value="">Select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                   </select>
-                  {errors.mainDoor && <p className="text-red-500 text-xs">{errors.mainDoor}</p>}
+                  {errors.mainDoor && (
+                    <p className="text-red-500 text-xs">{errors.mainDoor}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white">
@@ -311,36 +362,41 @@ const VastuForm = () => {
                     name="images"
                     multiple
                     onChange={handleChange}
-                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${errors.images ? 'border-red-500' : 'border-[#f6c300]'} text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
+                    className={`mt-1 block w-full py-2 outline-none border-2 rounded-md shadow-sm ${
+                      errors.images ? "border-red-500" : "border-[#f6c300]"
+                    } text-[#f6c300] focus:border-yellow-500 focus:ring-yellow-500`}
                     required
                   />
-                  {errors.images && <p className="text-red-500 text-xs">{errors.images}</p>}
+                  {errors.images && (
+                    <p className="text-red-500 text-xs">{errors.images}</p>
+                  )}
                 </div>
               </div>
             )}
 
-            <div className="flex justify-between mt-8">
+            <div className="flex justify-between mt-8 flex-col sm:flex-row sm:space-x-4">
               {step > 1 && (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-md"
+                  className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-500 text-white rounded-md w-full sm:w-auto mb-4 sm:mb-0"
                 >
                   Back
                 </button>
               )}
+
               {step < 3 ? (
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-4 py-2 bg-[#f6c300] text-black rounded-md"
+                  className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg bg-[#f6c300] text-black rounded-md w-full sm:w-auto"
                 >
                   Next
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#f6c300] text-black rounded-md"
+                  className="px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg bg-[#f6c300] text-black rounded-md w-full sm:w-auto"
                 >
                   Submit
                 </button>

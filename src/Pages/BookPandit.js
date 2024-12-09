@@ -155,7 +155,7 @@ const BookPandit = (props) => {
             </p>
           </div>
 
-          <div className="lg:w-1/2 pt-5 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" >
+          <div className="lg:w-1/2 pt-16 lg:pt-5 relative lg:pl-10 w-full flex  justify-center" >
             <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
             <img
               src={"https://panditforpujainpune.com/wp-content/uploads/2021/04/priest-s.png"}

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./GrahPooja.css"; // Import custom CSS for scrollbar styling
+import { Link } from "react-router-dom";
 
 const GrahPooja = () => {
   useEffect(() => {
@@ -12,23 +13,23 @@ const GrahPooja = () => {
     <div className="p-6  relative top-28 pb-32 w-full">
       <div className="bg-gray-100 rounded-lg flex flex-col md:flex-row">
         {/* Left Column */}
-        <div className="w-full md:w-2/3 pr-4">
+        <div className="w-full md:w-2/3 ">
           <h1 className="text-3xl font-bold mb-4 text-[#f6c300]">Grah Pooja</h1>
           <Tabs>
-            <TabList className="flex space-x-2 mb-4">
-              <Tab className="flex-1 py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
+            <TabList className=" grid sm:grid-cols-5 sm:mb-6 space-x-2 mb-4">
+            <Tab className=" py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
                 Method 1
               </Tab>
-              <Tab className="flex-1 py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
+              <Tab className=" py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
                 Method 2
               </Tab>
-              <Tab className="flex-1 py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
+              <Tab className=" py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
                 Method 3
               </Tab>
-              <Tab className="flex-1 py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
+              <Tab className=" py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
                 Method 4
               </Tab>
-              <Tab className="flex-1 py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
+              <Tab className="py-2 text-center bg-white border border-gray-300 rounded-t-lg cursor-pointer hover:bg-[#f6c300] hover:text-white transition-colors">
                 Method 5
               </Tab>
             </TabList>
@@ -105,19 +106,19 @@ const GrahPooja = () => {
               Read our latest blog post to get detailed insights and tips for
               performing Grah Pooja in various ways.
             </p>
-            <a href="#" className="text-blue-500 hover:underline">
+            <Link to="#" className="text-blue-500 hover:underline">
               Read More
-            </a>
+            </Link>
           </div>
         </div>
       </div>
       <div className="mt-6 w-full">
-        <a
-          href="#"
+        <Link
+          to="#"
           className="bg-[#f6c300] text-white py-2 px-4 rounded-lg shadow-lg hover:bg-[#d6a800] transition-colors w-full"
         >
           Book Now
-        </a>
+        </Link>
       </div>
     </div>
   );

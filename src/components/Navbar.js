@@ -9,7 +9,7 @@ import {
   HambugerIcon,
 } from "../icons/icons";
 
-const Navbar = ({ showbluefn,editProfile}) => {
+const Navbar = ({ showbluefn, editProfile }) => {
   const [showNav, setShowNav] = useState(false);
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -82,19 +82,11 @@ const Navbar = ({ showbluefn,editProfile}) => {
   const handleClick = () => {
     window.location.href = "/";
   };
-
-  // const storeduserDetails=  localStorage.getItem('userdetails');
-
-  //   const userDetails=storeduserDetails!=null && JSON.parse(storeduserDetails);
-  //   console.log(userDetails);
-
   const LogOutHandler = () => {
     localStorage.clear();
 
     window.location.href = "/";
   };
-
-
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -122,11 +114,12 @@ const Navbar = ({ showbluefn,editProfile}) => {
     if (localStorage.length != 0 && localStorage.getItem("userId") != null) {
       fetchUserDetails();
     }
-  },[editProfile]);
+  }, [editProfile]);
 
   return (
     <>
-      <div className="flex lg:hidden w-full h-auto min-h-20 p-4 items-center justify-between shadow-2xl fixed z-50 bg-black lg:static">
+      <div className="flex lg:hidden mb-8 w-full h-auto min-h-20 p-4  items-center justify-between  fixed z-50 bg-black "
+      style={{ boxShadow: "0px 4px 6px rgba(169, 169, 169, 0.6)" }}>
         <div onClick={toggleNav} className="lg:hidden">
           {!showNav ? <HambugerIcon /> : <CrossIcon />}
         </div>
@@ -150,12 +143,12 @@ const Navbar = ({ showbluefn,editProfile}) => {
               </Link>
               {showDropdown && (
                 <div className="flex flex-col gap-5 shadow-xl py-3">
-                  <Link to={"/chat-astrocouncellor"} onClick={closeNav}>
+                  <Link to={"/chat-with-astrologer"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Chat Astrologer
                     </span>
                   </Link>
-                  <Link to={"/talk-astrocouncellor"} onClick={closeNav}>
+                  <Link to={"/call-to-astrologer"} onClick={closeNav}>
                     <span className="trasEffect hover:hover-effect px-5">
                       Call Astrologer
                     </span>
@@ -248,13 +241,6 @@ const Navbar = ({ showbluefn,editProfile}) => {
           ></img>
         </div>
 
-        {/* <div
-          className="flex items-center gap-1 border-[#f6c300] border-2 font-sans text-sm p-1 rounded-full cursor-pointer text-white hover:transform hover:scale-105 hover:bg-[#EFC013] hover:hover-btn transition-all"
-          onClick={() => navigate("/register-page")}
-        >
-          <AccountLogo />
-          Login
-        </div> */}
         {localStorage.getItem("userId") ? (
           <div className="rounded-full outline outline-yellow-400 bg-yellow-400 flex flex-col relative group">
             {" "}
@@ -331,7 +317,13 @@ const Navbar = ({ showbluefn,editProfile}) => {
 
       {/* Web nav */}
       <div>
-        <div className="hidden lg:fixed lg:flex w-full h-auto min-h-20 p-4  items-center justify-between shadow-2xl bg-black z-50 text-white">
+        <div
+          className="hidden lg:fixed lg:flex w-full h-auto min-h-20 p-4 items-center justify-between bg-black z-50 text-white"
+          style={{ boxShadow: "0px 4px 6px rgba(169, 169, 169, 0.6)" }}
+        >
+
+
+          {" "}
           <div className="flex items-center lg:w-52 xl:w-[18rem] ">
             <Link to="/">
               <img src={AstroCaptionLogo} className=""></img>
@@ -345,13 +337,19 @@ const Navbar = ({ showbluefn,editProfile}) => {
                 onMouseLeave={handleMouseLeaveAstro}
               >
                 <Link to={"/"}>
-                  <div className="transEffect hover:hover-effect flex gap-1 ">
+                  <div
+                    className="transEffect hover:hover-effect flex gap-1 "
+                    style={{ marginLeft: "100px" }}
+                  >
                     Astrologer
                     <CaretDown />
                   </div>
                 </Link>
                 {showAstrodropDown && (
-                  <div className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10">
+                  <div
+                    className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-40 z-10"
+                    style={{ marginLeft: "100px" }}
+                  >
                     <Link to={"/call-to-astrologer"}>
                       <div className="px-4 py-2  transEffect hover:hover-effect">
                         Call Astrologer
@@ -398,7 +396,7 @@ const Navbar = ({ showbluefn,editProfile}) => {
                     </Link>
                     <Link to={"/freekundali"}>
                       <div className="px-4 py-2  transEffect hover:hover-effect">
-                        Free  Kundali
+                        Free Kundali
                       </div>
                     </Link>
                   </div>
@@ -424,18 +422,19 @@ const Navbar = ({ showbluefn,editProfile}) => {
                   </div>
                 </Link>
                 {showhorodropDown && (
-                  <div className="absolute bg-black text-white  shadow-md rounded-md py-2 top-4  left-0 mt-2 w-52 z-10">
-                    <Link to={"/talk-astrocouncellor"}>
-                      <div className="px-4 py-2  transEffect hover:hover-effect">
-                        Call AstroCounseler
-                      </div>
-                    </Link>
-                    <Link to={"/chat-astrocouncellor"}>
-                      <div className="px-4 py-2  transEffect hover:hover-effect">
-                        Chat AstroCounseler
-                      </div>
-                    </Link>
-                  </div>
+                  <div className="absolute bg-black text-white shadow-md rounded-md py-2 top-4 left-0 mt-2 w-52 z-10 sm:w-64 md:w-80">
+                  <Link to={"/talk-astrocouncellor"}>
+                    <div className="px-4 py-2 transEffect hover:hover-effect">
+                      Call AstroCounseler
+                    </div>
+                  </Link>
+                  <Link to={"/chat-astrocouncellor"}>
+                    <div className="px-4 py-2 transEffect hover:hover-effect">
+                      Chat AstroCounseler
+                    </div>
+                  </Link>
+                </div>
+                
                 )}
               </div>
               <Link to={"/blogs"}>
@@ -451,7 +450,6 @@ const Navbar = ({ showbluefn,editProfile}) => {
               </Link>
             </div>
           </div>
-
           {localStorage.getItem("userId") ? (
             <div className="rounded-full outline outline-yellow-400 bg-yellow-400 flex flex-col relative group">
               {" "}

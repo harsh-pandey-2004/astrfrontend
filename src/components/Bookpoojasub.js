@@ -4,19 +4,19 @@ import "react-multi-carousel/lib/styles.css";
 import { useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import { responsive } from "../components/kundalicomponents/Data";
-import { useNavigate ,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const Bookpoojasub = () => {
   const [hideoffer, sethideOffer] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
   const isScreenWidthReached = useMediaQuery("(max-width: 464px)");
   const [counters, setCounters] = useState({
     pujas: 0,
     pandits: 0,
-    cities: 0
+    cities: 0,
   });
   const temple = location.state?.temple;
-  const pandit = temple.pandit || []; 
+  const pandit = temple.pandit || [];
   // console.log(pandit);
   console.log(temple);
   let myVariable = false;
@@ -28,39 +28,39 @@ const Bookpoojasub = () => {
       id: 1,
       name: "Pandit A",
       imageUrl:
-        "https://th.bing.com/th/id/OIP.09gvlDxSK1fq1XMLUqXwzQHaFj?w=294&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        "https://th.bing.com/th/id/OIP.09gvlDxSK1fq1XMLUqXwzQHaFj?w=294&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     },
     {
       id: 2,
       name: "Pandit B",
       imageUrl:
-        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg"
+        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg",
     },
     {
       id: 3,
       name: "Pandit B",
       imageUrl:
-        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg"
+        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg",
     },
     {
       id: 4,
       name: "Pandit B",
       imageUrl:
-        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg"
+        "https://images.news18.com/ibnlive/uploads/2020/08/1597716876_pandit-jasraj.jpg",
     },
     {
       id: 3,
       name: "Pandit C",
       imageUrl:
-        "https://www.indiahallabol.com/wp-content/uploads/2015/12/PanditJi.jpg"
-    }
+        "https://www.indiahallabol.com/wp-content/uploads/2015/12/PanditJi.jpg",
+    },
     // Add more pandits as needed
   ];
   useEffect(() => {
     const finalCounters = {
       pujas: 7000,
       pandits: 2000,
-      cities: 30
+      cities: 30,
     };
 
     const interval = setInterval(() => {
@@ -76,7 +76,7 @@ const Bookpoojasub = () => {
         cities:
           prevCounters.cities < finalCounters.cities
             ? prevCounters.cities + 1
-            : finalCounters.cities
+            : finalCounters.cities,
       }));
     }, 50);
 
@@ -93,28 +93,21 @@ const Bookpoojasub = () => {
           !hideoffer ? "blur-sm" : "blur-none"
         }`}
       >
-        <div className="flex flex-col md:flex-row md:space-x-8 items-center mt-24 ">
-          <div className="md:w-1/2">
-            <h1 className="text-4xl font-bold mb-4 text-center md:text-left">
-              {temple&&temple.name}
+        <div className="flex flex-col md:flex-row md:space-x-5 items-center mt-24">
+          <div className="md:w-1/2 text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              {temple && temple.name}
             </h1>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {/* The Pashupatinath Temple (Nepali: पशुपतिनाथ मन्दिर) is a Hindu
-              temple dedicated to Pashupati, a form of Shiva. It is located in
-              Kathmandu, Nepal near the Bagmati River. The temple was classified
-              as a World Heritage Site in 1979. This "extensive Hindu temple
-              precinct" is a "sprawling collection of temples, ashrams, images
-              and inscriptions raised over the centuries along the banks of the
-              sacred Bagmati river", and is one of seven monument groups in
-              UNESCO's designation of Kathmandu Valley. It is built on an area
-              of 246 hectares (2,460,000 m2) and includes 518 mini-temples and a
-              main pagoda house. */}
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
               {temple.description}
             </p>
           </div>
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 mt-6 md:mt-0">
             <div className="aspect-w-16 aspect-h-9">
               <img
+
+
+
                 src={temple.img}
                 alt="temple"
                 className="object-cover rounded-lg shadow-lg"
@@ -124,6 +117,7 @@ const Bookpoojasub = () => {
             </div>
           </div>
         </div>
+
         <div className="flex flex-col gap-2 mt-5">
           <h2 className="text-3xl">Benefits:</h2>
           <div>
@@ -135,14 +129,18 @@ const Bookpoojasub = () => {
             </div>
           </div>
           <div className="flex justify-between my-5">
-          <h1 className="text-4xl font-sans font-normal uppercase">Pricing:</h1>
-          <div className="flex flex-col gap-1 items-center">
-            <p className="font-2xl font-medium uppercase">
-              📣 Discount will be applied on basis of ealier Booking
-            </p>
-            <div className="text-5xl text-[#f6c003]">₹ {temple.price}/-</div>
+            <h1 className="text-4xl font-sans font-normal uppercase">
+              Pricing:
+            </h1>
+            <div className="flex flex-col gap-2 items-center sm:gap-3 md:gap-4">
+              <p className="text-lg sm:text-xl md:text-2xl font-medium uppercase text-center">
+                📣 Discount will be applied on basis of earlier Booking
+              </p>
+              <div className="text-3xl sm:text-4xl md:text-5xl text-[#f6c003] font-semibold">
+                ₹ {temple.price}/-
+              </div>
+            </div>
           </div>
-        </div>
           <div className="mt-3">
             <h1 className="text-center text-4xl">Stats</h1>
             <p className="text-center text-2xl text-gray-400 mb-3">
@@ -150,10 +148,10 @@ const Bookpoojasub = () => {
             </p>
           </div>
         </div>
-        
+
         <section className=" py-12">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-8">
               <div className="flex justify-center">
                 <div className="countdown-box">
                   <div className="countdown-number-circle  text-white">
@@ -205,7 +203,7 @@ const Bookpoojasub = () => {
             </div>
           </div>
         </section>
-        
+
         <div className="w-full mt-8">
           <h1 className="text-4xl font-bold mb-4 md:text-center">
             Pandits Here
@@ -295,9 +293,14 @@ const Bookpoojasub = () => {
           </div>
         </div>
       </div>
-      <div className="w-72 mx-auto mt-4">
-        <button className="px-6 py-3 bg-[#f6c003] text-white uppercase w-40 mx-auto rounded hover:box-shadow1 hover:-translate-y-1" onClick={()=>navigate("/pooja-booking")}>
-        <span className=" flex gap-2">ૐ <span>Book Now</span></span>
+      <div className="w-72 mx-auto my-auto ">
+        <button
+          className="px-6 py-3  bg-[#f6c003] text-white uppercase w-40 mx-auto rounded hover:box-shadow1 hover:-translate-y-1"
+          onClick={() => navigate("/pooja-booking")}
+        >
+          <span className=" flex gap-2">
+            ૐ <span>Book Now</span>
+          </span>
         </button>
       </div>
     </div>

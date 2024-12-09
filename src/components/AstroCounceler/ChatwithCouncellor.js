@@ -85,9 +85,9 @@ const ChattoAstroCouncellor = () => {
 
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
-      const matchesName =astro.firstName && astro.firstName
-        .toLowerCase()
-        .includes(astroname.toLowerCase());
+      const matchesName =
+        astro.firstName &&
+        astro.firstName.toLowerCase().includes(astroname.toLowerCase());
       const matchesSkills =
         selectedSkills.length === 0 ||
         selectedSkills.some((skill) => astro.Skills.includes(skill));
@@ -144,12 +144,11 @@ const ChattoAstroCouncellor = () => {
       setFilteredData(response.data.Astrodata);
     };
     fetchData();
-    
-    const intervalId=setInterval(()=>{
-      fetchData();
-    },5000);
-    return ()=>clearInterval(intervalId);
 
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -174,8 +173,8 @@ const ChattoAstroCouncellor = () => {
   ]);
 
   return (
-    <div className="mb-28 w-full h-full flex relative top-20">
-      <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
+    <div className="mb-28 w-full h-full flex relative top-20 ">
+      <div className="astrogrid h-screen overflow-y-auto w-full  pt-14 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
           Chat With AstroCouncellor
         </h1>
@@ -183,66 +182,25 @@ const ChattoAstroCouncellor = () => {
           Find Your Perfect AstroCouncellor Match
         </h2>
 
-        <div className="flex items-center justify-between px-6 mb-6">
-          <div className="flex gap-6 items-center">
+        <div className="flex flex-col sm:flex-row items-center justify-between px-6 mb-6">
+          <div className="flex gap-6 items-center mb-4 sm:mb-0">
             <div className="text-lg font-medium">Available bal: ₹ 0</div>
-           <Link to="/recharge"><button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
-              Recharge
-            </button>
-            </Link> 
+            <Link to="/recharge">
+              <button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
+                Recharge
+              </button>
+            </Link>
           </div>
 
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <input
               placeholder="Search by name..."
-              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300"
+              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300 w-full sm:w-64"
               value={astroname}
               onChange={(e) => setAstroname(e.target.value)}
             />
           </div>
         </div>
-
-        {/* <div className="flex items-center justify-between px-6 mt-12 outline">
-          <div className="flex gap-6">
-            <div className="text-lg">Available bal: ₹ 0</div>
-            <button className="border border-green-600 rounded-md px-4 py-1 text-green-700 hover:text-white hover:bg-green-600 transition duration-500">
-              Recharge
-            </button>
-          </div>
-
-          <div className="relative hidden sm:block">
-            <input
-              placeholder="Search by name..."
-              className="px-3 py-1 rounded bg-white hover:shadow-lg border-2 transition-all text-sans focus:outline-none"
-              value={astroname}
-              onChange={(e) => setAstroname(e.target.value)}
-            />
-            <div
-              className="absolute right-0 top-[0.15rem] bg-orange-500 py-1 px-2 rounded cursor-pointer hover:bg-orange-400"
-              onClick={filterAstrologers}
-            >
-              <SearchLogo />
-            </div>
-          </div>
-        </div> */}
-
-        {/* <div className="flex justify-end items-center px-6 mt-4">
-          <select
-            value={sortCriteria}
-            onChange={handleSortCriteriaChange}
-            className="border border-gray-300 rounded-md px-2 py-1 mr-2"
-          >
-            <option value="">Sort by</option>
-            <option value="price_high_to_low">Price High to Low</option>
-            <option value="price_low_to_high">Price Low to High</option>
-            <option value="experience_high_to_low">
-              Experience High to Low
-            </option>
-            <option value="experience_low_to_high">
-              Experience Low to High
-            </option>
-          </select>
-        </div> */}
 
         <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 mt-4 px-4">
           {filteredData.map((obj) => (
@@ -251,7 +209,6 @@ const ChattoAstroCouncellor = () => {
         </div>
       </div>
 
-        
       <div className="w-1/3 h-full p-6 hidden lg:block pt-8 ">
         <div className="flex justify-between mb-6">
           <h1 className="font-semibold text-2xl">Filters</h1>
@@ -346,8 +303,8 @@ const ChattoAstroCouncellor = () => {
         </div>
       </div>
 
-       {/* Filter and Sort Buttons for Mobile Devices */}
-       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-300 sm:hidden">
+      {/* Filter and Sort Buttons for Mobile Devices */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-300 sm:hidden">
         <div className="flex">
           <button
             className="w-1/2 bg-blue-600 text-white text-center py-2 rounded-lg mr-2 shadow-lg hover:bg-blue-700 transition duration-300"
