@@ -1,16 +1,59 @@
 import React, { useState } from 'react';
 import { IoMdInformationCircle } from "react-icons/io";
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const Settings = () => {
-  const [isChatOn, setIsChatOn] = useState(false);
+const Settings = ({ isChatOn, onChatToggle }) => {
+  
   const [isCallOn, setIsCallOn] = useState(false);
   const [isVideoCallOn, setIsVideoCallOn] = useState(false);
   const [isEmergencyChat, setEmergencyChat] = useState(false);
   const [isEmergencyCall, setEmergencyCall] = useState(false);
 
-  const handleChatClick = () => {
-    setIsChatOn((prevState) => !prevState); // Toggle the state for Chat
-  };
+  const location=useLocation();
+  const patharray=location.pathname.split('/');
+  const slug=patharray[2];
+  // console.log(slug);
+
+  
+//   const handleChatClick = async() => {
+//     const newStatus=!isChatOn;
+//     setIsChatOn((prevState) => !prevState);  
+//     localStorage.setItem("chatStatus",JSON.stringify(newStatus));
+//   };
+
+
+//   useEffect(()=>{
+// const storedChatStatus=localStorage.getItem("chatStatus");
+
+//     if (storedChatStatus !== null) {
+//       setIsChatOn(JSON.parse(storedChatStatus)); // Parsing the JSON back into boolean
+//     }
+
+//   },[]);
+
+
+  useEffect(()=>{
+    const updateStatus=async()=>{
+      try{
+        const response=await axios.patch(`https://astrobackend.onrender.com/api/update-astrologer-profile/${slug}`,
+        {status:isChatOn});
+
+
+        console.log(response);
+        
+
+      }catch(err){
+        console.log(err);
+      }
+
+    }
+
+    updateStatus();
+
+  },[isChatOn])
+ 
 
   const handleCallClick = () => {
     setIsCallOn((prevState) => !prevState); // Toggle the state for Call
@@ -29,7 +72,7 @@ const Settings = () => {
   };
 
   return (
-    <div className=' md:mt-16 w-4/5 pt-8 pb-4 absolute right-0 h-screen flex flex-col gap-6 items-center justify-center bg-gray-800 text-yellow-400'>
+    <div className=' md:mt-20 w-full pt-8 pb-4  h-screen flex flex-col gap-6 items-center justify-center bg-gray-800 text-yellow-400'>
       <div className='flex flex-col gap-2 max-w-2xl mx-auto mt-12'>
 
         {/* Choose option selection */}
@@ -47,7 +90,7 @@ const Settings = () => {
               <span className='pl-10'>Chat</span>
               <span className="pl-5 text-gray-400">India: $9.0</span>
             </div>
-            <button onClick={handleChatClick} className={`relative rounded-full w-24 h-8 flex items-center p-1 ${isChatOn ? 'bg-yellow-400' : 'bg-gray-300'}`}>
+            <button onClick={onChatToggle} className={`relative rounded-full w-24 h-8 flex items-center p-1 ${isChatOn ? 'bg-yellow-400' : 'bg-gray-300'}`}>
               <div className={`absolute left-1 top-1 rounded-full w-9 h-6 bg-white shadow-md transform transition-transform ${isChatOn ? 'translate-x-12' : ''}`} />
               <span className={`absolute left-2 text-xs font-medium ${isChatOn ? 'text-gray-700' : 'text-gray-700'}`}>OFF</span>
               <span className={`absolute right-4 text-xs font-medium ${isChatOn ? 'text-gray-700' : 'text-gray-300'}`}>ON</span>

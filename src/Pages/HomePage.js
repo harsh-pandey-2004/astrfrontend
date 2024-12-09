@@ -3,7 +3,7 @@ import AstrologerSection from "../components/HomeComponents/AstrologerSection";
 
 import Carousel from "../components/HomeComponents/SliderSection";
 import TestimonialSlider from "../components/HomeComponents/Testimonals";
-import Services from '../components/kundalicomponents/Services'
+import Services from "../components/kundalicomponents/Services";
 import Horoscopes from "../components/kundalicomponents/Horoscopes";
 import PanditsSection from "../components/HomeComponents/PanditsSection";
 import AstroCouncellorsSection from "../components/HomeComponents/AstroCouncellorsSection";
@@ -16,39 +16,31 @@ import { Whyastro } from "../components/HomeComponents/Whyastro";
 import Faqs from "../components/HomeComponents/Faqs";
 
 const HomePage = ({ showblur }) => {
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div
-      className={`${
-        showblur
-          ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative overflow-hidden h-full w-full"
-          : ""
-      }`}
-    >
+    className={`${
+      showblur
+        ? "filter blur-sm opacity-50 cursor-not-allowed pointer-events-none relative  h-full w-full"
+        : ""
+    }`}
+  >
+      <Carousel showblur={showblur} />
 
-    
-           <Carousel showblur={showblur}/>
-    
-     
-         {/* <Services/> */}
-     {/* <HomeServices/> */}
+      <NewServices />
 
-     
-     <NewServices/>
-
-     
-      <AstrologerSection showblur={showblur}/>
-      <PanditsSection showblur={showblur}/>
-      <AstroCouncellorsSection/>
-      <HomeStats/>
- <Horoscopes/> 
+      <AstrologerSection showblur={showblur} />
+      <PanditsSection showblur={showblur} />
+      <AstroCouncellorsSection />
+      <HomeStats />
+      <Horoscopes />
       {/* <TestimonialSlider showblur={showblur}/> */}
-      <HomeTestimonial/>
-      <Blogs/>
-      <Whyastro/>
-      <Faqs/>
+      <HomeTestimonial />
+      {/* <Blogs /> */}
+      <Whyastro />
+      <Faqs />
     </div>
   );
 };

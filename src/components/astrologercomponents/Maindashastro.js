@@ -31,6 +31,11 @@ function MainDashAstro() {
   const [userID,setUserId]=useState('');
   const [activeChat, setActiveChat] = useState({});
 
+
+  const [isChatOn, setIsChatOn] = useState(false);
+  
+
+
   // console.log(requests);
 
   const handleAcceptRequest = async (request) => {
@@ -111,6 +116,14 @@ function MainDashAstro() {
   // },[])
 
   useEffect(() => {
+    //state lift for settings
+    const storedChatStatus = localStorage.getItem("chatStatus");
+    if (storedChatStatus !== null) {
+      setIsChatOn(JSON.parse(storedChatStatus));
+    }
+
+
+
     // const astrologerId = astrologer._id;
     const intervalId = setInterval(async () => {
       try {
@@ -126,6 +139,18 @@ function MainDashAstro() {
     };
   }, []);
 
+  //lift up for settings
+  const handleChatToggle = () => {
+    const newStatus = !isChatOn;
+    setIsChatOn(newStatus);
+    localStorage.setItem("chatStatus", JSON.stringify(newStatus)); // Sync with localStorage
+  };
+
+//lift up for settings
+  const handleLogout = () => {
+    localStorage.removeItem("chatStatus");  // Clear chat status in localStorage
+    setIsChatOn(false); // Reset the chat state on logout
+  };
 
   // useEffect(() => {
   //   //Join the astrologer to a specific room
@@ -155,7 +180,7 @@ function MainDashAstro() {
   return (
     <div className="flex flex-col min-h-fit outline ">
       <div className="flex flex-grow  relative overflow-hidden top-[5.6rem] lg:top-0">
-        <Sidebar response={response} />
+        <Sidebar response={response} onLogout={handleLogout}/>
         <div className="h-full md:w-4/5 w-full overflow-y-auto">
 
         {/* //AcceptModal */}
@@ -193,7 +218,7 @@ function MainDashAstro() {
             <Route path="chats" element={<Astro_Messages response={response._id} requests={requests}  handleAcceptRequest={handleAcceptRequest} handleRejectRequest={handleRejectRequest} ></Astro_Messages>}/>
             <Route path="mail" element={<MailPage response={response}/>}/>
             <Route path="schedule" element={<AstroSchedule/>}/>
-            <Route path="settings" element={<Settings/>}/>
+            <Route path="settings" element={<Settings isChatOn={isChatOn} onChatToggle={handleChatToggle}/>}/>
             <Route path="bank" element={<BankDetailsForm/>}/>y
             {/* <Route path="performance" element={<Performance/>}/> */}
             

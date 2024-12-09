@@ -5,11 +5,17 @@ import Profile from "./councellordash/Profile";
 import Stats from "./councellordash/Stats";
 import MailPage from "./councellordash/MailPage";
 import axios from "axios";
+import Settings from "./councellordash/Settings";
+import BankDetailsForm from "./councellordash/BankDetailsForm";
 // import CounsellorSchedule from "./councellordash/CounsellorSchedule";
 
 function MaindashCouncellor() {
   const [response, setResponse] = useState([]);
   const { id } = useParams(); // Destructuring id from useParams
+
+  const[isChatOn,setIsChatOn]=useState(false);
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,8 +31,15 @@ function MaindashCouncellor() {
   }, [id]);
 
   useEffect(() => {
+
+// state lift for Settings
+const storedChatStatus=localStorage.getItem("chatStatus");
+// if(storedChatStatus!)
+
     window.scrollTo(0, 0);
   }, []);
+
+  
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -39,6 +52,8 @@ function MaindashCouncellor() {
             <Route path="profile" element={<Profile response={response} />} />
             {/* <Route path="schedule" element={<CounsellorSchedule />} /> */}
             <Route path="stats" element={<Stats />} />
+            <Route path="settings" element={<Settings/>}/>
+            <Route path="bank" element={<BankDetailsForm/>}/>
             <Route path="mail" element={<MailPage response={response} />} />
           </Routes>
         </div>

@@ -138,13 +138,24 @@ const ChatAstro = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let response = await axios.get(
-        `https://astrobackend.onrender.com/api/astrologer-data`
-      );
-      setAstroData(response.data.Astrodata);
-      setFilteredData(response.data.Astrodata);
+      try {
+        let response = await axios.get(
+          `https://astrobackend.onrender.com/api/astrologer-data`
+        );
+        console.log(response.data.Astrodata);
+        setAstroData(response.data.Astrodata);
+        setFilteredData(response.data.Astrodata);
+      } catch (err) {
+        console.log(err);
+      }
     };
+
     fetchData();
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -185,45 +196,55 @@ const ChatAstro = () => {
       document.body.style.overflow = "auto"; // Reset scroll behavior
     };
   }, [showFilters, showSortOptions]);
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <div className="mb-28 w-full h-full flex relative top-20">
-      <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
-      <h1 className="text-center text-[#f6c300] text-4xl font-bold mb-4 relative">
-  <span className="relative z-10">Chat With Astrologer</span>
-  <span className="absolute inset-0 text-transparent" style={{
-    background: '#f6c300',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-   
-  }}>Chat With Astrologer</span>
-</h1>
-<h2 className="text-center text-xl text-[#f6c300] font-semibold mb-6 relative">
-  <span className="relative z-10">Find Your Perfect Astrologer Match</span>
-  <span className="absolute inset-0 text-transparent" style={{
-    background: '#f6c300',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-   
-  }}>Find Your Perfect Astrologer Match</span>
-</h2>
+      <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-14 border-r border-gray-300">
+        <h1 className="text-center text-[#f6c300] text-4xl font-bold mb-4 relative">
+          <span className="relative z-10">Chat With Astrologer</span>
+          <span
+            className="absolute inset-0 text-transparent"
+            style={{
+              background: "#f6c300",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            Chat With Astrologer
+          </span>
+        </h1>
+        <h2 className="text-center text-xl text-[#f6c300] font-semibold mb-6 relative">
+          <span className="relative z-10">
+            Find Your Perfect Astrologer Match
+          </span>
+          <span
+            className="absolute inset-0 text-transparent"
+            style={{
+              background: "#f6c300",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+            }}
+          >
+            Find Your Perfect Astrologer Match
+          </span>
+        </h2>
 
-
-
-        <div className="flex items-center justify-between px-6 mb-6">
-          <div className="flex gap-6 items-center">
+        <div className="flex flex-col sm:flex-row items-center justify-between px-6 mb-6">
+          <div className="flex gap-6 items-center mb-4 sm:mb-0">
             <div className="text-lg font-medium">Available bal: ₹ 0</div>
-            <Link to="/recharge" ><button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
-              Recharge
-            </button></Link>
+            <Link to="/recharge">
+              <button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
+                Recharge
+              </button>
+            </Link>
           </div>
 
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <input
               placeholder="Search by name..."
-              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300"
+              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300 w-full sm:w-64"
               value={astroname}
               onChange={(e) => setAstroname(e.target.value)}
             />

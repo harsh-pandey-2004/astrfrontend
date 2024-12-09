@@ -50,17 +50,21 @@ function Horoscopes() {
       <h1 className="text-center text-2xl sm:text-4xl font-semibold">
         TODAY'S HOROSCOPE
       </h1>
-      {/* {selectedHoroscope && <TodayHoroscope horoscope={selectedHoroscope}/>} */}
+
       <Carousel
         showDots={myVariable}
         removeArrowOnDeviceType={["mobile"]}
         responsive={responsive}
         customLeftArrow={<CustomLeftArrow />}
         customRightArrow={<CustomRightArrow />}
+        autoPlay={true}           
+        autoPlaySpeed={1500}         
+        infinite={true}              
+        keyBoardControl={true}       
         className="mt-8 pr-20"
       >
         {horoscope.map((obj) => (
-          <Horoscope onClick={()=>handleHoroScopeClick(obj)} key={obj.id} obj={obj}  />
+          <Horoscope onClick={() => handleHoroScopeClick(obj)} key={obj.id} obj={obj} />
         ))}
       </Carousel>
     </div>

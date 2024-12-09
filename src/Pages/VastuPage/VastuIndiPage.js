@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import HomeVastu from "../../images/HomeVastu.png";
 
 const VastuIndiPage = () => {
   const [response, setResponse] = useState([]);
@@ -29,11 +30,11 @@ const VastuIndiPage = () => {
       {response.length > 0 &&
         response.map((e) => (
           <div key={e.name}>
-            <div className="w-full  bg-contain">
+            <div className="w-full  bg-contain  px-12">
               <img
-                src={e.img}
+                src={HomeVastu}
                 alt={e.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover mx-auto"
               />
             </div>
             <div className="max-w-6xl mx-auto">
@@ -61,7 +62,7 @@ const VastuIndiPage = () => {
                 </div>
               </div>
             </div>
-            <h1 className="py-3 text-center text-4xl font-semibold">Related<span className="text-[#f6c300]"> Articles</span> </h1>
+            <h1 className="py-3 text-center text-4xl font-semibold">Related <span className="text-[#f6c300]"> Articles</span> </h1>
             <div className="max-w-6xl grid grid-cols-3 items-center mx-auto pb-9 gap-4">
                 
               {e.types &&

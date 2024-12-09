@@ -8,12 +8,12 @@ import { CgProfile } from "react-icons/cg";
 import { BsChatSquareQuoteFill } from "react-icons/bs";
 import { ImStatsBars } from "react-icons/im";
 import { FaCalendarAlt } from "react-icons/fa";
-function Sidebar({ response }) {
+function Sidebar({ response,onLogout }) {
   const [isShow, setIsShow] = useState(false);
   const [curPage, setCurPage] = useState("profile");
   // console.log(response);
   return (
-    <div className="">
+    <div className="md:w-1/5">
       <div className="hidden mb-16  sidebar w-full md:mt-[5rem] h-screen md:flex flex-col items-center bg-black text-yellow-400 overflow-y-auto  mr-24">
         <div className="w-full flex flex-col items-center gap-2 border-b-2 border-yellow-400 pt-6 pb-2  ">
           <div className="relative rounded-full">
@@ -82,7 +82,7 @@ function Sidebar({ response }) {
             Settings
           </Link>
 
-          <Link
+          {/* <Link
             to={`schedule`}
             onClick={() => {
               setCurPage("schedule");
@@ -95,7 +95,7 @@ function Sidebar({ response }) {
           >
             <FaCalendarAlt />
             Schedule
-          </Link>
+          </Link> */}
 
           <Link
             // to={`/panditdashboard/${response._id}/shedule`}
@@ -141,8 +141,9 @@ function Sidebar({ response }) {
           <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
             Support
           </div>
-          <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
-            Logout From Other Devices
+          <div onClick={onLogout}
+           className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black hover:cursor-pointer transition text-sm w-[75%] bg-black text-yellow-400">
+            Logout 
           </div>
         </div>
       </div>

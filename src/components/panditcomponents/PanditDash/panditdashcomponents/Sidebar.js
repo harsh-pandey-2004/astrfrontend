@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BsBank2 } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { FaCalendarAlt } from "react-icons/fa";
+import { FaAddressBook } from "react-icons/fa";
 
 function Sidebar({ response }) {
   const [curPage,setCurPage]=useState("profile");
@@ -44,6 +45,17 @@ function Sidebar({ response }) {
           Edit Profile
         </Link>
 
+
+        <Link
+          to={`bookings`}
+          onClick={()=>{setCurPage("bookings")}}
+          className={`${curPage=="bookings" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400" } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] flex items-center justify-center gap-2`}
+        >
+          <FaAddressBook />
+          Bookings
+        </Link>
+
+
         <Link
           to={`mail`}
           onClick={()=>{setCurPage("mail")}}
@@ -75,27 +87,20 @@ function Sidebar({ response }) {
           Bank Details
         </Link>
 
-        <Link
-          to="/bookings"
-          onClick={()=>{setCurPage("bookings")}}
-          className={`${curPage=="bookings" ? "bg-yellow-400 text-black" : " bg-black text-yellow-400" } py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%]`}
-        >
-          Bookings
-        </Link>
-
-        <Link
+        
+        {/* <Link
           to="/stats"
           className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400"
         >
           Stats
-        </Link>
+        </Link> */}
 
-        <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
+        {/* <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
           Support
-        </div>
+        </div> */}
 
         <div className="py-2 px-3 rounded-full border border-yellow-400 hover:bg-yellow-400 hover:text-black transition text-sm w-[75%] bg-black text-yellow-400">
-          Logout From Other Devices
+          Logout 
         </div>
       </div>
     </div>

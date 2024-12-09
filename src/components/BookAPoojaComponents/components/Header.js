@@ -10,13 +10,14 @@ import { usePanditData } from "../AvailablePandit/PanditDataContext";
 
 
 const poojaOptions = [
-  { value: "Satyanarayan Puja", label: "Satyanarayan Puja" },
+  {value:"Rudrabhishek Puja",label: "Rudrabhishek Puja"},
+  { value: "Diwali Pooja", label: "Diwali Pooja" },
   { value: "Durga Puja", label: "Durga Puja" },
-  { value: "Ganesh Puja", label: "Ganesh Puja" },
+  { value: "Ganesh Chaturthi Puja", label: "Ganesh Chaturthi Puja" },
   { value: "Lakshmi Puja", label: "Lakshmi Puja" },
   { value: "Saraswati Puja", label: "Saraswati Puja" },
   { value: "Shivratri Puja", label: "Shivratri Puja" },
-  { value: "Navratri Puja", label: "Navratri Puja" },
+  { value: "Navratri Pooja", label: "Navratri Pooja" },
   { value: "Hanuman Puja", label: "Hanuman Puja" },
   { value: "Kali Puja", label: "Kali Puja" },
   { value: "Janmashtami Puja", label: "Janmashtami Puja" },
@@ -93,11 +94,11 @@ const Header = () => {
       console.error("Please fill in all fields");
       return;
     }
-
+    
     try {
       console.log(formattedDate);
       const res = await axios.post(
-        "https://astrobackend.onrender.com/api/panditprofile",{pincode:pincode,availability:formattedDate}
+        " https://astrobackend.onrender.com/api/panditprofile",{pincode:pincode,availability:formattedDate}
       );
       // console.log(res);
       // const filteredData = res.data.data.filter(

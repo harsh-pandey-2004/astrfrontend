@@ -24,7 +24,7 @@ const SingleAstro = () => {
   const userDetails=JSON.parse(localStorage.getItem("userdetails"));
   const userName=userDetails.name;
   
-  console.log(messages);
+  // console.log(messages);
 
   
   
@@ -43,7 +43,7 @@ const SingleAstro = () => {
   }, [slug]);
 
   useEffect(() => {
-    console.log(messages.length)
+    // console.log(messages.length)
     if(messages.length===1){
       const fetchData = async () => {
         try {
@@ -82,11 +82,12 @@ const SingleAstro = () => {
     const intervalId = setInterval(async () => {
       try {
         const response = await axios.post("https://astrobackend.onrender.com/api/getastrochatbasisofroomId", { roomId });
+        console.log(response)
         setMessages(response.data[0].messages);
       } catch (error) {
         console.log(error);
       }
-    }, 500); 
+    }, 100); 
   
     return () => {
       clearInterval(intervalId);

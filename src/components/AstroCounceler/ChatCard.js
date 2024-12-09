@@ -10,12 +10,26 @@ function ChatCard({ obj, type }) {
       className=" flex flex-col gap-3 border rounded-lg shadow-md shadow-gray-400 py-2 hover:cursor-pointer "
       onClick={() => navigate(`/${type}-to-astrocouncellor/${obj.slug}`)}
     >
-      <div className="text-sm  flex justify-center text-yellow-500">
-        <IoIosStar />
-        <IoIosStar />
-        <IoIosStar />
-        <IoIosStar /> <IoIosStarHalf />
-      </div>
+      <div className="w-full  flex justify-end px-6  ">
+
+<div className="text-sm  flex items-center w-2/3   text-yellow-500 px-6">
+ 
+  <IoIosStar />
+  <IoIosStar />
+  <IoIosStar />
+  <IoIosStar /> <IoIosStarHalf />
+  
+  <div  
+   className={`${obj.status==true ? " bg-green-500 shadow-green-600 ": "bg-red-500 shadow-red-600"} h-3 w-3 rounded-full shadow-md self-end ml-32`}>
+   </div>
+  
+   
+
+ 
+</div>
+
+
+</div>
       <div className="astrocard flex     items-center justify-center gap-28">
         <div className="">
           <p className="font-medium text-lg">

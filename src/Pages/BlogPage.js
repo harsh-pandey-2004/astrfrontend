@@ -19,7 +19,7 @@ const BlogPage = (props) => {
       midhead:"The Twelve Zodiac Signs are :",
       finalthoughts:" Astrology is a tool for reflection and personal growth. Whether you are an Aries trailblazer or a sensitive Pisces, embracing your zodiac sign’s traits can help you understand your true self better. Dive deeper into your astrological journey, and you might find the universe has more guidance to offer than you ever imagined.",
       data:[{
-        title:"1.Aries (March 21 - April 19)",
+        title:"1.Aries (March 21 - April)",
         image:"https://cdn.pixabay.com/photo/2017/08/28/15/28/aries-2689949_1280.jpg",
         element:"Fire",
         traits:" Courageous, enthusiastic, dynamic, competitive.",

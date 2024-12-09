@@ -58,11 +58,15 @@ const PoojaHeader = ({ onSearch }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    
+
     const formData = {
       temple: selectedTemple,
       pooja: selectedPooja,
       date: selectedDate,
     };
+
+    localStorage.setItem("formData",JSON.stringify(formData));
 
     console.log("Form Data:", formData);
     setFormData(formData);
@@ -74,7 +78,7 @@ const PoojaHeader = ({ onSearch }) => {
       <div className="w-full mx-auto px-6">
         <div className="flex items-center justify-center gap-5 flex-col md:flex-row mx-auto">
           {/* Select Temple */}
-          <div className="w-full sm:pl-56">
+          <div className="w-full ">
             <Select
               name="temple"
               classNamePrefix="select-input"

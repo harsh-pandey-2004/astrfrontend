@@ -11,6 +11,7 @@ import AppStore from "../images/AppleStore.webp";
 import AddressIcon from "../images/AddressIcon.webp";
 import EmailIcon from "../images/EmailIcon.webp";
 import CallIcon from "../images/CallIcon.webp";
+import { Link } from "react-router-dom";
 
 const Footer = ({ showblur }) => {
   return (
@@ -74,28 +75,44 @@ const Footer = ({ showblur }) => {
             </h1>
             <ul className="grid grid-cols-2 gap-1 text-sm text-gray-400">
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/book-a-pandit"}>
                 → Book Pandit
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/book-a-pooja"}>
                 → Book Pooja
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/freekundali"}>
                 → Kundali Making
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/call-to-astrologer"}>
                 → Call Astrologer
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link  to={"/chat-with-astrologer"}>
                 → Chat Astrologer
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/talk-astrocouncellor"}>
                 → Call AstroCounselor
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/chat-astrocouncellor"}>
                 → Chat AstroCounselor
+                </Link>
               </li>
               <li className="hover:text-[#f6c300] transition duration-300 ease-in-out cursor-pointer">
+                <Link to={"/blogs"}>
                 → Vastu Making
+                </Link>
               </li>
             </ul>
           </div>
