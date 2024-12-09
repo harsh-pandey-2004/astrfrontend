@@ -62,14 +62,7 @@ body {
     transition: all 0.2s ease-in-out;
   }
   .main-Slider {
-    /* background: rgb(202, 201, 212);
-    background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(27, 24, 28, 1) 5%,
-      rgba(223, 212, 221, 1) 76%,
-      rgba(12, 8, 12, 1) 100%
-    ); */
+
   background-color: black;
   }
 

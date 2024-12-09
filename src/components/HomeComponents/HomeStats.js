@@ -19,10 +19,10 @@ const Stat = ({
 
   return (
     <div
-      className={`flex flex-col lg:flex-row items-center justify-evenly gap-7 sm:gap-3 w-full py-8 bg-gradient-to-t ${bgColorFrom} ${bgColorTo} ${textColor} stat-container`}
+      className={`flex flex-col lg:flex-row items-center justify-evenly gap-7 sm:gap-3 w-full py-7 bg-gradient-to-t ${bgColorFrom} ${bgColorTo} ${textColor} stat-container`}
     >
       <div className="flex flex-col items-center" >
-        <p className="text-3xl md:text-5xl font-bold stat-number">
+        <p className="text-2xl md:text-4xl font-bold stat-number">
           <CountUp
             end={parseFloat(amount.replace(/,/g, ""))}
             duration={2}
@@ -34,14 +34,14 @@ const Stat = ({
       </div>
 
       <div className="flex flex-col items-center" >
-        <p className="text-3xl md:text-5xl font-bold stat-number">
+        <p className="text-2xl md:text-4xl font-bold stat-number">
           <CountUp end={parseFloat(live)} duration={2} /> Million Minutes
         </p>
         <p className="stat-text text-2xl">Total Minutes of Live Pooja</p>
       </div>
 
       <div className="flex flex-col items-center" >
-        <p className="text-3xl md:text-5xl font-bold stat-number">
+        <p className="text-2xl md:text-4xl font-bold stat-number">
           <CountUp end={parseFloat(customers)} duration={2} /> Million
         </p>
         <p className="stat-text text-2xl">Total Customers</p>

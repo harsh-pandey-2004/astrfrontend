@@ -86,9 +86,9 @@ const TalktoAstroCouncellor = () => {
   const filterAstrologers = () => {
     let filtered = astroData.filter((astro) => {
       console.log(astro);
-      const matchesName = astro.firstName && astro.firstName
-        .toLowerCase()
-        .includes(astroname.toLowerCase());
+      const matchesName =
+        astro.firstName &&
+        astro.firstName.toLowerCase().includes(astroname.toLowerCase());
       const matchesSkills =
         selectedSkills.length === 0 ||
         selectedSkills.some((skill) => astro.Skills.includes(skill));
@@ -141,7 +141,7 @@ const TalktoAstroCouncellor = () => {
       let response = await axios.get(
         `https://astrobackend.onrender.com/api/astroCouncelor-data`
       );
-      console.log(response.data.Astrodata)
+      console.log(response.data.Astrodata);
       setAstroData(response.data.Astrodata);
       setFilteredData(response.data.Astrodata);
     };
@@ -171,7 +171,7 @@ const TalktoAstroCouncellor = () => {
 
   return (
     <div className="mb-28 w-full h-full flex relative top-20">
-      <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-6 border-r border-gray-300">
+      <div className="astrogrid h-screen overflow-y-auto w-full mt-3 pt-14 border-r border-gray-300">
         <h1 className="text-center text-yellow-500 text-3xl font-bold">
           Talk to AstrologerCouncellor
         </h1>
@@ -179,19 +179,20 @@ const TalktoAstroCouncellor = () => {
           Find Your Perfect AstrologerCouncellor Match
         </h2>
 
-        <div className="flex items-center justify-between px-6 mb-6">
-          <div className="flex gap-6 items-center">
+        <div className="flex flex-col sm:flex-row items-center justify-between px-6 mb-6">
+          <div className="flex gap-6 items-center mb-4 sm:mb-0">
             <div className="text-lg font-medium">Available bal: ₹ 0</div>
-            <Link to="/recharge"><button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
-              Recharge
-            </button>
+            <Link to="/recharge">
+              <button className="border-[#f6c300] text-[#f6c300] border-2 rounded-md px-4 py-2 text-lg font-semibold hover:bg-[#edcb42] hover:text-white transition duration-300">
+                Recharge
+              </button>
             </Link>
           </div>
 
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <input
               placeholder="Search by name..."
-              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300"
+              className="px-4 py-3 rounded-lg bg-white border-2 border-[#f6c300] focus:outline-none focus:ring-2 placeholder:text-[#f6c300] focus:ring-yellow-500 transition-all duration-300 w-full sm:w-64"
               value={astroname}
               onChange={(e) => setAstroname(e.target.value)}
             />
@@ -341,8 +342,8 @@ const TalktoAstroCouncellor = () => {
         </div>
       </div>
 
-        {/* Filter and Sort Buttons for Mobile Devices */}
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-300 sm:hidden">
+      {/* Filter and Sort Buttons for Mobile Devices */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-300 sm:hidden">
         <div className="flex">
           <button
             className="w-1/2 bg-blue-600 text-white text-center py-2 rounded-lg mr-2 shadow-lg hover:bg-blue-700 transition duration-300"
